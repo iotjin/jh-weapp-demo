@@ -1,0 +1,5 @@
+<!--miniprogram/pages/demoList/listView/listViewDemoList.wxml-->
+
+<view class='list_main' wx:for="{{dataArr}}" wx:key="index">
+  <van-cell is-link title="{{item.text}}" link-type="navigateTo" url="{{item.pathUrl}}" />
+</view>

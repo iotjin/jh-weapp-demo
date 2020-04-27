@@ -1,0 +1,28 @@
+<!--miniprogram/pages/three/three.wxml-->
+
+
+<!-- <van-cell title="设置" center is-link>
+  <image slot="icon" src="{{cellIcon_set}}" class="setCellIcon"></image>
+</van-cell> -->
+
+<!-- <view class='list_main' wx:for="{{listData0}}" wx:key="index" >
+<view class='text-content'>{{item}}</view> 
+</view> -->
+
+
+<view class="top_bg">
+
+<image class="img" src="https://img.yzcdn.cn/vant/cat.jpeg"></image>
+<text class="name">小鱼 </text>
+
+</view>
+
+
+
+<view class='list_main' wx:for="{{listData}}" wx:key="index">
+  <view class="space-bg"></view>
+  <van-cell title="{{item.title}}" center is-link value='{{item.info}} '>
+    <image slot="icon" src="{{item.icon}}" class="setCellIcon"></image>
+  </van-cell>
+
+</view>

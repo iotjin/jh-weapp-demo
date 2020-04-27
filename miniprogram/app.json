@@ -1,0 +1,67 @@
+{
+  "pages": [
+    "pages/demoList/demoList",
+    "pages/one/one",
+    "pages/three/three",
+    "pages/demoList/listViewDemoList/listViewDemoList",
+    "pages/demoList/listViewDemoList/listView/listView1",
+    "pages/demoList/listViewDemoList/listView/listView2",
+    "pages/demoList/listViewDemoList/listView/listView3",
+    "pages/demoList/listViewDemoList/listView/listView4"
+  ],
+  "window": {
+    "backgroundColor": "#F8F8F8",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#38BC9D",
+    "navigationBarTitleText": "",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#cdcdcd",
+    "selectedColor": "#38BC9D",
+    "list": [
+      {
+        "text": "首页",
+        "pagePath": "pages/one/one",
+        "iconPath": "images/tab/tab1.png",
+        "selectedIconPath": "images/tab/tab1_select.png"
+      },
+      {
+        "text": "Demo",
+        "pagePath": "pages/demoList/demoList",
+        "iconPath": "images/tab/tab2.png",
+        "selectedIconPath": "images/tab/tab2_select.png"
+      },
+      {
+        "text": "我的",
+        "pagePath": "pages/three/three",
+        "iconPath": "images/tab/tab3.png",
+        "selectedIconPath": "images/tab/tab3_select.png"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true,
+  "navigateToMiniProgramAppIdList": [
+    "wxe5f52902cf4de896"
+  ],
+  "usingComponents": {
+    "van-cell": "@vant/weapp/cell/index",
+    "van-cell-group": "@vant/weapp/cell-group/index",
+    "van-icon": "@vant/weapp/icon/index",
+    "van-image": "@vant/weapp/image/index",
+    "van-dropdown-menu": "@vant/weapp/dropdown-menu/index",
+    "van-dropdown-item": "@vant/weapp/dropdown-item/index",
+    "van-toast": "@vant/weapp/toast/index",
+    "mp-cell": "/miniprogram_npm/weui-miniprogram/cell/cell",
+    "mp-cells": "/miniprogram_npm/weui-miniprogram/cells/cells",
+    "mp-slideview": "miniprogram_npm/weui-miniprogram/slideview/slideview",
+    "mp-tabbar": "/miniprogram_npm/weui-miniprogram/tabbar/tabbar",
+    "mp-icon": "/miniprogram_npm/weui-miniprogram/icon/icon"
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2"
+}
