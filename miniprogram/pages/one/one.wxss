@@ -1,9 +1,5 @@
 /* miniprogram/pages/one/one.wxss */
 
-.top-bg {
-  height: 230rpx;
-  background-color: #262626;
-}
 
 .cell-bg {
   background-color: white;
