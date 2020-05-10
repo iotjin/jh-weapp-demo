@@ -7,7 +7,7 @@
 </view>
 
 <view class='itemList-Mask' wx:if="{{isShow}}" bindtap='clickMaskHidden'style="background:{{maskColor}}">
-  <view class='itemList'style="width:{{listView_w}};top:{{listView_y}}">
+  <view class='itemList'style=";left:{{listView_x}};top:{{listView_y}}; width:{{listView_w}};">
     <view wx:for="{{array}}" data-index="{{index}}" wx:key='index' class='item' bindtap='clickItem'>{{item.text}}</view>
   </view>
 

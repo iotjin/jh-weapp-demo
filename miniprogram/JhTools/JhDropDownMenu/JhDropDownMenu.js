@@ -46,44 +46,50 @@ Component({
     isShow: false, //初始option不显示
     selectText: '',
     animationData: {}, //右边箭头的动画
+    listView_x:'', 
     listView_y:'', 
     listView_w:'',
   },
 
 
-  attached: function() {
-    this.setData({
-      selectText: this.properties.hintText.length > 0 ? this.properties.hintText : this.properties.array[this.properties.index].text
-    })
-
-    // wx.createSelectorQuery().select('#menuBgView').boundingClientRect(function (rect) {
-    //   console.log(rect.width)
-    //   // rect.id      // 节点的ID
-    //   // rect.dataset // 节点的dataset
-    //   // rect.left    // 节点的左边界坐标
-    //   // rect.right   // 节点的右边界坐标
-    //   // rect.top     // 节点的上边界坐标
-    //   // rect.bottom  // 节点的下边界坐标
-    //   // rect.width   // 节点的宽度
-    //   // rect.height  // 节点的高度
-    // }).exec()
-
-    var that = this;
-    this.createSelectorQuery().select('#menuBgView').boundingClientRect(function (rect) {
-      // console.log(rect.width)
-      that.setData({
-        listView_w: rect.width + 'px',
-        listView_y: rect.bottom + 'px'
+  lifetimes: {
+    attached: function () {
+      this.setData({
+        selectText: this.properties.hintText.length > 0 ? this.properties.hintText : this.properties.array[this.properties.index].text
       })
-    }).exec();
 
-    // 页面创建时执行
-    console.info('---JhDropDownMenu loaded!---')
+      // wx.createSelectorQuery().select('#menuBgView').boundingClientRect(function (rect) {
+      //   console.log(rect.width)
+      //   // rect.id      // 节点的ID
+      //   // rect.dataset // 节点的dataset
+      //   // rect.left    // 节点的左边界坐标
+      //   // rect.right   // 节点的右边界坐标
+      //   // rect.top     // 节点的上边界坐标
+      //   // rect.bottom  // 节点的下边界坐标
+      //   // rect.width   // 节点的宽度
+      //   // rect.height  // 节点的高度
+      // }).exec()
+
+      var that = this;
+      this.createSelectorQuery().select('#menuBgView').boundingClientRect(function (rect) {
+        // console.log(rect)
+        that.setData({
+          listView_x: rect.left + 'px',
+          listView_y: rect.top + 32 + 'px',
+          listView_w: rect.width + 'px',
+        })
+      }).exec();
+
+      // 页面创建时执行
+      console.info('---JhDropDownMenu loaded!---')
+    },
+    detached: function () {
+      // 页面销毁时执行
+      console.info('---JhDropDownMenu unloaded!---')
+    },
+
   },
-  detached: function() {
-    // 页面销毁时执行
-    console.info('---JhDropDownMenu unloaded!---')
-  },
+
 
   /**
    * 组件的方法列表
@@ -92,6 +98,20 @@ Component({
 
     //option的显示与否
     clickMenu: function(e) {
+      // console.log(e)   
+      // // console.log(e.currentTarget.offsetLeft)
+      // // console.log(e.currentTarget.offsetTop)
+      // var that = this;
+      // this.createSelectorQuery().select('#menuBgView').boundingClientRect(function (rect) {
+      //   // console.log(rect)
+      //   that.setData({
+      //     // listView_x: e.currentTarget.offsetLeft + 'px',
+      //     // listView_y: e.currentTarget.offsetTop + 32 + 'px',
+      //     listView_x: rect.left + 'px',
+      //     listView_y: rect.top + 32 + 'px',
+      //     listView_w: rect.width + 'px',
+      //   })
+      // }).exec();
 
       var nowShow = this.data.isShow; //获取当前option显示的状态
       //创建动画
