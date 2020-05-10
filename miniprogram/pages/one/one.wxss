@@ -1,10 +1,20 @@
 /* miniprogram/pages/one/one.wxss */
 
 
+.top-bg {
+  height: 230rpx;
+  width: 100%;
+  background-color: #262626;
+  position:fixed; 
+  top:0;
+}
+
+
 .cell-bg {
   background-color: white;
   height: 150rpx;
   border-bottom: 1px solid rgb(230, 230, 230);
+    padding-top: 230rpx;
 }
 
 .row1 {

@@ -16,7 +16,7 @@ Page({
       },
       {
         text: 'other',
-        pathUrl: '/pages/demoList/listViewDemoList/listViewDemoList'
+        pathUrl: '/pages/demoList/otherDemoList/otherDemoList'
       },
 
     ]

@@ -7,7 +7,10 @@
     "pages/demoList/listViewDemoList/listView/listView1",
     "pages/demoList/listViewDemoList/listView/listView2",
     "pages/demoList/listViewDemoList/listView/listView3",
-    "pages/demoList/listViewDemoList/listView/listView4"
+    "pages/demoList/listViewDemoList/listView/listView4",
+    "pages/demoList/otherDemoList/otherDemoList",
+    "pages/demoList/otherDemoList/other/DropDownMenuDemo",
+    "JhTools/JhDropDownMenu/JhDropDownMenu"
   ],
   "window": {
     "backgroundColor": "#F8F8F8",
@@ -56,11 +59,17 @@
     "van-dropdown-menu": "@vant/weapp/dropdown-menu/index",
     "van-dropdown-item": "@vant/weapp/dropdown-item/index",
     "van-toast": "@vant/weapp/toast/index",
+    "van-tab": "@vant/weapp/tab/index",
+    "van-tabs": "@vant/weapp/tabs/index",
+    "van-sticky": "@vant/weapp/sticky/index",
     "mp-cell": "/miniprogram_npm/weui-miniprogram/cell/cell",
     "mp-cells": "/miniprogram_npm/weui-miniprogram/cells/cells",
     "mp-slideview": "miniprogram_npm/weui-miniprogram/slideview/slideview",
     "mp-tabbar": "/miniprogram_npm/weui-miniprogram/tabbar/tabbar",
-    "mp-icon": "/miniprogram_npm/weui-miniprogram/icon/icon"
+    "mp-icon": "/miniprogram_npm/weui-miniprogram/icon/icon",
+    "mp-tabs": "@miniprogram-component-plus/tabs",
+    "i-tabs": "/miniprogram_npm/iView/tabs/index",
+    "i-tab": "/miniprogram_npm/iView/tab/index"
   },
   "sitemapLocation": "sitemap.json",
   "style": "v2"

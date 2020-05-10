@@ -1,0 +1,14 @@
+
+<view class="menuBgView menu-bg" id="menuBgView" style="width:{{width}}">
+  <view class='menuContent menu-content' bindtap='clickMenu' style="background:{{bgColor}}">
+    <view class='selectText'>{{selectText}}</view>
+    <image src='ic_arrow_down.png' class='arrowImg' animation="{{animationData}}"></image>
+  </view>
+</view>
+
+<view class='itemList-Mask' wx:if="{{isShow}}" bindtap='clickMaskHidden'style="background:{{maskColor}}">
+  <view class='itemList'style="width:{{listView_w}};top:{{listView_y}}">
+    <view wx:for="{{array}}" data-index="{{index}}" wx:key='index' class='item' bindtap='clickItem'>{{item.text}}</view>
+  </view>
+
+</view>
