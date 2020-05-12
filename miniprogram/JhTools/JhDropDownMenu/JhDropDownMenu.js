@@ -11,7 +11,7 @@ Component({
    * 组件的属性列表
    */
 
-  externalClasses: ['menu-bg', 'menu-content'], //不能使用小驼峰命名，只能用 -或 _
+  externalClasses: ['menu-bg', 'menu-content','menu-list'], //不能使用小驼峰命名，只能用 -或 _
   properties: {
     array: { //模型数组
       type: Array,
@@ -76,7 +76,7 @@ Component({
         that.setData({
           listView_x: rect.left + 'px',
           listView_y: rect.top + 32 + 'px',
-          listView_w: rect.width + 'px',
+          listView_w: rect.width +'px',
         })
       }).exec();
 
