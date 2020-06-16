@@ -105,12 +105,5 @@ Page({
    */
   onShareAppMessage: function () {
 
-    // "van-icon": "/miniprogram_npm/vant-weapp/icon/index",
-    //   "van-image": "/miniprogram_npm/@vant/weapp/image/index",
-    //     "van-cell": "/miniprogram_npm/@vant/weapp/cell/index",
-    //       "van-cell-group": "/miniprogram_npm/@vant/weapp/cell-group/index",
-    //         "van-nav-bar": "/miniprogram_npm/@vant/weapp/nav-bar/index",
-    //           "van-button": "/miniprogram_npm/@vant/weapp/button/index",
-
   }
 })

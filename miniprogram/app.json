@@ -3,6 +3,8 @@
     "pages/demoList/demoList",
     "pages/one/one",
     "pages/three/three",
+    "pages/three/about",
+    "pages/three/feedback/feedback",
     "pages/demoList/listViewDemoList/listViewDemoList",
     "pages/demoList/listViewDemoList/listView/listView1",
     "pages/demoList/listViewDemoList/listView/listView2",
@@ -19,6 +21,7 @@
     "pages/demoList/otherDemoList/other/timePicker",
     "pages/demoList/otherDemoList/other/timePicker2",
     "pages/demoList/otherDemoList/baseView"
+
   ],
   "window": {
     "backgroundColor": "#F8F8F8",

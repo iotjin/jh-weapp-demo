@@ -1,4 +1,28 @@
 /**app.wxss**/
+
+
+.Jh_commonBtn{
+  margin-top: 40rpx;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 5px;
+  background-color: #FB666C;
+  font-size: 17px;
+  text-align:center;
+  margin: auto 30;
+  color: white;
+}
+
+
+
+
+
+
+
+
+
 .container {
   display: flex;
   flex-direction: column;

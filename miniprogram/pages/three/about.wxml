@@ -1,0 +1,9 @@
+
+<view class="content">
+<image class="logo" src="../../images/tab/tab2_select.png"></image>
+<view class="appName">appName</view>
+<view class="versionNum">Version 1.0</view>
+</view>
+
+<view class="footer">Copyright © 2020-2030 Jh. All rights reserved.</view>
+

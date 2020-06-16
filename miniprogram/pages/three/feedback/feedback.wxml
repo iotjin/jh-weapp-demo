@@ -1,0 +1,31 @@
+
+   <van-field
+    value="{{ selectType }}"
+    required
+    disabled
+    is-link
+    label="反馈类型:"
+    bind:tap="ClickType"
+  /> 
+    <van-field
+    value="{{email}}"
+    label="联系方式:"
+    placeholder="邮箱/微信/QQ"
+    bind:change="onChange1"
+    />
+    <van-field
+    required
+    label = "反馈内容:"
+    border="{{ false }}"
+    />
+    <van-field
+    value="{{content}}"
+    placeholder="请写下您的意见或建议"
+    maxlength="300"
+    show-word-limit
+    type="textarea"
+    input-class = "textarea"
+    bind:change="onChange2"
+    />
+ 
+<view class="Jh_commonBtn" bindtap="ClickOkBtn">提 交</view>

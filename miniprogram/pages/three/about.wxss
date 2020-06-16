@@ -1,0 +1,33 @@
+.content {
+  height: 600rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  width: 140rpx;
+  height: 140rpx;
+  margin-bottom: 20rpx;
+}
+
+.name {
+  padding-top: 20rpx;
+  font-size: 30rpx;
+}
+
+.versionNum {
+  padding-top: 20rpx;
+  font-size: 30rpx;
+}
+
+.footer {
+  text-align: center;
+  font-size: 24rpx;
+  height: 50rpx;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  margin-bottom: 10rpx;
+}
