@@ -9,7 +9,15 @@ Page({
       {
         text: 'JhDropDownMenu',
         pathUrl: '/pages/demoList/otherDemoList/other/DropDownMenuDemo'
-      }
+      },
+      {
+        text: 'vant 时间选择器',
+        pathUrl: '/pages/demoList/otherDemoList/other/timePicker'
+      },
+      {
+        text: '月日周时分 - 时间选择器',
+        pathUrl: '/pages/demoList/otherDemoList/other/timePicker2'
+      },
     ]
   },
 

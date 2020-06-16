@@ -19,7 +19,6 @@ Page({
     } else {
       index = 0;
     }
-
     var prams = {
       page: index
     }
@@ -28,6 +27,7 @@ Page({
     // });
 
     API.getPageArrDic2(prams).then(res => {
+      wx.stopPullDownRefresh()
       if (!res.data.length) {
         wx.showToast({
           title: '暂无更多数据',

@@ -1,0 +1,13 @@
+
+<view class="main-bg">
+<view wx:for="{{dataArr}}" wx:key="index" class="section">
+  <view class="header"> {{item.AB_MonthDay}}</view>
+  <view wx:for="{{item.AB_Bill}}" wx:key="index" class="cell">
+      <view class="row1">
+        <view wx:if="{{item.AB_Remark}}" class="leibie">{{item.AB_LeiBie}} · {{item.AB_Remark}}</view>
+        <view wx:else="{{!item.AB_Remark}}" class="leibie">{{item.AB_LeiBie}}</view>
+        <view class='{{item.AB_FenLei=="收入"?"money2":"money"}}'>{{item.AB_Money}}</view>
+      </view>
+  </view>
+</view>
+</view>

@@ -26,6 +26,10 @@ Page({
         text: 'ListView5 - tab分页加载-vant',
         pathUrl: '/pages/demoList/listViewDemoList/listView/listView5'
       },
+      {
+        text: 'ListView6 - 分组列表',
+        pathUrl: '/pages/demoList/listViewDemoList/listView/listViewGroup'
+      },
 
     ]
   },

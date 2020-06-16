@@ -12,7 +12,7 @@ Page({
       },
       {
         text: 'girdView',
-        pathUrl: '/pages/demoList/listViewDemoList/listViewDemoList'
+        pathUrl: '/pages/demoList/gridViewDemoList/gridViewDemoList'
       },
       {
         text: 'other',
