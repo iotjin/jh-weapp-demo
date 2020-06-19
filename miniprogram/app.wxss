@@ -1,7 +1,18 @@
 /**app.wxss**/
 
 
-.Jh_commonBtn{
+ThemeColor{
+  background: #F8F8F8; /* 背景颜色 */
+  background: #FFB90F;
+  background: #F4C87D;
+  background:#C7C7C7; 
+  background:#333333; /*515151*/
+  background: #36383A; /* 计算器的黑色 */
+  background: #121212; /* 计算器背景黑色 */
+  
+  }
+
+.Jh_commonBtn {
   margin-top: 40rpx;
   margin-left: 30rpx;
   margin-right: 30rpx;
@@ -10,15 +21,33 @@
   border-radius: 5px;
   background-color: #FB666C;
   font-size: 17px;
-  text-align:center;
+  text-align: center;
   margin: auto 30;
   color: white;
 }
 
+/*水平垂直居中*/
+Jh_center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
+Jh_boder-bottom {
+  border-bottom: 1px solid rgb(230, 230, 230);
+}
 
+Jh_substring {
+  width: 70%;
+  /* 让超出的用...实现  */
+  text-overflow: ellipsis;
+  /* 禁止换行  */
+  white-space: nowrap;
+  /* 超出的隐藏 */
+  overflow: hidden;
+}
 
-
+/*-------------------------------------*/
 
 
 
@@ -28,17 +57,17 @@
   flex-direction: column;
   align-items: center;
   box-sizing: border-box;
-} 
+}
 
 button {
   background: initial;
 }
 
-button:focus{
+button:focus {
   outline: 0;
 }
 
-button::after{
+button::after {
   border: none;
 }
 
@@ -50,7 +79,9 @@ page {
   justify-content: flex-start;
 }
 
-.userinfo, .uploader, .tunnel {
+.userinfo,
+.uploader,
+.tunnel {
   margin-top: 40rpx;
   height: 140rpx;
   width: 100%;
@@ -88,7 +119,8 @@ page {
   border: none;
 }
 
-.uploader, .tunnel {
+.uploader,
+.tunnel {
   height: auto;
   padding: 0 0 0 40rpx;
   flex-direction: column;
@@ -96,7 +128,8 @@ page {
   box-sizing: border-box;
 }
 
-.uploader-text, .tunnel-text {
+.uploader-text,
+.tunnel-text {
   width: 100%;
   line-height: 52px;
   font-size: 34rpx;

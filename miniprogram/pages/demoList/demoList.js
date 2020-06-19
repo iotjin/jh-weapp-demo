@@ -15,6 +15,14 @@ Page({
         pathUrl: '/pages/demoList/gridViewDemoList/gridViewDemoList'
       },
       {
+        text: 'EChart',
+        pathUrl: '/pages/demoList/eChartDemoList/eChartDemoList'
+      },
+      {
+        text: 'UI',
+        pathUrl: '/pages/demoList/UI/UIDemoList'
+      },
+      {
         text: 'other',
         pathUrl: '/pages/demoList/otherDemoList/otherDemoList'
       },

@@ -18,6 +18,10 @@ Page({
         text: 'GridView3 - 固定头尾',
         pathUrl: '/pages/demoList/gridViewDemoList/gridView/gridView3'
       },
+      {
+        text: 'GridView4 - 多列',
+        pathUrl: '/pages/demoList/gridViewDemoList/gridView/gridView4'
+      },
     ]
   },
 

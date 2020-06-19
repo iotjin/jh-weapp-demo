@@ -10,8 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "@miniprogram-component-plus/tabs": "^1.0.0",
-    "@miniprogram-component-plus/video-swiper": "^1.0.1",
     "@vant/weapp": "^1.2.2",
-    "weui-miniprogram": "^1.0.3"
+    "weui-miniprogram": "^1.0.3",
+    "wux-weapp": "^3.8.5"
   }
 }

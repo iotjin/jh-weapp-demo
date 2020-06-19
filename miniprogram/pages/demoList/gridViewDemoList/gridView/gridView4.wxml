@@ -1,0 +1,7 @@
+
+ <view class="gridView">
+ <view class='gridViewCell' wx:for="{{dataArr}}" wx:key="index">
+   <view class="image">{{item.img}}</view>
+ 		<view class="text">{{item.text}}</view>
+ 	</view>
+ </view>

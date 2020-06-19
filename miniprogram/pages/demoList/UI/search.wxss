@@ -1,0 +1,119 @@
+page {
+  height: 100%;
+  /* background-color: #F5F5F5; */
+  background: white;
+}
+
+.normalBgView {
+  background: white;
+}
+
+.normalBgView-hidden {
+  display: none;
+}
+
+/* 热搜 */
+.hotSearchBgView {
+  background: white;
+  /* background: yellow; */
+}
+
+.hotSearchTitleView {
+  height: 60rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hotSearchTitle {
+  padding-left: 30rpx;
+  font-size: 28rpx;
+}
+
+.hotSearchCleanBtn {
+  padding-right: 30rpx;
+}
+
+.hotSearchTagBgView {
+  padding: 10rpx;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.hotSearchTag {
+  width: auto;
+  height: 48rpx;
+  line-height: 48rpx;
+  background: rgba(246, 246, 246, 1);
+  border-radius: 10rpx;
+  padding: 5rpx 25rpx;
+  font-weight: 300;
+  font-size: 28rpx;
+  color: #4A4A4A;
+  margin: 10rpx;
+  background: rgb(240, 240, 240);
+  /* background: wheat; */
+}
+
+/* 搜索历史 */
+.historyBgView {
+  background: white;
+}
+
+.historyTitleView {
+  height: 60rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.historyTitle {
+  padding-left: 30rpx;
+  font-size: 28rpx;
+}
+
+.historyCleanBtn {
+  padding-right: 30rpx;
+}
+
+.historyTag {
+  padding-left: 30rpx;
+  height: 100rpx;
+  border-bottom: 1px solid rgb(230, 230, 230);
+  display: flex;
+  align-items: center;
+}
+
+.historyIconLeft {
+  flex: 5;
+}
+
+.historyText {
+  flex: 90;
+  padding-left: 25rpx;
+}
+
+.historyIconRight {
+  flex: 5;
+  padding-right: 30rpx;
+}
+
+.resultBgView {
+  background: white;
+}
+
+.resultBgView-hidden {
+  display: none;
+}
+
+.resultCell {
+  padding-left: 30rpx;
+  height: 100rpx;
+  border-bottom: 1px solid rgb(230, 230, 230);
+  display: flex;
+  align-items: center;
+}
+
+.resultText {
+  padding-left: 30rpx;
+}

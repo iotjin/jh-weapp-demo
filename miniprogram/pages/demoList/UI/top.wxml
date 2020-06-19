@@ -1,0 +1,27 @@
+<view class="Cell">
+
+	<view class="left">
+		<view class="row1">
+			<view class="row1-left">
+				<view class="leibie">一般</view>
+				<view class="percentage">57%</view>
+			</view>
+			<view class="row1-right">
+				<view class="money">$200000000000</view>
+			</view>
+		</view>
+		<view class="row2">
+			<view class="row2-left">
+				<wux-progress class="jindu" activeColor="red" backgroundColor="#DCDCDC" percent="50" />
+			</view>
+			<view class="row2-right">
+				<view class="num">10笔</view>
+			</view>
+		</view>
+	</view>
+  
+	<view class="right">
+		<image class="arrow" src="../../images/ic_arrow_right.png"></image>
+	</view>
+
+</view>

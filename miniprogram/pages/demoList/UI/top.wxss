@@ -1,0 +1,85 @@
+.Cell {
+  background: white;
+  padding-left: 30rpx;
+  padding-right: 20rpx;
+  padding-top: 15rpx;
+  display: flex;
+  height: 110rpx;
+  border-bottom: 1px solid rgb(230, 230, 230);
+  /* background: yellow; */
+}
+
+.left {
+  flex: 95;
+  /* background: orchid; */
+}
+
+.right {
+  /* background: orange; */
+  padding-left: 20rpx;
+  flex: 5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.arrow {
+  width: 35rpx;
+  height: 35rpx;
+}
+
+.row1 {
+  display: flex;
+}
+
+.row1-left {
+  /* background:skyblue; */
+  flex: 5;
+}
+
+.row1-right {
+  flex: 5;
+  /* background: palegoldenrod; */
+}
+
+.leibie {
+  display: inline-block;
+  font-size: 15px;
+}
+
+.percentage {
+  padding-left: 20rpx;
+  display: inline-block;
+  font-size: 13px;
+  color: rgb(180, 180, 180);
+}
+
+.money {
+  text-align: right;
+  font-size: 15px;
+}
+
+.row2 {
+  display: flex;
+  height: 60rpx;
+  justify-content: center;
+  align-items: center;
+}
+
+.row2-left {
+  /* background:palegoldenrod; */
+  flex: 7;
+}
+
+.row2-right {
+  flex: 3;
+  /* background: skyblue; */
+}
+
+.num {
+  vertical-align: bottom;
+  text-align: right;
+  font-size: 13px;
+  color: rgb(150, 150, 150);
+}
