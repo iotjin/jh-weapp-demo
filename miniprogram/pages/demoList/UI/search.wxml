@@ -4,7 +4,9 @@
 	<view class="hotSearchBgView">
 		<view class="hotSearchTitleView">
 			<view class="hotSearchTitle">热门搜索</view>
-			<van-icon name="delete" class="hotSearchCleanBtn" bindtap='CleanHotSearch' />
+			<view class="hotSearchCleanText" bindtap='CleanHotSearch'>换一批
+				<van-icon name="replay" class="hotSearchCleanBtn" />
+			</view>
 		</view>
 		<view class="hotSearchTagBgView">
 			<view class="hotSearchTag" wx:for="{{hotSearchArr}}" wx:key="index" bindtap='ClickHotSearchItem' data-text='{{item}}'>{{item}}</view>
@@ -13,7 +15,10 @@
 	<view class="historyBgView">
 		<view class="historyTitleView">
 			<view class="historyTitle">搜索历史</view>
-			<van-icon name="delete" class="historyCleanBtn" bindtap='CleanHistory' />
+			<view class="historyCleanText" bindtap='CleanHistory'>清空历史
+				<van-icon name="delete" class="historyCleanBtn" />
+			</view>
+
 		</view>
 		<view class="historyTagBgView">
 			<view class="historyTag" wx:for="{{searchHistoryArr}}" wx:key="index" bindtap='ClickHistoryItem' data-text='{{item}}'>

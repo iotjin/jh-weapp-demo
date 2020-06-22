@@ -27,10 +27,19 @@ page {
 
 .hotSearchTitle {
   padding-left: 30rpx;
-  font-size: 28rpx;
+  font-size: 22px;
+  color: rgb(100, 100, 100);
+}
+
+.hotSearchCleanText {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  color: rgb(150, 150, 150);
 }
 
 .hotSearchCleanBtn {
+  padding-left: 16rpx;
   padding-right: 30rpx;
 }
 
@@ -70,9 +79,19 @@ page {
 .historyTitle {
   padding-left: 30rpx;
   font-size: 28rpx;
+  font-size: 22px;
+  color: rgb(100, 100, 100);
+}
+
+.historyCleanText {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  color: rgb(150, 150, 150);
 }
 
 .historyCleanBtn {
+  padding-left: 16rpx;
   padding-right: 30rpx;
 }
 
@@ -91,6 +110,8 @@ page {
 .historyText {
   flex: 90;
   padding-left: 25rpx;
+  font-size: 28rpx;
+  color: rgb(100, 100, 100);
 }
 
 .historyIconRight {

@@ -1,3 +1,18 @@
+.top-bg {
+  /* height: 230rpx; */
+  height: 120px;
+  width: 100%;
+  background: orange;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+}
+
+.main-bg {
+  /* padding-top: 230rpx; */
+  padding-top: 120px;
+}
+
 .header {
   background: rgb(230, 230, 230);
   height: 25px;
@@ -6,7 +21,8 @@
   font-size: 13px;
   align-items: center;
   position: sticky;
-  top: 0;
+  /* top: 230rpx; */
+  top: 120px;
 }
 
 .cell {
@@ -22,6 +38,7 @@
   display: flex;
   justify-content: space-between;
 }
+
 .leibie {
   width: 70%;
   font-size: 30rpx;
@@ -30,6 +47,7 @@
   white-space: nowrap;
   overflow: hidden;
 }
+
 .money {
   font-size: 32rpx;
   color: black;
