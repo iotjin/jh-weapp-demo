@@ -17,7 +17,7 @@
 
 
 <!-- view包裹 -->
-<van-nav-bar title="标题" custom-class="nav" title-class="title">
+<van-nav-bar title="标题" custom-class="nav" title-class="title" fixed placeholder>
 
 <view slot="left" class="leftIcon" bindtap="ClickBack">
 <van-icon name="arrow-left" color="white" size="25px"  />
@@ -34,6 +34,7 @@
 <view class="back" bindtap="ClickBack">点击返回</view>
 
 
+<van-divider contentPosition="center">一些图标</van-divider>
 
 <wux-icon type="ios-add" />
 <wux-icon type="ios-add-circle" />

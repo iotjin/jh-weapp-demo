@@ -1,4 +1,4 @@
-// miniprogram/pages/demoList/UI/custumNav.js
+
 Page({
 
   /**

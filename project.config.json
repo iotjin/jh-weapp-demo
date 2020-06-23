@@ -62,8 +62,8 @@
 				},
 				{
 					"id": 1,
-					"name": "pages/demoList/listViewDemoList/listView/listViewGroup",
-					"pathName": "pages/demoList/listViewDemoList/listView/listViewGroup",
+					"name": "pages/demoList/UI/customNav",
+					"pathName": "pages/demoList/UI/customNav",
 					"query": "",
 					"scene": null
 				}

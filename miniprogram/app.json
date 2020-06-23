@@ -90,6 +90,7 @@
     "van-nav-bar": "@vant/weapp/nav-bar/index",
     "van-search": "@vant/weapp/search/index",
     "van-dialog": "@vant/weapp/dialog/index",
+    "van-divider": "@vant/weapp/divider/index",
     "mp-cell": "/miniprogram_npm/weui-miniprogram/cell/cell",
     "mp-cells": "/miniprogram_npm/weui-miniprogram/cells/cells",
     "mp-slideview": "miniprogram_npm/weui-miniprogram/slideview/slideview",
