@@ -1,0 +1,15 @@
+
+
+<van-tabs active="{{ active }}" bind:change="onChange" bind:click="onClick" custom-class="custom-class">
+  <van-tab title="标签 1"></van-tab>
+  <van-tab title="标签 2"></van-tab>
+  <van-tab title="标签 3"></van-tab>
+</van-tabs>
+<view class="view">内容</view>
+
+
+
+<!-- <view class="topTab-bg">
+	<view class="left"><view class="leftTitle">标签1</view></view>
+	<view class="right"><view class="rightTitle">标签2</view></view>
+</view> -->

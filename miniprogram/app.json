@@ -28,7 +28,8 @@
     "pages/demoList/UI/top",
     "pages/demoList/UI/search",
     "pages/demoList/UI/UIDemoList",
-    "pages/demoList/UI/customNav"
+    "pages/demoList/UI/customNav",
+    "pages/demoList/UI/topTab"
   ],
   "window": {
     "backgroundColor": "#F8F8F8",

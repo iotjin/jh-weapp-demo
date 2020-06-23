@@ -62,8 +62,8 @@
 				},
 				{
 					"id": 1,
-					"name": "pages/demoList/UI/customNav",
-					"pathName": "pages/demoList/UI/customNav",
+					"name": "pages/demoList/UI/topTab",
+					"pathName": "pages/demoList/UI/topTab",
 					"query": "",
 					"scene": null
 				}
