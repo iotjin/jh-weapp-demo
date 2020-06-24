@@ -1,4 +1,4 @@
-import * as echarts from '../../../../Third/ec-canvas/echarts';
+import * as echarts from '../../../ec-canvas/echarts';
 
 let chart = null;
 
@@ -18,7 +18,7 @@ var option1 = {
   legend: {
     type: 'scroll',
     orient: 'vertical',
-    right: 10,
+    right: 0,
     top: 20,
     bottom: 20,
     data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "袜子"],
@@ -33,7 +33,7 @@ var option1 = {
     // name: '贸易',
     type: 'pie',
     center: ['40%', '50%'], //圆心坐标
-    radius: '55%', //饼图的半径
+    radius: '35%', //饼图的半径
     data: [
       //  {value: 1, name: '直达', selected: true},
       {
@@ -231,6 +231,7 @@ Page({
    */
   data: {
     ec1: {
+      // disableTouch: true,
       onInit: function (canvas, width, height, dpr) {
         const chart = echarts.init(canvas, null, {
           width: width,
@@ -243,6 +244,7 @@ Page({
       }
     },
     ec2: {
+      // disableTouch: true,
       onInit: function (canvas, width, height, dpr) {
         const chart = echarts.init(canvas, null, {
           width: width,
@@ -255,6 +257,7 @@ Page({
       }
     },
     ec3: {
+      // disableTouch: true,
       onInit: function (canvas, width, height, dpr) {
         const chart = echarts.init(canvas, null, {
           width: width,

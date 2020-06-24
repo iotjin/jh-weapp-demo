@@ -1,4 +1,4 @@
-import * as echarts from '../../../../Third/ec-canvas/echarts';
+import * as echarts from '../../../ec-canvas/echarts';
 
 let chart = null;
 

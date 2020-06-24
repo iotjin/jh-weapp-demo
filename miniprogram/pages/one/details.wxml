@@ -1,0 +1,1 @@
+<view class="view" bindtap="ClickBack">返回</view>

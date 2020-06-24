@@ -6,18 +6,15 @@
 </view>
 
 
-<view class="cell-bg">
-
-
-  <view class="row1">
-    <text class="day">20</text>
-    <text class="otherTime">/4月/2020年 星期一</text>
-  </view>
-
-  <view class="row2">
-    <view class="leibie">类别</view>
-    <view class="money">20.9</view>
-  </view>
+<view class="cell-bg" bindtap="ClickCell">
+	<view class="row1">
+		<text class="day">{{day}}</text>
+		<text class="otherTime">/4月/2020年 星期一</text>
+	</view>
+	<view class="row2">
+		<view class="leibie">类别</view>
+		<view class="money">{{money}}</view>
+	</view>
 </view>
 
 <!-- <view class="flex-container">

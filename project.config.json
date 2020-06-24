@@ -17,18 +17,21 @@
 		"checkInvalidKey": true,
 		"checkSiteMap": true,
 		"uploadWithSourceMap": true,
+		"compileHotReLoad": false,
 		"babelSetting": {
 			"ignore": [],
 			"disablePlugins": [],
 			"outputPath": ""
 		},
 		"bundle": true,
+		"useIsolateContext": true,
 		"useCompilerModule": false,
-		"userConfirmedUseCompilerModuleSwitch": false
+		"userConfirmedUseCompilerModuleSwitch": true,
+		"uglifyFileName": true
 	},
 	"appid": "wxe6fe2e7c5518d78e",
 	"projectname": "Jh_weapp",
-	"libVersion": "2.8.1",
+	"libVersion": "2.9.1",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
 	"condition": {
@@ -62,8 +65,8 @@
 				},
 				{
 					"id": 1,
-					"name": "pages/demoList/UI/topTab",
-					"pathName": "pages/demoList/UI/topTab",
+					"name": "packageA/pages/eChartDemoList/eChart/eChart3",
+					"pathName": "packageA/pages/eChartDemoList/eChart/eChart3",
 					"query": "",
 					"scene": null
 				}

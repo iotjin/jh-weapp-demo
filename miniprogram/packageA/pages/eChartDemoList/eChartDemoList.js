@@ -8,15 +8,18 @@ Page({
     dataArr: [
       {
         text: 'eChart- 柱状图',
-        pathUrl: '/pages/demoList/eChartDemoList/eChart/eChart1'
+        // pathUrl: '/pages/demoList/eChartDemoList/eChart/eChart1'
+        pathUrl: '/packageA/pages/eChartDemoList/eChart/eChart1'
       },
        {
         text: 'eChart- 饼状图',
-        pathUrl: '/pages/demoList/eChartDemoList/eChart/eChart2'
+        // pathUrl: '/pages/demoList/eChartDemoList/eChart/eChart2'
+        pathUrl: '/packageA/pages/eChartDemoList/eChart/eChart2'
       }, 
       {
         text: 'eChart- 多个',
-        pathUrl: '/pages/demoList/eChartDemoList/eChart/eChart3'
+        // pathUrl: '/pages/demoList/eChartDemoList/eChart/eChart3'
+        pathUrl: '/packageA/pages/eChartDemoList/eChart/eChart3'
       },
     ]
   },

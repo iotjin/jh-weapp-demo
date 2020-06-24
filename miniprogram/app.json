@@ -22,14 +22,23 @@
     "pages/demoList/otherDemoList/other/timePicker",
     "pages/demoList/otherDemoList/other/timePicker2",
     "pages/demoList/otherDemoList/baseView",
-    "pages/demoList/eChartDemoList/eChart/eChart1",
-    "pages/demoList/eChartDemoList/eChart/eChart2",
-    "pages/demoList/eChartDemoList/eChart/eChart3",
     "pages/demoList/UI/top",
     "pages/demoList/UI/search",
     "pages/demoList/UI/UIDemoList",
     "pages/demoList/UI/customNav",
-    "pages/demoList/UI/topTab"
+    "pages/demoList/UI/topTab",
+    "pages/one/details"
+  ],
+  "subpackages": [
+    {
+      "root": "packageA",
+      "pages": [
+        "pages/eChartDemoList/eChartDemoList",
+        "pages/eChartDemoList/eChart/eChart1",
+        "pages/eChartDemoList/eChart/eChart2",
+        "pages/eChartDemoList/eChart/eChart3"
+      ]
+    }
   ],
   "window": {
     "backgroundColor": "#F8F8F8",

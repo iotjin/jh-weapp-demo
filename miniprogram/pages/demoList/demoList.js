@@ -16,7 +16,8 @@ Page({
       },
       {
         text: 'EChart',
-        pathUrl: '/pages/demoList/eChartDemoList/eChartDemoList'
+        // pathUrl: '../../packageA/pages/eChartDemoList/eChartDemoList'
+        pathUrl: '/packageA/pages/eChartDemoList/eChartDemoList'
       },
       {
         text: 'UI',
