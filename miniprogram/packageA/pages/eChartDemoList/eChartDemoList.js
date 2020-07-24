@@ -22,7 +22,7 @@ Page({
         pathUrl: '/packageA/pages/eChartDemoList/eChart/eChart3'
       },
       {
-        text: 'eChart- 多个',
+        text: 'eChart- 异步',
         // pathUrl: '/pages/demoList/eChartDemoList/eChart/eChart3'
         pathUrl: '/packageA/pages/eChartDemoList/eChart/eChart4'
       },
