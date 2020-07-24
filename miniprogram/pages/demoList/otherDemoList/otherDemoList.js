@@ -5,10 +5,13 @@ Page({
    * 页面的初始数据
    */
   data: {
-    dataArr: [
-      {
+    dataArr: [{
         text: 'JhDropDownMenu',
         pathUrl: '/pages/demoList/otherDemoList/other/DropDownMenuDemo'
+      },
+      {
+        text: 'JhYMDTimePicker',
+        pathUrl: '/pages/demoList/otherDemoList/other/ymdTimePicker'
       },
       {
         text: 'vant 时间选择器',

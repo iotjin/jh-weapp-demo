@@ -1,0 +1,18 @@
+<view class="wave-bg">
+	<view class="userinfo-sec">
+		<open-data type="userAvatarUrl" class="avatar" />
+		<open-data type="userNickName" class="color-white text-size-28" />
+	</view>
+	<view class="wave-wrapper">
+		<view class="waveWrapperInner bgTop">
+			<image class="wave waveTopAnimation" src="../../images/wave/waveTop.png" />
+		</view>
+		<view class="waveWrapperInner bgMiddle">
+			<image class="wave waveMiddleAnimation" src="../../images/wave/waveMiddle.png" />
+		</view>
+		<view class="waveWrapperInner bgBottom">
+			<image class="wave waveBottomAnimation" src="../../images/wave/waveBottom.png" />
+		</view>
+	</view>
+</view>
+

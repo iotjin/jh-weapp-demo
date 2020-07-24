@@ -19,6 +19,7 @@
     "pages/demoList/gridViewDemoList/gridView/gridView4",
     "pages/demoList/otherDemoList/otherDemoList",
     "pages/demoList/otherDemoList/other/DropDownMenuDemo",
+    "pages/demoList/otherDemoList/other/ymdTimePicker",
     "pages/demoList/otherDemoList/other/timePicker",
     "pages/demoList/otherDemoList/other/timePicker2",
     "pages/demoList/otherDemoList/baseView",
@@ -27,7 +28,11 @@
     "pages/demoList/UI/UIDemoList",
     "pages/demoList/UI/customNav",
     "pages/demoList/UI/topTab",
-    "pages/one/details"
+    "pages/demoList/UI/login",
+    "pages/demoList/UI/examination",
+    "pages/one/details",
+    "pages/three/mine",
+    "pages/demoList/UI/main"
   ],
   "subpackages": [
     {
@@ -36,7 +41,8 @@
         "pages/eChartDemoList/eChartDemoList",
         "pages/eChartDemoList/eChart/eChart1",
         "pages/eChartDemoList/eChart/eChart2",
-        "pages/eChartDemoList/eChart/eChart3"
+        "pages/eChartDemoList/eChart/eChart3",
+        "pages/eChartDemoList/eChart/eChart4"
       ]
     }
   ],

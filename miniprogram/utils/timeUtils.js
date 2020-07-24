@@ -9,8 +9,7 @@ export function Jh_timeStampToTime(time, cFormat) {
   }
   const format = cFormat || '{y}-{m}-{d} {h}:{i}:{s}'
   let date
-  if (typeof time === 'object') {
-  } else {
+  if (typeof time === 'object') {} else {
     if (('' + time).length === 10) time = parseInt(time) * 1000
     date = new Date(time)
   }
@@ -42,8 +41,7 @@ export function Jh_timeStampToNo0Time(time, cFormat) {
   }
   const format = cFormat || '{y}-{m}-{d} {h}:{i}:{s}'
   let date
-  if (typeof time === 'object') {
-  } else {
+  if (typeof time === 'object') {} else {
     if (('' + time).length === 10) time = parseInt(time) * 1000
     date = new Date(time)
   }
@@ -69,35 +67,64 @@ export function Jh_timeStampToNo0Time(time, cFormat) {
   return time_str;
 }
 
+// //把 "2019-05-20 00:00:00" 转成 时间戳
+// export function Jh_convertTimeStamp(time) {
+//   //用正则主要是把“2019-05-20 00:00:00”转换成“2019/05/20 00:00:00”兼容ios
+//   let newTime = time.replace(/-/g, '/');
+//   return Date.parse(newTime)
+// }
 //把 "2019-05-20 00:00:00" 转成 时间戳
 export function Jh_convertTimeStamp(time) {
-//用正则主要是把“2019-05-20 00:00:00”转换成“2019/05/20 00:00:00”兼容ios
-  let newTime = time.replace(/-/g, '/'); 
+  //用正则主要是把“2019-05-20 00:00:00”转换成“2019/05/20 00:00:00”兼容ios
+  let newTime = time.replace(/-/g, '/');
+  if (newTime.length == 4) {
+    newTime = newTime + '/01/01 00:00:00'
+  }
+  if (newTime.length == 7) {
+    newTime = newTime + '/01 00:00:00'
+  }
+  if (newTime.length == 10) {
+    newTime = newTime + ' 00:00:00'
+  }
+  if (newTime.length == 16) {
+    newTime = newTime + ':00'
+  }
   return Date.parse(newTime)
 }
 
+
 // 时间戳转年月日
 function timestampToYMD(unixtime, format) {
-    var formateArr = ['Y', 'M', 'D', 'h', 'm', 's'];
-    var returnArr = [];
-    var dateTime = new Date(parseInt(unixtime))
-    var year = dateTime.getFullYear();
-    var month = dateTime.getMonth() + 1;
-    var day = dateTime.getDate();
-    var hour = dateTime.getHours();
-    var minute = dateTime.getMinutes();
-    var second = dateTime.getSeconds();
-    returnArr.push(year);
-    returnArr.push(month<10?'0'+month:month);
-    returnArr.push(day < 10 ? '0' + day : day);
-    returnArr.push(hour < 10 ? '0' + hour : hour);
-    returnArr.push(minute < 10 ? '0' + minute : minute);
-    returnArr.push(second < 10 ? '0' + second : second);
-    for (var i in returnArr) {
-      format = format.replace(formateArr[i], returnArr[i]);
-    }
-    return format;
+  var formateArr = ['Y', 'M', 'D', 'h', 'm', 's'];
+  var returnArr = [];
+  var dateTime = new Date(parseInt(unixtime))
+  var year = dateTime.getFullYear();
+  var month = dateTime.getMonth() + 1;
+  var day = dateTime.getDate();
+  var hour = dateTime.getHours();
+  var minute = dateTime.getMinutes();
+  var second = dateTime.getSeconds();
+  returnArr.push(year);
+  returnArr.push(month < 10 ? '0' + month : month);
+  returnArr.push(day < 10 ? '0' + day : day);
+  returnArr.push(hour < 10 ? '0' + hour : hour);
+  returnArr.push(minute < 10 ? '0' + minute : minute);
+  returnArr.push(second < 10 ? '0' + second : second);
+  for (var i in returnArr) {
+    format = format.replace(formateArr[i], returnArr[i]);
   }
+  return format;
+}
+
+//某个时间是否是今天 time格式：2020-07-19 20:33:00
+export function Jh_isToday(time) {
+  let newTime = time.replace(/-/g, '');
+  newTime = newTime.substring(0, 8);
+  var currentTime = new Date().getTime();
+  currentTime = Jh_timeStampToTime(currentTime, '{y}{m}{d}')
+  return newTime == currentTime
+}
+
 
 
 /*

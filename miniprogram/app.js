@@ -1,7 +1,16 @@
-//app.js
+//app.js  var app = getApp();
 App({
+
+  //全局数据
+  globalData: {
+    name: '张三',
+  },
+  //全局宏
+  kUserInfo: "kUserInfo",
+  isIPhoneX: false, // 当前设备是否为 iPhone X
+
   onLaunch: function () {
-    
+
     if (!wx.cloud) {
       console.error('请使用 2.2.3 或以上的基础库以使用云能力')
     } else {
@@ -16,5 +25,24 @@ App({
     }
 
     this.globalData = {}
-  }
+    this.checkIsIPhoneX()
+  },
+  
+  // 判断设备是否为 iPhone X
+  checkIsIPhoneX: function () {
+    const self = this
+    wx.getSystemInfo({
+      success: function (res) {
+        // 根据 model 进行判断
+        if (res.model.search('iPhone X') != -1) {
+          self.globalData.isIPhoneX = true
+          self.isIPhoneX = true
+        }
+        // 或者根据 screenHeight 进行判断
+        // if (res.screenHeight == 812) {
+        //   self.globalData.isIPX = true
+        // }
+      }
+    })
+  },
 })

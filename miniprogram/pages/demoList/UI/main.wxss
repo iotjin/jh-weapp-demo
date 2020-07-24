@@ -1,0 +1,58 @@
+
+.bg-green {
+  background: linear-gradient(rgb(55, 245, 204), rgb(2, 200, 187));
+}
+
+.exercise {
+  /* background-color: yellow; */
+  height: 250rpx;
+  background-image: url('https://gitee.com/iotjh/Picture/raw/master/icon/ic_main_select.png');
+  background-repeat: no-repeat;
+  background-size: 640rpx 250rpx;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 80rpx;
+  color: rgb(0, 222, 206);
+  color: white;
+  font-size: 50rpx;
+  font-weight: bold;
+}
+
+.wrong {
+  margin-top: 10rpx;
+  height: 250rpx;
+  background-image: url('https://gitee.com/iotjh/Picture/raw/master/icon/ic_main_select.png');
+  background-repeat: no-repeat;
+  background-size: 640rpx 250rpx;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(0, 222, 206);
+  color: white;
+  font-size: 50rpx;
+  font-weight: bold;
+}
+
+.exam {
+  margin-top: 10rpx;
+  height: 250rpx;
+  background-image: url('https://gitee.com/iotjh/Picture/raw/master/icon/ic_main_select.png');
+  background-repeat: no-repeat;
+  background-size: 640rpx 250rpx;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50rpx;
+  font-weight: bold;
+  color: rgb(0, 222, 206);
+  color: white;
+}
+
+.item-hover {
+  background-image: url('https://gitee.com/iotjh/Picture/raw/master/icon/ic_main_normal.png');
+  color: rgb(0, 222, 206);
+}

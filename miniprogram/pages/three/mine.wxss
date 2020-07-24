@@ -1,0 +1,119 @@
+.header {
+  position: relative;
+  height:300rpx;
+  background: linear-gradient(to bottom, #56ccf2, #2f80ed);
+}
+
+.wave-bg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wave-wrapper {
+  width: 100%;
+  height: 330rpx;
+  background: linear-gradient(129deg, rgba(245, 195, 88, 1), rgba(243, 167, 80, 1), rgba(235, 121, 60, 1));
+  position: relative;
+}
+
+.wave {
+  position: absolute;
+  left: 0;
+  width: 2160rpx;
+  height: 100%;
+  background-position: 0 bottom;
+  transform-origin: center bottom;
+}
+
+.waveWrapperInner {
+  position: absolute;
+  width: 100%;
+  overflow: hidden;
+  height: 100%;
+  bottom: -1px;
+}
+
+/* .waveTopAnimation {
+  animation: move_wave 3s linear infinite;
+}
+
+.waveMiddleAnimation {
+  animation: move_wave 6s linear infinite;
+}
+
+.waveBottomAnimation {
+  animation: move_wave 3s linear infinite;
+} */
+
+.waveTopAnimation {
+  animation: move_wave 10s linear infinite;
+}
+
+.waveMiddleAnimation {
+  animation: move_wave 20s linear infinite;
+}
+
+.waveBottomAnimation {
+  animation: move_wave 12s linear infinite;
+}
+
+.bgTop {
+  z-index: 15;
+  opacity: 0.75;
+  height: 16px;
+}
+
+.bgMiddle {
+  z-index: 10;
+  opacity: 0.8;
+  height: 18px;
+}
+
+.bgBottom {
+  z-index: 20;
+  height: 12px;
+  opacity: 1
+}
+
+@keyframes move_wave {
+  0% {
+      transform: translateX(0) translateZ(0) scaleY(1);
+  }
+
+  50% {
+      transform: translateX(-25%) translateZ(0) scaleY(1);
+  }
+
+  100% {
+      transform: translateX(-50%) translateZ(0) scaleY(1);
+  }
+}
+
+/* 头像 */
+
+
+.userinfo-sec {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 100;
+}
+
+.userinfo-sec .avatar {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 60rpx;
+  display: block;
+  overflow: hidden;
+  margin-bottom: 20rpx;
+}
+
+.color-white {
+  color: #fff;
+}
+
+.text-size-28 {
+  font-size: 28rpx;
+}

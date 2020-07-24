@@ -25,10 +25,12 @@ Page({
       {
         'title': '关于',
         'icon': '../../images/ic_about.png',
+        'url': './about',
       },
       {
         'title': '意见反馈',
         'icon': '../../images/ic_opinion.png',
+        'url': './feedback/feedback',
       }, 
       {
         'title': '天数',
@@ -71,39 +73,27 @@ Page({
   onShow: function () {
 
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
 
+  },
+  ClickCell(event){
+    var data = event.currentTarget.dataset.model;
+    var text = data.title;
+    console.log(text);
+    var url = data.url;
+    if (text == "关于" ||text == "意见反馈" ) {
+      wx.navigateTo({
+        url: url
+      })
+    }
+  },
+  ClickHeader(){
+    wx.navigateTo({
+      url: './mine'
+    })
   }
+
 })

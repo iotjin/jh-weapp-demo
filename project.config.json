@@ -2,7 +2,7 @@
 	"miniprogramRoot": "miniprogram/",
 	"cloudfunctionRoot": "cloudfunctions/",
 	"setting": {
-		"urlCheck": false,
+		"urlCheck": true,
 		"es6": true,
 		"enhance": true,
 		"postcss": true,
@@ -14,6 +14,7 @@
 		"autoAudits": false,
 		"showShadowRootInWxmlPanel": true,
 		"scopeDataCheck": false,
+		"uglifyFileName": true,
 		"checkInvalidKey": true,
 		"checkSiteMap": true,
 		"uploadWithSourceMap": true,
@@ -26,8 +27,7 @@
 		"bundle": true,
 		"useIsolateContext": true,
 		"useCompilerModule": false,
-		"userConfirmedUseCompilerModuleSwitch": true,
-		"uglifyFileName": true
+		"userConfirmedUseCompilerModuleSwitch": true
 	},
 	"appid": "wxe6fe2e7c5518d78e",
 	"projectname": "Jh_weapp",
@@ -58,15 +58,16 @@
 			"current": -1,
 			"list": [
 				{
-					"id": -1,
-					"name": "db guide",
-					"pathName": "pages/databaseGuide/databaseGuide",
-					"query": ""
+					"id": 0,
+					"name": "pages/demoList/demoList",
+					"pathName": "pages/demoList/demoList",
+					"query": "",
+					"scene": null
 				},
 				{
 					"id": 1,
-					"name": "packageA/pages/eChartDemoList/eChart/eChart3",
-					"pathName": "packageA/pages/eChartDemoList/eChart/eChart3",
+					"name": "pages/demoList/otherDemoList/other/timePicker2",
+					"pathName": "pages/demoList/otherDemoList/other/timePicker2",
 					"query": "",
 					"scene": null
 				}

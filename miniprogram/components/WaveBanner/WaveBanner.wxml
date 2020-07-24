@@ -1,0 +1,20 @@
+<view class = "banner-wrapper">
+
+    <view class = "userinfo-sec">
+        <open-data type = "userAvatarUrl" class = "avatar"/>
+        <open-data type = "userNickName" class = "color-white text-size-28"/>
+    </view>
+
+    <view class = "wave-wrapper">
+        <view class="waveWrapperInner bgTop">
+            <image class="wave waveTopAnimation" src="/assets/waveTop.png"/>
+        </view>
+        <view class="waveWrapperInner bgMiddle">
+            <image class="wave waveMiddleAnimation" src="/assets/waveMiddle.png" />
+        </view>
+        <view class="waveWrapperInner bgBottom">
+            <image class="wave waveBottomAnimation" src="/assets/waveBottom.png" />
+        </view>
+    </view>
+
+</view>

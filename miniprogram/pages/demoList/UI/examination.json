@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "考试中",
+  "usingComponents": {
+    "van-count-down": "@vant/weapp/count-down/index"
+  }
+}

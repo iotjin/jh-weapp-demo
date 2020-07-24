@@ -1,0 +1,12 @@
+<!-- 波浪效果 -->
+<view class="waveWrapper waveAnimation">
+    <view class="waveWrapperInner bgTop" style="background:{{background}}">
+        <view class="wave waveTop"></view>
+    </view>
+    <view class="waveWrapperInner bgMiddle" style="background:{{background}};opacity: {{waveNum==1?'1':'0.75'}}">
+        <view class="wave waveMiddle {{waveStatus?'run':'pause'}}"></view>
+    </view>
+    <view wx:if='{{waveNum>=2}}' class="waveWrapperInner bgBottom" style="background:{{background}}">
+        <view class="wave waveBottom {{waveStatus?'run':'pause'}}"></view>
+    </view>
+</view>

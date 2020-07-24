@@ -1,0 +1,11 @@
+<view class="content">
+	<image class="logo" src="../../../images/ic_heart.png"></image>
+	<view class="appName">Jh_Weapp</view>
+
+</view>
+
+<view class="btnBg">
+<button class="loginBtn" open-type="getUserInfo" bindgetuserinfo="ClickLogin"><image class="weixinLogo" src="../../../images/weixinLogo.png"></image>微信登录</button>
+</view>
+
+<image class="footer" src="../../../images/login_footer.png"></image>
