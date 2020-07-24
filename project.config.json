@@ -66,8 +66,8 @@
 				},
 				{
 					"id": 1,
-					"name": "pages/demoList/otherDemoList/other/timePicker2",
-					"pathName": "pages/demoList/otherDemoList/other/timePicker2",
+					"name": "packageA/pages/eChartDemoList/eChart/eChart4",
+					"pathName": "packageA/pages/eChartDemoList/eChart/eChart4",
 					"query": "",
 					"scene": null
 				}

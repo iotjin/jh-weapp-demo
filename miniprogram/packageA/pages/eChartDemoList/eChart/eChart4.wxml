@@ -1,2 +1,6 @@
-<!--miniprogram/packageA/pages/eChartDemoList/eChart/eChart4.wxml-->
-<text>miniprogram/packageA/pages/eChartDemoList/eChart/eChart4.wxml</text>
+<view class="chartBg">
+  <!-- <ec-canvas id="mychart1" canvas-id="mychart1" ec="{{ ec1 }}"></ec-canvas> -->
+  <ec-canvas id="mychart1" canvas-id="mychart-line" ec="{{ ec }}"></ec-canvas>
+  <!-- <ec-canvas id="mychart2" canvas-id="mychart2" ec="{{ ec2 }}"></ec-canvas>
+  <ec-canvas id="mychart3" canvas-id="mychart3" ec="{{ ec3 }}"></ec-canvas> -->
+</view>
