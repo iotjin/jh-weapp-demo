@@ -23,8 +23,13 @@ Page({
       },
       {
         text: 'eChart- 异步',
-        // pathUrl: '/pages/demoList/eChartDemoList/eChart/eChart3'
+        // pathUrl: '/pages/demoList/eChartDemoList/eChart/eChart4'
         pathUrl: '/packageA/pages/eChartDemoList/eChart/eChart4'
+      },
+      {
+        text: 'eChart- 异步多个',
+        // pathUrl: '/pages/demoList/eChartDemoList/eChart/eChart5'
+        pathUrl: '/packageA/pages/eChartDemoList/eChart/eChart5'
       },
     ]
   },
