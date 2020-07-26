@@ -1,4 +1,4 @@
-.chartBg{
+.chartBg {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -25,4 +25,11 @@
   height: 500rpx;
   margin: 20px 15%;
   border: 1px solid red;
+}
+
+#mychart3 {
+  width: 90%;
+  height: 500rpx;
+  /* margin: 20px 15%;
+  border: 1px solid red; */
 }
