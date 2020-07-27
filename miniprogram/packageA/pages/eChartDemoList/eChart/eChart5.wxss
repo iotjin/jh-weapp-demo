@@ -14,10 +14,10 @@
 
 
 #mychart1 {
-  width: 90%;
+  width: 100%;
   height: 500rpx;
-  margin: 20px 15%;
-  border: 1px solid red;
+  /* margin: 20px 15%;
+  border: 1px solid red; */
 }
 
 #mychart2 {

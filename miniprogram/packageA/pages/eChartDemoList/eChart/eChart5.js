@@ -86,7 +86,7 @@ Page({
       },
       grid: {
         left: '3%',
-        right: '4%',
+        right: '2%',
         containLabel: true
       },
       //坐标轴触发，。   'item'  , 'axis' ,'none'
@@ -98,7 +98,10 @@ Page({
         data: chartData.legendData
       },
       xAxis: [{
-        data: chartData.xData
+        data: chartData.xData,
+        "axisLabel": {
+          interval: 0
+        }
       }],
       yAxis: {},
       series: chartData.seriesData
@@ -239,6 +242,9 @@ Page({
           label: {
             show: true, //开启显示
             position: 'top', //在上方显示
+            distance: i == 0 ? 5 : 10,
+            // rotate: 15,
+            // offset: [20, 0],
             formatter: function (val) {
               if (val.value !== 0) {
                 return val.value;
