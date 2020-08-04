@@ -10,8 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "@miniprogram-component-plus/tabs": "^1.0.0",
-    "@vant/weapp": "^1.2.2",
-    "weui-miniprogram": "^1.0.3",
-    "wux-weapp": "^3.8.5"
+    "@vant/weapp": "^1.4.2",
+    "weui-miniprogram": "^1.0.5",
+    "wux-weapp": "^3.8.6"
   }
 }

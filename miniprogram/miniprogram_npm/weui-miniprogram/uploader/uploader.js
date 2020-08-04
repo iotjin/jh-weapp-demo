@@ -133,14 +133,12 @@ Component({
     },
     select: {
       // 过滤某个文件
-      type: Function,
-
-      value() {}
-
+      type: null,
+      value: () => {}
     },
     upload: {
       // 返回Promise的一个文件上传的函数
-      type: Function,
+      type: null,
       value: null
     },
     tips: {

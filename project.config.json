@@ -31,7 +31,7 @@
 	},
 	"appid": "wxe6fe2e7c5518d78e",
 	"projectname": "Jh_weapp",
-	"libVersion": "2.9.1",
+	"libVersion": "2.8.1",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
 	"condition": {
@@ -66,8 +66,8 @@
 				},
 				{
 					"id": 1,
-					"name": "packageA/pages/eChartDemoList/eChart/eChart4",
-					"pathName": "packageA/pages/eChartDemoList/eChart/eChart4",
+					"name": "pages/demoList/UI/modalDialog",
+					"pathName": "pages/demoList/UI/modalDialog",
 					"query": "",
 					"scene": null
 				}

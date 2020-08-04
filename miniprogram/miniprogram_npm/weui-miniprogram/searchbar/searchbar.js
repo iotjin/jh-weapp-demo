@@ -138,6 +138,8 @@ Component({
     result: [] // 搜索结果
 
   },
+
+  /* @ts-ignore */
   lastSearch: Date.now(),
   lifetimes: {
     // @ts-ignore

@@ -233,6 +233,7 @@ Page({
     for (var i = 0; i < dataArr.length; i++) {
       var dic = dataArr[i];
       dic['type'] = 'bar';
+      dic['barGap'] = 0;
       // dic['label'] = {
       //   show: true,
       //   position: 'top',

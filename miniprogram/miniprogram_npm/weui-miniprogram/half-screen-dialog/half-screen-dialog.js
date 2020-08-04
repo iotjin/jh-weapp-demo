@@ -172,6 +172,9 @@ Component({
         index,
         item: this.data.buttons[index]
       }, {});
+    },
+
+    onMaskMouseMove(e) {// do nothing
     }
 
   }

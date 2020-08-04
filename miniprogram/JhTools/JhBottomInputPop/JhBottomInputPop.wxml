@@ -1,0 +1,23 @@
+<van-popup position="bottom" custom-style="height: 50%;" show="{{isShow}}" bind:close="hiddePopView">
+
+<view class="nav">
+<van-icon class="back" color="#C8C8C8" name="arrow-left" size="25px" bind:click="hiddePopView" />
+<view class="title">{{title}}</view>
+<view class="okBtn" bindtap="onConfirm">{{okText}}</view>
+</view>
+
+  <textarea class="textarea-bg" 
+    maxlength='{{maxLength}}' 
+    value="{{textFieldText}}" 
+    placeholder="{{placeholder}}" 
+    bindinput="inputChange" 
+    show-confirm-bar=""
+    cursor-spacing="50"
+    focus ="{{focus}}"
+    >
+    <view class='word'>{{currentLength}}/{{maxLength}}</view>
+    </textarea>
+    
+</van-popup>
+
+

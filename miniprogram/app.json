@@ -22,6 +22,7 @@
     "pages/demoList/otherDemoList/other/ymdTimePicker",
     "pages/demoList/otherDemoList/other/timePicker",
     "pages/demoList/otherDemoList/other/timePicker2",
+    "pages/demoList/otherDemoList/other/inputPopView",
     "pages/demoList/otherDemoList/baseView",
     "pages/demoList/UI/top",
     "pages/demoList/UI/search",
@@ -29,10 +30,10 @@
     "pages/demoList/UI/customNav",
     "pages/demoList/UI/topTab",
     "pages/demoList/UI/login",
+    "pages/demoList/UI/main",
     "pages/demoList/UI/examination",
     "pages/one/details",
-    "pages/three/mine",
-    "pages/demoList/UI/main"
+    "pages/three/mine"
   ],
   "subpackages": [
     {
@@ -108,6 +109,7 @@
     "van-search": "@vant/weapp/search/index",
     "van-dialog": "@vant/weapp/dialog/index",
     "van-divider": "@vant/weapp/divider/index",
+    "van-action-sheet": "@vant/weapp/action-sheet/index",
     "mp-cell": "/miniprogram_npm/weui-miniprogram/cell/cell",
     "mp-cells": "/miniprogram_npm/weui-miniprogram/cells/cells",
     "mp-slideview": "miniprogram_npm/weui-miniprogram/slideview/slideview",

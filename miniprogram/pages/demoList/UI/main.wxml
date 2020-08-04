@@ -1,5 +1,6 @@
-<view class="exercise" bindtap="exercise" hover-class="item-hover" hover-stay-time="100">练习</view>
-<view class="wrong" bindtap="wrong" hover-class="item-hover" hover-stay-time="100">错题本</view>
-<block wx:if="{{isTodayExam}}">
-	<view class="exam" bindtap="examination" hover-class="item-hover" hover-stay-time="100">考试</view>
+<view class="view0"></view>
+<view class="view1" hover-class="item-hover" hover-stay-time="100">功能一</view>
+<view class="view2" hover-class="item-hover" hover-stay-time="100">功能二</view>
+<block wx:if="{{isToday}}">
+	<view class="view3" hover-class="item-hover" hover-stay-time="100">功能三</view>
 </block>

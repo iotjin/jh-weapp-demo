@@ -3,7 +3,7 @@
         <view class="weui-search-bar__box">
             <icon class="weui-icon-search" type="search" size="12"></icon>
             <input type="text" class="weui-search-bar__input" placeholder="{{placeholder}}" value="{{value}}" focus="{{focus}}" bindblur="inputBlur" bindfocus="inputFocus" bindinput="inputChange" />
-            <text class="weui-icon-clear" wx:if="{{value.length > 0}}" bindtap="clearInput"></text>
+            <text class="weui-icon-clear" hover-class="weui-active" wx:if="{{value.length > 0}}" bindtap="clearInput"></text>
         </view>
         <label class="weui-search-bar__label" bindtap="showInput">
             <icon class="weui-icon-search" type="search" size="12"></icon>
@@ -13,7 +13,7 @@
     <view wx:if="{{cancel && searchState}}" class="weui-search-bar__cancel-btn" bindtap="hideInput">{{cancelText}}</view>
 </view>
 <mp-cells ext-class=" {{'searchbar-result ' + extClass}}" wx:if="{{searchState && result.length > 0}}">
-    <mp-cell bindtap="selectResult" body-class="weui-cell_primary" data-index="{{index}}" wx:for="{{result}}" wx:key="index" hover>
+    <mp-cell class="result" bindtap="selectResult" body-class="weui-cell_primary" data-index="{{index}}" wx:for="{{result}}" wx:key="index" hover>
         <view>{{item.text}}</view>
     </mp-cell>
 </mp-cells>

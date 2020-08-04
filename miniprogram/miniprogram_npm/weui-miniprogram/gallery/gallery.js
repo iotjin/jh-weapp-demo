@@ -127,7 +127,7 @@ Component({
       value: true
     },
     extClass: {
-      type: Boolean,
+      type: String,
       value: ''
     }
   },

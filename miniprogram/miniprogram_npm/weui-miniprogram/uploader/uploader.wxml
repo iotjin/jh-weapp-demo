@@ -28,9 +28,9 @@
                 </view>
             </block>
         </view>
-        <view wx:if="{{currentFiles.length < maxCount}}" class="weui-uploader__input-box">
+        <view wx:if="{{currentFiles.length < maxCount}}" class="weui-uploader__input-box" hover-class="weui-active">
             <view class="weui-uploader__input" bindtap="chooseImage"></view>
         </view>
     </view>
 </view>
-<mp-gallery hide-on-click="{{true}}" show-delete="{{showDelete}}" show="{{showPreview}}" binddelete="deletePic" img-urls="{{previewImageUrls}}" current="{{previewCurrent}}"></mp-gallery>
+<mp-gallery class="gallery" hide-on-click="{{true}}" show-delete="{{showDelete}}" show="{{showPreview}}" binddelete="deletePic" img-urls="{{previewImageUrls}}" current="{{previewCurrent}}"></mp-gallery>

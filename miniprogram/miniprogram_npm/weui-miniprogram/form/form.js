@@ -231,14 +231,12 @@ Component({
     },
 
     _modelChange(newVal, oldVal) {
-      if (!this.isInit) {
-        this.isInit = true;
+      if (!this.formValidator) {
         return newVal;
       } // 这个必须在前面
 
 
       this.formValidator.setModel(newVal);
-      this.isInit = true;
       const diffObj = (0, _object.diffObject)(oldVal, newVal);
 
       if (diffObj) {
@@ -448,7 +446,7 @@ class FormValidator {
           valid,
           error: valid ? undefined : error
         });
-        cb(valid, valid ? undefined : errObj);
+        cb && cb(valid, valid ? undefined : errObj);
         const oldError = this.errors[name];
         const errorChanged = (0, _object.diff)(oldError, error);
 
@@ -587,7 +585,7 @@ var _default = {
   },
 
   rangelength(r, val) {
-    const range = r.range;
+    const range = r.rangelength;
     val = val || '';
 
     if (val.length > range[1] || val.length < range[0]) {

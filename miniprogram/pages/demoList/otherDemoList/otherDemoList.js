@@ -21,6 +21,10 @@ Page({
         text: '月日周时分 - 时间选择器',
         pathUrl: '/pages/demoList/otherDemoList/other/timePicker2'
       },
+      {
+        text: '输入弹框',
+        pathUrl: '/pages/demoList/otherDemoList/other/inputPopView'
+      },
     ]
   },
 
