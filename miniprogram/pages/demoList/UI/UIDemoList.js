@@ -21,6 +21,10 @@ Page({
         pathUrl: '/pages/demoList/UI/topTab'
       },
       {
+        text: 'topTab2',
+        pathUrl: '/pages/demoList/UI/topTab2'
+      },
+      {
         text: '登录',
         pathUrl: '/pages/demoList/UI/login'
       },

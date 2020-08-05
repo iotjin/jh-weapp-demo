@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "topTab",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "usingComponents": {}
+}

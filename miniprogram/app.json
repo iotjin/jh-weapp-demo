@@ -33,7 +33,8 @@
     "pages/demoList/UI/main",
     "pages/demoList/UI/examination",
     "pages/one/details",
-    "pages/three/mine"
+    "pages/three/mine",
+    "pages/demoList/UI/topTab2"
   ],
   "subpackages": [
     {
