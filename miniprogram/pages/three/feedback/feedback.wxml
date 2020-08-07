@@ -1,17 +1,23 @@
-
+    <!-- disabled -->
    <van-field
     value="{{ selectType }}"
     required
-    disabled
+    readonly
     is-link
     label="反馈类型:"
     bind:tap="ClickType"
   /> 
     <van-field
     value="{{email}}"
+    label="联系人:"
+    placeholder="请输入姓名"
+    bind:change="onChange1"
+    />
+    <van-field
+    value="{{email}}"
     label="联系方式:"
     placeholder="邮箱/微信/QQ"
-    bind:change="onChange1"
+    bind:change="onChange2"
     />
     <van-field
     required
@@ -25,7 +31,7 @@
     show-word-limit
     type="textarea"
     input-class = "textarea"
-    bind:change="onChange2"
+    bind:change="onChange3"
     />
  
 <view class="Jh_commonBtn" bindtap="ClickOkBtn">提 交</view>

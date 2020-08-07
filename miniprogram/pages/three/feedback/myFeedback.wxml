@@ -1,0 +1,38 @@
+<view class='header'>
+	<van-tabs active="{{ active }}" bind:change="onChange" color="#FFB90F" tab-active-class="tab-active-class" nav-class="nav-class">
+		<van-tab title="标签一"></van-tab>
+		<van-tab title="标签二"></van-tab>
+	</van-tabs>
+</view>
+
+<view class="cellBg">
+	<view id="cell" class="cell" wx:for="{{dataArr}}" wx:key="index" bindtap="ClickCell" data-selectdata="{{item}}">
+		<!-- <van-field label="反馈类型:" value='{{item.state ==="0"?"无法打开小程序":(item.state =="1"?"卡顿/界面错位、异常":"意见反馈")}}' required readonly /> -->
+		<!-- <van-field label="联系人:" value="{{item.name2}}" readonly />
+		<van-field label="联系方式:" value="{{item.email}}" readonly />
+		<van-field label="反馈时间:" value="{{item.dateTime}}" readonly />
+		<van-field label="反馈内容:" value="{{ item.content }}" type="textarea" autosize required readonly /> -->
+
+		<view class="rowBg">
+			<view class="title">反馈类型:</view>
+			<view class="info">{{item.state ==="0"?"无法打开小程序":(item.state =="1"?"卡顿/界面错位、异常":"意见反馈")}}</view>
+		</view>
+		<view class="rowBg">
+			<view class="title">联系人:</view>
+			<view class="info">{{item.name2}}</view>
+		</view>
+		<view class="rowBg">
+			<view class="title">联系方式:</view>
+			<view class="info">{{item.email}}</view>
+		</view>
+		<view class="rowBg">
+			<view class="title">反馈时间:</view>
+			<view class="info">{{item.dateTime}}</view>
+		</view>
+		<view class="rowBg">
+			<view class="title">反馈内容:</view>
+			<view class="info">{{ item.content }}</view>
+		</view>
+
+	</view>
+</view>

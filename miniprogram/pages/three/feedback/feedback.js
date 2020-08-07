@@ -54,6 +54,12 @@ Page({
     })
   },
   onChange2(event) {
+    // console.log('联系方式---' + event.detail);
+    this.setData({
+      content: event.detail
+    })
+  },
+  onChange3(event) {
     // console.log('反馈内容---' + event.detail);
     this.setData({
       content: event.detail

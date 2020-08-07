@@ -40,12 +40,13 @@
   position: absolute;
   top: 130rpx;
   align-self: center;
-  background-color: #eee;
   width: 480rpx;
   height: 80rpx;
   padding: 0 12rpx;
-  border-radius: 4rpx;
+  border-radius: 10rpx;
   font-size: 30rpx;
+  border: 1px solid rgb(220,220,220);
+  /* background-color: #eee; */
 }
 
 .multiline-input {

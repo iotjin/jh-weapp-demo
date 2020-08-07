@@ -66,8 +66,8 @@
 				},
 				{
 					"id": 1,
-					"name": "pages/demoList/UI/modalDialog",
-					"pathName": "pages/demoList/UI/modalDialog",
+					"name": "pages/three/feedback/myFeedback",
+					"pathName": "pages/three/feedback/myFeedback",
 					"query": "",
 					"scene": null
 				}

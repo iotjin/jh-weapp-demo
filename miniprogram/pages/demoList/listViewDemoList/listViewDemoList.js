@@ -30,6 +30,10 @@ Page({
         text: 'ListView6 - 分组列表',
         pathUrl: '/pages/demoList/listViewDemoList/listView/listViewGroup'
       },
+      {
+        text: 'ListView7 - tab分页加载',
+        pathUrl: '/pages/three/feedback/myFeedback'
+      },
 
     ]
   },

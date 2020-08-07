@@ -1,0 +1,44 @@
+.header {
+  height: 90rpx;
+  width: 100%;
+  position: fixed;
+  top: 0;
+}
+
+.nav-class {
+  background: #F7FAFC;
+}
+
+.tab-active-class {
+  color: #FFB90F !important;
+}
+
+.cellBg {
+  padding-top: 90rpx;
+}
+
+.cell {
+  /* width: 100%; */
+  background: white;
+  border-radius: 10rpx;
+  border: 1px solid rgb(230, 230, 230); 
+  /* border-bottom: 1px solid rgb(230, 230, 230); */
+  padding: 20rpx;
+  margin: 30rpx;
+}
+
+.rowBg {
+  display: flex;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+}
+
+.title {
+  flex: 3;
+  color: rgb(150, 150, 150);
+}
+
+.info {
+  flex: 7;
+  color: rgb(50, 50, 50);
+}
