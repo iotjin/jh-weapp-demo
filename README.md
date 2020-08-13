@@ -11,6 +11,7 @@
 * 上下拉刷新、分组吸顶ListView
 * 答题功能
 * excel导入导出
+* AES加密
 * wx.request 封装，云函数请求封装
 * 封装一些组件(在JhTools文件夹)和工具类(在utils文件夹)
 
