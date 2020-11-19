@@ -20,13 +20,14 @@
     "pages/demoList/gridViewDemoList/gridView/gridView2",
     "pages/demoList/gridViewDemoList/gridView/gridView3",
     "pages/demoList/gridViewDemoList/gridView/gridView4",
+    "pages/demoList/otherDemoList/baseView",
     "pages/demoList/otherDemoList/otherDemoList",
     "pages/demoList/otherDemoList/other/DropDownMenuDemo",
     "pages/demoList/otherDemoList/other/ymdTimePicker",
     "pages/demoList/otherDemoList/other/timePicker",
     "pages/demoList/otherDemoList/other/timePicker2",
     "pages/demoList/otherDemoList/other/inputPopView",
-    "pages/demoList/otherDemoList/baseView",
+    "pages/demoList/otherDemoList/other/empty",
     "pages/demoList/UI/top",
     "pages/demoList/UI/search",
     "pages/demoList/UI/UIDemoList",
@@ -37,19 +38,17 @@
     "pages/demoList/UI/main",
     "pages/demoList/UI/examination"
   ],
-  "subpackages": [
-    {
-      "root": "packageA",
-      "pages": [
-        "pages/eChartDemoList/eChartDemoList",
-        "pages/eChartDemoList/eChart/eChart1",
-        "pages/eChartDemoList/eChart/eChart2",
-        "pages/eChartDemoList/eChart/eChart3",
-        "pages/eChartDemoList/eChart/eChart4",
-        "pages/eChartDemoList/eChart/eChart5"
-      ]
-    }
-  ],
+  "subpackages": [{
+    "root": "packageA",
+    "pages": [
+      "pages/eChartDemoList/eChartDemoList",
+      "pages/eChartDemoList/eChart/eChart1",
+      "pages/eChartDemoList/eChart/eChart2",
+      "pages/eChartDemoList/eChart/eChart3",
+      "pages/eChartDemoList/eChart/eChart4",
+      "pages/eChartDemoList/eChart/eChart5"
+    ]
+  }],
   "window": {
     "backgroundColor": "#F8F8F8",
     "backgroundTextStyle": "light",
@@ -60,8 +59,7 @@
   "tabBar": {
     "color": "#cdcdcd",
     "selectedColor": "#38BC9D",
-    "list": [
-      {
+    "list": [{
         "text": "首页",
         "pagePath": "pages/one/one",
         "iconPath": "images/tab/tab1.png",

@@ -25,6 +25,10 @@ Page({
         text: '输入弹框',
         pathUrl: '/pages/demoList/otherDemoList/other/inputPopView'
       },
+      {
+        text: 'empty-view',
+        pathUrl: '/pages/demoList/otherDemoList/other/empty'
+      },
     ]
   },
 
