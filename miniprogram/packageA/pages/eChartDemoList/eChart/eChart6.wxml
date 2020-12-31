@@ -1,0 +1,50 @@
+<view class="chartBg">
+  <view class="header">
+    <image class="leftImg" src="../../../../images/ic_heart.png"></image>
+    <view class="title">分布情况</view>
+  </view>
+  <view class="title-view">
+    <view class="title-text">{{household}}</view>
+    <view class="title-text2">户</view>
+    <view class="title-text">{{people}}</view>
+    <view class="title-text2">人</view>
+    <view class="title-text">{{percentage}}</view>
+    <view class="title-text2">%（占比）</view>
+  </view>
+  <ec-canvas id="mychart1" canvas-id="mychart1" ec="{{ ec }}"></ec-canvas>
+
+  <view class="header">
+    <image class="leftImg" src="../../../../images/ic_heart.png"></image>
+    <view class="title">人口结构分析</view>
+  </view>
+  <view class="header2">
+    <image class="leftImg" src="../../../../images/ic_heart.png"></image>
+    <view class="title2">健康状况</view>
+  </view>
+  <view class="grid-bg">
+    <view class='grid-item' wx:for="{{dic.jiankang}}" wx:key="index">
+      <view class="text1">{{item.text}}</view>
+      <view class="text2" style="color:{{item.color}}">{{item.value}}</view>
+    </view>
+  </view>
+  <view class="header2">
+    <image class="leftImg" src="../../../../images/ic_heart.png"></image>
+    <view class="title2">劳动能力</view>
+  </view>
+  <view class="grid-bg">
+    <view class='grid-item' wx:for="{{dic.laodong}}" wx:key="index">
+      <view class="text1">{{item.text}}</view>
+      <view class="text2" style="color:{{item.color}}">{{item.value}}</view>
+    </view>
+  </view>
+  <view class="header2">
+    <image class="leftImg" src="../../../../images/ic_heart.png"></image>
+    <view class="title2">在校生状况</view>
+  </view>
+</view>
+<view class="grid-bg">
+  <view class='grid-item' wx:for="{{dic.student}}" wx:key="index">
+    <view class="text1">{{item.text}}</view>
+    <view class="text2" style="color:{{item.color}}">{{item.value}}</view>
+  </view>
+</view>

@@ -31,6 +31,16 @@ Page({
         // pathUrl: '/pages/demoList/eChartDemoList/eChart/eChart5'
         pathUrl: '/packageA/pages/eChartDemoList/eChart/eChart5'
       },
+      {
+        text: 'eChart- 异步1',
+        // pathUrl: '/pages/demoList/eChartDemoList/eChart/eChart5'
+        pathUrl: '/packageA/pages/eChartDemoList/eChart/eChart6'
+      },
+      {
+        text: 'eChart- 异步多个2',
+        // pathUrl: '/pages/demoList/eChartDemoList/eChart/eChart5'
+        pathUrl: '/packageA/pages/eChartDemoList/eChart/eChart7'
+      },
     ]
   },
 

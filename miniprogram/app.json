@@ -38,17 +38,21 @@
     "pages/demoList/UI/main",
     "pages/demoList/UI/examination"
   ],
-  "subpackages": [{
-    "root": "packageA",
-    "pages": [
-      "pages/eChartDemoList/eChartDemoList",
-      "pages/eChartDemoList/eChart/eChart1",
-      "pages/eChartDemoList/eChart/eChart2",
-      "pages/eChartDemoList/eChart/eChart3",
-      "pages/eChartDemoList/eChart/eChart4",
-      "pages/eChartDemoList/eChart/eChart5"
-    ]
-  }],
+  "subpackages": [
+    {
+      "root": "packageA",
+      "pages": [
+        "pages/eChartDemoList/eChartDemoList",
+        "pages/eChartDemoList/eChart/eChart1",
+        "pages/eChartDemoList/eChart/eChart2",
+        "pages/eChartDemoList/eChart/eChart3",
+        "pages/eChartDemoList/eChart/eChart4",
+        "pages/eChartDemoList/eChart/eChart5",
+        "pages/eChartDemoList/eChart/eChart6",
+        "pages/eChartDemoList/eChart/eChart7"
+      ]
+    }
+  ],
   "window": {
     "backgroundColor": "#F8F8F8",
     "backgroundTextStyle": "light",
@@ -59,7 +63,8 @@
   "tabBar": {
     "color": "#cdcdcd",
     "selectedColor": "#38BC9D",
-    "list": [{
+    "list": [
+      {
         "text": "首页",
         "pagePath": "pages/one/one",
         "iconPath": "images/tab/tab1.png",
