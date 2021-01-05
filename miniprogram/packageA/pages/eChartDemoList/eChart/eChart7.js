@@ -40,6 +40,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
+    wx.setNavigationBarTitle({
+      title: 'eChart- 异步多个2'
+    })
     this.requestData()
   },
 
@@ -364,12 +368,17 @@ Page({
     var option = {
       backgroundColor: "#ffffff",
       color: ["#37A2DA", "#FFDB5C", "#FF9F7F", "#32C5E9", "#67E0E3", "#91F2DE"],
-      tooltip: {},
+      // tooltip: {},
+      tooltip: {
+        trigger: 'item',
+        formatter: '{a}\n{b}:{c}({d}%)'
+      },
       series: [{
         label: {
           normal: {
             show: true,
             fontSize: 10,
+            formatter: '{b}\n{c}个\n({d}%)',
           },
         },
         labelLine: {
@@ -379,6 +388,7 @@ Page({
           }
         },
         type: 'pie',
+        name:'name',
         center: ['45%', '52%'],
         radius: ['28%', '55%'],
         data: chartData.seriesData

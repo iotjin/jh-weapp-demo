@@ -36,6 +36,10 @@ Page({
         text: 'examination',
         pathUrl: '/pages/demoList/UI/examination'
       },
+      {
+        text: '简单表格',
+        pathUrl: '/pages/demoList/UI/table1'
+      },
     ]
   },
 

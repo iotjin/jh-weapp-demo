@@ -1,6 +1,6 @@
 /* 网络请求工具类 */
 
-var isProduct = __wxConfig.envVersion =='release';
+var isProduct = __wxConfig.envVersion == 'release';
 var isDevelop = __wxConfig.envVersion == 'develop';
 
 /* get请求 */
@@ -24,7 +24,7 @@ var _header = {
  * @params 请求参数
  */
 function dealParams(params) {
-  if (isDevelop){
+  if (isDevelop) {
     console.log("请求参数:", params);
   }
   return params;

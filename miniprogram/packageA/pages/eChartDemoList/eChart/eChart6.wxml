@@ -15,7 +15,7 @@
 
   <view class="header">
     <image class="leftImg" src="../../../../images/ic_heart.png"></image>
-    <view class="title">人口结构分析</view>
+    <view class="title">结构分析</view>
   </view>
   <view class="header2">
     <image class="leftImg" src="../../../../images/ic_heart.png"></image>

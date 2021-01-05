@@ -18,7 +18,7 @@ module.exports = {
   //获取分页数据
   getPageArrDic: (prams) => http.postRequest(URL.api_getPageArrDic, prams),
 
-//获取分页数据2
+  //获取分页数据2
   getPageArrDic2: (prams) => {
     console.log(URL.api_getPageArrDic + '-----------------------')
     return http.postRequest(URL.api_getPageArrDic, prams)
