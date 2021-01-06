@@ -36,16 +36,10 @@
   },
   "appid": "wxe6fe2e7c5518d78e",
   "projectname": "Jh_weapp",
-  "libVersion": "2.8.1",
+  "libVersion": "2.13.2",
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
   "condition": {
-    "search": {
-      "list": []
-    },
-    "conversation": {
-      "list": []
-    },
     "plugin": {
       "list": []
     },
@@ -68,6 +62,12 @@
           "id": 1,
           "name": "pages/three/feedback/myFeedback",
           "pathName": "pages/three/feedback/myFeedback",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "packageA/pages/eChartDemoList/eChart/eChart9",
+          "pathName": "packageA/pages/eChartDemoList/eChart/eChart9",
           "query": "",
           "scene": null
         }

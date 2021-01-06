@@ -17,7 +17,7 @@ Page({
   onLoad: function (options) {
 
     wx.setNavigationBarTitle({
-      title: 'eChart- 异步'
+      title: 'eCharts- 异步'
     })
 
     this.echartsComponnet = this.selectComponent('#mychart1');

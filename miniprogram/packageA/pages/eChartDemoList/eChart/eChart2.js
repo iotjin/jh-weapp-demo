@@ -62,7 +62,7 @@ Page({
    */
   onLoad: function (options) {
     wx.setNavigationBarTitle({
-      title: 'eChart- 饼状图'
+      title: 'eCharts- 饼状图'
     })
   },
 })

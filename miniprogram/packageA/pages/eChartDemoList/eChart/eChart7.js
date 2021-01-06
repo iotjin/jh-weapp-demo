@@ -42,7 +42,7 @@ Page({
   onLoad: function (options) {
 
     wx.setNavigationBarTitle({
-      title: 'eChart- 异步多个2'
+      title: 'eCharts- 异步多个2'
     })
     this.requestData()
   },

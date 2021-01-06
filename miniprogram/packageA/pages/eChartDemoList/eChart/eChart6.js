@@ -80,18 +80,42 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.requestData()
+    wx.setNavigationBarTitle({
+      title: 'eCharts- 异步1-带Loading'
+    })
+    this.initChartsData()
   },
-
-  requestData() {
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+    setTimeout(() => {
+      this.requestData()
+    }, 500);
+  },
+  //初始化
+  initChartsData() {
     var chartData = {
-      yData: ['城市1', '城市2', '城市3', '城市4', '城市5',
-        '城市6', '城市7', '城市8', '城市9', '城市10', '城市11', '城市12',
-        '城市13', '城市14', '城市15', '城市16', '城市17', '城市18'
-      ],
-      seriesData: [120, 200, 150, 80, 70, 110, 130, 120, 200, 150, 80, 70, 110, 130, 120, 200, 150, 80]
+      yData: [],
+      seriesData: []
     };
     this.init_echarts1(chartData)
+  },
+  //假装请求网络
+  requestData() {
+    var that = this
+    barChart.showLoading()
+    setTimeout(() => {
+      var chartData = {
+        yData: ['城市1', '城市2', '城市3', '城市4', '城市5',
+          '城市6', '城市7', '城市8', '城市9', '城市10', '城市11', '城市12',
+          '城市13', '城市14', '城市15', '城市16', '城市17', '城市18'
+        ],
+        seriesData: [120, 200, 150, 80, 70, 110, 130, 120, 200, 150, 80, 70, 110, 130, 120, 200, 150, 80]
+      };
+      barChart.setOption(that.getBarOption1(chartData), true);
+      barChart.hideLoading()
+    }, 1500);
   },
 
   init_echarts1: function (chartData) {
@@ -102,7 +126,7 @@ Page({
         height: height,
         devicePixelRatio: dpr
       });
-      barChart.setOption(this.getBarOption1(chartData));
+      barChart.setOption(this.getBarOption1(chartData), true);
       return barChart;
     });
   },

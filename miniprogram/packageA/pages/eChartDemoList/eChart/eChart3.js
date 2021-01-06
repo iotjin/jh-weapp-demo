@@ -171,7 +171,7 @@ var option3 = {
     z: 10,
     style: {
       text: '3231',
-      fontSize:'30px'
+      fontSize: '30px'
     }
   }],
   series: [{
@@ -180,26 +180,26 @@ var option3 = {
     center: ['50%', '50%'], //圆心坐标
     radius: ['40%', '60%'],
     avoidLabelOverlap: false, //避免标注重叠
-    labelLine: {//设置延长线的长度
+    labelLine: { //设置延长线的长度
       normal: {
-          length: 3,//设置延长线的长度
-          length2: 5,//设置第二段延长线的长度
+        length: 3, //设置延长线的长度
+        length2: 5, //设置第二段延长线的长度
       }
-  },
-  label: {
-    normal: {
-      show: true,
-      // formatter: function (argument) {
-      //   var html;
-      //   html = '中心文字\r\n\r\n' + '100%';
-      //   return html;
-      // },
-      // textStyle: {
-      //   fontSize: 15,
-      //   color: '#39CCCC'
-      // }
-    }
-  },
+    },
+    label: {
+      normal: {
+        show: true,
+        // formatter: function (argument) {
+        //   var html;
+        //   html = '中心文字\r\n\r\n' + '100%';
+        //   return html;
+        // },
+        // textStyle: {
+        //   fontSize: 15,
+        //   color: '#39CCCC'
+        // }
+      }
+    },
     data: [{
         value: 335,
         name: '直接访问'
@@ -277,7 +277,7 @@ Page({
    */
   onLoad: function (options) {
     wx.setNavigationBarTitle({
-      title: 'eChart- 多个'
+      title: 'eCharts- 多个'
     })
   },
 })

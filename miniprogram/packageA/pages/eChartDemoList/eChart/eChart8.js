@@ -23,7 +23,7 @@ Page({
   onLoad: function (options) {
 
     wx.setNavigationBarTitle({
-      title: 'eChart- x轴换行'
+      title: 'eCharts- x轴换行'
     })
     this.requestData()
   },
