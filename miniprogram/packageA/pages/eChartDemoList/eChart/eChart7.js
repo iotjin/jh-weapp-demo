@@ -259,7 +259,7 @@ Page({
         },
         itemStyle: {
           normal: {
-            // barBorderRadius: [0, 15, 15, 0],
+            barBorderRadius: [0, 15, 15, 0],
             color: new echarts.graphic.LinearGradient(
               1, 0, 0, 0,
               [{
@@ -388,7 +388,7 @@ Page({
           }
         },
         type: 'pie',
-        name:'name',
+        name: 'name',
         center: ['45%', '52%'],
         radius: ['28%', '55%'],
         data: chartData.seriesData

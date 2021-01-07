@@ -111,7 +111,8 @@ Page({
           '城市6', '城市7', '城市8', '城市9', '城市10', '城市11', '城市12',
           '城市13', '城市14', '城市15', '城市16', '城市17', '城市18'
         ],
-        seriesData: [120, 200, 150, 80, 70, 110, 130, 120, 200, 150, 80, 70, 110, 130, 120, 200, 150, 80]
+        seriesData: [120, 200, 150, 80, 70, 110, 130, 120, 200, 150, 80, 70, 110, 130, 120, 200, 150, 80],
+        seriesData2: [53, 87, 56, 25, 56, 95, 200, 20, 150, 56, 30, 80, 60, 76, 80, 100, 76, 20]
       };
       barChart.setOption(that.getBarOption1(chartData), true);
       barChart.hideLoading()
@@ -135,22 +136,33 @@ Page({
     var option = {
       color: ['#3E92EF'],
       // title: {
-      //   text: '未脱贫人口分布情况',
-      //   subtext: '数据来自网络'
+      //   text: '人口分布情况',
+      //   subtext: '数据来自网络',
+      //   left: 'center'
       // },
-      tooltip: {},
+      tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+          type: 'shadow'
+        }
+      },
+      legend: {
+        bottom: 3,
+        left: 'center',
+        data: ['2010', '2020']
+      },
       grid: {
         top: "3%",
         left: '3%',
         right: '6%',
-        bottom: '3%',
+        bottom: '10%',
         containLabel: true
       },
       xAxis: {
         name: '人数(人)',
         type: 'value',
         nameLocation: "middle",
-        nameGap: 20,
+        nameGap: 25,
         axisLine: {
           lineStyle: {
             color: '#999'
@@ -177,34 +189,64 @@ Page({
         data: chartData.yData
       },
       series: [{
-        type: 'bar',
-        barWidth: 20,
-        data: chartData.seriesData,
-        label: {
-          normal: {
-            fontSize: 10,
-            show: true,
-            position: 'right',
-          }
+          name: '2010',
+          type: 'bar',
+          barGap: "0%",
+          data: chartData.seriesData,
+          label: {
+            normal: {
+              fontSize: 10,
+              show: true,
+              position: 'right',
+            }
+          },
+          itemStyle: {
+            normal: {
+              color: new echarts.graphic.LinearGradient(
+                1, 0, 0, 0,
+                [{
+                    offset: 0.5,
+                    color: '#3F90EF'
+                  },
+                  {
+                    offset: 0.9,
+                    color: '#00D0E6'
+                  },
+                ]
+              )
+            }
+          },
         },
-        itemStyle: {
-          normal: {
-            barBorderRadius: [0, 15, 15, 0],
-            color: new echarts.graphic.LinearGradient(
-              1, 0, 0, 0,
-              [{
-                  offset: 0.5,
-                  color: '#3F90EF'
-                },
-                {
-                  offset: 0.9,
-                  color: '#00D0E6'
-                },
-              ]
-            )
-          }
-        },
-      }]
+        {
+          name: '2020',
+          type: 'bar',
+          barGap: "0%",
+          data: chartData.seriesData2,
+          label: {
+            normal: {
+              fontSize: 10,
+              show: true,
+              position: 'right',
+            }
+          },
+          itemStyle: {
+            normal: {
+              color: new echarts.graphic.LinearGradient(
+                1, 0, 0, 0,
+                [{
+                    offset: 0,
+                    color: '#F878AD'
+                  },
+                  {
+                    offset: 1,
+                    color: '#EDBA96'
+                  }
+                ]
+              )
+            }
+          },
+        }
+      ]
     }
     return option
   },
