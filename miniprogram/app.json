@@ -37,7 +37,8 @@
     "pages/demoList/UI/login",
     "pages/demoList/UI/main",
     "pages/demoList/UI/examination",
-    "pages/demoList/UI/table1"
+    "pages/demoList/UI/table1",
+    "pages/demoList/gridViewDemoList/gridView/function"
   ],
   "subpackages": [
     {

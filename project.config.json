@@ -19,26 +19,31 @@
     "checkSiteMap": true,
     "uploadWithSourceMap": true,
     "compileHotReLoad": false,
-    "useMultiFrameRuntime": false,
+    "useMultiFrameRuntime": true,
     "useApiHook": true,
     "babelSetting": {
       "ignore": [],
       "disablePlugins": [],
       "outputPath": ""
     },
-    "bundle": true,
+    "bundle": false,
     "useIsolateContext": true,
     "useCompilerModule": false,
     "userConfirmedUseCompilerModuleSwitch": true,
+    "userConfirmedBundleSwitch": false,
     "packNpmManually": false,
     "packNpmRelationList": [],
-    "minifyWXSS": true
+    "minifyWXSS": true,
+    "useApiHostProcess": false
   },
   "appid": "wxe6fe2e7c5518d78e",
   "projectname": "Jh_weapp",
   "libVersion": "2.13.2",
-  "simulatorType": "wechat",
-  "simulatorPluginLibVersion": {},
+  "simulatorType": "qywx_simulator_plugin",
+  "simulatorPluginLibVersion": {
+    "qywx_simulator_plugin": "2.8.3"
+  },
+  "compileType": "miniprogram",
   "condition": {
     "plugin": {
       "list": []
