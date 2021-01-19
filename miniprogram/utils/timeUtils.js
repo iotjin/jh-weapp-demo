@@ -125,6 +125,38 @@ export function Jh_isToday(time) {
   return newTime == currentTime
 }
 
+//判断当前时间是否在某个时间段内  time格式：2020-07-19 20:33:00
+export function Jh_isBetweenTimes(beginTime, endTime) {
+  beginTime = beginTime.replace(/-/g, '/');
+  endTime = endTime.replace(/-/g, '/');
+  beginTime = new Date(beginTime)
+  endTime = new Date(endTime)
+  let currentTime = new Date();
+  if (beginTime <= currentTime && currentTime <= endTime) {
+    return true;
+  }
+  return false;
+}
+
+//获取当前年月  time格式：2020-07
+export function Jh_getYearMonth() {
+  let timestamp = Date.parse(new Date());
+  return Jh_timeStampToTime(timestamp, '{y}-{m}');
+}
+
+// 获取 指定年月的下一年月 time格式：2020-07
+export function Jh_getNextYearMonth(time) {
+  let tempYear = time.substring(0, 4)
+  let tempMonth = time.substring(5, time.length)
+  tempYear = parseInt(tempYear)
+  tempMonth = parseInt(tempMonth)
+  tempMonth = tempMonth + 1
+  if (tempMonth == 13) {
+    tempYear = tempYear + 1
+    tempMonth = 1
+  }
+  return tempYear + '-' + tempMonth
+}
 
 
 /*
