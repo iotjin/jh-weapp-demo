@@ -1,7 +1,9 @@
 'use strict';
 Object.defineProperty(exports, '__esModule', { value: true });
 exports.transition = void 0;
+// @ts-nocheck
 var utils_1 = require('../common/utils');
+var validator_1 = require('../common/validator');
 var getClassNames = function (name) {
   return {
     enter:
@@ -30,12 +32,7 @@ var getClassNames = function (name) {
       '-leave-active leave-to-class leave-active-class',
   };
 };
-var nextTick = function () {
-  return new Promise(function (resolve) {
-    return setTimeout(resolve, 1000 / 30);
-  });
-};
-exports.transition = function (showDefaultValue) {
+function transition(showDefaultValue) {
   return Behavior({
     properties: {
       customStyle: String,
@@ -74,32 +71,26 @@ exports.transition = function (showDefaultValue) {
           duration = _a.duration,
           name = _a.name;
         var classNames = getClassNames(name);
-        var currentDuration = utils_1.isObj(duration)
+        var currentDuration = validator_1.isObj(duration)
           ? duration.enter
           : duration;
         this.status = 'enter';
         this.$emit('before-enter');
-        Promise.resolve()
-          .then(nextTick)
-          .then(function () {
-            _this.checkStatus('enter');
-            _this.$emit('enter');
-            _this.setData({
-              inited: true,
-              display: true,
-              classes: classNames.enter,
-              currentDuration: currentDuration,
-            });
-          })
-          .then(nextTick)
-          .then(function () {
+        utils_1.requestAnimationFrame(function () {
+          _this.checkStatus('enter');
+          _this.$emit('enter');
+          _this.setData({
+            inited: true,
+            display: true,
+            classes: classNames.enter,
+            currentDuration: currentDuration,
+          });
+          utils_1.requestAnimationFrame(function () {
             _this.checkStatus('enter');
             _this.transitionEnded = false;
-            _this.setData({
-              classes: classNames['enter-to'],
-            });
-          })
-          .catch(function () {});
+            _this.setData({ classes: classNames['enter-to'] });
+          });
+        });
       },
       leave: function () {
         var _this = this;
@@ -110,33 +101,27 @@ exports.transition = function (showDefaultValue) {
           duration = _a.duration,
           name = _a.name;
         var classNames = getClassNames(name);
-        var currentDuration = utils_1.isObj(duration)
+        var currentDuration = validator_1.isObj(duration)
           ? duration.leave
           : duration;
         this.status = 'leave';
         this.$emit('before-leave');
-        Promise.resolve()
-          .then(nextTick)
-          .then(function () {
-            _this.checkStatus('leave');
-            _this.$emit('leave');
-            _this.setData({
-              classes: classNames.leave,
-              currentDuration: currentDuration,
-            });
-          })
-          .then(nextTick)
-          .then(function () {
+        utils_1.requestAnimationFrame(function () {
+          _this.checkStatus('leave');
+          _this.$emit('leave');
+          _this.setData({
+            classes: classNames.leave,
+            currentDuration: currentDuration,
+          });
+          utils_1.requestAnimationFrame(function () {
             _this.checkStatus('leave');
             _this.transitionEnded = false;
             setTimeout(function () {
               return _this.onTransitionEnd();
             }, currentDuration);
-            _this.setData({
-              classes: classNames['leave-to'],
-            });
-          })
-          .catch(function () {});
+            _this.setData({ classes: classNames['leave-to'] });
+          });
+        });
       },
       checkStatus: function (status) {
         if (status !== this.status) {
@@ -158,4 +143,5 @@ exports.transition = function (showDefaultValue) {
       },
     },
   });
-};
+}
+exports.transition = transition;

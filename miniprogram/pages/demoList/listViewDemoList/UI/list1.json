@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "列表",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "light",
+  "usingComponents": {}
+}

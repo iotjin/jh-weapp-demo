@@ -1,0 +1,5 @@
+.img-bg {
+  background: white;
+  padding-top: 10rpx;
+  padding-left: 30rpx;
+}

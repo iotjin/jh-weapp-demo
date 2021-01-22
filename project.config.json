@@ -39,7 +39,7 @@
   "appid": "wxe6fe2e7c5518d78e",
   "projectname": "Jh_weapp",
   "libVersion": "2.13.2",
-  "simulatorType": "qywx_simulator_plugin",
+  "simulatorType": "wechat",
   "simulatorPluginLibVersion": {
     "qywx_simulator_plugin": "2.8.3"
   },
@@ -57,9 +57,8 @@
     "miniprogram": {
       "list": [
         {
-          "id": 0,
-          "name": "pages/demoList/demoList",
-          "pathName": "pages/demoList/demoList",
+          "name": "pages/demoList/listViewDemoList/UI/search_tabbar",
+          "pathName": "pages/demoList/listViewDemoList/UI/search_tabbar",
           "query": "",
           "scene": null
         },

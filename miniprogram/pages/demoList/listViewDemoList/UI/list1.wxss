@@ -1,0 +1,64 @@
+.header {
+  width: 100vw;
+  position: fixed;
+  top: 0;
+}
+
+.content-bg {
+  padding-top: 110rpx;
+}
+
+
+.cell-bg {
+  background: white;
+  margin-top: 15rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  border-radius: 10rpx;
+}
+
+.flex {
+  display: flex;
+}
+
+.left {
+  flex: 75;
+}
+
+.right {
+  flex: 25;
+}
+
+.equipment {
+  padding-top: 15rpx;
+  padding-left: 20rpx;
+}
+
+.name {
+  padding-top: 15rpx;
+  padding-left: 20rpx;
+  font-size: 28rpx;
+}
+
+.time {
+  padding-top: 15rpx;
+  padding-left: 20rpx;
+  padding-bottom: 20rpx;
+  font-size: 25rpx;
+  color: gray;
+}
+
+.status1 {
+  padding-top: 15rpx;
+  text-align: center;
+  font-size: 30rpx;
+  color: orange;
+}
+
+.status2 {
+  padding-top: 15rpx;
+  text-align: center;
+  font-size: 30rpx;
+
+  color: gray;
+}

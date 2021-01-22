@@ -1,0 +1,24 @@
+<van-cell-group>
+  <van-field required label="用户" value="{{ value }}" placeholder="请选择" is-link readonly bind:tap="clickUser" />
+  <van-field required label="联系人" value="{{ username }}" placeholder="请输入姓名" maxlength="10" bind:change="onChange1" />
+  <van-field required label="联系电话" value="{{ phone }}" placeholder="请输入电话" type="number" maxlength="11"
+    bind:change="onChange2" />
+  <van-field label="问题" value="{{ question }}" placeholder="请输入" type="textarea" autosize maxlength="50"
+    bind:change="onChange3" />
+  <van-field required label="时间" value="{{ time }}" placeholder="请选择" is-link readonly bind:tap="clickTime" />
+  <van-field required label="级别" value="{{ level }}" placeholder="请选择" is-link readonly bind:tap="clickLevel" />
+  <van-field required label="描述:" border="{{ false }}" />
+  <van-field value="{{desc}}" placeholder="请输入" maxlength="200" autosize="{maxHeight: 300, minHeight: 50}"
+    show-word-limit type="textarea" input-class="textarea" bind:change="onChange4" />
+  <view class="img-bg">
+    <van-uploader file-list="{{ fileList }}" bind:after-read="afterRead" />
+  </view>
+
+</van-cell-group>
+
+<time-picker isShowPicker='{{isShowTimePicker}}' bind:confirm='confirm1'> </time-picker>
+
+<string-picker textArr='{{stringPickerTextArr}}' isShowPicker='{{isShowStringPicker}}' bind:confirm='confirm2'>
+</string-picker>
+
+<view class="common-submit-btn" bindtap="clickSubmitBtn">提 交</view>

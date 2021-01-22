@@ -18,6 +18,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 var component_1 = require('../common/component');
 var utils_1 = require('./utils');
 var shared_1 = require('./shared');
+var validator_1 = require('../common/validator');
 component_1.VantComponent({
   props: __assign(
     __assign(
@@ -33,7 +34,7 @@ component_1.VantComponent({
           value: 80,
         },
         name: {
-          type: [Number, String],
+          type: null,
           value: '',
         },
         accept: {
@@ -94,12 +95,11 @@ component_1.VantComponent({
         maxCount = _a.maxCount;
       var lists = fileList.map(function (item) {
         return __assign(__assign({}, item), {
-          isImage:
-            typeof item.isImage === 'undefined'
-              ? utils_1.isImageFile(item)
-              : item.isImage,
-          deletable:
-            typeof item.deletable === 'undefined' ? true : item.deletable,
+          isImage: utils_1.isImageFile(item),
+          isVideo: utils_1.isVideoFile(item),
+          deletable: validator_1.isBoolean(item.deletable)
+            ? item.deletable
+            : true,
         });
       });
       this.setData({ lists: lists, isInCount: lists.length < maxCount });
@@ -115,7 +115,6 @@ component_1.VantComponent({
       var _a = this.data,
         maxCount = _a.maxCount,
         multiple = _a.multiple,
-        accept = _a.accept,
         lists = _a.lists,
         disabled = _a.disabled;
       if (disabled) return;
@@ -126,13 +125,7 @@ component_1.VantComponent({
           })
         )
         .then(function (res) {
-          var file = null;
-          if (utils_1.isVideo(res, accept)) {
-            file = __assign({ path: res.tempFilePath }, res);
-          } else {
-            file = multiple ? res.tempFiles : res.tempFiles[0];
-          }
-          _this.onBeforeRead(file);
+          _this.onBeforeRead(multiple ? res : res[0]);
         })
         .catch(function (error) {
           _this.$emit('error', error);
@@ -162,7 +155,7 @@ component_1.VantComponent({
       if (!res) {
         return;
       }
-      if (utils_1.isPromise(res)) {
+      if (validator_1.isPromise(res)) {
         res.then(function (data) {
           return _this.onAfterRead(data || file);
         });
@@ -171,7 +164,9 @@ component_1.VantComponent({
       }
     },
     onAfterRead: function (file) {
-      var maxSize = this.data.maxSize;
+      var _a = this.data,
+        maxSize = _a.maxSize,
+        afterRead = _a.afterRead;
       var oversize = Array.isArray(file)
         ? file.some(function (item) {
             return item.size > maxSize;
@@ -181,8 +176,8 @@ component_1.VantComponent({
         this.$emit('oversize', __assign({ file: file }, this.getDetail()));
         return;
       }
-      if (typeof this.data.afterRead === 'function') {
-        this.data.afterRead(file, this.getDetail());
+      if (typeof afterRead === 'function') {
+        afterRead(file, this.getDetail());
       }
       this.$emit('after-read', __assign({ file: file }, this.getDetail()));
     },
@@ -203,15 +198,40 @@ component_1.VantComponent({
       wx.previewImage({
         urls: lists
           .filter(function (item) {
-            return item.isImage;
+            return utils_1.isImageFile(item);
           })
           .map(function (item) {
-            return item.url || item.path;
+            return item.url;
           }),
-        current: item.url || item.path,
+        current: item.url,
         fail: function () {
           wx.showToast({ title: '预览图片失败', icon: 'none' });
         },
+      });
+    },
+    onPreviewVideo: function (event) {
+      if (!this.data.previewFullImage) return;
+      var index = event.currentTarget.dataset.index;
+      var lists = this.data.lists;
+      wx.previewMedia({
+        sources: lists
+          .filter(function (item) {
+            return utils_1.isVideoFile(item);
+          })
+          .map(function (item) {
+            return __assign(__assign({}, item), { type: 'video' });
+          }),
+        current: index,
+        fail: function () {
+          wx.showToast({ title: '预览视频失败', icon: 'none' });
+        },
+      });
+    },
+    onPreviewFile: function (event) {
+      var index = event.currentTarget.dataset.index;
+      wx.openDocument({
+        filePath: this.data.lists[index].url,
+        showMenu: true,
       });
     },
     onClickPreview: function (event) {

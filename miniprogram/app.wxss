@@ -1,16 +1,20 @@
 /**app.wxss**/
 
 
-ThemeColor{
-  background: #F8F8F8; /* 背景颜色 */
+ThemeColor {
+  background: #F8F8F8;
+  /* 背景颜色 */
   background: #FFB90F;
   background: #F4C87D;
-  background:#C7C7C7; 
-  background:#333333; /*515151*/
-  background: #36383A; /* 计算器的黑色 */
-  background: #121212; /* 计算器背景黑色 */
-  
-  }
+  background: #C7C7C7;
+  background: #333333;
+  /*515151*/
+  background: #36383A;
+  /* 计算器的黑色 */
+  background: #121212;
+  /* 计算器背景黑色 */
+
+}
 
 .Jh_commonBtn {
   margin-top: 40rpx;
@@ -20,6 +24,21 @@ ThemeColor{
   line-height: 40px;
   border-radius: 5px;
   background-color: #FB666C;
+  font-size: 17px;
+  text-align: center;
+  margin: auto 30;
+  color: white;
+}
+
+.common-submit-btn {
+  margin-top: 40rpx;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 5px;
+  /* background-color: #4252DD; */
+  background-color: #38BC9D;
   font-size: 17px;
   text-align: center;
   margin: auto 30;

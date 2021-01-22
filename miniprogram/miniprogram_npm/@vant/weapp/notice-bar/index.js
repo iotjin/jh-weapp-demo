@@ -1,6 +1,7 @@
 'use strict';
 Object.defineProperty(exports, '__esModule', { value: true });
 var component_1 = require('../common/component');
+var utils_1 = require('../common/utils');
 component_1.VantComponent({
   props: {
     text: {
@@ -68,8 +69,8 @@ component_1.VantComponent({
     init: function () {
       var _this = this;
       Promise.all([
-        this.getRect('.van-notice-bar__content'),
-        this.getRect('.van-notice-bar__wrap'),
+        utils_1.getRect(this, '.van-notice-bar__content'),
+        utils_1.getRect(this, '.van-notice-bar__wrap'),
       ]).then(function (rects) {
         var contentRect = rects[0],
           wrapRect = rects[1];
@@ -85,7 +86,7 @@ component_1.VantComponent({
           speed = _a.speed,
           scrollable = _a.scrollable,
           delay = _a.delay;
-        if (scrollable && wrapRect.width < contentRect.width) {
+        if (scrollable || wrapRect.width < contentRect.width) {
           var duration = (contentRect.width / speed) * 1000;
           _this.wrapWidth = wrapRect.width;
           _this.contentWidth = contentRect.width;
@@ -109,14 +110,14 @@ component_1.VantComponent({
           .step()
           .export(),
       });
-      setTimeout(function () {
+      utils_1.requestAnimationFrame(function () {
         _this.setData({
           animationData: _this.animation
             .translateX(-_this.contentWidth)
             .step()
             .export(),
         });
-      }, 20);
+      });
       this.timer = setTimeout(function () {
         _this.scroll();
       }, this.duration);
