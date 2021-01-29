@@ -1,0 +1,22 @@
+<view class="table">
+  <view class="tr">
+    <view class="th">省份/直辖市</view>
+    <view class="th">GDP</view>
+    <view class="th">增长率</view>
+  </view>
+  <view class="tr">
+    <view class="td">广东</view>
+    <view class="td">72812456</view>
+    <view class="td">8.0%</view>
+  </view>
+  <view class="tr">
+    <view class="td">河南</view>
+    <view class="td">37010</view>
+    <view class="td">8.3%</view>
+  </view>
+  <view class="tr">
+    <view class="td">江苏</view>
+    <view class="td">70116</view>
+    <view class="td">8.5%</view>
+  </view>
+</view>

@@ -30,10 +30,8 @@ ThemeColor {
   color: white;
 }
 
-.common-submit-btn {
-  margin-top: 40rpx;
-  margin-left: 30rpx;
-  margin-right: 30rpx;
+.base-submit-btn {
+  margin: 40rpx 30rpx;
   height: 40px;
   line-height: 40px;
   border-radius: 5px;
@@ -65,6 +63,24 @@ Jh_substring {
   /* 超出的隐藏 */
   overflow: hidden;
 }
+
+/* gridView */
+grid-bg {
+  display: flex;
+  flex-direction: row;
+  padding: 30rpx 20rpx;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+item-bg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45%;
+  padding: 1%;
+}
+
 
 /*-------------------------------------*/
 

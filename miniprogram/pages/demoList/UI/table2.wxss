@@ -1,0 +1,30 @@
+.table {
+  display: table;
+  /* width: 100%; */
+  border-collapse: collapse;
+  /* 合并边框 */
+  box-sizing: border-box;
+  margin: 20rpx;
+}
+
+.th {
+  display: table-cell;
+  font-weight: bold;
+  border: 1rpx solid gray;
+  text-align: center;
+  vertical-align: middle;
+  background: white;
+}
+
+.tr {
+  display: table-row;
+  height: 92rpx;
+  background: white;
+}
+
+.td {
+  display: table-cell;
+  border: 1rpx solid gray;
+  text-align: center;
+  vertical-align: middle;
+}

@@ -1,0 +1,49 @@
+<view class="header">
+  <van-search value="{{ searchText }}" placeholder="请输入搜索关键词" use-action-slot bind:change="onChange" maxlength="10">
+    <!-- <image src="../../../images/weixinLogo.png" slot="action" class="rightImg"></image> -->
+    <van-icon name="filter-o" slot="action" class="rightImg" size="50rpx" bind:tap="onClickRightItem" />
+  </van-search>
+  <van-tabs id="tabs1" bind:change="onChangeTopTab1">
+    <van-tab title="待处理"></van-tab>
+    <van-tab title="已处理"></van-tab>
+  </van-tabs>
+</view>
+
+
+<van-popup show="{{ isShowPop }}" bind:close="onClose" position="right" custom-style="width:80%;height:100%"
+  catchtouchmove="myMove">
+  <view class="groupTitle">筛选</view>
+  <van-cell-group>
+    <van-field label="工单号" value="{{ phone }}" placeholder="请输入工单号" type="number" maxlength="30"
+      bind:change="onChange1" />
+    <van-field label="用户" value="{{ username }}" placeholder="请输入用户名" maxlength="30" bind:change="onChange2" />
+  </van-cell-group>
+  <van-cell-group title="工单类型">
+    <view class="flex-bg">
+      <block wx:for="{{workOrdertType}}" wx:key="index">
+        <view class="{{item.isSelected ? 'flex-item-selected' :'flex-item'}} " bindtap='clickType' data-item="{{item}}"
+          data-index="{{index}}">
+          {{item.text}}
+        </view>
+      </block>
+    </view>
+  </van-cell-group>
+  <van-cell-group title="级别">
+    <view class="flex-bg">
+      <block wx:for="{{level}}" wx:key="index">
+        <view class="{{item.isSelected ? 'flex-item-selected' :'flex-item'}} " bindtap='clickLevel' data-item="{{item}}"
+          data-index="{{index}}">
+          {{item.text}}
+        </view>
+      </block>
+    </view>
+  </van-cell-group>
+  <van-field label="开始日期" value="{{ startDate }}" placeholder="请选择" is-link readonly bind:tap="clickStartDate" />
+  <van-field label="结束日期" value="{{ endDate }}" placeholder="请选择" is-link readonly bind:tap="clickEndDate" />
+  <view class="footer-bg">
+    <view class="footer-last" bindtap="clickReset">重置</view>
+    <view class="footer-nest" bindtap="clickSearch">查询</view>
+  </view>
+</van-popup>
+
+<time-picker isShowPicker='{{isShowTimePicker}}' bind:confirm='confirm1'> </time-picker>

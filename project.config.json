@@ -55,10 +55,9 @@
       "list": []
     },
     "miniprogram": {
-      "list": [
-        {
-          "name": "pages/demoList/listViewDemoList/UI/search_tabbar",
-          "pathName": "pages/demoList/listViewDemoList/UI/search_tabbar",
+      "list": [{
+          "name": "pages/demoList/demoList",
+          "pathName": "pages/demoList/demoList",
           "query": "",
           "scene": null
         },

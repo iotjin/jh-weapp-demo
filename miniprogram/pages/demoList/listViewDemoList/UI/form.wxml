@@ -21,4 +21,4 @@
 <string-picker textArr='{{stringPickerTextArr}}' isShowPicker='{{isShowStringPicker}}' bind:confirm='confirm2'>
 </string-picker>
 
-<view class="common-submit-btn" bindtap="clickSubmitBtn">提 交</view>
+<view class="base-submit-btn" bindtap="clickSubmitBtn">提 交</view>

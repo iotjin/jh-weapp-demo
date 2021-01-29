@@ -144,10 +144,64 @@ export function Jh_getYearMonth() {
   return Jh_timeStampToTime(timestamp, '{y}-{m}');
 }
 
-// 获取 指定年月的下一年月 time格式：2020-07
+//获取 指定年的上一年 time格式：2020 | 2020年
+export function Jh_getPrevYear(time) {
+  let tempYear = time.substring(0, 4)
+  tempYear = parseInt(tempYear)
+  tempYear = tempYear - 1
+  let text = time.substring(4, 5)
+  let prevTime = ''
+  if (text == '年') {
+    prevTime = tempYear + '年'
+  } else {
+    prevTime = tempYear + text
+  }
+  return prevTime
+}
+
+//获取 指定年的下一年 time格式：2020 | 2020年
+export function Jh_getNextYear(time) {
+  let tempYear = time.substring(0, 4)
+  tempYear = parseInt(tempYear)
+  tempYear = tempYear + 1
+  let text = time.substring(4, 5)
+  let nextTime = ''
+  if (text == '年') {
+    nextTime = tempYear + '年'
+  } else {
+    nextTime = tempYear + text
+  }
+  return nextTime
+}
+
+//获取 指定年月的上一年月 time格式：2020-07 | 2020年07月
+export function Jh_getPrevYearMonth(time) {
+  let tempYear = time.substring(0, 4)
+  let tempMonth = time.substring(5, 7)
+  tempYear = parseInt(tempYear)
+  tempMonth = parseInt(tempMonth)
+  tempMonth = tempMonth - 1
+  if (tempMonth == 0) {
+    tempYear = tempYear - 1
+    tempMonth = 12
+  }
+  if (tempMonth < 10) {
+    tempMonth = '0' + tempMonth
+  }
+  let text = time.substring(4, 5)
+  let prevTime = ''
+  if (text == '年') {
+    prevTime = tempYear + '年' + tempMonth + '月'
+  } else {
+    prevTime = tempYear + text + tempMonth
+  }
+  return prevTime
+}
+
+// 获取 指定年月的下一年月 time格式：2020-07 | 2020年07月
 export function Jh_getNextYearMonth(time) {
   let tempYear = time.substring(0, 4)
-  let tempMonth = time.substring(5, time.length)
+  let tempMonth = time.substring(5, 7)
   tempYear = parseInt(tempYear)
   tempMonth = parseInt(tempMonth)
   tempMonth = tempMonth + 1
@@ -155,7 +209,17 @@ export function Jh_getNextYearMonth(time) {
     tempYear = tempYear + 1
     tempMonth = 1
   }
-  return tempYear + '-' + tempMonth
+  if (tempMonth < 10) {
+    tempMonth = '0' + tempMonth
+  }
+  let text = time.substring(4, 5)
+  let nextTime = ''
+  if (text == '年') {
+    nextTime = tempYear + '年' + tempMonth + '月'
+  } else {
+    nextTime = tempYear + text + tempMonth
+  }
+  return nextTime
 }
 
 

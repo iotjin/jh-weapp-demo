@@ -4,10 +4,12 @@ App({
   //全局数据
   globalData: {
     name: '张三',
+    isIPhoneX: false,
   },
   //全局宏
   kUserInfo: "kUserInfo",
   isIPhoneX: false, // 当前设备是否为 iPhone X
+  kBottomSafeHeight: 0, // X 34 ，其余 0 
 
   onLaunch: function () {
 
@@ -27,20 +29,27 @@ App({
     this.globalData = {}
     this.checkIsIPhoneX()
   },
-  
+
   // 判断设备是否为 iPhone X
   checkIsIPhoneX: function () {
-    const self = this
+    const that = this
     wx.getSystemInfo({
       success: function (res) {
-        // 根据 model 进行判断
-        if (res.model.search('iPhone X') != -1) {
-          self.globalData.isIPhoneX = true
-          self.isIPhoneX = true
+        var safeBottom = res.screenHeight - res.safeArea.bottom
+        that.kBottomSafeHeight = safeBottom
+        //根据安全高度判断
+        if (safeBottom === 34) {
+          that.globalData.isIPhoneX = true
+          that.isIPhoneX = true
         }
-        // 或者根据 screenHeight 进行判断
-        // if (res.screenHeight == 812) {
-        //   self.globalData.isIPX = true
+        // // 根据 model 进行判断
+        // if (res.model.search('iPhone X') != -1) {
+        //   that.globalData.isIPhoneX = true
+        //   that.isIPhoneX = true
+        // }
+        // // 或者根据 screenHeight 进行判断
+        // if (res.screenHeight == 812 || res.screenHeight == 896) {
+        //   that.isIPhoneX = true
         // }
       }
     })

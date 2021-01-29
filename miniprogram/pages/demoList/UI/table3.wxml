@@ -1,0 +1,22 @@
+<view class="table">
+  <view class="tr">
+    <view class="th"></view>
+    <view class="th">head1</view>
+    <view class="th">head2</view>
+    <view class="th ">head3</view>
+  </view>
+  <block wx:for="{{listData}}" wx:key="index">
+    <view class="tr bg-g" wx:if="{{index % 2 == 0}}">
+      <view class="td">{{item.rowTitle}}</view>
+      <view class="td">{{item.code}}</view>
+      <view class="td">{{item.text}}</view>
+      <view class="td">{{item.type}}</view>
+    </view>
+    <view class="tr" wx:else>
+      <view class="td">{{item.rowTitle}}</view>
+      <view class="td">{{item.code}}</view>
+      <view class="td">{{item.text}}</view>
+      <view class="td">{{item.type}}</view>
+    </view>
+  </block>
+</view>

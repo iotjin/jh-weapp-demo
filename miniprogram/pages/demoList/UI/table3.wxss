@@ -1,0 +1,40 @@
+.table {
+  border: 1px solid rgb(240, 240, 240);
+  margin: 10rpx;
+}
+
+.th {
+  width: 40%;
+  justify-content: center;
+  background: #3366FF;
+  color: #fff;
+  display: flex;
+  height: 3rem;
+  align-items: center;
+  border: 1rpx solid rgb(240, 240, 240);
+}
+
+.tr {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 3rem;
+}
+
+.td {
+  width: 40%;
+  text-align: center;
+  justify-content: center;
+  /* border: 1rpx solid red; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3rem;
+  border: 1rpx solid rgb(240, 240, 240);
+  background: white;
+}
+
+.bg-g {
+  background: #E6F3F9;
+}

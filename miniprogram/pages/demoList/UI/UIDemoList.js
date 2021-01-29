@@ -40,6 +40,10 @@ Page({
         text: '简单表格',
         pathUrl: '/pages/demoList/UI/table1'
       },
+      {
+        text: '简单表格2',
+        pathUrl: '/pages/demoList/UI/table4'
+      },
     ]
   },
 

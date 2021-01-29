@@ -1,0 +1,49 @@
+.table {
+  display: table;
+  width: 95%;
+  border-collapse: collapse;
+  /* 合并边框 */
+  box-sizing: border-box;
+  margin: 20rpx;
+  border: 1px solid gray;
+}
+
+.th {
+  display: table-cell;
+  font-weight: bold;
+  border: 1rpx solid gray;
+  text-align: center;
+  vertical-align: middle;
+  background: white;
+}
+
+.tr0 {
+  display: table-row;
+  height: 82rpx;
+  background: white;
+}
+
+.tr {
+  display: table-row;
+  height: 52rpx;
+  background: white;
+}
+
+.td0 {
+  display: table-cell;
+  border: 1rpx solid gray;
+  text-align: center;
+  vertical-align: middle;
+
+  color: red;
+  border-bottom: 0px solid blue;
+}
+
+.td {
+  display: table-cell;
+  border: 1rpx solid gray;
+  text-align: center;
+  vertical-align: middle;
+  border-top: 0px solid blue;
+  color: blue;
+}
