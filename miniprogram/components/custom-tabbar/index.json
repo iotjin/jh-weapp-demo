@@ -1,0 +1,9 @@
+{
+  "component": true,
+  "usingComponents": {
+    "van-tabbar": "@vant/weapp/tabbar/index",
+    "van-tabbar-item": "@vant/weapp/tabbar-item/index",
+    "page1": "./tabs/one",
+    "page2": "./tabs/two"
+  }
+}

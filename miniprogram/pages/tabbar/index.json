@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "custom-tabbar": "../../components/custom-tabbar/index"
+  }
+}

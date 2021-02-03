@@ -1,4 +1,5 @@
-// AES 加密
+// AES 加密 CBC
+
 /*
 https://www.cnblogs.com/sunnyeve/p/12145448.html
 https://www.jianshu.com/p/534401394ac1
@@ -9,7 +10,7 @@ var CryptoJS = require('./aes.js');
 var _KEY = ""; //32位
 var _IV = ""; //16位    //这个key和偏移量都是后台给的数据
 
-//字符串加密方法
+//字符串加密
 function encrypt(str) {
   var key = CryptoJS.enc.Utf8.parse(_KEY);
   var iv = CryptoJS.enc.Utf8.parse(_IV);
@@ -23,7 +24,7 @@ function encrypt(str) {
   return encrypted.ciphertext.toString();
 }
 
-//字符串解密方法
+//字符串解密
 function decrypt(str) {
   var key = CryptoJS.enc.Utf8.parse(_KEY);
   var iv = CryptoJS.enc.Utf8.parse(_IV);
@@ -76,3 +77,10 @@ module.exports = {
   Decrypt: decrypt,
   Encrypt: encrypt
 }
+
+/* 使用
+
+var AES = require('../../utils/aes/aesUtils')
+AES.Encrypt('123')
+
+*/

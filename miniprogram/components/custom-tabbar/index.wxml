@@ -1,0 +1,43 @@
+<!-- 页面展示 -->
+<view hidden="{{selected == 0? false: true}}">
+  <page1 />
+</view>
+<view hidden="{{selected == 1? false: true}}">
+  <page2 />
+</view>
+
+<!-- 自定义 tabbar -->
+<view hidden="{{tabbars.length<=0}}">
+  <van-tabbar active-color="{{selectedColor}}" inactive-color="{{color}}" active="{{ selected }}"
+    bind:change="onChangeTabbar" placeholder="true">
+    <block wx:for="{{tabbars}}" wx:key="index">
+      <block wx:if="{{item.info.length}}">
+        <van-tabbar-item info='{{item.info}}'>
+          <image slot="icon" src="{{ item.iconPath }}" mode="aspectFit" style="width: 25px; height: 25px;" />
+          <image slot="icon-active" src="{{ item.selectedIconPath }}" mode="aspectFit"
+            style="width: 25px; height: 25px;" />
+          <!-- {{item.text}} -->
+          <view class="text">{{item.text}}</view>
+        </van-tabbar-item>
+      </block>
+      <block wx:elif="{{item.isShowRedDot}}">
+        <van-tabbar-item dot>
+          <image slot="icon" src="{{ item.iconPath }}" mode="aspectFit" style="width: 25px; height: 25px;" />
+          <image slot="icon-active" src="{{ item.selectedIconPath }}" mode="aspectFit"
+            style="width: 25px; height: 25px;" />
+          <!-- {{item.text}} -->
+          <view class="text">{{item.text}}</view>
+        </van-tabbar-item>
+      </block>
+      <block wx:else>
+        <van-tabbar-item style="color:red;">
+          <image slot="icon" src="{{ item.iconPath }}" mode="aspectFit" style="width: 25px; height: 25px;" />
+          <image slot="icon-active" src="{{ item.selectedIconPath }}" mode="aspectFit"
+            style="width: 25px; height: 25px;" />
+          <!-- {{item.text}} -->
+          <view class="text">{{item.text}}</view>
+        </van-tabbar-item>
+      </block>
+    </block>
+  </van-tabbar>
+</view>

@@ -96,7 +96,8 @@ Page({
   },
   
   aesTest() {
-    const aesString = "---content---"
+    // const aesString = "---content---"
+    const aesString = "123124"
     console.log("加密前:" + aesString)
     var aesBuffer = AES.Encrypt(aesString)
     console.log("加密后:" + aesBuffer)

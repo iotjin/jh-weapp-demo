@@ -1,0 +1,1 @@
+<custom-tabbar list="{{tabbars}}" bind:onChangeTabbar="onChangeTabbar"></custom-tabbar>
