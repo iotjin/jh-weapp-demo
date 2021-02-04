@@ -1,20 +1,15 @@
 <view class="bg">
-  <van-cell-group title="分组1" border="{{false}}">
-    <van-grid column-num="3" border="{{ false }}" gutter="{{ 10 }}">
-      <van-grid-item use-slot wx:for="{{ dataArr }}" content-class="grid-bg" url="{{item.url}}">
-        <image class="img" src="{{item.img}}" />
-        <view class="text">{{item.text}}</view>
-      </van-grid-item>
-    </van-grid>
-  </van-cell-group>
-</view>
-<view class="bg">
-  <van-cell-group title="分组2" border="{{false}}">
-    <van-grid column-num="3" border="{{ false }}" gutter="{{ 10 }}">
-      <van-grid-item use-slot wx:for="{{ dataArr }}" content-class="grid-bg">
-        <image class="img" src="{{item.img}}" />
-        <view class="text">{{item.text}}</view>
-      </van-grid-item>
-    </van-grid>
-  </van-cell-group>
+  <block wx:for="{{groupDataArr}}" wx:key="index">
+    <view class="bg">
+      <van-cell-group title="{{groupDataArr[index].groupTitle}}" border="{{false}}">
+        <van-grid column-num="3" border="{{ false }}" gutter="{{ 10 }}">
+          <van-grid-item use-slot wx:for="{{ groupDataArr[index].groupData }}" content-class="grid-bg"
+            url="{{item.url}}" wx:key="index">
+            <image class="img" src="{{item.img}}" />
+            <view class="text">{{item.text}}</view>
+          </van-grid-item>
+        </van-grid>
+      </van-cell-group>
+    </view>
+  </block>
 </view>

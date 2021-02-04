@@ -11,7 +11,7 @@
 * 上下拉刷新、分组吸顶ListView
 * 答题功能
 * excel导入导出
-* AES、SHA256
+* md5、base64、AES、SHA256
 * 表格
 * 侧滑筛选
 * custom-tabbar（动态设置、不闪屏）

@@ -1,5 +1,5 @@
 // pages/demoList/demoList.js
-var AES = require('../../utils/aes/aesUtils')
+var AES = require('../../utils/encrypt/aes/aesUtils')
 
 Page({
 
@@ -37,12 +37,9 @@ Page({
    */
   onLoad: function (options) {
 
-
     wx.setNavigationBarTitle({
       title: 'DemoList'
     })
-
-    this.aesTest()
 
   },
 

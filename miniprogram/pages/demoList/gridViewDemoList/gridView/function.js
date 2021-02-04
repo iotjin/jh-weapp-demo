@@ -5,22 +5,51 @@ Page({
    * 页面的初始数据
    */
   data: {
-    dataArr: [{
-      text: '功能1',
-      url: './gridView1',
-      img: '../../../../images/weixinLogo.png'
+    groupDataArr: [{
+      groupTitle: '分组一',
+      groupData: [{
+        text: '功能1',
+        url: './gridView1',
+        img: '../../../../images/weixinLogo.png'
+      }, {
+        text: '功能2',
+        url: './gridView2',
+        img: '../../../../images/weixinLogo.png'
+      }, {
+        text: '功能3',
+        url: './gridView3',
+        img: '../../../../images/weixinLogo.png'
+      }],
     }, {
-      text: '功能2',
-      url: './gridView2',
-      img: '../../../../images/weixinLogo.png'
+      groupTitle: '分组二',
+      groupData: [{
+        text: '功能1',
+        url: './gridView1',
+        img: '../../../../images/weixinLogo.png'
+      }, {
+        text: '功能2',
+        url: './gridView2',
+        img: '../../../../images/weixinLogo.png'
+      }, {
+        text: '功能3',
+        url: './gridView3',
+        img: '../../../../images/weixinLogo.png'
+      }, {
+        text: '功能4',
+        url: './gridView4',
+        img: '../../../../images/weixinLogo.png'
+      }],
     }, {
-      text: '功能3',
-      url: './gridView3',
-      img: '../../../../images/weixinLogo.png'
-    }, {
-      text: '功能4',
-      url: './gridView4',
-      img: '../../../../images/weixinLogo.png'
+      groupTitle: '分组三',
+      groupData: [{
+        text: '功能1',
+        url: './gridView1',
+        img: '../../../../images/weixinLogo.png'
+      }, {
+        text: '功能2',
+        url: './gridView2',
+        img: '../../../../images/weixinLogo.png'
+      }],
     }]
   },
 
