@@ -1,5 +1,5 @@
 # jh-weapp-demo
-小程序 - jh-weapp-demo
+小程序 
 
 ## 实现的一些效果
 
