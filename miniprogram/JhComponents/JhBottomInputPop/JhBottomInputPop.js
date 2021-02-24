@@ -5,7 +5,7 @@
 /*
 使用方法 ：
 1. usingComponents 添加
-  "JhBottomInputPop": "../../JhTools/JhBottomInputPop/JhBottomInputPop",
+  "JhBottomInputPop": "../../JhComponents/JhBottomInputPop/JhBottomInputPop",
 
 2. wxml 添加组件
 <JhBottomInputPop isShow='{{showBottomInputPop}' title="标题" maxLength='50' placeholder='请输入（不超过50字）' bindonConfirm='confirm'>

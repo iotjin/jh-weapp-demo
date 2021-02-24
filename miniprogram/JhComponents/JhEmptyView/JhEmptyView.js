@@ -5,7 +5,7 @@
 /*
 使用方法 ：
 1. usingComponents 添加
-     "JhEmptyView": "../../JhTools/JhEmptyView/JhEmptyView"
+     "JhEmptyView": "../../JhComponents/JhEmptyView/JhEmptyView"
 
 2. wxml 添加组件
 <JhTextListView listDataArr='{{dataArr}}' bind:clickCell="clickCell">

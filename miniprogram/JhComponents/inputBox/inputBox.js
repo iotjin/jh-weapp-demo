@@ -3,7 +3,7 @@
 /*
 使用方法 ：
 1. usingComponents 添加
-    "inputBox": "../../../JhTools/inputBox/inputBox"
+    "inputBox": "../../../JhComponents/inputBox/inputBox"
 
 2. wxml 添加组件
 <inputBox title='输入框标题'

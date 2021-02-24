@@ -37,7 +37,7 @@
     "useApiHostProcess": false
   },
   "appid": "wxe6fe2e7c5518d78e",
-  "projectname": "Jh_weapp",
+  "projectname": "jh-weapp-demo",
   "libVersion": "2.13.2",
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {

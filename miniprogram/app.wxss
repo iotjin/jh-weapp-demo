@@ -43,6 +43,12 @@ ThemeColor {
   color: white;
 }
 
+.base-item-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /*水平垂直居中*/
 Jh_center {
   display: flex;

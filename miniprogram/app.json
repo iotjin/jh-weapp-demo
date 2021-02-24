@@ -21,6 +21,7 @@
     "pages/demoList/listViewDemoList/UI/search_tabbar",
     "pages/demoList/listViewDemoList/UI/score",
     "pages/demoList/listViewDemoList/UI/sideslip",
+    "pages/demoList/listViewDemoList/UI/study_room",
     "pages/demoList/gridViewDemoList/gridViewDemoList",
     "pages/demoList/gridViewDemoList/gridView/gridView1",
     "pages/demoList/gridViewDemoList/gridView/gridView2",
@@ -47,7 +48,8 @@
     "pages/demoList/UI/table1",
     "pages/demoList/UI/table2",
     "pages/demoList/UI/table3",
-    "pages/demoList/UI/table4"
+    "pages/demoList/UI/table4",
+    "pages/demoList/UI/tree"
   ],
   "subpackages": [{
     "root": "packageA",
@@ -105,9 +107,10 @@
   ],
   "usingComponents": {
     "custom-tabbar": "components/custom-tabbar/index",
-    "time-picker": "JhTools/time-picker/index",
-    "string-picker": "JhTools/string-picker/index",
-    "time-switch": "JhTools/time-switch/index",
+    "time-picker": "JhComponents/time-picker/index",
+    "string-picker": "JhComponents/string-picker/index",
+    "time-switch": "JhComponents/time-switch/index",
+    "mytree": "JhComponents/mytree/index",
     "van-cell": "@vant/weapp/cell/index",
     "van-cell-group": "@vant/weapp/cell-group/index",
     "van-icon": "@vant/weapp/icon/index",
@@ -134,6 +137,7 @@
     "van-tabbar": "@vant/weapp/tabbar/index",
     "van-tabbar-item": "@vant/weapp/tabbar-item/index",
     "van-rate": "@vant/weapp/rate/index",
+    "van-notice-bar": "@vant/weapp/notice-bar/index",
     "mp-cell": "/miniprogram_npm/weui-miniprogram/cell/cell",
     "mp-cells": "/miniprogram_npm/weui-miniprogram/cells/cells",
     "mp-slideview": "miniprogram_npm/weui-miniprogram/slideview/slideview",

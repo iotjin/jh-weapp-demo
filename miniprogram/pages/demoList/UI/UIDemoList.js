@@ -44,6 +44,10 @@ Page({
         text: '简单表格2',
         pathUrl: '/pages/demoList/UI/table4'
       },
+      {
+        text: '树形结构数据',
+        pathUrl: '/pages/demoList/UI/tree'
+      },
     ]
   },
 

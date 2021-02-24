@@ -1,5 +1,5 @@
 {
   "usingComponents": {
-    "EmptyView": "../../../../JhTools/empty-view/index"
+    "EmptyView": "../../../../JhComponents/empty-view/index"
   }
 }

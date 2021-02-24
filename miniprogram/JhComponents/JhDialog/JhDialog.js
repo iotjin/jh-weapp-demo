@@ -3,7 +3,7 @@
 /*
 使用方法 ：
 1. usingComponents 添加
-     "JhDialog": "../../JhTools/JhDialog/JhDialog"
+     "JhDialog": "../../JhComponents/JhDialog/JhDialog"
 
 2. wxml 添加组件
 <JhDialog isShowDialog='{{isShowDialog}}' bind:onConfirm="onConfirm">

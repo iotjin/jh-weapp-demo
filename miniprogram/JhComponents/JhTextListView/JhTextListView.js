@@ -1,9 +1,9 @@
-// JhTools/JhTextListView/JhTextListView.js
+// JhComponents/JhTextListView/JhTextListView.js
 
 /*
 使用方法 ：
 1. usingComponents 添加
- "JhTextListView": "../../../JhTools/JhTextListView/JhTextListView"
+ "JhTextListView": "../../../JhComponents/JhTextListView/JhTextListView"
 
 2. wxml 添加组件
 <JhTextListView listDataArr='{{dataArr}}' bind:clickCell="clickCell">

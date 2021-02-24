@@ -1,0 +1,17 @@
+<van-popup position="bottom" custom-style="height: 50%;" show="{{ isShowTimePicker }}" bind:close="hiddenTimePicker">
+
+	<view wx:if="{{minDate}}">
+		<van-datetime-picker title="请选择" type="{{type}}" value="{{currentDate}}" min-date="{{minDate}}" bind:confirm="onConfirm" bind:cancel="onCancel" formatter="{{formatter}}" active-class="active-class" toolbar-class="toolbar-class" />
+	</view>
+	<view wx:elif="{{maxDate}}">
+		<van-datetime-picker title="请选择" type="{{type}}" value="{{currentDate}}" max-date="{{maxDate}}" bind:confirm="onConfirm" bind:cancel="onCancel" formatter="{{formatter}}" active-class="active-class" toolbar-class="toolbar-class" />
+	</view>
+	<view wx:else>
+		<van-datetime-picker title="请选择" type="{{type}}" value="{{currentDate}}" bind:confirm="onConfirm" bind:cancel="onCancel" formatter="{{formatter}}" active-class="active-class" toolbar-class="toolbar-class" />
+	</view>
+
+</van-popup>
+
+<!-- <picker class="weui-btn" mode="date" value="2016-08" start="" end="" bindchange="bindTimeChange">
+    <button type="default">搜索</button>
+</picker> -->
