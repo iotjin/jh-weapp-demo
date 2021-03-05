@@ -11,14 +11,15 @@
   <van-field value="{{desc}}" placeholder="请输入" maxlength="200" autosize="{maxHeight: 300, minHeight: 50}"
     show-word-limit type="textarea" input-class="textarea" bind:change="onChange4" />
   <view class="img-bg">
-    <van-uploader file-list="{{ fileList }}" bind:after-read="afterRead" />
+    <van-uploader file-list="{{ fileList }}" bind:after-read="afterRead" bind:delete="deleteImg" />
   </view>
 
 </van-cell-group>
 
 <time-picker isShowPicker='{{isShowTimePicker}}' bind:confirm='confirm1'> </time-picker>
 
-<string-picker textArr='{{stringPickerTextArr}}' isShowPicker='{{isShowStringPicker}}' bind:confirm='confirm2'>
+<string-picker textArr='{{stringPickerTextArr}}' selectIndex='1' isShowPicker='{{isShowStringPicker}}'
+  bind:confirm='confirm2'>
 </string-picker>
 
 <view class="base-submit-btn" bindtap="clickSubmitBtn">提 交</view>

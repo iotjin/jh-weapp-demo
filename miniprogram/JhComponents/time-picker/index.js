@@ -99,8 +99,37 @@ Component({
         ss = '0' + ss;
       }
       let time = selectText + ':' + ss;
-      this.triggerEvent('confirm', time);
-    }
+      let timeStamp = this.Jh_convertTimeStamp(time)
+      this.triggerEvent('confirm', {
+        time: time,
+        timeStamp: timeStamp
+      });
+    },
+    /** 
+     * 将某个时间转化成时间戳  
+     * 时间格式：2019-05-20 00:00:00 或 2019年5月1日 00:00:00 
+     * 返回值：1556640000000，13位时间戳 
+     */
+    Jh_convertTimeStamp(time) {
+      //用正则主要是把“2019-05-20 00:00:00”转换成“2019/05/20 00:00:00”兼容ios 
+      let newTime = time.replace(/-/g, '/');
+      newTime = newTime.replace(/年/g, '/');
+      newTime = newTime.replace(/月/g, '/');
+      newTime = newTime.replace(/日/g, '');
+      if (newTime.length == 4) {
+        newTime = newTime + '/01/01 00:00:00'
+      }
+      if (newTime.length == 7) {
+        newTime = newTime + '/01 00:00:00'
+      }
+      if (newTime.length == 10) {
+        newTime = newTime + ' 00:00:00'
+      }
+      if (newTime.length == 16) {
+        newTime = newTime + ':00'
+      }
+      return Date.parse(newTime)
+    },
 
   },
 
@@ -213,7 +242,7 @@ picker.showPicker();
   confirm1: function (event){
     console.log(event.detail);
     this.setData({
-      currentDateStr1: event.detail,
+      currentDateStr1: event.detail.time,
     });
   },
 

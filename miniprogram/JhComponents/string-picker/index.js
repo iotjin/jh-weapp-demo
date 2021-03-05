@@ -14,7 +14,7 @@ Component({
       type: String,
       value: '请选择',
     },
-    // 字符串数组
+    // 对象数组 格式：[{name: "一般", id: "0"},{name: "严重", id: "1"}]
     textArr: {
       type: Array,
       value: [],
@@ -54,6 +54,7 @@ Component({
       var that = this
       setTimeout(function () {
         that.setData({
+          pickerTextArr: that.properties.textArr,
           pickerSelectIndexArr: [that.properties.selectIndex]
         })
       }, 300)
@@ -75,7 +76,8 @@ Component({
     //点击确定按钮
     confirm: function (event) {
       let indexArr = this.data.pickerSelectIndexArr
-      var selectText = this.data.pickerTextArr[indexArr[0]]
+      let selectText = this.data.pickerTextArr[indexArr[0]].name
+      let selectIndex = this.data.pickerTextArr[indexArr[0]].id
       // console.log("点击确定按钮: " + selectText);
       this.setData({
         isShowPicker: false
@@ -83,7 +85,7 @@ Component({
       //传递选中的text
       var dic = {
         value: selectText,
-        index: indexArr[0]
+        index: selectIndex
       }
       this.triggerEvent('confirm', dic);
     }
@@ -97,9 +99,6 @@ Component({
     attached: function () {
       // 页面创建时执行
       // console.info('---JhStringPicker loaded!---');
-      this.setData({
-        pickerTextArr: this.properties.textArr
-      })
     }
   }
 
@@ -115,7 +114,7 @@ Component({
   
   data: {
     isShowPicker: false,
-    stringPickerTextArr: ['一', '二', '三']
+    stringPickerTextArr: [{name: "一般", id: "0"},{name: "严重", id: "1"}]
   },
 
 // 弹出

@@ -55,7 +55,8 @@
       "list": []
     },
     "miniprogram": {
-      "list": [{
+      "list": [
+        {
           "name": "pages/demoList/demoList",
           "pathName": "pages/demoList/demoList",
           "query": "",

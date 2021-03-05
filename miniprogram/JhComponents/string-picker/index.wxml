@@ -1,6 +1,5 @@
 <van-popup position="bottom" custom-style="height: 50%;" show="{{isShowPicker}}" bind:close="hiddenPicker"
   bind:before-enter="willShowPopView">
-
   <view class="bgView">
     <view class="pickerTool">
       <view class="pickerCancel" bindtap="cancel">取消</view>
@@ -11,9 +10,8 @@
       indicator-style="height: 40px;border-top:1px solid #eee;border-bottom:1px solid #eee;"
       value="{{pickerSelectIndexArr}}" bindchange="onChange">
       <picker-view-column class="pickerColumn0">
-        <view wx:for="{{pickerTextArr}}" wx:key='index' class="pickerColumnText">{{item}}</view>
+        <view wx:for="{{pickerTextArr}}" wx:key='index' class="pickerColumnText">{{item.name}}</view>
       </picker-view-column>
     </picker-view>
   </view>
-
 </van-popup>

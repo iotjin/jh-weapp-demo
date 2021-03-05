@@ -3,21 +3,31 @@
 var isProduct = __wxConfig.envVersion == 'release';
 var isDevelop = __wxConfig.envVersion == 'develop';
 
+function getToken() {
+  let token = '1';
+  return token;
+}
+
 /* 请求头 */
 var _header = {
   'content-type': 'application/x-www-form-urlencoded',
   // 'version': '1.0.0',
 }
 
-/**
- * function: 根据需求处理请求参数
- * @params 请求参数
- */
-function dealParams(params) {
+//处理发送的数据，对数据加密
+function handleSendData(params) {
   if (isDevelop) {
-    console.log("请求参数:", params);
+    console.log("请求参数：", params);
   }
   return params;
+}
+
+//处理返回数据，对数据解密
+function handleReturnData(res) {
+  if (isDevelop) {
+    console.log("返回数据：", res.data);
+  }
+  return res;
 }
 
 /**
@@ -46,13 +56,10 @@ const request = (url, method, params, loadingText) => {
     wx.request({
       url: url,
       method: method,
-      data: dealParams(params),
+      data: handleSendData(params),
       header: _header,
       success(res) {
-        if (isDevelop) {
-          console.log("请求返回数据:", res.data);
-        }
-        resolve(res.data)
+        resolve(handleReturnData(res.data))
       },
       fail(error) {
         // wx.showToast({
@@ -79,11 +86,70 @@ function post(url, params, loadingText) {
   return request(url, "POST", params, loadingText);
 }
 
+/* 文件上传 */
+const uploadFile = (url, filePath, params, loadingText) => {
+  // console.log("-----文件上传------");
+  showLoading(true, loadingText)
+  return new Promise((resolve, reject) => {
+    wx.uploadFile({
+      url: url,
+      name: 'file',
+      filePath: filePath,
+      formData: handleSendData(params),
+      header: _header,
+      success(res) {
+        resolve(handleReturnData(JSON.parse(res.data)))
+      },
+      fail(error) {
+        reject(error)
+      },
+      complete: info => {
+        showLoading(false)
+      }
+    })
+  })
+}
+
+/* 图片加载 */
+const loadImage = (url, params) => {
+  // console.log("-----图片下载------");
+  let auth = '_auth=' + getToken()
+  if (url.indexOf("?") > 0) {
+    url = url + "&" + auth
+  } else {
+    url = url + "?" + auth
+  }
+  return new Promise((resolve, reject) => {
+    wx.request({
+      url: url,
+      method: 'GET',
+      data: params,
+      header: _header,
+      responseType: 'arraybuffer',
+      success(res) {
+        if (res.statusCode == 200 && res.data.byteLength) {
+          let base64 = wx.arrayBufferToBase64(res.data);
+          let img = 'data:image/jpeg;base64,' + base64
+          resolve(img)
+        } else {
+          resolve(null)
+        }
+      },
+      fail(error) {
+        reject(error)
+      },
+      complete: info => {}
+    })
+  })
+}
+
 /* 通过module.exports方式提供给外部调用 */
 module.exports = {
   request,
-  getRequest: get,
-  postRequest: post,
+  uploadFile,
+  loadImage,
+  get: get,
+  post: post,
 }
 
 /* 
@@ -93,7 +159,7 @@ module.exports = {
 var HTTP = require('../../../../JhHttpUtils/JhHttpUtils.js');
 
 2. 调用
-HTTP.postRequest('url', prams).then(res => {
+HTTP.post('url', prams).then(res => {
 }).catch(error=>{
 });
 

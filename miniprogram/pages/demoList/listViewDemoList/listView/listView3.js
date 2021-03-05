@@ -43,7 +43,7 @@ Page({
     });
    
 
-    // http.postRequest('dsf', prams).then(res => {
+    // http.post('dsf', prams).then(res => {
 
     //   if (!res.data.length) {
     //     wx.showToast({
