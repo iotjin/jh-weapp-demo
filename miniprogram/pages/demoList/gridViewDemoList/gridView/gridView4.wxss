@@ -1,37 +1,47 @@
+page {
+  --borderWidth: 1rpx;
+  --borderColor: red;
+}
+
 .gridView {
   display: flex;
   flex-wrap: wrap;
   align-content: flex-start;
   background: white;
   background: yellow;
-  /* margin: 20rpx; */
-  margin: 20rpx 20rpx 20rpx 20rpx;
-
+  margin: 20rpx;
+  border-left: var(--borderWidth) solid var(--borderColor);
+  border-top: var(--borderWidth) solid var(--borderColor);
 }
 
 .gridViewCell {
-  width: 30%;
-  /* height: 50px; */
+  width: 33.3333%;
+  padding: 5px;
   box-sizing: border-box;
-  border: 1px solid gray;
-  font-size: 13px;
-  margin-right: 20rpx;
-  margin-bottom: 20rpx;
-  background: orangered;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-align: center;
+  align-content: space-between;
+  border-right: var(--borderWidth) solid var(--borderColor);
+  border-bottom: var(--borderWidth) solid var(--borderColor);
 }
 
-.image{
+.image {
+  margin-top: 10rpx;
   background: orange;
   width: 25px;
   height: 25px;
 }
-.text{
+
+.text {
+  margin-top: 10rpx;
   display: block;
-  font-size: 13px;
-  background: bisque;
+  text-align: center;
+  font-weight: bold;
+  color: #000;
+  font-size: 14px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }

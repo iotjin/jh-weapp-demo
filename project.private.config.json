@@ -1,0 +1,36 @@
+{
+  "setting": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "pages/demoList/demoList",
+          "pathName": "pages/demoList/demoList",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "packageA/pages/eChartDemoList/eChart/eChart9",
+          "pathName": "packageA/pages/eChartDemoList/eChart/eChart9",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/demoList/gridViewDemoList/gridView/gridView4",
+          "pathName": "pages/demoList/gridViewDemoList/gridView/gridView4",
+          "query": "",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

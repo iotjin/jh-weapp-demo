@@ -9,8 +9,8 @@ var API_BASE_URL = 'https://www.fastmock.site/mock/1010b262a743f0b06c565c7a31ee9
 var URL = {
   api_getPageArrDic: API_BASE_URL + '/getPageArrDic', // 获取分页数组
   /*----------------------------------- 首页 -----------------------------------*/
-  addHomeData: baseUrl + "/home/add",
-  getData: baseUrl + "/home/list",
+  addHomeData: API_BASE_URL + "/home/add",
+  getData: API_BASE_URL + "/home/list",
   /*----------------------------------- 我的 -----------------------------------*/
 }
 
