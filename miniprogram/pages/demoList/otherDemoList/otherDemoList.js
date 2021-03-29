@@ -7,7 +7,7 @@ Page({
   data: {
     dataArr: [{
         text: 'JhDropDownMenu',
-        pathUrl: '/pages/demoList/otherDemoList/other/DropDownMenuDemo'
+        pathUrl: '/pages/demoList/otherDemoList/other/dropDownMenu'
       },
       {
         text: 'JhYMDTimePicker',

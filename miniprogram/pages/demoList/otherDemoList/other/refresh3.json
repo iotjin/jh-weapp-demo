@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "base-refresh-view",
+  "disableScroll": true,
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "base-refresh-view": "../../../../JhComponents/refresh/base-refresh-view/index"
+  }
+}

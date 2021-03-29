@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "132",
+	"disableScroll": true,
+	"usingComponents": {
+		"scroll": "../../../../JhComponents/refresh/scroll/index"
+	}
+}

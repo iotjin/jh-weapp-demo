@@ -1,0 +1,13 @@
+/* miniprogram/pages/demoList/otherDemoList/other/refresh2.wxss */
+.text {
+  background: yellow;
+  margin: 20rpx;
+}
+
+.cell-bg {
+  background: red;
+}
+
+.header {
+  height: 10vh;
+}

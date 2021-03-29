@@ -1,5 +1,7 @@
 /**app.wxss**/
-
+page {
+  --themeColor: #ff5033;
+}
 
 ThemeColor {
   background: #F8F8F8;
@@ -13,7 +15,7 @@ ThemeColor {
   /* 计算器的黑色 */
   background: #121212;
   /* 计算器背景黑色 */
-
+  background: #4252DD;
 }
 
 .Jh_commonBtn {

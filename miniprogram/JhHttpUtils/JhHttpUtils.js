@@ -17,7 +17,7 @@ var _header = {
 //处理发送的数据，对数据加密
 function handleSendData(params) {
   if (isDevelop) {
-    console.log("请求参数：", params);
+    console.log("===== JhHttpUtils 请求参数 =====", params);
   }
   return params;
 }
@@ -25,7 +25,7 @@ function handleSendData(params) {
 //处理返回数据，对数据解密
 function handleReturnData(res) {
   if (isDevelop) {
-    console.log("返回数据：", res.data);
+    console.log("===== JhHttpUtils 返回数据 =====", res.data);
   }
   return res;
 }
@@ -159,7 +159,7 @@ module.exports = {
 var HTTP = require('../../../../JhHttpUtils/JhHttpUtils.js');
 
 2. 调用
-HTTP.post('url', prams).then(res => {
+HTTP.post('url', params).then(res => {
 }).catch(error=>{
 });
 

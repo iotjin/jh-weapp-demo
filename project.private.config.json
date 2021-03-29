@@ -11,8 +11,7 @@
       "list": []
     },
     "miniprogram": {
-      "list": [
-        {
+      "list": [{
           "name": "pages/demoList/demoList",
           "pathName": "pages/demoList/demoList",
           "query": "",
@@ -25,8 +24,8 @@
           "scene": null
         },
         {
-          "name": "pages/demoList/gridViewDemoList/gridView/gridView4",
-          "pathName": "pages/demoList/gridViewDemoList/gridView/gridView4",
+          "name": "pages/demoList/otherDemoList/other/refresh3",
+          "pathName": "pages/demoList/otherDemoList/other/refresh3",
           "query": "",
           "scene": null
         }

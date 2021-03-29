@@ -1,0 +1,9 @@
+<scroll-view class="scroll-view" scroll-y style="width: {{width}}; height: {{height}};background:{{background}};"
+  refresher-enabled="{{true}}" refresher-default-style="black" refresher-triggered="{{isRefreshing}}"
+  bindrefresherpulling="onPulling" bindrefresherrefresh="onRefresh" bindscrolltolower='onLoadMore'
+  bindrefresherrestore="onRestore" bindrefresherabort="onAbort" scroll-anchoring="true">
+  <!--这里用slot节点占位，可以替换任意布局-->
+  <view style="height:auto;">
+    <slot></slot>
+  </view>
+</scroll-view>

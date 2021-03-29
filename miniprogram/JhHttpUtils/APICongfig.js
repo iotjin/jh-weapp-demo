@@ -18,12 +18,13 @@ var URL = {
 
 /* 通过module.exports方式提供给外部调用 */
 module.exports = {
+  URL,
   //获取分页数据
-  getPageArrDic: (prams) => HTTP.post(URL.api_getPageArrDic, prams),
+  getPageArrDic: (params) => HTTP.post(URL.api_getPageArrDic, params),
   //获取分页数据2
-  getPageArrDic2: (prams) => {
+  getPageArrDic2: (params) => {
     console.log(URL.api_getPageArrDic + '-----------------------')
-    return HTTP.post(URL.api_getPageArrDic, prams, '正在加载中...')
+    return HTTP.post(URL.api_getPageArrDic, params, '正在加载中...')
   },
   /*----------------------------------- 首页 -----------------------------------*/
   addHomeData: (params) => HTTP.post(URL.addHomeData, params, '正在提交...'),
@@ -40,7 +41,7 @@ var API = require('../../../../JhHttpUtils/APICongfig.js');
 
 
 2. 调用
-API.getPageArrDic(prams).then(res => {
+API.getPageArrDic(params).then(res => {
 
 }).catch(error => {
 
