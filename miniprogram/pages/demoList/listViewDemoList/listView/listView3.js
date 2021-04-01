@@ -2,7 +2,7 @@
 
 var API = require('../../../../JhHttpUtils/APICongfig.js'); //相对路径
 
-var index = 0;
+var currentPage = 0;
 Page({
 
   /**
@@ -12,128 +12,83 @@ Page({
     dataArr: []
   },
 
-  requestData: function(isLoadMore) {
-
-    if (isLoadMore) {
-      index++;
-    } else {
-      index = 0;
-    }
-    var prams = {
-      page: index
-    }
-
-    // API.getPageArrDic(prams).then(res => {
-    // });
-
-    API.getPageArrDic2(prams).then(res => {
-      wx.stopPullDownRefresh()
-      if (!res.data.length) {
-        wx.showToast({
-          title: '暂无更多数据',
-          icon: 'none',
-        })
-        return;
-      }
-      this.setData({
-        dataArr: this.data.dataArr.concat(res.data)
-      })
-    }).catch(error => {
-
-    });
-   
-
-    // http.post('dsf', prams).then(res => {
-
-    //   if (!res.data.length) {
-    //     wx.showToast({
-    //       title: '暂无更多数据',
-    //       icon: 'none',
-    //     })
-    //     return;
-    //   }
-    //   this.setData({
-    //     dataArr: this.data.dataArr.concat(res.data)
-    //   })
-    // }).catch(error=>{
-
-    // });
-
-
-  },
-
-  // requestData: function (isLoadMore) {
-
-  //   if (isLoadMore){
-  //     index++;
-  //   }else{
-  //     index=0;
-  //   }
-
-  //   wx.showLoading({
-  //     title: '加载中',
-  //   })
-
-  //   wx.request({
-  //     url: 'https://www.fastmock.site/mock/1010b262a743f0b06c565c7a31ee9739/root/getPageArrDic',
-  //     method: 'post',
-  //     data: {
-  //       page: index
-  //     },
-  //     success: (res) => {
-  //       wx.hideLoading();
-  //       wx.stopPullDownRefresh();
-  //       // console.log(res.data);
-
-  //       if (!res.data.data.length){
-  //         wx.showToast({
-  //           title: '暂无更多数据',
-  //           icon: 'none',
-  //           duration: 2000
-  //         })
-  //         return;
-  //       }
-
-  //       this.setData({
-  //         dataArr: this.data.dataArr.concat(res.data.data) 
-  //       })
-  //     },
-  //     Error: (Error) => {
-  //       wx.hideLoading();
-  //       wx.stopPullDownRefresh();
-  //       console.log(Error);
-  //     }
-  //   })
-  // },
-
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
-
+  onLoad: function (options) {
     wx.setNavigationBarTitle({
       title: '分页加载'
     })
-
     this.requestData();
-
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function() {
-
+  onPullDownRefresh: function () {
     this.requestData();
-
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function() {
+  onReachBottom: function () {
     this.requestData(true);
   },
 
+  requestData: function (isLoadMore) {
+    var that = this
+    if (isLoadMore) {
+      currentPage++;
+    } else {
+      currentPage = 0;
+      this.setData({
+        dataArr: [],
+      })
+    }
+    var params = {
+      page: currentPage,
+      limit: 10,
+    }
+    wx.showNavigationBarLoading()
+    API.getPageArrDic2(params).then(res => {
+      console.log(res);
+      wx.hideNavigationBarLoading()
+      wx.stopPullDownRefresh()
+      if (res.code == 200) {
+        var data = res.data
+        if (!data.length) {
+          wx.showToast({
+            title: '暂无更多数据',
+            icon: 'none',
+          })
+          return
+        }
+        if (isLoadMore) {
+          that.setData({
+            dataArr: that.data.dataArr.concat(data),
+          })
+        } else {
+          that.setData({
+            dataArr: data,
+          })
+        }
+      } else {
+        currentPage--
+        currentPage = currentPage < 0 ? 0 : currentPage
+      }
+    }).catch(error => {
+      console.log(error);
+      wx.hideNavigationBarLoading()
+      wx.stopPullDownRefresh()
+      currentPage--
+      currentPage = currentPage < 0 ? 0 : currentPage
+    });
+  },
+
+  onClickItem(event) {
+    var item = event.currentTarget.dataset.item
+    console.log(item);
+  },
 
 })

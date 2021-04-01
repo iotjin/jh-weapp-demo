@@ -21,24 +21,25 @@
     "compileHotReLoad": false,
     "useMultiFrameRuntime": true,
     "useApiHook": true,
+    "useApiHostProcess": false,
     "babelSetting": {
       "ignore": [],
       "disablePlugins": [],
       "outputPath": ""
     },
+    "enableEngineNative": false,
     "bundle": false,
     "useIsolateContext": true,
     "useCompilerModule": false,
     "userConfirmedUseCompilerModuleSwitch": true,
-    "userConfirmedBundleSwitch": false,
+    "userConfirmedBundleSwitch": true,
     "packNpmManually": false,
     "packNpmRelationList": [],
-    "minifyWXSS": true,
-    "useApiHostProcess": false
+    "minifyWXSS": true
   },
   "appid": "wxe6fe2e7c5518d78e",
   "projectname": "jh-weapp-demo",
-  "libVersion": "2.13.2",
+  "libVersion": "2.8.3",
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {
     "qywx_simulator_plugin": "2.8.3"

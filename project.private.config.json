@@ -11,21 +11,16 @@
       "list": []
     },
     "miniprogram": {
-      "list": [{
+      "list": [
+        {
           "name": "pages/demoList/demoList",
           "pathName": "pages/demoList/demoList",
           "query": "",
           "scene": null
         },
         {
-          "name": "packageA/pages/eChartDemoList/eChart/eChart9",
-          "pathName": "packageA/pages/eChartDemoList/eChart/eChart9",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/demoList/otherDemoList/other/refresh3",
-          "pathName": "pages/demoList/otherDemoList/other/refresh3",
+          "name": "packageA/pages/eChartDemoList/eChart/eChart1",
+          "pathName": "packageA/pages/eChartDemoList/eChart/eChart1",
           "query": "",
           "scene": null
         }

@@ -1,12 +1,10 @@
 .cell-bg {
-
   background-color: white;
   height: 120rpx;
   border-bottom: 1px solid rgb(230, 230, 230);
 }
 
 .row1 {
-
   display: flex;
   justify-content: space-between;
   margin-top: 30rpx;
@@ -17,7 +15,6 @@
 .leibie {
   font-size: 34rpx;
   color: black;
-
 }
 
 .money {

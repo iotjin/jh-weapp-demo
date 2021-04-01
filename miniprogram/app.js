@@ -10,6 +10,9 @@ App({
   kUserInfo: "kUserInfo",
   isIPhoneX: false, // 当前设备是否为 iPhone X
   kBottomSafeHeight: 0, // X 34 ，其余 0 
+  kNetworkType: '', // 网络类型：wifi、2g、3g、4g、5g、unknown、none
+  kHasNetwork: true, //是否有网，默认有
+  kIsMobileNetwork: false, //是否是手机网络
 
   onLaunch: function () {
 
@@ -28,6 +31,7 @@ App({
 
     this.globalData = {}
     this.checkIsIPhoneX()
+    this.checkNetwork()
   },
 
   // 判断设备是否为 iPhone X
@@ -54,4 +58,25 @@ App({
       }
     })
   },
+  //监测网络变化
+  checkNetwork: function () {
+    const that = this
+    wx.getNetworkType({
+      success(res) {
+        that.kNetworkType = res.networkType
+        that.kHasNetwork = (res.networkType == 'none') ? false : true
+        if (res.networkType == '2g' || res.networkType == '3g' || res.networkType == '4g' || res.networkType == '5g') {
+          that.kIsMobileNetwork = true
+        }
+      }
+    })
+    wx.onNetworkStatusChange(function (res) {
+      that.kNetworkType = res.networkType
+      that.kHasNetwork = (res.networkType == 'none') ? false : true
+      if (res.networkType == '2g' || res.networkType == '3g' || res.networkType == '4g' || res.networkType == '5g') {
+        that.kIsMobileNetwork = true
+      }
+    })
+  },
+
 })
