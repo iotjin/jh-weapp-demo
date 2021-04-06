@@ -1,4 +1,0 @@
-<van-popup show="{{ isShowDialog }}" bind:close="hiddenDialog" round="true">
-
-
-</van-popup>
