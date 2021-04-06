@@ -1,7 +1,4 @@
 {
   "navigationBarTitleText": "输入弹框",
-  "usingComponents": {
-    "JhBottomInputPop": "/JhComponents/JhBottomInputPop/JhBottomInputPop",
-    "inputBox": "/JhComponents/inputBox/inputBox"
-  }
+  "usingComponents": {}
 }

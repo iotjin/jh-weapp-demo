@@ -1,0 +1,3 @@
+<view class='list_main' wx:for="{{listDataArr}}" wx:key="index" catchtap="onClickCell" data-model="{{listDataArr[index]}}">
+  <van-cell is-link title="{{item.title}}" value="{{item.info}}" />
+</view>

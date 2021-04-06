@@ -7,7 +7,7 @@
 }
 
 
-.text{
+.text {
   height: 30px;
   margin-top: 10px;
   color: gray;

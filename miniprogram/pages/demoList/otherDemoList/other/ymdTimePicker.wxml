@@ -1,18 +1,20 @@
+<jh-ymd-time-picker isShow='{{isShowTimePicker}}' selectTime="2020-02-02" bind:confirm="onConfirm">
+</jh-ymd-time-picker>
 
-<JhYMDTimePicker isShowTimePicker='{{isShowTimePicker}}' selectTime="2020-02-02" bind:onConfirm="onConfirm">
-</JhYMDTimePicker>
+<jh-ymd-time-picker isShow='{{isShowTimePicker2}}' selectTime="2020-06" timeType="ym" bind:confirm="onConfirm">
+</jh-ymd-time-picker>
 
-<JhYMDTimePicker isShowTimePicker='{{isShowTimePicker2}}' selectTime="2020-06" timeType="ym" bind:onConfirm="onConfirm">
-</JhYMDTimePicker>
+<jh-ymd-time-picker isShow='{{isShowTimePicker3}}' selectTime="2019-03-20 18:50" timeType="all"
+  bind:confirm="onConfirm">
+</jh-ymd-time-picker>
 
-<JhYMDTimePicker isShowTimePicker='{{isShowTimePicker3}}' selectTime="2019-03-20 18:50" timeType="all" bind:onConfirm="onConfirm">
-</JhYMDTimePicker>
+<jh-ymd-time-picker isShow='{{isShowTimePicker4}}' selectTime="2020-08-02" minDate="{{minDate}}"
+  bind:confirm="onConfirm">
+</jh-ymd-time-picker>
 
-<JhYMDTimePicker isShowTimePicker='{{isShowTimePicker4}}' selectTime="2020-08-02" minDate="{{minDate}}" bind:onConfirm="onConfirm">
-</JhYMDTimePicker>
-
-<JhYMDTimePicker isShowTimePicker='{{isShowTimePicker5}}' selectTime="2020-02-02" maxDate="{{maxDate}}" bind:onConfirm="onConfirm">
-</JhYMDTimePicker>
+<jh-ymd-time-picker isShow='{{isShowTimePicker5}}' selectTime="2020-02-02" maxDate="{{maxDate}}"
+  bind:confirm="onConfirm">
+</jh-ymd-time-picker>
 
 <view class="timeView" bindtap="ClickTimeBtn"> 选时间 - 年月日 </view>
 <view class="timeView" bindtap="ClickTimeBtn2"> 选时间 - 年月 </view>

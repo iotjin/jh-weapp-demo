@@ -1,18 +1,18 @@
-// JhComponents/JhTimePicker/JhTimePicker.js
+// 月日 周 时分 - 时间选择器
 Component({
   /**
    * 组件的属性列表
    */
   properties: {
-    // 是否显示popView
-    isShowPopView: {
+    // 是否显示选择器
+    isShow: {
       type: Boolean,
       value: false,
     },
     // title
     title: {
       type: String,
-      value: '请选择',
+      value: '请选择时间',
     },
   },
   /**
@@ -20,7 +20,7 @@ Component({
    */
   data: {
     columns: [],
-    pickerDateValueArr: [],   //对应的年月日数组
+    pickerDateValueArr: [], //对应的年月日数组
     pickerDateTextArr: [], //月周数组 x月xx日 周几 或今天
     pickerHourTextArr: [], //小时数组  08
     pickerMinuteTextArr: [], //分钟数组  24
@@ -32,7 +32,6 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
     //获取选中的时间
     getTime: function () {
       let ss = new Date().getSeconds();
@@ -45,18 +44,18 @@ Component({
     //显示Picker
     showPicker: function () {
       this.setData({
-        isShowPopView: true
+        isShow: true
       });
     },
     //隐藏Picker
-    hiddenPicker: function() {
+    hiddenPicker: function () {
       this.setData({
-        isShowPopView: false
+        isShow: false
       });
     },
 
     //将要弹出popView
-    willShowPopView: function(event) {
+    willShowPopView: function (event) {
       let day = this.data.pickerDateTextArr.indexOf("今天");
       let hour = new Date().getHours();
       let minute = new Date().getMinutes();
@@ -66,64 +65,87 @@ Component({
         that.setData({
           pickerSelectIndexArr: [day, hour, minute]
         })
-      }, 300) 
+      }, 300)
     },
-    addDatetimeZero: function(num) {
+    addDatetimeZero: function (num) {
       return new Array(2 - num.toString().length + 1).join("0") + num;
     },
     //点击取消按钮
-    cancel: function (event) {
+    onCancel: function (event) {
       this.setData({
-        isShowPopView: false
+        isShow: false
       });
     },
     //滚动
     onChange: function (event) {
-        let val= event.detail.value;
-        // console.log("滚动"+val);
+      let value = event.detail.value;
+      // console.log("滚动"+value);
       this.setData({
-        pickerSelectIndexArr: [val[0],val[1],val[2]]
+        pickerSelectIndexArr: [value[0], value[1], value[2]]
       })
     },
     //点击确定按钮
-    confirm: function(event) {
-
+    onConfirm: function (event) {
       let indexArr = this.data.pickerSelectIndexArr;
       var selectText = this.data.pickerDateValueArr[indexArr[0]] + ' ' + this.data.pickerHourTextArr[indexArr[1]] + ':' + this.data.pickerMinuteTextArr[indexArr[2]];
-
       // console.log("点击确定按钮 -- " + selectText);
-
       this.setData({
         pickerSelectText: selectText,
-        isShowPopView: false
+        isShow: false
       });
       //传递选中的时间
       let ss = new Date().getSeconds();
       if (ss < 10) {
         ss = '0' + ss;
       }
-      let time = selectText+ ':' + ss;
-      this.triggerEvent('confirm', time);
-    }
+      let time = selectText + ':' + ss;
+      let timeStamp = this.Jh_convertTimeStamp(time)
+      this.triggerEvent('confirm', {
+        time: time,
+        timeStamp: timeStamp
+      });
+    },
+    /** 
+     * 将某个时间转化成时间戳  
+     * 时间格式：2019-05-20 00:00:00 或 2019年5月1日 00:00:00 
+     * 返回值：1556640000000，13位时间戳 
+     */
+    Jh_convertTimeStamp(time) {
+      //用正则主要是把“2019-05-20 00:00:00”转换成“2019/05/20 00:00:00”兼容ios 
+      let newTime = time.replace(/-/g, '/');
+      newTime = newTime.replace(/年/g, '/');
+      newTime = newTime.replace(/月/g, '/');
+      newTime = newTime.replace(/日/g, '');
+      if (newTime.length == 4) {
+        newTime = newTime + '/01/01 00:00:00'
+      }
+      if (newTime.length == 7) {
+        newTime = newTime + '/01 00:00:00'
+      }
+      if (newTime.length == 10) {
+        newTime = newTime + ' 00:00:00'
+      }
+      if (newTime.length == 16) {
+        newTime = newTime + ':00'
+      }
+      return Date.parse(newTime)
+    },
 
-   
   },
 
   lifetimes: {
-    detached: function() {
+    detached: function () {
       // 页面销毁时执行
-      console.info('---JhTimePicker unloaded!---')
+      // console.info('---JhTimePicker unloaded!---')
     },
 
-    attached: function() {
+    attached: function () {
       // 页面创建时执行
-      console.info('---JhTimePicker loaded!---' );
-
+      // console.info('---JhTimePicker loaded!---');
       var pickerDateTextArr = [];
       var pickerHourTextArr = [];
       var pickerMinuteTextArr = [];
       var pickerDateValueArr = [];
-
       //初始时间
       var pickerPreDate = new Date();
       var pickerPreYear = pickerPreDate.getFullYear();
@@ -133,7 +155,6 @@ Component({
       var pickerPreMinute = pickerPreDate.getMinutes();
 
       this.data.pickerSelectText = pickerPreYear + '年' + pickerPreMonth + '月' + pickerPreDay + '日 ' + this.addDatetimeZero(pickerPreHour) + ':' + this.addDatetimeZero(pickerPreMinute);
-
 
       var pickerNowDate = new Date();
       var pickerNowYear = pickerNowDate.getFullYear();
@@ -179,7 +200,6 @@ Component({
         pickerMinuteTextArr.push(this.addDatetimeZero(i));
         if (pickerNowMinute == i) pickerMinuteIndex = i;
       }
-
       //赋值
       this.setData({
         pickerDateValueArr: pickerDateValueArr,
@@ -188,10 +208,48 @@ Component({
         pickerMinuteTextArr: pickerMinuteTextArr,
         pickerSelectIndexArr: [pickerDateIndex, pickerHourIndex, pickerMinuteIndex]
       })
-
     },
-
-
   }
 
 })
+
+
+/*
+使用方法 ：
+1. usingComponents 添加
+     "jh-time-picker": "../../components/jh-time-picker/index"
+     "jh-time-picker": "components/jh-time-picker/index",
+
+2. wxml 添加组件
+
+//根据属性 弹出
+<jh-time-picker isShow='{{isShowPicker}}' title="请选择时间" bind:confirm='confirm1'> </jh-time-picker>
+  this.setData({
+    isShowPicker: true,
+  });
+
+//根据方法 弹出
+<jh-time-picker id='timePicker' bind:confirm='confirm2'> </jh-time-picker>
+
+var picker = this.selectComponent('#timePicker');
+picker.showPicker();
+
+3.点击事件
+
+  //点击选择器的 确定
+  confirm1: function (event){
+    console.log(event.detail);
+    this.setData({
+      currentDateStr1: event.detail.time,
+    });
+  },
+
+  confirm2: function (event) {
+    const picker = this.selectComponent('#timePicker2');
+    this.setData({
+      currentDateStr2: picker.getTime(),
+    });
+  },
+
+
+*/

@@ -1,4 +1,3 @@
-
 Page({
 
   /**
@@ -61,7 +60,7 @@ Page({
   },
 
 
-  confirm(e){
+  confirm(e) {
     console.log('用户点击确定，输入框内容为' + (e.detail ? (':' + e.detail) : '空'))
     this.setData({
       showDialog: false,
@@ -70,7 +69,7 @@ Page({
       showDialog4: false,
     });
   },
-  cancel(){
+  cancel() {
     this.setData({
       showDialog: false,
       showDialog2: false,

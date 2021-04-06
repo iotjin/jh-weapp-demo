@@ -29,7 +29,7 @@ Page({
   confirm1: function (event){
     console.log(event.detail);
     this.setData({
-      currentDateStr1: event.detail,
+      currentDateStr1: event.detail.time,
     });
   },
 
@@ -38,6 +38,7 @@ Page({
     picker.showPicker();
   },
   confirm2: function (event) {
+    console.log(event.detail);
     const picker = this.selectComponent('#JhTimePicker2');
     this.setData({
       currentDateStr2: picker.getTime(),

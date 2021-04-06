@@ -1,21 +1,12 @@
-
 <!-- 不带按钮 -->
-<!-- <EmptyView wx:if="true"></EmptyView> -->
+<!-- <jh-empty wx:if="true"></jh-empty> -->
 
-<!-- <EmptyView wx:if="true" info="暂无数据2"></EmptyView> -->
+<!-- <jh-empty wx:if="true" info="暂无数据2"></jh-empty> -->
 
 <!-- 带按钮 1 -->
-
-<EmptyView wx:if="true" 
-emptyType="1" 
-bind:ClickEmptyBtn="ClickEmptyBtn">
-</EmptyView>
+<jh-empty wx:if="true" emptyType="1" bind:clickEmptyBtn="ClickEmptyBtn">
+</jh-empty>
 
 <!-- 带按钮 2 -->
-
-<!-- <EmptyView wx:if="true" 
-emptyType="1" 
-info="暂无数据2" 
-btnTitle="按钮文字" 
-bind:ClickEmptyBtn="ClickEmptyBtn">
-</EmptyView> -->
+<!-- <jh-empty wx:if="true" emptyType="1" info="暂无数据2" btnTitle="按钮文字" bind:clickEmptyBtn="ClickEmptyBtn">
+</jh-empty> -->
