@@ -1,5 +1,7 @@
-// pages/components/mytree/index.js
 Component({
+  /**
+   * 组件的属性列表
+   */
   properties: {
     model: Object,
     open: {
@@ -7,10 +9,18 @@ Component({
       value: false
     },
   },
+
+  /**
+   * 组件的初始数据
+   */
   data: {
     open: false, //是否展开
     isBranch: false, //是否有子级
   },
+
+  /**
+   * 组件的方法列表
+   */
   methods: {
     toggle: function (e) {
       if (this.data.isBranch) {
@@ -30,12 +40,13 @@ Component({
         composed: true
       });
     }
+
   },
   ready: function (e) {
     this.setData({
       isBranch: Boolean(this.data.model.childNodes && this.data.model.childNodes.length),
       open: this.properties.open
     });
-    console.log(this.data);
+    // console.log(this.data);
   },
 })

@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "tree-row": "../jh-tree/tree-row"
+  }
+}

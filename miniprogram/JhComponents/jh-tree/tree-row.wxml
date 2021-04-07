@@ -1,0 +1,13 @@
+<view class="container">
+  <view class="tr" catchtap='toggle' catchtap='tapItem' data-itemid='{{ model.id }}' data-value='{{ model.text }}'>
+    <view class="td col indent{{model.level}}">
+      <image wx:if="{{isBranch}}" src="{{open ? './ic_arrow_down.png' : './ic_arrow_right.png'}}" class='item-sImg'>
+      </image>
+      <image wx:else class='item-sImg'></image>
+      <text>{{ model.text }}</text>
+    </view>
+  </view>
+  <view wx:if='{{ isBranch }}' hidden='{{ !open }}'>
+    <tree-row wx:for='{{ model.childNodes }}' wx:key='id' model='{{ item }}'></tree-row>
+  </view>
+</view>

@@ -1,0 +1,10 @@
+<view class="tableContainer">
+  <view class="table">
+    <!-- <view class="tr th">
+      <view class="td">{{title}}</view>
+    </view> -->
+    <view class="tbody">
+      <tree-row model="{{treeData}}"></tree-row>
+    </view>
+  </view>
+</view>

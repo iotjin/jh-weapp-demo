@@ -36,6 +36,10 @@ Page({
         text: '轮播图',
         pathUrl: '/pages/demoList/otherDemoList/other/swiper'
       },
+      {
+        text: '树形结构数据',
+        pathUrl: '/pages/demoList/otherDemoList/other/tree2'
+      },
     ]
   },
 
