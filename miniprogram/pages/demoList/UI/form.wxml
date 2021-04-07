@@ -16,10 +16,10 @@
 
 </van-cell-group>
 
-<time-picker isShowPicker='{{isShowTimePicker}}' bind:confirm='confirm1'> </time-picker>
+<jh-time-picker isShow='{{isShowTimePicker}}' bind:confirm='confirm1'> </jh-time-picker>
 
-<string-picker textArr='{{stringPickerTextArr}}' selectIndex='1' isShowPicker='{{isShowStringPicker}}'
+<jh-string-picker textArr='{{stringPickerTextArr}}' selectIndex='1' isShow='{{isShowStringPicker}}'
   bind:confirm='confirm2'>
-</string-picker>
+</jh-string-picker>
 
 <view class="base-submit-btn" bindtap="clickSubmitBtn">提 交</view>

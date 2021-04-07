@@ -5,8 +5,8 @@ Page({
    */
   data: {
     dataArr: [{
-        text: '自定义nav',
-        pathUrl: '/pages/demoList/UI/customNav'
+        text: '表单',
+        pathUrl: '/pages/demoList/UI/form'
       },
       {
         text: '搜索',

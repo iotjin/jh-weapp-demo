@@ -1,0 +1,7 @@
+<jh-nav title="标题"/>
+
+<view class='page-content'>
+  <view style="height:300px;background-color:#FF6F43"></view>
+  <view style="height:300px;background-color:#FFD31C"></view>
+  <view style="height:300px;background-color:#09BFEA"></view>
+</view>

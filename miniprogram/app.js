@@ -32,6 +32,7 @@ App({
     this.globalData = {}
     this.checkIsIPhoneX()
     this.checkNetwork()
+    this.getDataWithCustomNav()
   },
 
   // 判断设备是否为 iPhone X
@@ -78,5 +79,22 @@ App({
       }
     })
   },
+  //获取自定义导航条需要的信息
+  getDataWithCustomNav: function () {
+    wx.getSystemInfo({
+      success: e => {
+        this.globalData.StatusBar = e.statusBarHeight;
+        let capsule = wx.getMenuButtonBoundingClientRect();
+        // console.log('capsule=======');
+        // console.log(capsule);
+        if (capsule) {
+          this.globalData.Custom = capsule;
+          this.globalData.CustomBar = capsule.bottom + capsule.top - e.statusBarHeight;
+        } else {
+          this.globalData.CustomBar = e.statusBarHeight + 50;
+        }
+      }
+    })
+  }
 
 })

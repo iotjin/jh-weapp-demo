@@ -4,11 +4,11 @@
   "setting": {
     "urlCheck": true,
     "es6": true,
-    "enhance": true,
+    "enhance": false,
     "postcss": true,
     "preloadBackgroundData": false,
     "minified": true,
-    "newFeature": true,
+    "newFeature": false,
     "coverView": true,
     "nodeModules": true,
     "autoAudits": false,
@@ -30,16 +30,16 @@
     "enableEngineNative": false,
     "bundle": false,
     "useIsolateContext": true,
-    "useCompilerModule": false,
-    "userConfirmedUseCompilerModuleSwitch": true,
-    "userConfirmedBundleSwitch": true,
+    "useCompilerModule": true,
+    "userConfirmedUseCompilerModuleSwitch": false,
+    "userConfirmedBundleSwitch": false,
     "packNpmManually": false,
     "packNpmRelationList": [],
     "minifyWXSS": true
   },
   "appid": "wxe6fe2e7c5518d78e",
   "projectname": "jh-weapp-demo",
-  "libVersion": "2.8.3",
+  "libVersion": "2.16.0",
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {
     "qywx_simulator_plugin": "2.8.3"
@@ -56,8 +56,7 @@
       "list": []
     },
     "miniprogram": {
-      "list": [
-        {
+      "list": [{
           "name": "pages/demoList/demoList",
           "pathName": "pages/demoList/demoList",
           "query": "",

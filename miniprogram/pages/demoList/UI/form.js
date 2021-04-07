@@ -1,4 +1,4 @@
-var CheckUtils = require('../../../../utils/checkUtils')
+var CheckUtils = require('../../../utils/checkUtils')
 
 Page({
 

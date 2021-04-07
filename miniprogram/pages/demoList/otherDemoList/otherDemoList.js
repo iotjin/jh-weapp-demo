@@ -6,6 +6,9 @@ Page({
    */
   data: {
     dataArr: [{
+        text: '自定义nav',
+        pathUrl: '/pages/demoList/otherDemoList/other/customNav'
+      }, {
         text: 'JhDropDownMenu',
         pathUrl: '/pages/demoList/otherDemoList/other/dropDownMenu'
       },
@@ -36,12 +39,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
-
     wx.setNavigationBarTitle({
       title: 'other'
     })
-
   },
 
 

@@ -1,0 +1,14 @@
+.nav {
+  background: red !important;
+}
+
+.title {
+  color: white !important;
+}
+
+.leftIcon {
+  height: 88rpx;
+  width: 100rpx;
+  display: flex;
+  margin-left: -10rpx;
+}
