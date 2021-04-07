@@ -22,9 +22,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.setNavigationBarTitle({
-      title: 'JhYMDTimePicker'
-    })
+
   },
 
   //点击时间 弹出时间选择器

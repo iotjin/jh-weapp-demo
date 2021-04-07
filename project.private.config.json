@@ -11,8 +11,7 @@
       "list": []
     },
     "miniprogram": {
-      "list": [
-        {
+      "list": [{
           "name": "pages/demoList/demoList",
           "pathName": "pages/demoList/demoList",
           "query": "",
@@ -21,12 +20,6 @@
         {
           "name": "packageA/pages/eChartDemoList/eChart/eChart1",
           "pathName": "packageA/pages/eChartDemoList/eChart/eChart1",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/demoList/UI/customNav",
-          "pathName": "pages/demoList/UI/customNav",
           "query": "",
           "scene": null
         }

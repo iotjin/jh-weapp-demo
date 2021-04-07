@@ -1,12 +1,11 @@
-
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    isShowPopView2:false,
-    currentDateStr1:'',
+    isShowPopView2: false,
+    currentDateStr1: '',
     currentDateStr2: '',
   },
 
@@ -14,11 +13,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log("生命周期函数--监听页面加载 ");
 
-    wx.setNavigationBarTitle({
-      title: '月日周时分 - 时间选择器'
-    })
+
   },
 
   ClickTimeBtn1: function () {
@@ -26,7 +22,8 @@ Page({
       isShowPopView2: true,
     });
   },
-  confirm1: function (event){
+  
+  confirm1: function (event) {
     console.log(event.detail);
     this.setData({
       currentDateStr1: event.detail.time,
@@ -44,8 +41,6 @@ Page({
       currentDateStr2: picker.getTime(),
     });
   },
-
-
 
 })
 

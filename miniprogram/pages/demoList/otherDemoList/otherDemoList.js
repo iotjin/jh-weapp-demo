@@ -32,6 +32,10 @@ Page({
         text: 'empty-view',
         pathUrl: '/pages/demoList/otherDemoList/other/empty'
       },
+      {
+        text: '轮播图',
+        pathUrl: '/pages/demoList/otherDemoList/other/swiper'
+      },
     ]
   },
 

@@ -19,9 +19,6 @@ Page({
    */
   onLoad: function (options) {
 
-    wx.setNavigationBarTitle({
-      title: 'JhDropDownMenu'
-    })
   },
   clickItem: function (e) {
     console.log(e);
