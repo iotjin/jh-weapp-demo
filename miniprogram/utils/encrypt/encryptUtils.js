@@ -1,28 +1,42 @@
 // 加密工具类
 
-var AES = require('../../utils/encrypt/aes/aesUtils')
-var sha256 = require('../../utils/encrypt/sha256/sha256')
-var md5 = require('../../utils/encrypt/md5/md5')
-var base64 = require('../../utils/encrypt/base64/base64')
+const AESUtils = require('../../utils/encrypt/aes/aesUtils')
+const RSAUtils = require('../../utils/encrypt/rsa/rsaUtils')
+const sha256 = require('../../utils/encrypt/sha256/sha256')
+const md5 = require('../../utils/encrypt/md5/md5')
+const base64 = require('../../utils/encrypt/base64/base64')
 
 module.exports = {
-  MD5: MD5,
-  SHA256: SHA256,
-  AESEncrypt: AESEncrypt,
-  AESDecrypt: AESDecrypt,
-  Base64EnCode: Base64EnCode,
-  Base64DeCode: Base64DeCode,
+  MD5,
+  SHA256,
+  AESEncrypt,
+  AESDecrypt,
+  RSAEncrypt,
+  RSADecrypt,
+  Base64EnCode,
+  Base64DeCode,
 }
 
 //AES加密
 function AESEncrypt(str) {
-  return AES.Encrypt(str);
+  return AESUtils.Encrypt(str);
 }
 
 //AES解密
 function AESDecrypt(str) {
-  return AES.Decrypt(str);
+  return AESUtils.Decrypt(str);
 }
+
+//RSA加密
+function RSAEncrypt(str) {
+	return RSAUtils.Encrypt(str);
+}
+
+//RSA解密
+function RSADecrypt(str) {
+	return RSAUtils.Decrypt(str);
+}
+
 //SHA256加密
 function SHA256(str) {
   return sha256.hex_sha256(str);
@@ -44,7 +58,10 @@ function Base64DeCode(str) {
 }
 
 /*  使用
-var EncryptUtils = require('../../utils/encrypt/encryptUtils')
+在线AES : https://tool.lmeee.com/jiami/aes
+在线RSA : https://www.bejson.com/enc/rsa/
+
+const EncryptUtils = require('../../utils/encrypt/encryptUtils')
 
 EncryptUtils.AESEncrypt('123')
 EncryptUtils.AESDecrypt('123')

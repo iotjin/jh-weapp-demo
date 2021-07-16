@@ -6,9 +6,9 @@ https://www.jianshu.com/p/534401394ac1
 https://www.cnblogs.com/memphis-f/p/10109027.html
 */
 
-var CryptoJS = require('./aes.js');
-var _KEY = ""; //32位
-var _IV = ""; //16位    //这个key和偏移量都是后台给的数据
+const CryptoJS = require('./aes.js');
+const _KEY = ""; //32位
+const _IV = ""; //16位    //这个key和偏移量都是后台给的数据
 
 //字符串加密
 function encrypt(str) {
@@ -80,7 +80,7 @@ module.exports = {
 
 /* 使用
 
-var AES = require('../../utils/aes/aesUtils')
+const AES = require('../../utils/aes/aesUtils')
 AES.Encrypt('123')
 
 */

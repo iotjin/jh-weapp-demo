@@ -1,7 +1,7 @@
 // AES 加密 ECB
 
-var CryptoJS = require('./aes.js');
-var _KEY = "";
+const CryptoJS = require('./aes.js');
+const _KEY = "";
 
 //字符串加密
 function encrypt(str) {
@@ -38,7 +38,7 @@ module.exports = {
 
 /* 使用
 
-var AES = require('../../utils/aes2/aesUtils')
+const AES = require('../../utils/aes2/aesUtils')
 AES.Encrypt('123')
 
 */

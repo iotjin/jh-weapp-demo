@@ -12,11 +12,12 @@
 * 答题功能
 * excel导入导出
 * md5、base64、AES、SHA256、RSA
-* 表格
+* 表格、表单录入
 * 树结构数据展示
 * 侧滑筛选
 * custom-tabbar（动态设置、不闪屏）
 * wx.request 封装，云函数请求封装
+* 波浪背景动画
 * 封装一些组件(在JhComponents文件夹)和工具类(在utils文件夹)
 
 
