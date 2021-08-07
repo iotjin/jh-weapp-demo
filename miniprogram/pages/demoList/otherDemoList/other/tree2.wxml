@@ -1,3 +1,0 @@
-<view class="bg">
-  <tree-table treeData="{{treeData}}" title="{{title}}" bind:clickItem='onClickItem'></tree-table>
-</view>

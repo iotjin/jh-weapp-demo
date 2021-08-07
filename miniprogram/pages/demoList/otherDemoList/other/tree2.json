@@ -1,6 +1,0 @@
-{
-  "navigationBarTitleText": "jh-tree",
-  "usingComponents": {
-    "tree-table": "../../../../JhComponents/jh-tree/tree-table"
-  }
-}

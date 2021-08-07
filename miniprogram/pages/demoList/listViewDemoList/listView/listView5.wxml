@@ -1,6 +1,0 @@
- <van-tabs sticky swipeable animated nav-class="bg"  bind:change="onChange" bind:click="onClick">
-  <van-tab title="标签 1"> <view class="bgView">内容 1 </view> </van-tab>
-  <van-tab title="标签 2"> <view class="bgView">内容 2 </view> </van-tab>
-  <van-tab title="标签 3"> <view class="bgView">内容 3 </view> </van-tab>
-  <van-tab title="标签 4"> <view class="bgView">内容 4 </view> </van-tab>
-</van-tabs>

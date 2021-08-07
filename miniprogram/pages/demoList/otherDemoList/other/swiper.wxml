@@ -1,1 +1,0 @@
-<jh-swiper dataArr="{{swiperList}}" activeColor="#0081ff" bind:clickItem="onClickItem"></jh-swiper>

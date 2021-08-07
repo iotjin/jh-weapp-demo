@@ -1,7 +1,0 @@
-  <view class='header'>header</view>
-  <view class='main'>
-    <scroll-view class='main-scroll' scroll-y style="height: 100%">
-    
-    </scroll-view>
-  </view>
-  <view class='footer'>footer</view>

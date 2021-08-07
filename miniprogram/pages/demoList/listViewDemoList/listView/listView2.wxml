@@ -1,9 +1,0 @@
-<view class="cell-bg" wx:for="{{dataArr}}" wx:key="index">
-  <view class="left-view">
-    <image class="img" src="https://img.yzcdn.cn/vant/cat.jpeg"> </image>
-  </view>
-  <view class="right-view">
-    <view class="name">{{item.name2}}</view>
-    <view class="content">{{item.content}}</view>
-  </view>
-</view>
