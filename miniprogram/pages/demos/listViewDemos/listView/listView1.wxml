@@ -1,0 +1,11 @@
+<view class="cell-bg" wx:for="{{dataArr}}" wx:key="index">
+  <view class="row1">
+    <view class="text">{{item.text}}</view>
+    <view class="money">{{item.money}}</view>
+  </view>
+</view>
+
+<!-- <view class="flex-container">
+  <view class="flex-item">flex item 1</view>
+  <view class="flex-item">flex item 2</view>
+</view> -->

@@ -1,0 +1,6 @@
+<view class="view0"></view>
+<view class="view1" hover-class="item-hover" hover-stay-time="100">功能一</view>
+<view class="view2" hover-class="item-hover" hover-stay-time="100">功能二</view>
+<block wx:if="{{isToday}}">
+	<view class="view3" hover-class="item-hover" hover-stay-time="100">功能三</view>
+</block>

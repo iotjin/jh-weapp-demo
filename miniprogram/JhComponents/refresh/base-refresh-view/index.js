@@ -1,5 +1,5 @@
 //刷新组件
-var HTTP = require('../../../JhHttpUtils/JhHttpUtils.js');
+var HTTP = require('../../../JhHttp/JhHttpUtils.js');
 let currentPage = 0;
 
 Component({

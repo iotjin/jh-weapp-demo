@@ -1,0 +1,26 @@
+<view class="text">默认样式，绑定点击事件 </view>
+
+<jh-dropdown-menu array='{{arrowSelectArray}}' bind:clickItem='clickItem'> </jh-dropdown-menu>
+
+<view class="text">设置默认选择第一个</view>
+
+<jh-dropdown-menu array='{{arrowSelectArray}}' index='1'></jh-dropdown-menu>
+
+<view class="text">设置提示文字</view>
+
+<jh-dropdown-menu array='{{arrowSelectArray}}' hintText="请选择"></jh-dropdown-menu>
+
+<view class="text">通过属性修改蒙版颜色</view>
+
+<jh-dropdown-menu array='{{arrowSelectArray}}' maskColor="rgba(0, 0, 0, .5)"></jh-dropdown-menu>
+
+<view class="text">通过属性修改背景颜色</view>
+
+<jh-dropdown-menu array='{{arrowSelectArray}}' bgColor="red"></jh-dropdown-menu>
+
+<view class="text">通过属性修改宽度</view>
+
+<jh-dropdown-menu array='{{arrowSelectArray}}' width="200px"></jh-dropdown-menu>
+
+<view class="text">通过样式覆盖修改背景样色和宽度 </view>
+<jh-dropdown-menu array='{{arrowSelectArray}}' menu-bg="menu-bg" menu-content="menu-content"></jh-dropdown-menu>

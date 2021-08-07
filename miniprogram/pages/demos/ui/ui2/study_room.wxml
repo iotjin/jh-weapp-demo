@@ -1,0 +1,34 @@
+<van-notice-bar scrollable="{{ false }}" color="#EC6941" background="#F0D4D0" left-icon="info-o"
+  text="请按优先级使用，满员后才可启用后续教室" />
+<view class="cell-bg" wx:for="{{roomList}}" wx:key="index" data-index="{{index}}" bindtap="onItemClick">
+  <view class="row1">
+    <view class="b-item-center">
+      <view class="constructionName">{{item.constructionName}}</view>
+      <view class="{{item.studyRoomType == '定向' ? 'studyRoomType1':'studyRoomType2'}}">{{item.studyRoomType}}</view>
+    </view>
+    <view class="b-item-center">
+      <image class="img"
+        src="{{item.isEnabledStudyRoom ? '../../../../images/service/studyroom/ic_qiyong.png':'../../../../images/service/studyroom/ic_weiqiyong.png'}}">
+      </image>
+      <view class="{{item.isEnabledStudyRoom ? 'isEnabledStudyRoom1':'isEnabledStudyRoom2'}}">
+        {{item.isEnabledStudyRoom?'已启用':'未启用'}}</view>
+    </view>
+  </view>
+  <view class="row2">
+    <view class="b-item-center">
+      <view class="row2-text">当前{{item.currentStudyStudentsNumber}}人</view>
+      <view class="line-vertical"></view>
+      <view class="row2-text">可容纳{{item.capacity}}人</view>
+    </view>
+  </view>
+  <view class="line"></view>
+  <view class="row3">
+    <view class="row3-left">
+      <view class="row3-text">{{item.enableDateRange}}</view>
+      <view class="row3-text">（{{item.studyStartTime }}-{{item.studyEndTime}}）</view>
+    </view>
+    <view class="row3-right-text">{{item.capacity}}
+      <image class="img3" src="../../../../images/service/studyroom/ic_bg.png"></image>
+    </view>
+  </view>
+</view>

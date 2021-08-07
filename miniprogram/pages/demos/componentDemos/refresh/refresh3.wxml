@@ -1,0 +1,7 @@
+<base-refresh-view url="{{url}}" bind:onRefresh='_onRefresh' bind:onLoadMore='_onLoadmore'
+  bind:onReturnData='onReturnData'>
+  <view class="cell-bg" wx:for="{{dataArr}}" wx:key="index" catchtap="clickItem" data-item="{{item}}">
+    <view class="text">{{item.title}}</view>
+    <view class="text">{{item.name}}</view>
+  </view>
+</base-refresh-view>

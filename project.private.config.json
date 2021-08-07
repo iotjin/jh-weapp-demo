@@ -11,15 +11,34 @@
       "list": []
     },
     "miniprogram": {
-      "list": [{
-          "name": "pages/demoList/demoList",
-          "pathName": "pages/demoList/demoList",
+      "list": [
+        {
+          "name": "pages/demos/demos",
+          "pathName": "pages/demos/demos",
           "query": "",
           "scene": null
         },
         {
-          "name": "packageA/pages/eChartDemoList/eChart/eChart1",
-          "pathName": "packageA/pages/eChartDemoList/eChart/eChart1",
+          "name": "pages/three/feedback/myFeedback",
+          "pathName": "pages/three/feedback/myFeedback",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "packageA/pages/eChartDemos/eChart/eChart9",
+          "pathName": "packageA/pages/eChartDemos/eChart/eChart9",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/demos/ui/ui2/search_tabbar",
+          "pathName": "pages/demos/ui/ui2/search_tabbar",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/demos/gridViewDemos/gridView/gridView6",
+          "pathName": "pages/demos/gridViewDemos/gridView/gridView6",
           "query": "",
           "scene": null
         }

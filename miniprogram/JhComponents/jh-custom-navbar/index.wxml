@@ -1,0 +1,18 @@
+<view class="nav-custom" style="height:{{CustomBar}}px">
+  <view class="nav-bar nav-fixed {{bgImage!=''?'nav-bg-img':''}}"
+    style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;background:{{bgColor}};{{bgImage?'background-image:url(' + bgImage+')':''}}">
+    <view class="nav-action nav-border-custom" wx:if="{{isCustom}}"
+      style="width:{{Custom.width}}px;height:{{Custom.height}}px;margin-left:calc(750rpx - {{Custom.right}}px)">
+      <van-icon class="nav-back" name="arrow-left" size="20px" color="{{backColor}}" bindtap="onClickBack" />
+      <van-icon class="nav-home" name="wap-home" size="20px" color="{{homeColor}}" bindtap="onClickHome" />
+    </view>
+    <view class="nav-action" bindtap="onClickBack" wx:else if="{{isBack}}">
+      <van-icon class="nav-back" name="arrow-left" size="20px" color="{{backColor}}" />
+      <view class="nav-backText" style="color:{{backColor}};">{{backText}}</view>
+    </view>
+    <view class="nav-content" style="top:{{StatusBar}}px;color:{{titleColor}};">
+      <view>{{title}}</view>
+    </view>
+    <slot name="right"></slot>
+  </view>
+</view>

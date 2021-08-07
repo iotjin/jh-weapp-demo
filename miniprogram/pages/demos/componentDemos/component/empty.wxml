@@ -1,0 +1,12 @@
+<!-- 不带按钮 -->
+<!-- <jh-empty wx:if="true"></jh-empty> -->
+
+<!-- <jh-empty wx:if="true" info="暂无数据2"></jh-empty> -->
+
+<!-- 带按钮 1 -->
+<jh-empty wx:if="true" emptyType="1" bind:clickEmptyBtn="ClickEmptyBtn">
+</jh-empty>
+
+<!-- 带按钮 2 -->
+<!-- <jh-empty wx:if="true" emptyType="1" info="暂无数据2" btnTitle="按钮文字" bind:clickEmptyBtn="ClickEmptyBtn">
+</jh-empty> -->

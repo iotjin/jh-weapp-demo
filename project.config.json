@@ -4,11 +4,11 @@
   "setting": {
     "urlCheck": true,
     "es6": true,
-    "enhance": false,
+    "enhance": true,
     "postcss": true,
     "preloadBackgroundData": false,
     "minified": true,
-    "newFeature": false,
+    "newFeature": true,
     "coverView": true,
     "nodeModules": true,
     "autoAudits": false,
@@ -19,6 +19,7 @@
     "checkSiteMap": true,
     "uploadWithSourceMap": true,
     "compileHotReLoad": false,
+    "lazyloadPlaceholderEnable": false,
     "useMultiFrameRuntime": true,
     "useApiHook": true,
     "useApiHostProcess": false,
@@ -28,52 +29,36 @@
       "outputPath": ""
     },
     "enableEngineNative": false,
-    "bundle": false,
     "useIsolateContext": true,
-    "useCompilerModule": true,
-    "userConfirmedUseCompilerModuleSwitch": false,
     "userConfirmedBundleSwitch": false,
     "packNpmManually": false,
     "packNpmRelationList": [],
-    "minifyWXSS": true
+    "minifyWXSS": true,
+    "showES6CompileOption": false
   },
   "appid": "wxe6fe2e7c5518d78e",
   "projectname": "jh-weapp-demo",
-  "libVersion": "2.16.0",
-  "simulatorType": "wechat",
-  "simulatorPluginLibVersion": {
-    "qywx_simulator_plugin": "2.8.3"
-  },
-  "compileType": "miniprogram",
+  "libVersion": "2.14.1",
+  "cloudfunctionTemplateRoot": "cloudfunctionTemplate",
   "condition": {
+    "search": {
+      "list": []
+    },
+    "conversation": {
+      "list": []
+    },
     "plugin": {
       "list": []
     },
     "game": {
       "list": []
     },
-    "gamePlugin": {
-      "list": []
-    },
     "miniprogram": {
-      "list": [{
-          "name": "pages/demoList/demoList",
-          "pathName": "pages/demoList/demoList",
-          "query": "",
-          "scene": null
-        },
+      "list": [
         {
-          "id": 1,
-          "name": "pages/three/feedback/myFeedback",
-          "pathName": "pages/three/feedback/myFeedback",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "packageA/pages/eChartDemoList/eChart/eChart9",
-          "pathName": "packageA/pages/eChartDemoList/eChart/eChart9",
-          "query": "",
-          "scene": null
+          "id": -1,
+          "name": "db guide",
+          "pathName": "pages/databaseGuide/databaseGuide"
         }
       ]
     }

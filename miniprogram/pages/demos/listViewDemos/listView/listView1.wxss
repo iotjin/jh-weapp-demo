@@ -1,0 +1,37 @@
+.cell-bg {
+  background-color: white;
+  height: 120rpx;
+  border-bottom: 1px solid rgb(230, 230, 230);
+}
+
+.row1 {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30rpx;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+}
+
+.leibie {
+  font-size: 34rpx;
+  color: black;
+}
+
+.money {
+  font-size: 32rpx;
+  color: black;
+  font-weight: bold;
+}
+
+.flex-container {
+  display: flex;
+  width: 100%;
+  height: 140rpx;
+  background-color: lightgrey;
+  justify-content: space-between;
+}
+
+.flex-item {
+  background-color: cornflowerblue;
+  margin: 10px;
+}

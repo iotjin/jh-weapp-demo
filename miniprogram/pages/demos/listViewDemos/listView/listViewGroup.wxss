@@ -1,0 +1,63 @@
+.top-bg {
+  /* height: 230rpx; */
+  height: 120px;
+  width: 100%;
+  background: orange;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+}
+
+.main-bg {
+  /* padding-top: 230rpx; */
+  padding-top: 120px;
+}
+
+.header {
+  background: rgb(230, 230, 230);
+  height: 25px;
+  line-height: 25px;
+  padding-left: 30rpx;
+  font-size: 13px;
+  align-items: center;
+  position: sticky;
+  /* top: 230rpx; */
+  top: 120px;
+}
+
+.cell {
+  background: white;
+  height: 44px;
+  align-items: center;
+  line-height: 44px;
+  border-bottom: 1px solid rgb(230, 230, 230);
+}
+
+.row1 {
+  margin-left: 30rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.leibie {
+  width: 70%;
+  font-size: 30rpx;
+  color: black;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.money {
+  font-size: 32rpx;
+  color: black;
+  font-weight: bold;
+  margin-right: 30rpx;
+}
+
+.money2 {
+  font-size: 32rpx;
+  color: #38BC9D;
+  font-weight: bold;
+  margin-right: 30rpx;
+}

@@ -34,4 +34,4 @@
     bind:change="onChange3"
     />
  
-<view class="Jh_commonBtn" bindtap="ClickOkBtn">提 交</view>
+<view class="b-submit-btn" bindtap="ClickOkBtn">提 交</view>

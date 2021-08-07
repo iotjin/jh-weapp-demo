@@ -59,6 +59,7 @@ Page({
     wx.navigateBack({
       delta: 1,
       success: function () {
+        //调用上个页面的方法更新数据
         if (beforePage.route == 'pages/one/one') {
           beforePage.reloadData()
         }

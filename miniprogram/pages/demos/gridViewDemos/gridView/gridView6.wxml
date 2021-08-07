@@ -1,0 +1,7 @@
+<view class="b-grid-bg grid-bg">
+  <view class='b-grid-item-bg b-grid-col2 grid-item-bg' wx:for="{{dataArr}}" wx:key="index" catchtap="onClickItem"
+    data-item="{{item}}">
+    <view class="image">{{item.img}}</view>
+    <view class="text">{{item.text}}</view>
+  </view>
+</view>

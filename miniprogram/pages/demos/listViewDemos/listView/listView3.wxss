@@ -1,0 +1,42 @@
+.cell-bg {
+  display: flex;
+  width: 100%;
+  /* height: 140rpx; */
+  background-color: white;
+  border-bottom: 1px solid rgb(230, 230, 230);
+}
+
+.left-view {
+  /* background-color: blue; */
+  width: 140rpx;
+  /* 子控件 水平居中 */
+  text-align: center;
+  /* 子控件垂直居中 */
+  line-height: 140rpx;
+}
+
+.img {
+  width: 100rpx;
+  height: 100rpx;
+  vertical-align: middle;
+}
+
+.right-view {
+  /* background-color: red; */
+  flex: 1;
+}
+
+.name {
+  margin-top: 20rpx;
+  margin-left: 15rpx;
+  font-size: 35rpx;
+}
+
+.content {
+  margin-top: 15rpx;
+  margin-left: 15rpx;
+  margin-right: 20rpx;
+  margin-bottom: 20rpx;
+  color: gray;
+  font-size: 30rpx;
+}

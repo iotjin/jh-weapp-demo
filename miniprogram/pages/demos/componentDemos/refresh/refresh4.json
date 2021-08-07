@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "scroll": "../../../../JhComponents/base-refresh-view/index"
+  }
+}

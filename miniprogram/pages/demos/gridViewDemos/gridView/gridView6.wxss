@@ -1,0 +1,27 @@
+.grid-bg {
+  /* margin: 0; */
+}
+
+.grid-item-bg {
+  /* border-width: 0; */
+}
+
+
+.image {
+  margin-top: 10px;
+  background: orange;
+  width: 25px;
+  height: 25px;
+}
+
+.text {
+  margin-top: 10px;
+  display: block;
+  text-align: center;
+  font-weight: bold;
+  color: #000;
+  font-size: 14px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}

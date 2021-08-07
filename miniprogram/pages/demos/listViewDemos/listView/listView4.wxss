@@ -1,0 +1,53 @@
+.bgView {
+  /* background-color: orange; */
+  height: 500px;
+  width: 100%;
+}
+
+.bg {
+  /* background: red; */
+  /* position: fixed;
+  top: 0;
+  height: 40px; */
+}
+
+page {
+  background-color: pink;
+  height: 100%;
+}
+
+/* ------------ weui -------------- */
+.weui-tabs-bar__wrp {
+  border-bottom: 1px solid #eee;
+  position: fixed;
+  top: 0;
+  height: 30px; 
+  z-index:9999;
+}
+
+.weui-tabs-swiper {
+  margin-top: 30px;
+  width: 100%;
+  height: 500px;
+  background-color: yellow;
+}
+
+.tab-content {
+  width: 100%;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  /* padding: 40rpx; */
+  background-color: orange;
+}
+
+.weui-tabs-bar__title {
+  margin: 0px 10px;
+}
+
+.tab-bar-title__selected {
+  font-size: 20px;
+  font-weight: bold;
+}

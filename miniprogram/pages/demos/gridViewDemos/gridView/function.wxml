@@ -1,0 +1,15 @@
+<view class="bg">
+  <block wx:for="{{groupDataArr}}" wx:key="index">
+    <view class="bg">
+      <van-cell-group title="{{groupDataArr[index].groupTitle}}" border="{{false}}">
+        <van-grid column-num="3" border="{{ false }}" gutter="{{ 10 }}">
+          <van-grid-item use-slot wx:for="{{ groupDataArr[index].groupData }}" content-class="grid-bg"
+            url="{{item.url}}" wx:key="index">
+            <image class="img" src="{{item.img}}" />
+            <view class="text">{{item.text}}</view>
+          </van-grid-item>
+        </van-grid>
+      </van-cell-group>
+    </view>
+  </block>
+</view>

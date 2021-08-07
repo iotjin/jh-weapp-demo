@@ -1,0 +1,6 @@
+<!-- <view class="header"> header </view> -->
+<refresh-view background='red' bind:onRefresh='_onRefresh' bind:onLoadMore='_onLoadmore'>
+  <view class="cell-bg" wx:for="{{20}}" wx:key="index" catchtap="clickItem" data-item="{{item}}">
+    <view class="text">{{item}}</view>
+  </view>
+</refresh-view>
