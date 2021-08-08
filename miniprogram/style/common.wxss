@@ -11,6 +11,7 @@ page {
   /* 渐变色 */
   --bGradualPurple: linear-gradient(45deg, #9000ff, #5e00ff);
   --bGradualBlue: linear-gradient(to bottom, #56ccf2, #2f80ed);
+  --bGradualCyan: linear-gradient(45deg, rgb(28, 187, 180), rgb(141, 198, 63));
 }
 
 

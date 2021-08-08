@@ -35,12 +35,6 @@
           "pathName": "pages/demos/ui/ui2/search_tabbar",
           "query": "",
           "scene": null
-        },
-        {
-          "name": "pages/demos/gridViewDemos/gridView/gridView6",
-          "pathName": "pages/demos/gridViewDemos/gridView/gridView6",
-          "query": "",
-          "scene": null
         }
       ]
     }

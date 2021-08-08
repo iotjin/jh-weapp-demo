@@ -1,5 +1,6 @@
 .nav {
-  background: red !important;
+  /* background: red !important; */
+  background: var(--bGradualBlue) !important;
 }
 
 .title {
