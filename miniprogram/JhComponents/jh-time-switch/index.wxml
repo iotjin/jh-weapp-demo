@@ -1,9 +1,0 @@
-<view class="bg" style="height:{{height}}rpx;background:{{bgColor}};">
-  <van-icon name="arrow-left" class="img" style="height:{{height}}rpx;"
-    color='{{disabledPrev||text.length? "gray":(bgColor=="white"?"black":"white")}}' bind:click="onClickPrevBtn"
-    wx:if="{{!hiddenArrow}}" />
-  <view class="time" style="color:{{bgColor=='white'?'black':'white'}};" catchtap="onClickText">{{centerText}}</view>
-  <van-icon name="arrow" class="img" style="height:{{height}}rpx;"
-    color='{{disabledNext||text.length? "gray":(bgColor=="white"?"black":"white")}}' bind:click="onClickNextBtn"
-    wx:if="{{!hiddenArrow}}" />
-</view>
