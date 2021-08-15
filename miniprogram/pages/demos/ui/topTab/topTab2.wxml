@@ -6,7 +6,7 @@
 </view>
 
 <view class="cellBg">
-	<view id="cell" class="cell" wx:for="{{dataArr}}" wx:key="index" bindtap="ClickCell" data-selectdata="{{item}}">
+	<view id="cell" class="cell" wx:for="{{dataArr}}" wx:key="index" catchtap="ClickCell" data-selectdata="{{item}}">
 		<view class="left-view">
 			<image class="img" src="https://img.yzcdn.cn/vant/cat.jpeg"> </image>
 		</view>

@@ -1,6 +1,6 @@
 <van-notice-bar scrollable="{{ false }}" color="#EC6941" background="#F0D4D0" left-icon="info-o"
   text="请按优先级使用，满员后才可启用后续教室" />
-<view class="cell-bg" wx:for="{{roomList}}" wx:key="index" data-index="{{index}}" bindtap="onItemClick">
+<view class="cell-bg" wx:for="{{roomList}}" wx:key="index" data-index="{{index}}" catchtap="onItemClick">
   <view class="row1">
     <view class="b-item-center">
       <view class="constructionName">{{item.constructionName}}</view>

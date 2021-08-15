@@ -1,6 +1,6 @@
 {
   "navigationBarTitleText": "jh-navbar",
-  "navigationStyle":"custom",
+  "navigationStyle": "custom",
   "usingComponents": {
     "van-nav-bar": "@vant/weapp/nav-bar/index"
   }

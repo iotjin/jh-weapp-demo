@@ -1,0 +1,5 @@
+
+<jh-text-list-view dataArr='{{dataArr}}' bind:click="onClickItem">
+</jh-text-list-view>
+
+<jh-loading-toast isShow="{{isShowToast}}"></jh-loading-toast>

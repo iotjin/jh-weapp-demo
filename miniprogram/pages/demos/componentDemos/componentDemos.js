@@ -5,40 +5,60 @@ Page({
    */
   data: {
     dataArr: [{
-        text: 'jh-navbar',
-        pathUrl: '/pages/demos/componentDemos/component/customNav'
+        title: 'jh-navbar',
+        url: '/pages/demos/componentDemos/component/customNav'
       },
       {
-        text: 'jh-dropdown-menu',
-        pathUrl: '/pages/demos/componentDemos/component/dropDownMenu'
+        title: 'jh-custom-navbar',
+        url: '/pages/demos/componentDemos/component/customNav2'
       },
       {
-        text: 'jh-ymd-time-picker',
-        pathUrl: '/pages/demos/componentDemos/component/ymdTimePicker'
+        title: 'jh-capsule-navbar',
+        url: '/pages/demos/componentDemos/component/customNav3'
       },
       {
-        text: 'jh-time-picker',
-        pathUrl: '/pages/demos/componentDemos/component/timePicker2'
+        title: 'jh-dropdown-menu',
+        url: '/pages/demos/componentDemos/component/dropDownMenu'
       },
       {
-        text: '输入弹框',
-        pathUrl: '/pages/demos/componentDemos/component/inputPopView'
+        title: 'jh-string-picker',
+        url: '/pages/demos/componentDemos/component/stringPickerDemo'
       },
       {
-        text: 'jh-empty',
-        pathUrl: '/pages/demos/componentDemos/component/empty'
+        title: 'jh-ymd-time-picker',
+        url: '/pages/demos/componentDemos/component/ymdTimePicker'
       },
       {
-        text: 'jh-swiper',
-        pathUrl: '/pages/demos/componentDemos/component/swiper'
+        title: 'jh-time-picker',
+        url: '/pages/demos/componentDemos/component/timePicker2'
       },
       {
-        text: 'mytree - 树形结构数据1',
-        pathUrl: '/pages/demos/componentDemos/component/tree'
+        title: '输入弹框',
+        url: '/pages/demos/componentDemos/component/inputPopView'
       },
       {
-        text: 'jh-tree - 树形结构数据2',
-        pathUrl: '/pages/demos/componentDemos/component/tree2'
+        title: 'jh-loading-toast',
+        url: '/pages/demos/componentDemos/component/toastDemo'
+      },
+      {
+        title: 'jh-empty-view',
+        url: '/pages/demos/componentDemos/component/emptyDemo'
+      },
+      {
+        title: 'jh-swiper-view',
+        url: '/pages/demos/componentDemos/component/swiperDemo'
+      },
+      {
+        title: 'jh-time-switch',
+        url: '/pages/demos/componentDemos/component/timeSwitchDemo'
+      },
+      {
+        title: 'mytree - 树形结构数据1',
+        url: '/pages/demos/componentDemos/component/tree'
+      },
+      {
+        title: 'jh-tree - 树形结构数据2',
+        url: '/pages/demos/componentDemos/component/tree2'
       },
     ]
   },

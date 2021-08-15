@@ -1,0 +1,41 @@
+.nav {
+  display: flex;
+  height: 100rpx;
+  background: white;
+}
+
+.back {
+  flex: 1;
+  padding-left: 5rpx;
+  padding-right: 20rpx;
+}
+
+.title {
+  flex: 8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+.okBtn {
+  flex: 1;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  display: flex;
+  align-items: center;
+  color: rgb(50, 50, 50);
+  font-size: 16px;
+}
+
+.textarea-bg {
+  background: #fff;
+  padding: 30rpx;
+  width: 90%;
+}
+
+.word {
+  position: absolute;
+  bottom: 30rpx;
+  right: 30rpx;
+}

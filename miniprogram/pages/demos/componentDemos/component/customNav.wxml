@@ -1,4 +1,15 @@
-<jh-navbar title="标题"/>
+<jh-navbar title="渐变导航" />
+
+<!-- <jh-navbar bgColor='transparent' isBack='{{false}}'/> -->
+<!-- <jh-navbar bgColor='linear-gradient(45deg, #f43f3b, #ec008c)' title="标题" /> -->
+
+<!-- <jh-navbar title="标题" leftImg='../../images/ic_nav_set.png' bind:left="onClickLeft" /> -->
+
+<!-- <jh-navbar title="标题" leftText='设置' bind:left="onClickLeft" /> -->
+
+<!-- <jh-navbar leftSlot title="标题">
+  <view slot="left">自定义slot</view>
+</jh-navbar> -->
 
 <view class='page-content'>
   <view style="height:300px;background-color:#FF6F43"></view>

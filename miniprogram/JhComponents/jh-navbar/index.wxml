@@ -1,5 +1,0 @@
-<van-nav-bar title="{{title}}" custom-class="nav" title-class="title" fixed placeholder>
-  <view slot="left" class="leftIcon" bindtap="onClickBack">
-    <van-icon name="arrow-left" color="white" size="25px" />
-  </view>
-</van-nav-bar>

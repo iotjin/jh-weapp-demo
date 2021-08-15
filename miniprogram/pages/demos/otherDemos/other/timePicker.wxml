@@ -13,6 +13,6 @@
 
 </van-popup>
 
-<view class="timeView" bindtap="ClickTimeBtn"> 选时间 </view>
+<view class="timeView" catchtap="ClickTimeBtn"> 选时间 </view>
 <view class="time1" >时间戳： {{currentDate }}</view>
 <view class="time2" >时间： {{currentDateStr}}</view>

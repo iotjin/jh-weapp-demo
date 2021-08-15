@@ -1,5 +1,5 @@
 let app = getApp()
-var API = require('../../../../JhHttp/APICongfig.js');
+var API = require('../../../../http/apiCongfig.js');
 
 Page({
   data: {

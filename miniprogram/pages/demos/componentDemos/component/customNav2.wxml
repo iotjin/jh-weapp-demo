@@ -1,0 +1,10 @@
+<!-- <jh-custom-navbar home /> -->
+
+<jh-custom-navbar home bgImage="https://img.yzcdn.cn/vant/cat.jpeg" />
+
+
+<view class='page-content'>
+  <view style="height:300px;background-color:#FF6F43"></view>
+  <view style="height:300px;background-color:#FFD31C"></view>
+  <view style="height:300px;background-color:#09BFEA"></view>
+</view>

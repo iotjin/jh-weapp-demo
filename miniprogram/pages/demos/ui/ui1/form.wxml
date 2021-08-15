@@ -22,4 +22,4 @@
   bind:confirm='confirm2'>
 </string-picker>
 
-<view class="b-submit-btn" bindtap="clickSubmitBtn">提 交</view>
+<view class="b-submit-btn" catchtap="clickSubmitBtn">提 交</view>

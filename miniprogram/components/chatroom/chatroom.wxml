@@ -39,7 +39,7 @@
               class="image-content" 
               style="{{item.imgStyle}}"
               mode="scallToFill" 
-              bindtap="onMessageImageTap"></image>
+              catchtap="onMessageImageTap"></image>
           </view>
         </block>
         <block wx:else>
@@ -68,7 +68,7 @@
         src="./photo.png" 
         class="btn-send-image" 
         mode="scaleToFill"
-        bindtap="onChooseImage"
+        catchtap="onChooseImage"
       ></image>
     </view>
 

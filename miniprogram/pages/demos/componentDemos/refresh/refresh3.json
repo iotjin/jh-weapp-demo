@@ -3,6 +3,6 @@
   "disableScroll": true,
   "enablePullDownRefresh": false,
   "usingComponents": {
-    "base-refresh-view": "../../../../JhComponents/refresh/base-refresh-view/index"
+    "base-refresh-view": "../../../../jh-components/refresh/base-refresh-view/index"
   }
 }

@@ -1,6 +1,6 @@
-// var http = require('../../../../JhHttp/JhHttpUtils.js'); //相对路径
+// var http = require('../../../../http/httpUtils.js'); //相对路径
 
-var API = require('../../../../JhHttp/APICongfig.js'); //相对路径
+var API = require('../../../../http/apiCongfig.js'); //相对路径
 
 var currentPage = 0;
 Page({

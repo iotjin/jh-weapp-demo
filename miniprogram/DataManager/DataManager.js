@@ -3,7 +3,7 @@
 /* 
 使用方法 ：
 1.在要使用的js文件导入
-var DataManager = require('../../../DataManager/DataManager');
+    const DataManager = require('../../../dataManager/dataManager');
 2. 调用
     DataManager.Jh_handleExcel('123').then(res => {
     }).catch(error => {
@@ -12,6 +12,9 @@ var DataManager = require('../../../DataManager/DataManager');
 
 
 const db = wx.cloud.database()
+const _ = db.command;
+const $ = db.command.aggregate;
+const kPageCount = 20;
 
 module.exports = {
   Jh_chooseExcelFile: chooseExcelFile,
@@ -25,15 +28,15 @@ function chooseExcelFile() {
     type: 'file',
     success(res) {
       // console.log('选择文件成功！',res)
-      let name = res.tempFiles[0].name 
+      let name = res.tempFiles[0].name
       let path = res.tempFiles[0].path
-      uploadExcel(name,path)
+      uploadExcel(name, path)
     }
   })
 }
 
 //上传excel到云存储
-function uploadExcel(name,path) {
+function uploadExcel(name, path) {
   wx.showLoading({
     title: "正在上传...",
   })
@@ -45,21 +48,21 @@ function uploadExcel(name,path) {
       console.log("excel上传成功：", res.fileID)
       let nameStr = name.substring(0, 6)
       wx.hideLoading()
-      handleExcel(res.fileID,nameStr)
+      handleExcel(res.fileID, nameStr)
     },
     fail(err) {
       console.log("excel上传失败：", err)
       wx.hideLoading()
       wx.showToast({
         title: 'excel上传失败',
-        icon:'none'
+        icon: 'none'
       })
     }
   })
 }
 
 // 处理excel
-function handleExcel(fileID,subjectLibTime) {
+function handleExcel(fileID, subjectLibTime) {
   wx.showLoading({
     title: "正在导入数据...",
   })
@@ -83,7 +86,7 @@ function handleExcel(fileID,subjectLibTime) {
         wx.hideLoading()
         wx.showToast({
           title: '数据导入失败，请重试',
-          icon:'none'
+          icon: 'none'
         })
         return resolve(res)
       }

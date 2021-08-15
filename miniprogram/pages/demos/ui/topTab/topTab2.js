@@ -1,4 +1,4 @@
-var API = require('../../../../JhHttp/APICongfig.js'); //相对路径
+var API = require('../../../../http/apiCongfig.js'); //相对路径
 
 var currentPage = 0;
 

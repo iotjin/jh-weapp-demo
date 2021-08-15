@@ -1,5 +1,5 @@
 {
   "usingComponents": {
-    "scroll": "../../../../JhComponents/base-refresh-view/index"
+    "scroll": "../../../../jh-components/base-refresh-view/index"
   }
 }

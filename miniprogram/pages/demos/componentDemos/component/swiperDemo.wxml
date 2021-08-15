@@ -1,0 +1,4 @@
+<jh-swiper-view dataArr="{{swiperList}}" activeColor="#0081ff" bind:click="onClickItem"></jh-swiper-view>
+
+<jh-swiper-view dataArr="{{swiperList3}}" isCard activeColor="#0081ff" bind:click="onClickItem">
+</jh-swiper-view>

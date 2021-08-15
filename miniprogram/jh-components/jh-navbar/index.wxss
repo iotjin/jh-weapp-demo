@@ -1,0 +1,38 @@
+.nav {
+  /* background: red !important; */
+  /* background: var(--gradualBlue) !important; */
+  background: var(--jh-navbar-bgColor) !important;
+}
+
+.nav2 {
+  /* background-image: url(https://img.yzcdn.cn/vant/cat.jpeg) !important; */
+  background-image: var(--jh-navbar-bgImage) !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+
+.title {
+  color: white !important;
+}
+
+.leftItem {
+  height: 88rpx;
+  width: 100rpx;
+  margin-left: -10rpx;
+  display: flex;
+}
+
+.iconBg {
+  justify-content: center;
+  flex-direction: column;
+}
+
+.leftIcon {
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.leftText {
+  color: white;
+}

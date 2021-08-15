@@ -4,7 +4,7 @@
 
 <view class="content-bg">
   <view wx:for="{{dataArr}}" wx:key="index">
-    <view class="cell-bg" bindtap="clickItem" data-item="{{item}}">
+    <view class="cell-bg" catchtap="clickItem" data-item="{{item}}">
       <view class="flex">
         <view class="left">
           <view class="equipment">{{item.title}}</view>

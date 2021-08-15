@@ -5,38 +5,37 @@ Page({
    * 页面的初始数据
    */
   data: {
-    dataArr: [
-      {
-        text: 'ListView1 - 静态数据',
-        pathUrl: '/pages/demos/listViewDemos/listView/listView1'
+    dataArr: [{
+        title: 'ListView1 - 静态数据',
+        url: '/pages/demos/listViewDemos/listView/listView1'
       },
       {
-        text: 'ListView2 - 动态数据',
-        pathUrl: '/pages/demos/listViewDemos/listView/listView2'
+        title: 'ListView2 - 动态数据',
+        url: '/pages/demos/listViewDemos/listView/listView2'
       },
       {
-        text: 'ListView3 - 分页加载',
-        pathUrl: '/pages/demos/listViewDemos/listView/listView3'
+        title: 'ListView3 - 分页加载',
+        url: '/pages/demos/listViewDemos/listView/listView3'
       },
       {
-        text: 'ListView4 - tab分页加载',
-        pathUrl: '/pages/demos/listViewDemos/listView/listView4'
+        title: 'ListView4 - tab分页加载',
+        url: '/pages/demos/listViewDemos/listView/listView4'
       },
       {
-        text: 'ListView5 - tab分页加载-vant',
-        pathUrl: '/pages/demos/listViewDemos/listView/listView5'
+        title: 'ListView5 - tab分页加载-vant',
+        url: '/pages/demos/listViewDemos/listView/listView5'
       },
       {
-        text: 'ListView6 - 分组列表',
-        pathUrl: '/pages/demos/listViewDemos/listView/listViewGroup'
+        title: 'ListView6 - 分组列表',
+        url: '/pages/demos/listViewDemos/listView/listViewGroup'
       },
       {
-        text: 'ListView7 - tab分页加载',
-        pathUrl: '/pages/three/feedback/myFeedback'
+        title: 'ListView7 - tab分页加载',
+        url: '/pages/three/feedback/myFeedback'
       },
       {
-        text: 'ListView8 - 搜索列表',
-        pathUrl: '/pages/demos/listViewDemos/listView/searchList'
+        title: 'ListView8 - 搜索列表',
+        url: '/pages/demos/listViewDemos/listView/searchList'
       },
 
     ]

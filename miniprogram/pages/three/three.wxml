@@ -10,7 +10,7 @@
 </view> -->
 
 
-<view class="top_bg" bindtap="ClickHeader">
+<view class="top_bg" catchtap="ClickHeader">
 
 <image class="img" src="https://img.yzcdn.cn/vant/cat.jpeg"></image>
 <text class="name">小鱼 </text>
@@ -21,7 +21,7 @@
 
 <view class='list_main' wx:for="{{listData}}" wx:key="index">
   <view class="space-bg"></view>
-  <van-cell title="{{item.title}}" center is-link value='{{item.info}} ' data-model="{{listData[index]}}" bindtap="ClickCell">
+  <van-cell title="{{item.title}}" center is-link value='{{item.info}} ' data-model="{{listData[index]}}" catchtap="ClickCell">
     <image slot="icon" src="{{item.icon}}" class="setCellIcon"></image>
   </van-cell>
 

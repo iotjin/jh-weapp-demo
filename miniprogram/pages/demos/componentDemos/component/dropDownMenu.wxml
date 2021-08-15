@@ -1,6 +1,6 @@
 <view class="text">默认样式，绑定点击事件 </view>
 
-<jh-dropdown-menu array='{{arrowSelectArray}}' bind:clickItem='clickItem'> </jh-dropdown-menu>
+<jh-dropdown-menu array='{{arrowSelectArray}}' bind:click='clickItem'> </jh-dropdown-menu>
 
 <view class="text">设置默认选择第一个</view>
 

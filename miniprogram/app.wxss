@@ -1,7 +1,7 @@
 /**app.wxss**/
 
 /* 导入公共样式 */
-@import "./style/common.wxss";
+@import "./styles/common.wxss";
 
 
 ThemeColor {

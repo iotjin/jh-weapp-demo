@@ -7,29 +7,29 @@ Page({
    */
   data: {
     dataArr: [{
-        text: 'ListView',
-        pathUrl: '/pages/demos/listViewDemos/listViewDemos'
+        title: 'ListView',
+        url: '/pages/demos/listViewDemos/listViewDemos'
       },
       {
-        text: 'GirdView',
-        pathUrl: '/pages/demos/gridViewDemos/gridViewDemos'
+        title: 'GirdView',
+        url: '/pages/demos/gridViewDemos/gridViewDemos'
       },
       {
-        text: 'ECharts',
-        // pathUrl: '../../packageA/pages/eChartDemos/eChartDemos'
-        pathUrl: '/packageA/pages/eChartDemos/eChartDemos'
+        title: 'ECharts',
+        // url: '../../packageA/pages/eChartDemos/eChartDemos'
+        url: '/packageA/pages/eChartDemos/eChartDemos'
       },
       {
-        text: '組件',
-        pathUrl: '/pages/demos/componentDemos/componentDemos'
+        title: 'Component',
+        url: '/pages/demos/componentDemos/componentDemos'
       },
       {
-        text: 'UI',
-        pathUrl: '/pages/demos/ui/uiDemos'
+        title: 'UI',
+        url: '/pages/demos/ui/uiDemos'
       },
       {
-        text: 'Other',
-        pathUrl: '/pages/demos/otherDemos/otherDemos'
+        title: 'Other',
+        url: '/pages/demos/otherDemos/otherDemos'
       },
 
     ]

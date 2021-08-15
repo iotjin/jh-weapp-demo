@@ -1,5 +1,1 @@
-<!--miniprogram/pages/demos/listView/listViewDemos.wxml-->
-
-<view class='list_main' wx:for="{{dataArr}}" wx:key="index">
-  <van-cell is-link title="{{item.text}}" link-type="navigateTo" url="{{item.pathUrl}}" />
-</view>
+<jh-text-list-view dataArr='{{dataArr}}' />

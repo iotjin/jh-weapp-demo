@@ -6,7 +6,7 @@
 </view>
 
 <view class="cellBg">
-	<view id="cell" class="cell" wx:for="{{dataArr}}" wx:key="index" bindtap="ClickCell" data-selectdata="{{item}}">
+	<view id="cell" class="cell" wx:for="{{dataArr}}" wx:key="index" catchtap="ClickCell" data-selectdata="{{item}}">
 		<!-- <van-field label="反馈类型:" value='{{item.state ==="0"?"无法打开小程序":(item.state =="1"?"卡顿/界面错位、异常":"意见反馈")}}' required readonly /> -->
 		<!-- <van-field label="联系人:" value="{{item.name2}}" readonly />
 		<van-field label="联系方式:" value="{{item.email}}" readonly />

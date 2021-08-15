@@ -6,16 +6,16 @@ Page({
    */
   data: {
     dataArr: [{
-        text: '加密解密',
-        pathUrl: '/pages/demos/otherDemos/other/encrypt'
+        title: '加密解密',
+        url: '/pages/demos/otherDemos/other/encrypt'
       },
       {
-        text: 'vant 时间选择器',
-        pathUrl: '/pages/demos/otherDemos/other/timePicker'
+        title: 'vant 时间选择器',
+        url: '/pages/demos/otherDemos/other/timePicker'
       },
       {
-        text: 'scroll-view',
-        pathUrl: '/pages/demos/otherDemos/other/baseView'
+        title: 'scroll-view',
+        url: '/pages/demos/otherDemos/other/baseView'
       },
     ]
   },

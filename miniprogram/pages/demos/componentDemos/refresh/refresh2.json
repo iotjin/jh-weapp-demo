@@ -1,6 +1,6 @@
 {
   "navigationBarTitleText": "refresh-view",
   "usingComponents": {
-    "refresh-view": "../../../../JhComponents/refresh/refresh-view/index"
+    "refresh-view": "../../../../jh-components/refresh/refresh-view/index"
   }
 }

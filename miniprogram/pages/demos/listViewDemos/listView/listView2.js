@@ -1,4 +1,4 @@
-var API = require('../../../../JhHttp/APICongfig.js');
+var API = require('../../../../http/apiCongfig.js');
 Page({
   /**
    * 页面的初始数据

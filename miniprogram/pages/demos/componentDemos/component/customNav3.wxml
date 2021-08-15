@@ -1,0 +1,8 @@
+<!-- <jh-capsule-navbar home title="标题" bind:search="home" /> -->
+<jh-capsule-navbar searchBar bind:search="search" />
+
+<view class='page-content'>
+  <view style="height:300px;background-color:#FF6F43"></view>
+  <view style="height:300px;background-color:#FFD31C"></view>
+  <view style="height:300px;background-color:#09BFEA"></view>
+</view>

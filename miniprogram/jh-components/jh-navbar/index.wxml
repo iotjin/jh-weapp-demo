@@ -1,0 +1,23 @@
+<van-nav-bar title="{{title}}" custom-class="nav {{bgImage ?'nav2':'' }}" title-class="title" fixed placeholder
+  style="{{myStyle}}" border="{{bgColor=='transparent' ? false : true}}">
+  <block wx:if="{{leftSlot}}">
+    <view slot="left">
+      <slot name="left"></slot>
+    </view>
+  </block>
+  <block wx:elif="{{leftImg}}">
+    <view slot="left" class="leftItem iconBg" bindtap="onClickLeftItem">
+      <image class="leftIcon" src="{{leftImg}}"></image>
+    </view>
+  </block>
+  <block wx:elif="{{leftText}}">
+    <view slot="left" class="leftItem" bindtap="onClickLeftItem">
+      <view class="leftText">{{leftText}}</view>
+    </view>
+  </block>
+  <block wx:elif="{{isBack}}">
+    <view slot="left" class="leftItem" bindtap="onClickBack">
+      <van-icon name="arrow-left" color="white" size="25px" />
+    </view>
+  </block>
+</van-nav-bar>

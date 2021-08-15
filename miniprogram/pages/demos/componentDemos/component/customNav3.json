@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "jh-capsule-navbar",
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "jh-capsule-navbar": "../../../../jh-components/jh-capsule-navbar/index"
+  }
+}

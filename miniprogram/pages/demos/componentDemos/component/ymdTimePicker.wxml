@@ -16,11 +16,11 @@
   bind:confirm="onConfirm">
 </jh-ymd-time-picker>
 
-<view class="timeView" bindtap="ClickTimeBtn"> 选时间 - 年月日 </view>
-<view class="timeView" bindtap="ClickTimeBtn2"> 选时间 - 年月 </view>
-<view class="timeView" bindtap="ClickTimeBtn3"> 选时间 - 年月日时分 </view>
-<view class="timeView" bindtap="ClickTimeBtn4"> 选时间 - 最小时间 </view>
-<view class="timeView" bindtap="ClickTimeBtn5"> 选时间 - 最大时间 </view>
+<view class="timeView" catchtap="ClickTimeBtn"> 选时间 - 年月日 </view>
+<view class="timeView" catchtap="ClickTimeBtn2"> 选时间 - 年月 </view>
+<view class="timeView" catchtap="ClickTimeBtn3"> 选时间 - 年月日时分 </view>
+<view class="timeView" catchtap="ClickTimeBtn4"> 选时间 - 最小时间 </view>
+<view class="timeView" catchtap="ClickTimeBtn5"> 选时间 - 最大时间 </view>
 
 <view class="time1">时间戳： {{currentDate }}</view>
 

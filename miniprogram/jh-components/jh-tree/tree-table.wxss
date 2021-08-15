@@ -1,0 +1,35 @@
+.tableContainer {
+  overflow-x: scroll;
+}
+
+.table {
+  /* display:inline-block; */
+  --indent-width: 26rpx;
+}
+
+.tr {
+  white-space: nowrap;
+  border-bottom: 2rpx solid #CDD6D5;
+}
+
+.th {
+  background-color: #5787EB;
+  color: #fff;
+}
+
+.th>.td {
+  padding: 15rpx 30rpx;
+}
+
+.td {
+  display: inline-block;
+  padding: 0 10rpx;
+  min-width: 375rpx;
+  font: 30rpx/60rpx '微软雅黑';
+  border-right: 2rpx solid #CDD6D5;
+  white-space: pre;
+}
+
+.td:last-child {
+  border-right: 0;
+}

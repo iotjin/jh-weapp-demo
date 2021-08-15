@@ -26,7 +26,7 @@
 
   <view class="flex-bg">
     <block wx:for="{{dataArr}}" wx:key="index">
-      <view class="{{item.isSelected ? 'flex-item-selected' :'flex-item'}} " bindtap='clickItem' data-item="{{item}}"
+      <view class="{{item.isSelected ? 'flex-item-selected' :'flex-item'}} " catchtap='clickItem' data-item="{{item}}"
         data-index="{{index}}">
         {{item.text}}
       </view>
@@ -40,4 +40,4 @@
     show-word-limit type="textarea" input-class="textarea" bind:change="onChange4" />
 </van-cell-group>
 
-<view class="b-submit-btn" bindtap="clickSubmitBtn">提 交</view>
+<view class="b-submit-btn" catchtap="clickSubmitBtn">提 交</view>

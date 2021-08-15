@@ -5,73 +5,77 @@ Page({
    */
   data: {
     dataArr: [{
-        text: '简单表格',
-        pathUrl: '/pages/demos/ui/table/table1'
+        title: '微信登录',
+        url: '/pages/login/wxLogin'
       },
       {
-        text: '简单表格2',
-        pathUrl: '/pages/demos/ui/table/table2'
+        title: '密码登录',
+        url: '/pages/login/pwdLogin'
       },
       {
-        text: '简单表格3',
-        pathUrl: '/pages/demos/ui/table/table3'
+        title: '简单表格',
+        url: '/pages/demos/ui/table/table1'
       },
       {
-        text: '简单表格4',
-        pathUrl: '/pages/demos/ui/table/table4'
+        title: '简单表格2',
+        url: '/pages/demos/ui/table/table2'
       },
       {
-        text: '树形结构数据',
-        pathUrl: '/pages/demos/componentDemos/component/tree'
+        title: '简单表格3',
+        url: '/pages/demos/ui/table/table3'
       },
       {
-        text: 'topTab',
-        pathUrl: '/pages/demos/ui/topTab/topTab'
+        title: '简单表格4',
+        url: '/pages/demos/ui/table/table4'
       },
       {
-        text: 'topTab2',
-        pathUrl: '/pages/demos/ui/topTab/topTab2'
+        title: '树形结构数据',
+        url: '/pages/demos/componentDemos/component/tree'
       },
       {
-        text: '表单',
-        pathUrl: '/pages/demos/ui/ui1/form'
+        title: 'topTab',
+        url: '/pages/demos/ui/topTab/topTab'
       },
       {
-        text: '登录',
-        pathUrl: '/pages/demos/ui/ui1/login'
+        title: 'topTab2',
+        url: '/pages/demos/ui/topTab/topTab2'
       },
       {
-        text: 'main',
-        pathUrl: '/pages/demos/ui/ui1/main'
+        title: '表单',
+        url: '/pages/demos/ui/ui1/form'
       },
       {
-        text: 'top',
-        pathUrl: '/pages/demos/ui/ui1/top'
+        title: 'main',
+        url: '/pages/demos/ui/ui1/main'
+      },
+      {
+        title: 'top',
+        url: '/pages/demos/ui/ui1/top'
       },
 
       {
-        text: 'examination',
-        pathUrl: '/pages/demos/ui/ui2/examination'
+        title: 'examination',
+        url: '/pages/demos/ui/ui2/examination'
       },
       {
-        text: '评分页',
-        pathUrl: '/pages/demos/ui/ui2/score'
+        title: '评分页',
+        url: '/pages/demos/ui/ui2/score'
       },
       {
-        text: '顶部搜索+底部tabbar',
-        pathUrl: '/pages/demos/ui/ui2/search_tabbar'
+        title: '顶部搜索+底部tabbar',
+        url: '/pages/demos/ui/ui2/search_tabbar'
       },
       {
-        text: 'search',
-        pathUrl: '/pages/demos/ui/ui2/search'
+        title: 'search',
+        url: '/pages/demos/ui/ui2/search'
       },
       {
-        text: '侧滑搜索',
-        pathUrl: '/pages/demos/ui/ui2/sideslip'
+        title: '侧滑搜索',
+        url: '/pages/demos/ui/ui2/sideslip'
       },
       {
-        text: 'room',
-        pathUrl: '/pages/demos/ui/ui2/study_room'
+        title: 'room',
+        url: '/pages/demos/ui/ui2/study_room'
       },
     ]
   },

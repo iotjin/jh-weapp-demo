@@ -1,0 +1,10 @@
+<view class="loading-bg" wx:if="{{forbidClick && isShow}}">
+  <view class='loading-view'>
+    <image src='{{img}}' class='icon' mode='aspectFit'></image>
+    <view class='text'>{{loadingText}}</view>
+  </view>
+</view>
+<view class='loading-view' style="box-shadow: 0 0 0rpx 2000rpx rgba(0, 0, 0, 0.5);" wx:if="{{!forbidClick && isShow}}">
+  <image src='{{img}}' class='icon' mode='aspectFit'></image>
+  <view class='text'>{{loadingText}}</view>
+</view>

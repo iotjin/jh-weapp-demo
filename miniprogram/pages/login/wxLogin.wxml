@@ -1,0 +1,14 @@
+<jh-navbar bgColor='transparent' isBack='{{false}}' />
+
+<view class="content">
+	<image class="logo" src="https://img.yzcdn.cn/vant/cat.jpeg"></image>
+	<view class="appName">jh-weapp-demo</view>
+</view>
+
+<view class="btnBg">
+	<button class="loginBtn" open-type="getUserInfo" bindgetuserinfo="ClickLogin">
+		<image class="weixinLogo" src="../../images/weixinLogo.png"></image>微信登录
+	</button>
+</view>
+
+<image class="footer" src="../../images/login_footer.png"></image>

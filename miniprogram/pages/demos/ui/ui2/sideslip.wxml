@@ -21,7 +21,7 @@
   <van-cell-group title="工单类型">
     <view class="flex-bg">
       <block wx:for="{{workOrdertType}}" wx:key="index">
-        <view class="{{item.isSelected ? 'flex-item-selected' :'flex-item'}} " bindtap='clickType' data-item="{{item}}"
+        <view class="{{item.isSelected ? 'flex-item-selected' :'flex-item'}} " catchtap='clickType' data-item="{{item}}"
           data-index="{{index}}">
           {{item.text}}
         </view>
@@ -31,7 +31,7 @@
   <van-cell-group title="级别">
     <view class="flex-bg">
       <block wx:for="{{level}}" wx:key="index">
-        <view class="{{item.isSelected ? 'flex-item-selected' :'flex-item'}} " bindtap='clickLevel' data-item="{{item}}"
+        <view class="{{item.isSelected ? 'flex-item-selected' :'flex-item'}} " catchtap='clickLevel' data-item="{{item}}"
           data-index="{{index}}">
           {{item.text}}
         </view>
@@ -41,8 +41,8 @@
   <van-field label="开始日期" value="{{ startDate }}" placeholder="请选择" is-link readonly bind:tap="clickStartDate" />
   <van-field label="结束日期" value="{{ endDate }}" placeholder="请选择" is-link readonly bind:tap="clickEndDate" />
   <view class="footer-bg">
-    <view class="footer-last" bindtap="clickReset">重置</view>
-    <view class="footer-nest" bindtap="clickSearch">查询</view>
+    <view class="footer-last" catchtap="clickReset">重置</view>
+    <view class="footer-nest" catchtap="clickSearch">查询</view>
   </view>
 </van-popup>
 

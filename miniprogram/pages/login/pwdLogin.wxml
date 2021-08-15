@@ -1,0 +1,18 @@
+<jh-navbar bgColor='transparent' isBack='{{false}}' />
+
+<view class="b-center">
+  <image class="logo" src="https://img.yzcdn.cn/vant/cat.jpeg"></image>
+  <view class="appName">jh-weapp-demo</view>
+</view>
+
+<van-cell-group custom-style="container">
+  <van-field value="{{ account }}" label="账号" placeholder="请输入账号" data-type="account" bind:change="onChange"
+    size="large" clearable bindblur="onChange2" />
+  <van-field value="{{ pwd }}" label="密码" placeholder="请输入密码" data-type="pwd" bind:change="onChange" type="password"
+    clearable size="large" bindblur="onChange2" />
+</van-cell-group>
+<view class="rememberAccount">
+  <van-checkbox value="{{ checked }}" bind:change="onChange3" data-type="rememberAccount" checked-color="#4252DD">记住账号
+  </van-checkbox>
+</view>
+<view class="b-submit-btn" style="margin-top:60px;" bindtap="onClickLogin">登 录</view>

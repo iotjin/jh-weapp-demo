@@ -1,0 +1,3 @@
+<view wx:for="{{dataArr}}" wx:key="index" catchtap="onClickItem" data-item="{{dataArr[index]}}">
+  <van-cell is-link title="{{item.title}}" value="{{item.info}}" />
+</view>

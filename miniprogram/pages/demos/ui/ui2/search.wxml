@@ -4,24 +4,24 @@
 	<view class="hotSearchBgView">
 		<view class="hotSearchTitleView">
 			<view class="hotSearchTitle">热门搜索</view>
-			<view class="hotSearchCleanText" bindtap='CleanHotSearch'>换一批
+			<view class="hotSearchCleanText" catchtap='CleanHotSearch'>换一批
 				<van-icon name="replay" class="hotSearchCleanBtn" />
 			</view>
 		</view>
 		<view class="hotSearchTagBgView">
-			<view class="hotSearchTag" wx:for="{{hotSearchArr}}" wx:key="index" bindtap='ClickHotSearchItem' data-text='{{item}}'>{{item}}</view>
+			<view class="hotSearchTag" wx:for="{{hotSearchArr}}" wx:key="index" catchtap='ClickHotSearchItem' data-text='{{item}}'>{{item}}</view>
 		</view>
 	</view>
 	<view class="historyBgView">
 		<view class="historyTitleView">
 			<view class="historyTitle">搜索历史</view>
-			<view class="historyCleanText" bindtap='CleanHistory'>清空历史
+			<view class="historyCleanText" catchtap='CleanHistory'>清空历史
 				<van-icon name="delete" class="historyCleanBtn" />
 			</view>
 
 		</view>
 		<view class="historyTagBgView">
-			<view class="historyTag" wx:for="{{searchHistoryArr}}" wx:key="index" bindtap='ClickHistoryItem' data-text='{{item}}'>
+			<view class="historyTag" wx:for="{{searchHistoryArr}}" wx:key="index" catchtap='ClickHistoryItem' data-text='{{item}}'>
 				<van-icon class="historyIconLeft" name="clock-o" color="#969696" size="20px" />
 				<view class="historyText"> {{item}}</view>
 				<van-icon class="historyIconRight" name="cross" color="#969696" size="20px" catchtap='CleanHistoryItem' data-text='{{item}}' />
@@ -31,7 +31,7 @@
 </view>
 
 <view class='{{isShowResultView?"resultBgView":"resultBgView-hidden"}}'>
-	<view class="resultCell" wx:for="{{searchResultArr}}" wx:key="index" bindtap='ClickResultItem' data-text='{{item}}'>
+	<view class="resultCell" wx:for="{{searchResultArr}}" wx:key="index" catchtap='ClickResultItem' data-text='{{item}}'>
 		<van-icon name="search" color="#969696" size="20px" />
 		<view class="resultText"> {{searchResultArr[index]}}</view>
 	</view>

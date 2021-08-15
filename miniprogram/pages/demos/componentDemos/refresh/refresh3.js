@@ -1,5 +1,5 @@
 // miniprogram/pages/demos/otherDemos/other/refresh3.js
-var API = require('../../../../JhHttp/APICongfig.js');
+var API = require('../../../../http/apiCongfig.js');
 Page({
 
   /**

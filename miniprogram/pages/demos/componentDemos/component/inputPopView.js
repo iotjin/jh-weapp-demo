@@ -12,13 +12,13 @@ Page({
         text: '弹框1 - model',
       },
       {
-        text: '弹框2 - 单行',
+        text: 'jh-input-alert - 单行',
       },
       {
-        text: '弹框3 - 多行',
+        text: 'jh-input-alert - 多行',
       },
       {
-        text: 'JhBottomInputPop',
+        text: 'jh-input-picker',
       },
     ],
   },
@@ -39,17 +39,17 @@ Page({
         showDialog: true
       });
     }
-    if (text == "弹框2 - 单行") {
+    if (text == "jh-input-alert - 单行") {
       this.setData({
         showDialog2: true
       });
     }
-    if (text == "弹框3 - 多行") {
+    if (text == "jh-input-alert - 多行") {
       this.setData({
         showDialog3: true
       });
     }
-    if (text == "JhBottomInputPop") {
+    if (text == "jh-input-picker") {
       this.setData({
         showDialog4: true
       });

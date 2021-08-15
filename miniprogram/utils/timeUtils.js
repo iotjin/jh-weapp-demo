@@ -50,8 +50,6 @@ function Jh_convertTimeStamp(time) {
   newTime = newTime.replace(/年/g, '/');
   newTime = newTime.replace(/月/g, '/');
   newTime = newTime.replace(/日/g, '');
-  console.log(newTime);
-  console.log(newTime.length);
   if (newTime.length == 5) { // 处理2019年
     newTime = newTime.substring(0, 4)
   }

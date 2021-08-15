@@ -44,4 +44,4 @@ Page({
 
 })
 
-// "JhTimePicker": "/JhComponents/JhTimePicker/JhTimePicker"
+// "JhTimePicker": "/jh-components/JhTimePicker/JhTimePicker"

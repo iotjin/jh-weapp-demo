@@ -1,4 +1,3 @@
-
 Page({
 
   /**
@@ -14,9 +13,13 @@ Page({
   onLoad: function (options) {
 
   },
-  ClickBack(){
-    wx.navigateBack({
-      complete: (res) => {},
-    })
+  onClickBack() {
+    console.log('back');
+    // wx.navigateBack({
+    //   complete: (res) => {},
+    // })
+  },
+  onClickLeft() {
+    console.log('left');
   }
 })
