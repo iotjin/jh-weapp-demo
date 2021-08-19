@@ -158,7 +158,7 @@ Component({
 3.点击事件
   //点击选择器的 确定
   onConfirm(event) {
-    let time = JhTime.Jh_timeStampToTime(event.detail, '{y}年{m}月{d}日 {h}:{i}:{s} 星期{w}');
+    let time = TimeUtils.Jh_timeStampToTime(event.detail, '{y}年{m}月{d}日 {h}:{i}:{s} 星期{w}');
     console.log("点击确定 选择的时间 - " + time);
   },
 

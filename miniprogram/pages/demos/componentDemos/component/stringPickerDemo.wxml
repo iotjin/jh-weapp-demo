@@ -1,6 +1,6 @@
 <jh-text-list-view dataArr='{{dataArr}}' bind:click="onClickItem">
 </jh-text-list-view>
 
-<jh-string-picker textArr='{{stringPickerTextArr}}' selectIndex='1' isShow='{{isShowPicker}}' title="请选择"
+<jh-string-picker dataArr='{{stringPickerDataArr}}' selectIndex='1' isShow='{{isShowPicker}}' title="请选择"
   bind:confirm='confirm1'>
 </jh-string-picker>

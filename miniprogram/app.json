@@ -158,6 +158,8 @@
     "van-button": "@vant/weapp/button/index",
     "van-checkbox": "@vant/weapp/checkbox/index",
     "van-checkbox-group": "@vant/weapp/checkbox-group/index",
+    "van-radio": "@vant/weapp/radio/index",
+    "van-radio-group": "@vant/weapp/radio-group/index",
     "van-nav-bar": "@vant/weapp/nav-bar/index",
     "van-search": "@vant/weapp/search/index",
     "van-dialog": "@vant/weapp/dialog/index",

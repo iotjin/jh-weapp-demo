@@ -22,7 +22,7 @@
  }
 
  /*  使用
- var CommonUtils = require('../../utils/commonUtils')
+ const CommonUtils = require('../../utils/commonUtils')
 
  CommonUtils.getRandomNum()
 

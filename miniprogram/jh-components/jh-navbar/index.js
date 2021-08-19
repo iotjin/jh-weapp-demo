@@ -13,6 +13,7 @@ Component({
    * 组件的属性列表
    */
   properties: {
+    // 标题，可设置标题slot，slot name：title
     title: {
       type: String,
       value: '',
@@ -25,10 +26,12 @@ Component({
     // 背景颜色，通过myStyle设置
     bgColor: {
       type: String,
-      value: 'linear-gradient(to bottom, #56ccf2, #2f80ed)',
+      value: 'linear-gradient(to bottom, #56ccf2, #2f80ed)'
       // value: '#38BC9D',
     },
-    // 网络背景图片，优先级高于背景颜色
+    // 背景图片，优先级高于背景颜色
+    // 推荐网络图片，如果使用本地图片，图片要转成base64 
+    // 图片转base64网站：http://tool.chinaz.com/tools/imgtobase
     bgImage: {
       type: String,
       value: '',
@@ -67,13 +70,10 @@ Component({
     attached: function () {
       // 页面创建时执行
       // console.info('---jh-navbar loaded!---')
-      let newStyle = '--jh-navbar-bgColor:' + this.properties.bgColor + ';'
-      if (this.properties.bgImage) {
-        newStyle = '--jh-navbar-bgImage:url(' + this.properties.bgImage + ');'
-      }
-      this.setData({
-        myStyle: newStyle
-      })
+    },
+    ready: function () {
+      this.handleBgColor()
+      this.handleBgImage()
     },
     detached: function () {
       // 页面销毁时执行
@@ -93,6 +93,25 @@ Component({
     },
     onClickLeftItem() {
       this.triggerEvent('left', {})
+    },
+    handleBgColor() {
+      let newStyle = '--jh-navbar-bgColor:' + this.properties.bgColor + ';'
+      this.setData({
+        myStyle: newStyle
+      })
+    },
+    handleBgImage() {
+      let bgImg = this.properties.bgImage
+      if (bgImg) {
+        if (!new RegExp("http").test(bgImg) && new RegExp("data:image").test(bgImg)) {
+          // 把base图片中的回车换行替换为''
+          bgImg = bgImg.replace(/[\r\n]/g, '')
+        }
+        let newStyle = '--jh-navbar-bgImage:url(' + bgImg + ');'
+        this.setData({
+          myStyle: newStyle
+        })
+      }
     },
   }
 })

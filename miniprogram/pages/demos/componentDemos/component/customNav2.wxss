@@ -1,1 +1,3 @@
-/* pages/demos/componentDemos/component/customNav3.wxss */
+.search {
+  padding: 10rpx 60rpx !important;
+}

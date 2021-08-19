@@ -1,18 +1,74 @@
-<jh-navbar title="渐变导航" />
+<block wx:if="{{select == 1 }}">
+  <jh-navbar title="默认" />
+</block>
+<block wx:if="{{select == 2}}">
+  <jh-navbar bgColor='transparent' isBack='{{false}}' />
+</block>
+<block wx:if="{{select == 3}}">
+  <jh-navbar title="标题" bgColor='linear-gradient(45deg, #f43f3b, #ec008c)' />
+</block>
+<block wx:if="{{select == 4}}">
+  <jh-navbar title="标题" leftText='设置' bind:left="onClickLeft" />
+</block>
+<block wx:if="{{select == 5}}">
+  <jh-navbar title="标题" leftImg='../../images/ic_nav_set.png' bind:left="onClickLeft" />
+</block>
+<block wx:if="{{select == 6}}">
+  <jh-navbar leftSlot title="标题">
+    <view slot="left">自定义slot</view>
+  </jh-navbar>
+</block>
 
-<!-- <jh-navbar bgColor='transparent' isBack='{{false}}'/> -->
-<!-- <jh-navbar bgColor='linear-gradient(45deg, #f43f3b, #ec008c)' title="标题" /> -->
+<block wx:if="{{select == 7}}">
+  <jh-navbar title="网络背景图" bgImage="https://img.yzcdn.cn/vant/cat.jpeg" />
+</block>
 
-<!-- <jh-navbar title="标题" leftImg='../../images/ic_nav_set.png' bind:left="onClickLeft" /> -->
+<block wx:if="{{select == 8}}">
+  <jh-navbar title="本地背景图" bgImage="{{localImage}}" />
+</block>
 
-<!-- <jh-navbar title="标题" leftText='设置' bind:left="onClickLeft" /> -->
+<block wx:if="{{select == 9}}">
+  <jh-navbar>
+    <view slot="title">
+      <van-search value="{{ value }}" placeholder="关键词" background="transparent" custom-class="search" shape="round"/>
+    </view>
+  </jh-navbar>
+</block>
 
-<!-- <jh-navbar leftSlot title="标题">
-  <view slot="left">自定义slot</view>
-</jh-navbar> -->
+<van-cell-group>
+  <van-radio-group value="{{ select }}" bind:change="onChange">
+    <van-cell title="默认" clickable data-name="1" bind:click="onClickItem">
+      <van-radio slot="right-icon" name="1" />
+    </van-cell>
+    <van-cell title="透明背景色" clickable data-name="2" bind:click="onClickItem">
+      <van-radio slot="right-icon" name="2" />
+    </van-cell>
+    <van-cell title="渐变背景色" clickable data-name="3" bind:click="onClickItem">
+      <van-radio slot="right-icon" name="3" />
+    </van-cell>
+    <van-cell title="左侧文字" clickable data-name="4" bind:click="onClickItem">
+      <van-radio slot="right-icon" name="4" />
+    </van-cell>
+    <van-cell title="左侧图片" clickable data-name="5" bind:click="onClickItem">
+      <van-radio slot="right-icon" name="5" />
+    </van-cell>
+    <van-cell title="左侧slot" clickable data-name="6" bind:click="onClickItem">
+      <van-radio slot="right-icon" name="6" />
+    </van-cell>
+    <van-cell title="网络背景图(推荐)" clickable data-name="7" bind:click="onClickItem">
+      <van-radio slot="right-icon" name="7" />
+    </van-cell>
+    <van-cell title="本地背景图(base64)" clickable data-name="8" bind:click="onClickItem">
+      <van-radio slot="right-icon" name="8" />
+    </van-cell>
+    <van-cell title="标题slot" clickable data-name="9" bind:click="onClickItem">
+      <van-radio slot="right-icon" name="9" />
+    </van-cell>
+  </van-radio-group>
+</van-cell-group>
 
-<view class='page-content'>
+<!-- <view class='page-content'>
   <view style="height:300px;background-color:#FF6F43"></view>
   <view style="height:300px;background-color:#FFD31C"></view>
   <view style="height:300px;background-color:#09BFEA"></view>
-</view>
+</view> -->

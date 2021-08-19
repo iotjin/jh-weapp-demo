@@ -1,11 +1,11 @@
 <view class="text">根据属性 弹出 </view>
 <jh-time-picker id='JhTimePicker' isShow='{{isShowPopView2}}' title="请选择时间" bind:confirm='confirm1'>
 </jh-time-picker>
-<view class="timeView" catchtap="ClickTimeBtn1"> 选时间1 </view>
+<view class="timeView" catchtap="onClickTimeBtn1"> 选时间1 </view>
 <view class="time2">选中的时间： {{currentDateStr1}}</view>
 
 
 <view class="text">根据方法 弹出 </view>
 <jh-time-picker id='JhTimePicker2' bind:confirm='confirm2'> </jh-time-picker>
-<view class="timeView" catchtap="ClickTimeBtn2"> 选时间2 </view>
+<view class="timeView" catchtap="onClickTimeBtn2"> 选时间2 </view>
 <view class="time2">选中的时间： {{currentDateStr2}}</view>

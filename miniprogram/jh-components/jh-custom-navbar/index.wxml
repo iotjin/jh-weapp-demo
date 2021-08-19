@@ -1,22 +1,25 @@
-<view class="nav-custom" style="height:{{CustomBar}}px">
+<view class="nav-custom" style="height:{{customNavHeight}}px">
 
   <!-- <view class="nav-bar nav-fixed {{bgImage!=''?'nav-bg-img':''}}"
-    style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;background:{{bgColor}};background-image:url({{bgImage}});background-size:cover;background-position:center;background-repeat:no-repeat;"> -->
+    style="height:{{customNavHeight}}px;padding-top:{{statusBarHeight}}px;background:{{bgColor}};background-image:url({{bgImage}});background-size:cover;background-position:center;background-repeat:no-repeat;"> -->
 
   <view class="nav-bar nav-fixed"
-    style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;background:{{bgColor}};background-image:url({{bgImage}});background-size:cover;background-position:center;background-repeat:no-repeat;">
+    style="height:{{customNavHeight}}px;padding-top:{{statusBarHeight}}px;background:{{bgColor}};background-size:cover;background-position:center;background-repeat:no-repeat;{{bgImage?'background-image:url(' + bgImage+')':''}}">
 
     <view class="nav-action nav-border-custom" wx:if="{{home}}"
-      style="width:{{Custom.width}}px;height:{{Custom.height}}px;margin-left:calc(750rpx - {{Custom.right}}px)">
-      <van-icon class="nav-back" name="arrow-left" size="20px" color="{{backColor}}" catchtap="onClickBack" />
-      <van-icon class="nav-home" name="wap-home" size="20px" color="{{homeColor}}" catchtap="onClickHome" />
+      style="width:{{isBack ? capsule.width : capsule.width/2}}px;height:{{capsule.height}}px;margin-left:calc(750rpx - {{capsule.right}}px)">
+      <van-icon class="nav-back" name="arrow-left" size="20px" color="{{backColor}}" catchtap="onClickBack"
+        wx:if="{{isBack}}" />
+      <van-icon class="nav-home" name="wap-home" size="20px" color="{{homeColor}}" catchtap="onClickHome"
+        style="margin-left:{{isBack?0:10}}rpx;" />
     </view>
-    <view class="nav-action" catchtap="onClickBack" wx:else if="{{isBack}}">
-      <van-icon class="nav-back" name="arrow-left" size="20px" color="{{backColor}}" />
+    <view class="nav-action" catchtap="onClickBack" wx:elif="{{isBack}}">
+      <van-icon class="nav-back" name="arrow-left" size="20px" color="{{backColor}}" style="margin-left:15rpx;" />
       <view class="nav-backText" style="color:{{backColor}};">{{backText}}</view>
     </view>
-    <view class="nav-content" style="top:{{StatusBar}}px;color:{{titleColor}};">
-      <view>{{title}}</view>
+    <view class="nav-content" style="top:{{statusBarHeight}}px;color:{{titleColor}};">
+      <view wx:if="{{ title }}">{{ title }}</view>
+      <slot wx:else name="title" />
     </view>
     <slot name="right"></slot>
   </view>

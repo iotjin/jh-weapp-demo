@@ -50,9 +50,16 @@ Component({
       type: Boolean,
       value: false
     },
+    homeUrl: {
+      type: String,
+      value: '/pages/demos/demos'
+    },
+    // 背景图片，优先级高于背景颜色
+    // 背景图片。推荐网络图片，如果使用本地图片，图片要转成base64 
+    // 图片转base64网站：http://tool.chinaz.com/tools/imgtobase
     bgImage: {
       type: String,
-      value: '../../images/nav/ic_nav-bg2.jpg',
+      value: '',
     },
   },
 
@@ -60,18 +67,19 @@ Component({
    * 组件的初始数据
    */
   data: {
-    StatusBar: app.globalData.StatusBar,
-    CustomBar: app.globalData.CustomBar,
-    Custom: app.globalData.Custom
+    statusBarHeight: app.globalData.kStatusBarHeight,
+    customNavHeight: app.globalData.kCustomNavHeight,
+    capsule: app.globalData.kCapsule
   },
 
   lifetimes: {
     attached: function () {
       // 页面创建时执行
       // console.info('---jh-nav-bar loaded!---')
-      // console.log(this.data.StatusBar);
-      // console.log(this.data.CustomBar);
-      // console.log(this.data.Custom);
+      // console.log(this.data.statusBarHeight);
+      // console.log(this.data.customNavHeight);
+      // console.log(this.data.capsule);
+      this.handleLocalImage()
     },
     detached: function () {
       // 页面销毁时执行
@@ -93,9 +101,21 @@ Component({
     onClickHome() {
       // console.log('返回主页');
       wx.reLaunch({
-        url: '/pages/demos/demos',
+        url: this.properties.homeUrl,
       })
       this.triggerEvent('home', {})
+    },
+    handleLocalImage() {
+      let bgImg = this.properties.bgImage
+      if (bgImg) {
+        if (!new RegExp("http").test(bgImg) && new RegExp("data:image").test(bgImg)) {
+          // 把base图片中的回车换行替换为''
+          let base64 = bgImg.replace(/[\r\n]/g, '')
+          this.setData({
+            bgImage: base64
+          })
+        }
+      }
     },
   }
 })

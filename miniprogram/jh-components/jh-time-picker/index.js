@@ -42,7 +42,11 @@ Component({
         ss = '0' + ss;
       }
       let time = this.data.pickerSelectText + ':' + ss;
-      return time;
+      let timeStamp = this.Jh_convertTimeStamp(time)
+      return {
+        time: time,
+        timeStamp: timeStamp
+      };
     },
     //显示Picker
     showPicker: function () {
@@ -230,17 +234,25 @@ picker.showPicker();
 3.点击事件
 
   //点击选择器的 确定
-  confirm1: function (event){
-    console.log(event.detail);
+  confirm1: function (e) {
+    let dict = e.detail
+    console.log(dict.time);
+    console.log(dict.timeStamp);
+    // 转成需要的格式
+    let newTime = TimeUtils.Jh_timeStampToTime(dict.timeStamp, '{y}-{m}-{d} {h}:{i}:{s} 星期{w}')
+    console.log(newTime);
     this.setData({
-      currentDateStr1: event.detail.time,
+      time: dict.time,
     });
   },
 
   confirm2: function (event) {
     const picker = this.selectComponent('#timePicker2');
+    let dict = picker.getTime()
+    console.log(dict.time);
+    console.log(dict.timeStamp);
     this.setData({
-      currentDateStr2: picker.getTime(),
+      time: dict.time,
     });
   },
 

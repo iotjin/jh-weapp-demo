@@ -29,7 +29,6 @@ App({
       })
     }
 
-    this.globalData = {}
     this.checkIsIPhoneX()
     this.checkNetwork()
     this.getDataWithCustomNav()
@@ -37,7 +36,7 @@ App({
 
   // 判断设备是否为 iPhone X
   checkIsIPhoneX: function () {
-    const that = this
+    let that = this
     wx.getSystemInfo({
       success: function (res) {
         var safeBottom = res.screenHeight - res.safeArea.bottom
@@ -61,7 +60,7 @@ App({
   },
   //监测网络变化
   checkNetwork: function () {
-    const that = this
+    let that = this
     wx.getNetworkType({
       success(res) {
         that.kNetworkType = res.networkType
@@ -79,20 +78,38 @@ App({
       }
     })
   },
+
   //获取自定义导航条需要的信息
   getDataWithCustomNav: function () {
+    let that = this
     wx.getSystemInfo({
-      success: e => {
-        this.globalData.StatusBar = e.statusBarHeight;
+      success: function (e) {
+        that.globalData.kStatusBarHeight = e.statusBarHeight;
         let capsule = wx.getMenuButtonBoundingClientRect();
-        // console.log('capsule=======');
-        // console.log(capsule);
         if (capsule) {
-          this.globalData.Custom = capsule;
-          this.globalData.CustomBar = capsule.bottom + capsule.top - e.statusBarHeight;
+          that.globalData.kCapsule = capsule;
+          that.globalData.kCustomNavHeight = e.statusBarHeight + capsule.height + (capsule.top - e.statusBarHeight) * 2;
+          // 判断是iOS 直接设置为44
+          if (e.platform == 'ios' || (e.platform == 'devtools' && e.system.indexOf('iOS') > -1)) {
+            that.globalData.kCustomNavHeight = e.statusBarHeight + 44
+          }
         } else {
-          this.globalData.CustomBar = e.statusBarHeight + 50;
+          that.globalData.kCustomNavHeight = e.statusBarHeight + 46;
         }
+
+        /* 
+        iOS capsule高度异常:
+
+          X {"width":87,"height":32,"left":281,"top":48,"right":368,"bottom":80}
+        非X {"width":87,"height":32,"left":281,"top":24,"right":368,"bottom":56}
+
+          在获取胶囊按钮样式信息中发现，iOS上获取的数据异常，然后通过异常的胶囊按钮数据算出的导航条高度不对。熟悉iOS的应该知道，iOS设备的状态栏的高度为：20 (非刘海屏)或 44 (刘海屏)，标题栏高度为：44。因此暂时判断如果是iOS设备，把标题栏高度直接设置为 44，其他端还按照下面计算方式计算：
+
+          导航条高度 = 状态栏高度 + ( 标题栏高度=胶囊按钮高度+(胶囊按钮Top-状态栏高度)*2 )
+          
+          在微信开放社区看到的其他计算方式 : https://developers.weixin.qq.com/community/develop/doc/0006ccd747c418fa9b5b4dd795b400
+
+        */
       }
     })
   }

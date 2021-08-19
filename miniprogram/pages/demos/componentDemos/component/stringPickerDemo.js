@@ -10,7 +10,8 @@ Page({
       'info': '',
     }, ],
     isShowPicker: false,
-    stringPickerTextArr: [{
+    // 对象数组 参考格式（不一定非要用name和id）
+    stringPickerDataArr: [{
       name: "一般",
       id: "0"
     }, {
@@ -26,16 +27,14 @@ Page({
 
   },
   onClickItem(e) {
-    console.log(e);
     this.setData({
       isShowPicker: true,
     });
   },
   //点击选择器的 确定
   confirm1: function (event) {
-    let dic = event.detail
-    console.log(dic.value);
-    console.log(dic.index);
+    let dict = event.detail
+    console.log(dict);
   },
 
 })

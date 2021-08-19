@@ -61,8 +61,8 @@
 .nav-action {
 	height: 100%;
 	max-width: 100%;
-	justify-content: center;
 	display: flex;
+	justify-content: center;
 	align-items: center;
 }
 
@@ -75,11 +75,11 @@
 	bottom: 0;
 	top: 0;
 	margin: auto;
-	height: 60rpx;
+	height: 88rpx;
 	font-size: 32rpx;
-	line-height: 60rpx;
-	cursor: none;
-	pointer-events: none;
+	line-height: 88rpx;
+	/* cursor: none; */
+	/* pointer-events: none; */
 	text-overflow: ellipsis;
 	white-space: nowrap;
 	overflow: hidden;
@@ -104,6 +104,9 @@
 
 .nav-backText {
 	min-width: 100rpx;
+	height: 20px;
+	line-height: 20px;
+	padding-left: 0px;
 }
 
 .nav-home {

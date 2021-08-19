@@ -20,13 +20,14 @@ A new weapp project - 实现一些常用效果、封装通用组件和工具类 
 * 公共样式
 * 网络监听，设备类型和刘海屏判断
 * 时间格式转换、正则校验
-* 自定义导航条，热门搜索和历史搜索框
+* 自定义导航条，支持设置左侧文字图片，网络本地背景图，渐变背景色，左侧和标题slot，返回home主页，导航条加搜索框
 * 时间日期选择器、月日周时分选择器、字符串选择器、输入弹框
 * 上下拉刷新、分组吸顶ListView
 * 答题功能
 * excel导入导出
 * 表格、表单录入
 * 树结构数据展示
+* 热门搜索和历史搜索框
 * 侧滑筛选
 * 轮播图
 * 自定义加载框
@@ -44,7 +45,7 @@ A new weapp project - 实现一些常用效果、封装通用组件和工具类 
 | <img src="https://gitee.com/iotjh/Picture/raw/master/weapp/listView4.gif" width="187" height="419"> | <img src="https://gitee.com/iotjh/Picture/raw/master/weapp/topTab.gif" width="187" height="419"> | <img src="https://gitee.com/iotjh/Picture/raw/master/weapp/listViewGroup.gif" width="187" height="419"> | 
 | <img src="https://gitee.com/iotjh/Picture/raw/master/weapp/gridView3.jpg" width="187" height="419"> | <img src="https://gitee.com/iotjh/Picture/raw/master/weapp/gridView5.jpg" width="187" height="419"> | <img src="https://gitee.com/iotjh/Picture/raw/master/weapp/gridView6.jpg" width="187" height="419"> | 
 | <img src="https://gitee.com/iotjh/Picture/raw/master/weapp/eCharts5.jpg" width="187" height="419"> | <img src="https://gitee.com/iotjh/Picture/raw/master/weapp/eCharts6.jpg" width="187" height="419"> | <img src="https://gitee.com/iotjh/Picture/raw/master/weapp/eCharts8.jpg" width="187" height="419"> | 
-| <img src="https://gitee.com/iotjh/Picture/raw/master/weapp/customNav1.jpg" width="187" height="419"> | <img src="https://gitee.com/iotjh/Picture/raw/master/weapp/customNav2.jpg" width="187" height="419"> | <img src="https://gitee.com/iotjh/Picture/raw/master/weapp/customNav3.jpg" width="187" height="419"> |  
+| <img src="https://gitee.com/iotjh/Picture/raw/master/weapp/customNav1.gif" width="187" height="419"> | <img src="https://gitee.com/iotjh/Picture/raw/master/weapp/customNav2.gif" width="187" height="419"> | <img src="https://gitee.com/iotjh/Picture/raw/master/weapp/customNav3.jpg" width="187" height="419"> |  
 | <img src="https://gitee.com/iotjh/Picture/raw/master/weapp/eCharts9.jpg" width="187" height="419"> | <img src="https://gitee.com/iotjh/Picture/raw/master/weapp/dropDownMenu.gif" width="187" height="419"> | <img src="https://gitee.com/iotjh/Picture/raw/master/weapp/inputPop.gif" width="187" height="419"> | 
 | <img src="https://gitee.com/iotjh/Picture/raw/master/weapp/ymdTimePicker.gif" width="187" height="419"> | <img src="https://gitee.com/iotjh/Picture/raw/master/weapp/timePicker.gif" width="187" height="419"> | <img src="https://gitee.com/iotjh/Picture/raw/master/weapp/stringPicker.jpg" width="187" height="419"> | 
 | <img src="https://gitee.com/iotjh/Picture/raw/master/weapp/loadingToast.gif" width="187" height="419"> | <img src="https://gitee.com/iotjh/Picture/raw/master/weapp/emptyView.jpg" width="187" height="419"> | <img src="https://gitee.com/iotjh/Picture/raw/master/weapp/swiper.jpg" width="187" height="419"> |  

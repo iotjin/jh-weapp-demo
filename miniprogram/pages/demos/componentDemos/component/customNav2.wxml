@@ -1,10 +1,86 @@
-<!-- <jh-custom-navbar home /> -->
+<block wx:if="{{select == 1 }}">
+  <jh-custom-navbar title="默认" />
+</block>
+<block wx:if="{{select == 2}}">
+  <jh-custom-navbar title="渐变背景色" bgColor='linear-gradient(45deg, #f43f3b, #ec008c)' />
+</block>
+<block wx:if="{{select == 3}}">
+  <jh-custom-navbar title="网络背景图" bgImage="https://img.yzcdn.cn/vant/cat.jpeg" />
+</block>
+<block wx:if="{{select == 4}}">
+  <jh-custom-navbar title="隐藏返回按钮" bgColor=' linear-gradient(45deg, #f43f3b, #ec008c)' isBack='{{false}}' />
+</block>
+<block wx:if="{{select == 5}}">
+  <jh-custom-navbar title="带返回文字" bgColor=' linear-gradient(45deg, #f43f3b, #ec008c)' backText='返回' />
+</block>
+<block wx:if="{{select == 6}}">
+  <jh-custom-navbar home title="home" />
+</block>
 
-<jh-custom-navbar home bgImage="https://img.yzcdn.cn/vant/cat.jpeg" />
+<block wx:if="{{select == 7}}">
+  <jh-custom-navbar home title="home+渐变背景色" bgColor='linear-gradient(45deg, #f43f3b, #ec008c)' />
+</block>
 
+<block wx:if="{{select == 8}}">
+  <jh-custom-navbar home title="home+网络背景图" bgImage="https://img.yzcdn.cn/vant/cat.jpeg" />
+</block>
 
-<view class='page-content'>
+<block wx:if="{{select == 9}}">
+  <jh-custom-navbar home title="home+本地背景图" bgImage="{{localImage}}" />
+</block>
+
+<block wx:if="{{select == 10}}">
+  <jh-custom-navbar home title="隐藏返回按钮" bgImage="https://img.yzcdn.cn/vant/cat.jpeg" isBack='{{false}}' />
+</block>
+
+<block wx:if="{{select == 11}}">
+  <jh-custom-navbar home bgImage="https://img.yzcdn.cn/vant/cat.jpeg">
+    <view slot="title">
+      <van-search value="{{ value }}" placeholder="关键词" background="transparent" custom-class="search" shape="round" />
+    </view>
+  </jh-custom-navbar>
+</block>
+
+<van-cell-group>
+  <van-radio-group value="{{ select }}" bind:change="onChange">
+    <van-cell title="默认" clickable data-name="1" bind:click="onClickItem">
+      <van-radio slot="right-icon" name="1" />
+    </van-cell>
+    <van-cell title="渐变背景色" clickable data-name="2" bind:click="onClickItem">
+      <van-radio slot="right-icon" name="2" />
+    </van-cell>
+    <van-cell title="网络背景图" clickable data-name="3" bind:click="onClickItem">
+      <van-radio slot="right-icon" name="3" />
+    </van-cell>
+    <van-cell title="隐藏返回按钮" clickable data-name="4" bind:click="onClickItem">
+      <van-radio slot="right-icon" name="4" />
+    </van-cell>
+    <van-cell title="带返回文字" clickable data-name="5" bind:click="onClickItem">
+      <van-radio slot="right-icon" name="5" />
+    </van-cell>
+    <van-cell title="home" clickable data-name="6" bind:click="onClickItem">
+      <van-radio slot="right-icon" name="6" />
+    </van-cell>
+    <van-cell title="home+渐变背景色" clickable data-name="7" bind:click="onClickItem">
+      <van-radio slot="right-icon" name="7" />
+    </van-cell>
+    <van-cell title="home+网络背景图(推荐)" clickable data-name="8" bind:click="onClickItem">
+      <van-radio slot="right-icon" name="8" />
+    </van-cell>
+    <van-cell title="home+本地背景图(base64)" clickable data-name="9" bind:click="onClickItem">
+      <van-radio slot="right-icon" name="9" />
+    </van-cell>
+    <van-cell title="隐藏返回按钮" clickable data-name="10" bind:click="onClickItem">
+      <van-radio slot="right-icon" name="10" />
+    </van-cell>
+    <van-cell title="标题slot" clickable data-name="11" bind:click="onClickItem">
+      <van-radio slot="right-icon" name="11" />
+    </van-cell>
+  </van-radio-group>
+</van-cell-group>
+
+<!-- <view class='page-content'>
   <view style="height:300px;background-color:#FF6F43"></view>
   <view style="height:300px;background-color:#FFD31C"></view>
   <view style="height:300px;background-color:#09BFEA"></view>
-</view>
+</view> -->

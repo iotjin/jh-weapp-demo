@@ -16,8 +16,8 @@ Component({
       type: String,
       value: '请选择',
     },
-    // 对象数组 格式：[{name: "一般", id: "0"},{name: "严重", id: "1"}]
-    textArr: {
+    // 对象数组 参考格式（不一定非要用name和id）：[{name: "一般", id: "0"},{name: "严重", id: "1"}]
+    dataArr: {
       type: Array,
       value: [],
     },
@@ -40,6 +40,12 @@ Component({
     detached: function () {
       // 页面销毁时执行
       // console.info('---JhStringPicker unloaded!---')
+    },
+    ready: function () {
+      this.setData({
+        pickerTextArr: this.properties.dataArr,
+        pickerSelectIndexArr: [this.properties.selectIndex]
+      })
     },
     attached: function () {
       // 页面创建时执行
@@ -64,14 +70,12 @@ Component({
       });
     },
     //将要弹出popView
-    willShowPopView: function (event) {
-      var that = this
-      setTimeout(function () {
-        that.setData({
-          pickerTextArr: that.properties.textArr,
-          pickerSelectIndexArr: [that.properties.selectIndex]
-        })
-      }, 300)
+    willShowPopView: function (event) {},
+    afterEnter() {
+      this.setData({
+        pickerTextArr: this.properties.dataArr,
+        pickerSelectIndexArr: [this.properties.selectIndex]
+      })
     },
     //点击取消按钮
     onCancel: function (event) {
@@ -90,18 +94,12 @@ Component({
     //点击确定按钮
     onConfirm: function (event) {
       let indexArr = this.data.pickerSelectIndexArr
-      let selectText = this.data.pickerTextArr[indexArr[0]].name
-      let selectIndex = this.data.pickerTextArr[indexArr[0]].id
-      // console.log("点击确定按钮: " + selectText);
+      let dict = this.data.pickerTextArr[indexArr[0]]
+      // console.log("点击确定按钮: " + dict);
       this.setData({
         isShow: false
       });
-      //传递选中的text
-      var dic = {
-        value: selectText,
-        index: selectIndex
-      }
-      this.triggerEvent('confirm', dic);
+      this.triggerEvent('confirm', dict);
     }
   },
 
@@ -117,11 +115,12 @@ Component({
   
   data: {
     isShowPicker: false,
-    stringPickerTextArr: [{name: "一般", id: "0"},{name: "严重", id: "1"}]
+    // 对象数组 参考格式（不一定非要用name和id）
+    dataArr: [{name: "一般", id: "0"},{name: "严重", id: "1"}]
   },
 
 // 弹出
-<jh-string-picker textArr='{{stringPickerTextArr}}' selectIndex='1' isShow='{{isShowPicker}}' title="请选择" bind:confirm='confirm1'>
+<jh-string-picker dataArr='{{dataArr}}' selectIndex='1' isShow='{{isShowPicker}}' title="请选择" bind:confirm='confirm1'>
 </jh-string-picker>
 
   this.setData({
@@ -132,9 +131,8 @@ Component({
 
 //点击选择器的 确定
 confirm1: function (event){
-    var dic = event.detail
-    console.log(dic.value);
-    console.log(dic.index);
+    let dict = event.detail
+    console.log(dict);
 },
 
 */

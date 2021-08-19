@@ -22,5 +22,5 @@ myreg.test(str)
 */
 
 /*
-var CheckUtils= require('../../utils/checkUtils.js')
+const CheckUtils= require('../../utils/checkUtils.js')
 */

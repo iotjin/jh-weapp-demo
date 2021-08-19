@@ -1,9 +1,7 @@
 <van-nav-bar title="{{title}}" custom-class="nav {{bgImage ?'nav2':'' }}" title-class="title" fixed placeholder
   style="{{myStyle}}" border="{{bgColor=='transparent' ? false : true}}">
   <block wx:if="{{leftSlot}}">
-    <view slot="left">
-      <slot name="left"></slot>
-    </view>
+    <slot name="left" slot="left"></slot>
   </block>
   <block wx:elif="{{leftImg}}">
     <view slot="left" class="leftItem iconBg" bindtap="onClickLeftItem">
@@ -20,4 +18,5 @@
       <van-icon name="arrow-left" color="white" size="25px" />
     </view>
   </block>
+  <slot name="title" slot="title"></slot>
 </van-nav-bar>

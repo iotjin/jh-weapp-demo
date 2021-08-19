@@ -1,3 +1,4 @@
+const TimeUtils = require('../../../../utils/timeUtils.js');
 Page({
 
   /**
@@ -17,28 +18,35 @@ Page({
 
   },
 
-  ClickTimeBtn1: function () {
+  onClickTimeBtn1: function () {
     this.setData({
       isShowPopView2: true,
     });
   },
-  
+
   confirm1: function (event) {
-    console.log(event.detail);
+    let dict = event.detail
+    console.log(dict.time);
+    console.log(dict.timeStamp);
+    // 转成需要的格式
+    let newTime = TimeUtils.Jh_timeStampToTime(dict.timeStamp, '{y}-{m}-{d} {h}:{i}:{s} 星期{w}')
+    console.log(newTime);
     this.setData({
-      currentDateStr1: event.detail.time,
+      currentDateStr1: dict.time,
     });
   },
 
-  ClickTimeBtn2: function () {
+  onClickTimeBtn2: function () {
     var picker = this.selectComponent('#JhTimePicker2');
     picker.showPicker();
   },
   confirm2: function (event) {
-    console.log(event.detail);
     const picker = this.selectComponent('#JhTimePicker2');
+    let dict = picker.getTime()
+    console.log(dict.time);
+    console.log(dict.timeStamp);
     this.setData({
-      currentDateStr2: picker.getTime(),
+      currentDateStr2: dict.time,
     });
   },
 

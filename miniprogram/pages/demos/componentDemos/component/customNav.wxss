@@ -1,0 +1,5 @@
+.search {
+  padding: 10rpx 60rpx !important;
+  /* height: 44px; */
+  /* width: 200px; */
+}

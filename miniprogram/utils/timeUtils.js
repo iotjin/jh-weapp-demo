@@ -2,9 +2,11 @@
 
 /*
 使用方法：
+
 const TimeUtils = require('../../utils/timeUtils.js');
-//时间戳转指定格式时间
-TimeUtils.Jh_timeStampToTime(1554803832, '{y}年{m}月{d}日 {h}:{i}:{s} 星期{w}')                     1487065320000
+//时间戳转指定格式时间  1487065320000
+TimeUtils.Jh_timeStampToTime(1554803832, '{y}年{m}月{d}日 {h}:{i}:{s} 星期{w}')                
+
 */
 
 
@@ -28,7 +30,9 @@ module.exports = {
   Jh_getNextYearMonth: Jh_getNextYearMonth,
   Jh_isToday: Jh_isToday,
   Jh_isBetweenTimes: Jh_isBetweenTimes,
-  Jh_getEndTime: Jh_getEndTime
+  Jh_compareTimes: Jh_compareTimes,
+  Jh_getEndTime: Jh_getEndTime,
+  Jh_differenceDays: Jh_differenceDays
 }
 
 
@@ -316,7 +320,7 @@ function Jh_isToday(time) {
   time = time.replace(/\//g, '');
   let newTime = time.replace(/-/g, '');
   newTime = newTime.substring(0, 8);
-  var currentTime = new Date().getTime();
+  let currentTime = new Date().getTime();
   currentTime = Jh_timeStampToTime(currentTime, '{y}{m}{d}')
   return newTime == currentTime
 }
@@ -339,22 +343,52 @@ function Jh_isBetweenTimes(beginTime, endTime) {
 }
 
 /**
+ * 比较两个时间大小
+ * @param time1 2019-02-02 || 2019-02-02 00:00:00
+ * @param time2 2019-02-02 || 2019-02-02 00:00:00
+ * @return time1>time2 为true
+ */
+function Jh_compareTimes(time1, time2) {
+  let newTime1 = Jh_convertTimeStamp(time1);
+  let newTime2 = Jh_convertTimeStamp(time2);
+  if (newTime1 > newTime2) {
+    return true; //第一个大
+  } else {
+    return false; //第二个大
+  }
+}
+
+/**
  * 距离某个时间还有xxx天x小时xx分xx秒
  * @param time 2021-02-12 || 2021/02/12
  * @return '距离2021年2月12日还有118天0小时30分12秒'
  */
 function Jh_getEndTime(time) {
   time = time.replace(/-/g, '/');
-  var year = new Date(time).getFullYear();
-  var month = new Date(time).getMonth() + 1;
-  var date = new Date(time).getDate();
-  var now = new Date();
-  var endDate = new Date(new Date(time).toLocaleDateString());
-  var leftTime = endDate.getTime() - now.getTime();
-  var leftsecond = parseInt(leftTime / 1000);
-  var day = Math.floor(leftsecond / (60 * 60 * 24));
-  var hour = Math.floor((leftsecond - day * 24 * 60 * 60) / 3600);
-  var minute = Math.floor((leftsecond - day * 24 * 60 * 60 - hour * 3600) / 60);
-  var second = Math.floor(leftsecond - day * 60 * 60 * 24 - hour * 60 * 60 - minute * 60);
+  let year = new Date(time).getFullYear();
+  let month = new Date(time).getMonth() + 1;
+  let date = new Date(time).getDate();
+  let now = new Date();
+  let endDate = new Date(new Date(time).toLocaleDateString());
+  let leftTime = endDate.getTime() - now.getTime();
+  let leftsecond = parseInt(leftTime / 1000);
+  let day = Math.floor(leftsecond / (60 * 60 * 24));
+  let hour = Math.floor((leftsecond - day * 24 * 60 * 60) / 3600);
+  let minute = Math.floor((leftsecond - day * 24 * 60 * 60 - hour * 3600) / 60);
+  let second = Math.floor(leftsecond - day * 60 * 60 * 24 - hour * 60 * 60 - minute * 60);
   return `距离${year}年${month}月${date}日还有${day}天${hour}小时${minute}分${second}秒`;
+}
+
+/**
+ * 获取两个时间相差天数
+ * @param time1 2019-02-02 || 2019-02-02 00:00:00
+ * @param time2 2019-02-02 || 2019-02-02 00:00:00
+ * @return 天数
+ */
+function Jh_differenceDays(time1, time2) {
+  let newTime1 = Jh_convertTimeStamp(time1);
+  let newTime2 = Jh_convertTimeStamp(time2);
+  let newTime = Math.abs(newTime1 - newTime2)
+  let days = Math.floor(newTime / (24 * 3600 * 1000));
+  return days
 }

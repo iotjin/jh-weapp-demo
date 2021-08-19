@@ -9,15 +9,13 @@ page {
   --bGridBorderColor: #E6E6E6;
   --bGridBoderWidth: 1rpx;
   /* 渐变色 */
-  --bGradualPurple: linear-gradient(45deg, #9000ff, #5e00ff);
-  --bGradualBlue: linear-gradient(to bottom, #56ccf2, #2f80ed);
   --bGradualCyan: linear-gradient(45deg, rgb(28, 187, 180), rgb(141, 198, 63));
+  --bGradualPurple: linear-gradient(45deg, #9000ff, #5e00ff);
+  --bGradualBlue: linear-gradient(45deg, #0081ff, #1cbbb4);
+  --bGradualBlue2: linear-gradient(to bottom, #56ccf2, #2f80ed);
   --gradualRed: linear-gradient(45deg, #f43f3b, #ec008c);
   --gradualOrange: linear-gradient(45deg, #ff9700, #ed1c24);
   --gradualGreen: linear-gradient(45deg, #39b54a, #8dc63f);
-  --gradualPurple: linear-gradient(45deg, #9000ff, #5e00ff);
-  --gradualPink: linear-gradient(45deg, #ec008c, #6739b6);
-  --gradualBlue: linear-gradient(45deg, #0081ff, #1cbbb4);
 }
 
 
