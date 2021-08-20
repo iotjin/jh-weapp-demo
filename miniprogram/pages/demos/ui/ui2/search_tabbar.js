@@ -32,7 +32,7 @@ Page({
       },
       {
         "id": "2",
-        "description": "这是问题描述2",
+        "description": "sdajfkajdlkjflaskdjfkjasdkfjlasjdflkjaslkdjf",
         "collegeName": "名称名称名称2",
         "workOrderCreateTime": "2020-01-30 15:00",
         "workOrderStatus": "2",
@@ -41,7 +41,7 @@ Page({
       },
       {
         "id": "2",
-        "description": "这是问题描述3",
+        "description": "这是问题描述这是问题描述这是问题描述这是问题描述这是问题描述3",
         "collegeName": "名称名称名称3",
         "workOrderCreateTime": "2020-01-30 15:00",
         "workOrderStatus": "2",

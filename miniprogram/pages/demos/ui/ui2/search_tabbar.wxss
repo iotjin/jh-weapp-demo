@@ -50,6 +50,7 @@
 
 .center {
   flex: 60;
+  width: 0;
 }
 
 .right {
@@ -62,6 +63,10 @@
 .equipment {
   padding-top: 15rpx;
   padding-left: 20rpx;
+  padding-right: 20rpx;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .name {

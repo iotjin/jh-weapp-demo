@@ -39,14 +39,27 @@ page {
   border-bottom: 1rpx solid rgb(230, 230, 230);
 }
 
+/* 单行展示，超出省略
+  父元素 设置width 
+  flex 设置父元素 width=0; 
+  */
 .b-text-substring {
-  /* width: 70%; */
   /* 让超出的用...实现  */
   text-overflow: ellipsis;
   /* 禁止换行  */
   white-space: nowrap;
   /* 超出的隐藏 */
   overflow: hidden;
+}
+
+/* 多行展示，超出换行 */
+.b-word-wrap {
+  /* 允许长单词或 URL 地址换行到下一行 */
+  word-wrap: break-word;
+  /* 段落中的文本处理 */
+  white-space: normal;
+  /* 允许在单词内换行 */
+  word-break: break-all;
 }
 
 /* -------------------- flex -------------------- */
