@@ -11,11 +11,6 @@ Component({
       type: Boolean,
       value: false,
     },
-    // title
-    title: {
-      type: String,
-      value: '请选择',
-    },
     // 对象数组 参考格式（不一定非要用name和id）：[{name: "一般", id: "0"},{name: "严重", id: "1"}]
     dataArr: {
       type: Array,
@@ -25,6 +20,19 @@ Component({
     selectIndex: {
       type: Number,
       value: 0,
+    },
+    // title
+    title: {
+      type: String,
+      value: '请选择',
+    },
+    cancelText: {
+      type: String,
+      value: '取消',
+    },
+    confirmText: {
+      type: String,
+      value: '确定',
     },
   },
 
@@ -69,8 +77,8 @@ Component({
         isShow: false
       });
     },
-    //将要弹出popView
-    willShowPopView: function (event) {},
+    //将要弹出Picker
+    willShowPicker: function (event) {},
     afterEnter() {
       this.setData({
         pickerTextArr: this.properties.dataArr,

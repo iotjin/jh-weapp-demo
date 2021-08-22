@@ -1,7 +1,7 @@
 <view class="empty-content" style="margin-top:{{verticalTop}}">
   <image class="image" src='{{emptyImage}}' mode="widthFix"></image>
   <view wx:if="{{info.length}}" class="info"> {{info}}</view>
-  <view wx:if="{{emptyType==1}}" class="empty-btn" catchtap="OnClickEmptyBtn">
+  <view wx:if="{{emptyType==1}}" class="empty-btn" catchtap="onClickEmptyBtn">
     {{btnTitle}}
   </view>
 </view>

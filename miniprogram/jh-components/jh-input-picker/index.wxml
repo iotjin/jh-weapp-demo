@@ -1,9 +1,9 @@
-<van-popup position="bottom" custom-style="height: 50%;" show="{{isShow}}" bind:close="hiddePopView"
-  bind:before-enter="willShowPopView" bind:after-enter="afterEnter">
-  <view class="nav">
-    <van-icon class="back" color="#C8C8C8" name="arrow-left" size="25px" bind:click="hiddePopView" />
-    <view class="title">{{title}}</view>
-    <view class="okBtn" catchtap="onConfirm">{{okText}}</view>
+<van-popup position="bottom" custom-style="height:50%;" show="{{isShow}}" bind:close="hiddePicker"
+  bind:before-enter="willShowPicker" bind:after-enter="afterEnter">
+  <view class="pickerHeader">
+    <van-icon class="pickerCancel" color="#C8C8C8" name="arrow-left" size="25px" bind:click="hiddePicker" />
+    <view class="pickerTitle">{{title}}</view>
+    <view class="pickerConfirm" catchtap="onConfirm">{{confirmText}}</view>
   </view>
   <block wx:if="{{isShowTextarea}}">
     <textarea class="textarea-bg" maxlength='{{maxLength}}' value="{{textFieldText}}" placeholder="{{placeholder}}"

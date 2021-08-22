@@ -33,6 +33,15 @@ Component({
       type: Number,
       value: 0
     },
+    // title
+    title: {
+      type: String,
+      value: '请选择时间',
+    },
+    confirmText: {
+      type: String,
+      value: '确定',
+    },
   },
 
   /**
@@ -94,20 +103,20 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    //显示PopView
-    showTimePicker: function () {
+    //显示Picker
+    showPicker: function () {
       this.setData({
         isShow: true
       });
     },
-    //隐藏PopView
-    hiddenTimePicker: function () {
+    //隐藏Picker
+    hiddenPicker: function () {
       this.setData({
         isShow: false
       });
     },
-    //将要弹出popView
-    willShowPopView: function (event) {},
+    //将要弹出Picker
+    willShowPicker: function (event) {},
     //点击选择器确定按钮
     onConfirm: function (event) {
       this.setData({

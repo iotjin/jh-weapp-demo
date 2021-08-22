@@ -7,24 +7,31 @@
   height: 50vh;
 }
 
-.pickerTool {
-  background: #f8f8f8;
+.pickerHeader {
   display: flex;
-  justify-content: space-between;
   height: 92rpx;
   line-height: 92rpx;
+  background: #f8f8f8;
   border-bottom: 4rpx solid #eee;
-  padding: 0 20rpx;
-}
-
-.pickerOk {
-  font-weight: bold;
-  margin-right: 10rpx;
 }
 
 .pickerCancel {
-  margin-left: 10rpx;
+  flex: 15;
+  padding: 0 10rpx;
+  text-align: center;
   color: #666;
+}
+
+.pickerTitle {
+  flex: 70;
+  text-align: center;
+}
+
+.pickerConfirm {
+  flex: 15;
+  padding: 0 10rpx;
+  text-align: center;
+  font-weight: bold;
 }
 
 .pickerView {

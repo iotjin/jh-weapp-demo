@@ -1,5 +1,0 @@
-<view class="wux-class {{ classes.wrap }}">
-    <block wx:for="{{ rowList }}" wx:key="index">
-        <view class="{{ classes.row }}"></view>
-    </block>
-</view>

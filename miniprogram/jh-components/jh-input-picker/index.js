@@ -1,7 +1,7 @@
 // 底部输入弹框
 
 Component({
-  
+
   /**
    * 组件的属性列表
    */
@@ -14,9 +14,9 @@ Component({
       type: String,
       value: '添加'
     },
-    okText: {
+    confirmText: {
       type: String,
-      value: '确定'
+      value: '保存'
     },
     placeholder: {
       type: String,
@@ -27,7 +27,7 @@ Component({
       value: 20
     },
   },
-  
+
   lifetimes: {
     attached: function () {
       // 页面创建时执行
@@ -53,21 +53,21 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    //显示PopView
-    showPopView: function () {
+    //显示Picker
+    showPicker: function () {
       this.setData({
         isShow: true
       });
     },
-    //隐藏PopView
-    hiddePopView: function () {
+    //隐藏Picker
+    hiddePicker: function () {
       this.setData({
         isShow: false,
         isShowTextarea: false
       });
     },
-    //将要弹出popView
-    willShowPopView: function (e) {},
+    //将要弹出Picker
+    willShowPicker: function (e) {},
     afterEnter: function (e) {
       this.setData({
         isShowTextarea: true
@@ -87,7 +87,7 @@ Component({
     //点击确定
     onConfirm: function (e) {
       var inputText = this.data.textFieldText
-      this.hiddePopView()
+      this.hiddePicker()
       this.triggerEvent('confirm', inputText);
     }
   }
@@ -112,4 +112,3 @@ Component({
   },
 
 */
-

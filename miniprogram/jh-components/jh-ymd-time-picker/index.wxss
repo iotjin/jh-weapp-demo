@@ -1,7 +1,9 @@
 .toolbar-class {
-  color: rgb(50, 50, 50) !important;
+  color: rgb(50, 50, 50);
+  height: 100rpx;
+  line-height: 100rpx;
+  background: #f8f8f8;
+  border-bottom: 4rpx solid #eee;
 }
 
-.active-class {
-
-}
+.active-class {}

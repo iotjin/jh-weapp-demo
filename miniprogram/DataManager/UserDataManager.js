@@ -3,7 +3,7 @@
 /* 
 使用方法 ：
 1.在要使用的js文件导入
-var UserDataManager = require('../dataManager/userDataManager');
+    const UserDataManager = require('../dataManager/userDataManager');
 2. 调用
     UserDataManager.addUser().then(res => {
     }).catch(error => {
@@ -11,7 +11,7 @@ var UserDataManager = require('../dataManager/userDataManager');
  */
 
 
-var TimeUtils = require('../utils/timeUtils.js');
+const TimeUtils = require('../utils/timeUtils.js');
 
 const db = wx.cloud.database()
 const _ = db.command;
@@ -21,8 +21,8 @@ const kTableName = 'User_Table';
 
 module.exports = {
   addOrUpdateUser: addOrUpdateUser,
-  addUser: addUser,
   selectUserIsExist: selectUserIsExist,
+  addUser: addUser,
   deleteUserById: deleteUserById,
   updateUserById: updateUserById,
   getAllCount: getAllCount,
@@ -50,12 +50,12 @@ function addOrUpdateUser(userInfo, openId) {
         success(res) {
           // console.log(res.data);
           if (res.data.length > 0) {
-            wx.setStorageSync(app.kUserType, res.data[0].userType)
+            wx.setStorageSync(app.kUserType, res.data[0].userType) // 用户类型从数据库直接改
             // console.log('更新用户信息');
             updateUser(userInfo, openId).then(res => {
               return resolve(true)
             }).catch(error => {
-              return resolve(error)
+              return reject(error)
             });
           } else {
             // console.log('新增');
@@ -63,13 +63,12 @@ function addOrUpdateUser(userInfo, openId) {
               wx.setStorageSync(app.kUserType, 'normal')
               return resolve(true)
             }).catch(error => {
-              return resolve(error)
+              return reject(error)
             });
-
           }
         },
         fail(err) {
-          return resolve(err)
+          return reject(err)
         }
       })
   });
@@ -96,14 +95,15 @@ function addUser(userInfo) {
         avatarUrl: userInfo.avatarUrl,
         city: userInfo.city,
         gender: userInfo.gender,
-        wxNickName: userInfo.nickName,
+        nickName: userInfo.nickName,
         province: userInfo.province,
+        country: userInfo.country,
       },
       success(res) {
         return resolve(res)
       },
       fail(err) {
-        return resolve(err)
+        return reject(err)
       }
     })
   });
@@ -120,7 +120,7 @@ function selectUserIsExist(openId) {
           return resolve(res.data.length > 0)
         },
         fail(err) {
-          return resolve(err)
+          return reject(err)
         }
       })
   });
@@ -135,28 +135,38 @@ function deleteUserById(openId) {
           return resolve(res);
         },
         fail(err) {
-          return resolve(err)
+          return reject(err)
         }
       })
   });
 }
 
 //根据openId 更新用户数据
-function updateUserById(params, openId) {
+function updateUserById(userInfo, openId) {
   let time = TimeUtils.Jh_timeStampToTime(new Date().getTime(), "{y}-{m}-{d} {h}:{i}:{s}")
-  params = params ? params : {}
-  params.lastLoginTime = time
-  params.updateTime = time
   return new Promise((resolve, reject) => {
     db.collection(kTableName)
       .doc(openId)
       .update({
-        data: params,
+        data: {
+          updateTime: time,
+          lastLoginTime: time,
+          // 用户类型从数据库直接改
+          // userType: userInfo.userType ? userInfo.userType : "normal",
+          phone: userInfo.phone ? userInfo.phone : "",
+          name: userInfo.name ? userInfo.name : "",
+          avatarUrl: userInfo.avatarUrl,
+          city: userInfo.city,
+          gender: userInfo.gender,
+          nickName: userInfo.nickName,
+          province: userInfo.province,
+          country: userInfo.country,
+        },
         success: function (res) {
           return resolve(res);
         },
         fail(err) {
-          return resolve(err)
+          return reject(err)
         }
       })
   });
@@ -172,14 +182,31 @@ function getAllCount() {
       } else {
         return resolve(0)
       }
-    }).catch((e) => {
-      return resolve(0)
+    }).catch((err) => {
+      return reject(err)
     })
   })
 }
 
-//分页加载用户列表，params 为{} 
-function getUserListByPage(page, params) {
+//分页加载用户列表
+
+/* 查询条件
+    params = {
+      phone: "",
+      name: "",
+      userType: "", //admin normal
+      nickName: "",
+      avatarUrl: "",
+      gender: "", //性别 0：未知、1：男、2：女
+      province: "",
+      city: "",
+      country:"",
+    }
+  排序条件
+  orderBy：createTime || updateTime || lastLoginTime
+  sort ： asc || desc
+*/
+function getUserListByPage(page, orderBy, sort, params) {
   let openId = getOpenId()
   if (!openId) {
     return
@@ -192,21 +219,22 @@ function getUserListByPage(page, params) {
       // .where({
       //   _id: db.command.neq(openId),
       // })
-      .field({
-        userName: true,
-        wxNickName: true,
-        avatarUrl: true,
-        phoneNum: true
-      })
+      // .field({
+      //   nickName: true,
+      //   avatarUrl: true,
+      //   phone: true,
+      //   name: true,
+      // })
       .skip(page * kPageCount)
       .limit(kPageCount)
+      .orderBy(orderBy, sort)
       // .orderBy('lastLoginTime', 'desc')
       .get({
-        success: function (resUser) {
-          return resolve(resUser)
+        success: function (res) {
+          return resolve(res)
         },
         fail(err) {
-          return resolve(err)
+          return reject(err)
         }
       })
   });
@@ -222,7 +250,7 @@ function searchUserById(openId) {
           return resolve(res)
         },
         fail(err) {
-          return resolve(err)
+          return reject(err)
         }
       });
   });
@@ -242,46 +270,36 @@ const db = wx.cloud.database();
 function searchUserLikeText(inputText) {
   return new Promise((resolve, reject) => {
     db.collection(kTableName)
-      .where(_.and([
-        _.or(
-          [{
-              wxNickName: {
-                $regex: '.*' + inputText + '.*',
-                $options: '1'
-              }
-            },
-            {
-              userName: {
-                $regex: '.*' + inputText + '.*',
-                $options: '1'
-              }
-            },
-            {
-              phoneNum: {
-                $regex: '.*' + inputText + '.*',
-                $options: '1'
-              }
-            },
-            {
-              city: new RegExp('.*' + inputText + '.*')
-            },
-            {
-              province: new RegExp('.*' + inputText + '.*')
-            },
-            {
-              gender: new RegExp('.*' + inputText + '.*')
-            },
-          ]
-        ),
+      .where(_.or([{
+          nickName: {
+            $regex: '.*' + inputText + '.*',
+            $options: 'i'
+          }
+        },
         {
-          _id: _.neq('admin')
-        }
+          name: new RegExp('.*' + inputText + '.*')
+        },
+        {
+          phone: new RegExp('.*' + inputText + '.*')
+        },
+        {
+          city: new RegExp('.*' + inputText + '.*')
+        },
+        {
+          province: new RegExp('.*' + inputText + '.*')
+        },
+        {
+          gender: new RegExp('.*' + inputText + '.*')
+        },
+        {
+          country: new RegExp('.*' + inputText + '.*')
+        },
       ])).get({
         success: function (res) {
           return resolve(res);
         },
         fail(err) {
-          return resolve(err)
+          return reject(err)
         }
       })
   });

@@ -1,13 +1,10 @@
 引入第三方
 
-//vant
+// WeUI组件库，建议通过扩展库引入，不占用小程序包体积
+https://developers.weixin.qq.com/miniprogram/dev/extended/weui/
+
+// vant
 npm i @vant/weapp -S --production
-
-//vant 旧
-npm i vant-weapp -S --production
-
-//wxui 
-npm install --production weui-miniprogram
 
 //wxui  tabs
 npm i @miniprogram-component-plus/tabs --save
@@ -15,6 +12,7 @@ npm i @miniprogram-component-plus/tabs --save
 # wux
 npm i wux-weapp -S --production
 
+ColorUI 需下载源码手动导入 https://github.com/weilanwl/ColorUI/
 
 
 更新：

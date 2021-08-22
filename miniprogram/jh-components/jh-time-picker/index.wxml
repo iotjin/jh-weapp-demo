@@ -1,11 +1,11 @@
-<van-popup position="bottom" custom-style="height: 50%;" show="{{isShow}}" bind:close="hiddenPicker"
-  bind:before-enter="willShowPopView">
+<van-popup position="bottom" custom-style="height:50%;" show="{{isShow}}" bind:close="hiddenPicker"
+  bind:before-enter="willShowPicker">
 
   <view class="bgView">
-    <view class="pickerTool">
-      <view class="pickerCancel" catchtap="onCancel">取消</view>
+    <view class="pickerHeader">
+      <view class="pickerCancel" catchtap="onCancel">{{cancelText}}</view>
       <view class="pickerTitle">{{title}}</view>
-      <view class="pickerOk" catchtap="onConfirm">确定</view>
+      <view class="pickerConfirm" catchtap="onConfirm">{{confirmText}}</view>
     </view>
     <picker-view class="pickerView"
       indicator-style="height: 40px;border-top:1px solid #eee;border-bottom:1px solid #eee;"

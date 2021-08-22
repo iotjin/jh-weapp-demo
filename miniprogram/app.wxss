@@ -3,6 +3,8 @@
 /* 导入公共样式 */
 @import "./styles/common.wxss";
 
+/* vant 内置样式 */
+@import 'miniprogram_npm/@vant/weapp/common/index.wxss';
 
 ThemeColor {
   background: #F8F8F8;

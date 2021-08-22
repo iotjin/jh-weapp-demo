@@ -12,14 +12,15 @@
 		</view>
 		<view class="row2">
 			<view class="row2-left">
-				<wux-progress class="jindu" activeColor="red" backgroundColor="#DCDCDC" percent="50" />
+				<progress class="jindu" percent="50" activeColor="red" backgroundColor="#DCDCDC" active stroke-width="10"
+					border-radius="5" />
 			</view>
 			<view class="row2-right">
 				<view class="num">10笔</view>
 			</view>
 		</view>
 	</view>
-  
+
 	<view class="right">
 		<image class="arrow" src="../../images/ic_arrow_right.png"></image>
 	</view>

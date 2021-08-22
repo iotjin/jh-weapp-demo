@@ -4,17 +4,19 @@ A new weapp project - 实现一些常用效果、封装通用组件和工具类 
 <br>
 
 代码不定期更新
-<br>
+
+注：真实开发项目注意按需引用。例如：组件、工具类、`app.json`的引用，可通过代码依赖分析做优化。
 
 <br>
-
+<br>
 
 ## 实现的一些效果
 
 * ListView相关
 * GridView相关
 * eCharts分包导入，异步加载，多图表延时加载，中国地图效果
-* `wx.request` 网络请求封装和 `api` 配置，云函数请求封装
+* `wx.request` 网络请求封装和 `api` 配置
+* 用户管理云函数请求Promise封装
 * AES、RSA加解密，SHA256、MD5加密，base64编码解码
 * 全局常量、变量
 * 公共样式
@@ -35,6 +37,29 @@ A new weapp project - 实现一些常用效果、封装通用组件和工具类 
 * 波浪背景动画
 * 封装一些组件(在`jh-components`文件夹)和工具类(在`utils`文件夹)
 
+<br>
+
+## 三方组件库
+* [WeUI](https://developers.weixin.qq.com/miniprogram/dev/extended/weui/)
+```
+建议通过扩展库引入，不占用小程序包体积
+```
+* [Vant](https://vant-contrib.gitee.io/vant-weapp/#/quickstart)
+```
+# 通过 npm 安装
+npm i @vant/weapp -S --production
+```
+* [ColorUI](https://github.com/weilanwl/ColorUI/)
+```
+需下载源码手动导入
+```
+* [Wux](https://www.wuxui.com/#/quickstart)
+```
+# 通过 npm 安装
+npm i wux-weapp -S --production
+```
+
+<br>
 
 ## 预览
 

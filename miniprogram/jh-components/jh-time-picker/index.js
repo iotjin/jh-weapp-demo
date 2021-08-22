@@ -16,6 +16,14 @@ Component({
       type: String,
       value: '请选择时间',
     },
+    cancelText: {
+      type: String,
+      value: '取消',
+    },
+    confirmText: {
+      type: String,
+      value: '确定',
+    },
   },
 
   /**
@@ -60,8 +68,8 @@ Component({
         isShow: false
       });
     },
-    //将要弹出popView
-    willShowPopView: function (event) {
+    //将要弹出Picker
+    willShowPicker: function (event) {
       let day = this.data.pickerDateTextArr.indexOf("今天");
       let hour = new Date().getHours();
       let minute = new Date().getMinutes();
