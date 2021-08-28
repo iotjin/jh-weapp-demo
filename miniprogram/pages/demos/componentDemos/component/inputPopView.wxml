@@ -8,11 +8,11 @@
 	<textarea placeholder="请输入内容" auto-height cursor-spacing="50"></textarea>
 </modal>
 
-<jh-input-alert title='输入框标题' placeholder='请输入' maxlength='10' bindinputCancel='cancel' bindinputConfirm='confirm'
+<jh-input-alert title='输入框标题' placeholder='请输入' maxlength='10' bind:cancel='cancel' bind:confirm='confirm'
 	wx:if='{{ showDialog2 }}' />
 
-<jh-input-alert title='输入框标题' multiline placeholder='请输入' maxlength='140' bindinputCancel='cancel'
-	bindinputConfirm='confirm' wx:if='{{ showDialog3 }}' />
+<jh-input-alert title='输入框标题' multiline placeholder='请输入' maxlength='140' bind:cancel='cancel' bind:confirm='confirm'
+	wx:if='{{ showDialog3 }}' />
 
 <jh-input-picker isShow='{{showDialog4}}' title="标题" maxLength='50' placeholder='请输入（不超过50字）' bindconfirm='confirm'>
 </jh-input-picker>

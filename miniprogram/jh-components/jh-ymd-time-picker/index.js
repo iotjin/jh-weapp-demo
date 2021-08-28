@@ -10,25 +10,22 @@ Component({
       type: Boolean,
       value: false
     },
-    //选择器类型 ymd, ym, all(年月日时分)
+    // 选择器类型 ymd, ym, all(年月日时分)
     timeType: {
       type: String,
       value: 'ymd'
     },
-    //选中的时间
+    // 选中的时间
     selectTime: {
       type: String,
       value: ''
     },
-    //选中的时间
-    selectTime: {
-      type: String,
-      value: ''
-    },
+    // 时间戳
     minDate: {
       type: Number,
       value: 0,
     },
+    // 时间戳
     maxDate: {
       type: Number,
       value: 0
