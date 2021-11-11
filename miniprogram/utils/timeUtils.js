@@ -30,6 +30,8 @@ module.exports = {
   Jh_getNextYearMonth: Jh_getNextYearMonth,
   Jh_isToday: Jh_isToday,
   Jh_isBetweenTimes: Jh_isBetweenTimes,
+  Jh_isBetweenTimesByCurrent,
+  Jh_isBetweenTimesByCurrentAndEndTime,
   Jh_compareTimes: Jh_compareTimes,
   Jh_getEndTime: Jh_getEndTime,
   Jh_differenceDays: Jh_differenceDays
@@ -326,17 +328,52 @@ function Jh_isToday(time) {
 }
 
 /**
+ * 判断某个时间是否在开始时间和结束时间范围内  
+ * @param time 2020-07-19 20:33:00 | 2020/07/19 20:33:00
+ * @return true | false
+ */
+function Jh_isBetweenTimes(time, startTime, endTime) {
+  time = time.replace(/-/g, "/");
+  startTime = startTime.replace(/-/g, "/");
+  endTime = endTime.replace(/-/g, "/");
+  time = new Date(time);
+  startTime = new Date(startTime);
+  endTime = new Date(endTime);
+  if (startTime <= time && time <= endTime) {
+    return true;
+  }
+  return false;
+}
+
+/**
  * 判断当前时间是否在某个时间段内  
  * @param time 2020-07-19 20:33:00 | 2020/07/19 20:33:00
  * @return true | false
  */
-function Jh_isBetweenTimes(beginTime, endTime) {
+function Jh_isBetweenTimesByCurrent(beginTime, endTime) {
   beginTime = beginTime.replace(/-/g, '/');
   endTime = endTime.replace(/-/g, '/');
   beginTime = new Date(beginTime)
   endTime = new Date(endTime)
   let currentTime = new Date();
   if (beginTime <= currentTime && currentTime <= endTime) {
+    return true;
+  }
+  return false;
+}
+
+/**
+ * 判断某个时间是否在当前时间和结束时间范围内 
+ * @param time 2020-07-19 20:33:00 | 2020/07/19 20:33:00
+ * @return true | false
+ */
+function Jh_isBetweenTimesByCurrentAndEndTime(time, endTime) {
+  let currentTime = new Date();
+  time = time.replace(/-/g, "/");
+  endTime = endTime.replace(/-/g, "/");
+  time = new Date(time);
+  endTime = new Date(endTime);
+  if (currentTime <= time && time <= endTime) {
     return true;
   }
   return false;
