@@ -1,0 +1,79 @@
+.item-bg {
+	margin: 10px;
+	padding: 10px;
+	border-radius: 5px;
+	box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.1);
+}
+
+.header-bg {
+	display: flex;
+	padding: 15px;
+	/*border-bottom: 1px solid #E6E6E6;*/
+}
+
+.header-title {
+	color: rgb(50, 50, 50);
+	font-weight: 500;
+}
+
+.header-line {
+	height: 2px;
+	margin: 0px 10px;
+	background: rgb(230, 230, 230);
+}
+
+.item-row {
+	display: flex;
+	padding: 10px 15px;
+}
+
+.row-vertical-line {
+	margin-left: -15px;
+	margin-right: 10px;
+	width: 5px;
+	background: rgb(78, 183, 192);
+}
+
+.row-title {
+	flex: 25;
+	font-size: 15px;
+	color: rgb(50, 50, 50);
+}
+
+.row-info {
+	flex: 75;
+	font-size: 15px;
+	word-break: break-all;
+	color: rgb(100, 100, 100);
+}
+
+.item-row-line {
+	height: 2px;
+	background: rgb(242, 242, 242);
+}
+
+/* <view class="item-bg">
+    <view class="header-bg">
+        <view class="row-vertical-line"></view>
+        <view class="header-title">姓名:</view>
+    </view>
+    <view class="header-line"></view>
+    <view class="item-row">
+        <view class="row-vertical-line"></view>
+        <view class="row-title">客户编号:</view>
+        <view class="row-info">13213212332</view>
+    </view>
+    <view class="item-row">
+        <view class="row-title">姓名:</view>
+        <view class="row-info">张三</view>
+    </view>
+    <view class="item-row">
+        <view class="row-title">工作职责:</view>
+        <view class="row-info">工作负责人</view>
+    </view>
+    <view class="item-row">
+        <view class="row-title">工种:</view>
+        <view class="row-info">普工</view>
+    </view>
+</view>
+<view style="padding-top: 15px;"></view> */

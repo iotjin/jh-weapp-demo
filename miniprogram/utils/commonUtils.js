@@ -21,6 +21,16 @@
    return Math.floor(rand * (range + 1) + min);
  }
 
+ // 把数组拆分n个一组的小数组(小数组长度为n)
+ function splitArrayByLength(array, subGroupLength) {
+   let index = 0;
+   let newArray = [];
+   while (index < array.length) {
+     newArray.push(array.slice(index, index += subGroupLength));
+   }
+   return newArray;
+ }
+
  /*  使用
  const CommonUtils = require('../../utils/commonUtils')
 
