@@ -1,5 +1,5 @@
 <van-nav-bar title="{{title}}" custom-class="nav {{bgImage ?'nav2':'' }}" title-class="title" fixed placeholder
-  style="{{myStyle}}" border="{{bgColor=='transparent' ? false : true}}">
+  style="{{myStyle}}" border="{{(bgColor=='transparent'|| !border ? false : true)}}">
   <block wx:if="{{leftSlot}}">
     <slot name="left" slot="left"></slot>
   </block>

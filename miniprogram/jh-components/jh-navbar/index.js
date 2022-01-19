@@ -51,6 +51,11 @@ Component({
       type: Boolean,
       value: false
     },
+    // 是否显示下边框，默认为true 
+    border: {
+      type: Boolean,
+      value: false
+    },
     delta: {
       type: Number,
       value: 1
