@@ -6,14 +6,16 @@ App({
     name: '张三',
     isIPhoneX: false,
   },
-  //全局宏
-  kUserInfo: "kUserInfo",
   isIPhoneX: false, // 当前设备是否为 iPhone X
-  kBottomSafeHeight: 0, // X 34 ，其余 0 
+  kBottomSafeHeight: 0, // X 34，其余 0 
   kNetworkType: '', // 网络类型：wifi、2g、3g、4g、5g、unknown、none
   kHasNetwork: true, //是否有网，默认有
   kIsMobileNetwork: false, //是否是手机网络
-
+  //全局宏
+  kVersionNum:'1.0',
+  kUserInfo: "kUserInfo",
+  kOpenId: "kOpenId",
+  kUserType: 'kUserType',
   onLaunch: function () {
 
     if (!wx.cloud) {

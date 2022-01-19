@@ -10,7 +10,7 @@
     });
  */
 
-
+var app = getApp()
 const TimeUtils = require('../utils/timeUtils.js');
 
 const db = wx.cloud.database()
@@ -41,7 +41,12 @@ function getOpenId() {
 }
 
 // 添加或者更新用户信息
-function addOrUpdateUser(userInfo, openId) {
+function addOrUpdateUser(userInfo) {
+  let openId = getOpenId()
+  if (!openId) {
+    return
+  }
+
   return new Promise((resolve, reject) => {
     db.collection(kTableName).where({
         _openid: openId,
@@ -51,14 +56,14 @@ function addOrUpdateUser(userInfo, openId) {
           // console.log(res.data);
           if (res.data.length > 0) {
             wx.setStorageSync(app.kUserType, res.data[0].userType) // 用户类型从数据库直接改
-            // console.log('更新用户信息');
-            updateUser(userInfo, openId).then(res => {
+            console.log('更新用户信息');
+            updateUserById(userInfo, openId).then(res => {
               return resolve(true)
             }).catch(error => {
               return reject(error)
             });
           } else {
-            // console.log('新增');
+            console.log('新增用户');
             addUser(userInfo, openId).then(res => {
               wx.setStorageSync(app.kUserType, 'normal')
               return resolve(true)
@@ -80,7 +85,7 @@ function addUser(userInfo) {
   if (!openId) {
     return
   }
-  let time = TimeUtils.Jh_timeStampToTime(new Date().getTime(), "{y}-{m}-{d} {h}:{i}:{s}")
+  let time = TimeUtils.Jh_timeStampToYMDHMS('', "{y}-{m}-{d} {h}:{i}:{s}")
 
   return new Promise((resolve, reject) => {
     db.collection(kTableName).add({
@@ -143,7 +148,8 @@ function deleteUserById(openId) {
 
 //根据openId 更新用户数据
 function updateUserById(userInfo, openId) {
-  let time = TimeUtils.Jh_timeStampToTime(new Date().getTime(), "{y}-{m}-{d} {h}:{i}:{s}")
+  let time = TimeUtils.Jh_timeStampToYMDHMS('', "{y}-{m}-{d} {h}:{i}:{s}")
+
   return new Promise((resolve, reject) => {
     db.collection(kTableName)
       .doc(openId)
@@ -212,7 +218,7 @@ function getUserListByPage(page, orderBy, sort, params) {
     return
   }
   params = params ? params : {}
-  params._id = db.command.neq(openId)
+  // params._id = db.command.neq(openId)
   return new Promise((resolve, reject) => {
     db.collection(kTableName)
       .where(params)

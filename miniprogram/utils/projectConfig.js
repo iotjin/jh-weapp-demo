@@ -4,14 +4,14 @@
 使用方法 ：
 
 const Config = require('../../utils/projectConfig.js');
-console.log(Config.kVersion); 
+console.log(Config.kVersionNum); 
  */
 
 
 // appName
 export const kAppName = 'jh-uniapp-demo';
 // 版本号
-export const kVersion = '1.0.0';
+export const kVersionNum = '1.0.0';
 
 
 /******************** 数据存储相关-key ********************/

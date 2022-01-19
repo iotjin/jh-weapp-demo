@@ -34,7 +34,10 @@ module.exports = {
   Jh_isBetweenTimesByCurrentAndEndTime,
   Jh_compareTimes: Jh_compareTimes,
   Jh_getEndTime: Jh_getEndTime,
-  Jh_differenceDays: Jh_differenceDays
+  Jh_differenceDays: Jh_differenceDays,
+  Jh_isLeapYear: Jh_isLeapYear,
+  Jh_getDayWithYear: Jh_getDayWithYear,
+  Jh_getHasDays: Jh_getHasDays,
 }
 
 
@@ -137,7 +140,7 @@ function Jh_timeStampToNo0Time(time, cFormat) {
 }
 
 /** 
- * 时间戳转年月日
+ * 时间戳转年月日，不传time默认当前时间戳  
  * @param time 13位时间戳，不传time默认当前时间戳   
  * @param format 指定format，不传format默认：'{y}/{m}/{d}'
  * @return 指定format时间，默认格式：2020/02/02
@@ -151,7 +154,7 @@ function Jh_timeStampToYMD(time, format) {
 }
 
 /** 
- * 时间戳转年月日时分秒
+ * 时间戳转年月日时分秒，不传time默认当前时间戳   
  * @param time 13位时间戳，不传time默认当前时间戳   
  * @param format 指定format，不传format默认：'{y}/{m}/{d} {h}:{i}:{s}'
  * @return 指定format时间，默认格式：2019/05/20 00:00:00
@@ -428,4 +431,38 @@ function Jh_differenceDays(time1, time2) {
   let newTime = Math.abs(newTime1 - newTime2)
   let days = Math.floor(newTime / (24 * 3600 * 1000));
   return days
+}
+
+/**
+ * 某年是否闰年，不传time默认当前年
+ * @param time 2019
+ * @return true|false
+ */
+function Jh_isLeapYear(time) {
+  let year = time || new Date().getFullYear();
+  return (year % 4 == 0 && year % 100 != 0 || year % 400 == 0);
+}
+
+/**
+ * 获取某年一共多少天，不传time默认当前年
+ * @param time 2019
+ * @return 天数
+ */
+function Jh_getDayWithYear(time) {
+  return Jh_isLeapYear(time) ? 366 : 365;
+}
+
+/**
+ * 获取今年已过天数（当前时间是今年的第几天）
+ * @return 天数
+ */
+function Jh_getHasDays() {
+  // let currentYear = new Date().getFullYear().toString();
+  // // 今天减今年的第一天（xxxx年01月01日）
+  // let hasTimestamp = new Date() - new Date(currentYear);
+  // // 86400000 = 24 * 60 * 60 * 1000
+  // let days = Math.ceil(hasTimestamp / 86400000);
+
+  let days = Math.ceil((new Date() - new Date(new Date().getFullYear().toString())) / (24 * 60 * 60 * 1000));
+  return days;
 }
