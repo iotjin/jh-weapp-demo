@@ -35,7 +35,7 @@ Page({
   //赞赏支持
   onClickAppreciate() {
     wx.previewImage({
-      urls: ['https://gitee.com/iotjh/res/raw/master/images/jpg/payCode.jpg'],
+      urls: ['https://gitee.com/iotjh/res/raw/master/weapp/PayCode.jpg'],
     });
 
   },

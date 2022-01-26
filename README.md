@@ -8,6 +8,13 @@ A new weapp project - 实现一些常用效果、封装通用组件和工具类 
 注：真实开发项目注意按需引用。例如：组件、工具类、`app.json`的引用，可通过代码依赖分析做优化。
 
 <br>
+
+# 小程序码
+
+<img src="https://gitee.com/iotjh/res/raw/master/weapp/jh-weapp-demo.jpg">
+
+<br>
+<br>
 <br>
 
 ## 实现的一些效果
