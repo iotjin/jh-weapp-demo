@@ -4,17 +4,22 @@
 使用方法：
 
 const TimeUtils = require('../../utils/timeUtils.js');
-//时间戳转指定格式时间  1487065320000
-TimeUtils.Jh_timeStampToTime(1554803832, '{y}年{m}月{d}日 {h}:{i}:{s} 星期{w}')                
+//时间戳转指定格式时间  1487065320000  1554803832
+TimeUtils.Jh_timeStampToTime(new Date().getTime(), '{y}年{m}月{d}日 {h}:{i}:{s} 星期{w}')  
+
+TimeUtils.Jh_timeStampToTime() // 默认当前时间，格式为：2019/05/20 00:00:00
+TimeUtils.Jh_timeStampToTime('', '{y}年{m}月{d}日 {h}:{i}:{s} 星期{w}')  
+TimeUtils.Jh_timeStampToTime('', '{y}/{m}/{d} {h}:{i}:{s}')
+TimeUtils.Jh_timeStampToTime('', '{y}-{m}-{d} {h}:{i}:{s}')   
 
 */
 
 
 /* 通过module.exports方式提供给外部调用 */
 module.exports = {
-  Jh_getTimeStamp: Jh_getTimeStamp, //获取当前时间戳
-  Jh_convertTimeStamp: Jh_convertTimeStamp, //将某个格式时间转化成时间戳 
-  Jh_timeStampToTime: Jh_timeStampToTime, //将某个时间戳转化成 指定格式时间
+  Jh_getTimeStamp: Jh_getTimeStamp, // 获取当前时间戳
+  Jh_convertTimeStamp: Jh_convertTimeStamp, // 将某个格式时间转化成时间戳 
+  Jh_timeStampToTime: Jh_timeStampToTime, // 将某个时间戳转化成 指定格式时间
   Jh_timeStampToNo0Time: Jh_timeStampToNo0Time,
   Jh_timeStampToYMD: Jh_timeStampToYMD,
   Jh_timeStampToYMDHMS: Jh_timeStampToYMDHMS,
@@ -28,6 +33,7 @@ module.exports = {
   Jh_getYearMonth: Jh_getYearMonth,
   Jh_getLastYearMonth: Jh_getLastYearMonth,
   Jh_getNextYearMonth: Jh_getNextYearMonth,
+  Jh_getNextYearMonthDay: Jh_getNextYearMonthDay,
   Jh_isToday: Jh_isToday,
   Jh_isBetweenTimes: Jh_isBetweenTimes,
   Jh_isBetweenTimesByCurrent,
@@ -36,14 +42,19 @@ module.exports = {
   Jh_getEndTime: Jh_getEndTime,
   Jh_differenceDays: Jh_differenceDays,
   Jh_isLeapYear: Jh_isLeapYear,
-  Jh_getDayWithYear: Jh_getDayWithYear,
-  Jh_getHasDays: Jh_getHasDays,
+  Jh_getDaysWithMonth: Jh_getDaysWithMonth,
+  Jh_getDaysWithYear: Jh_getDaysWithYear,
+  Jh_getPassDaysWithYear: Jh_getPassDaysWithYear,
+  Jh_getSurplusDaysWithMonth: Jh_getSurplusDaysWithMonth,
+  Jh_getSurplusDaysWithYear: Jh_getSurplusDaysWithYear,
+  Jh_getAge: Jh_getAge,
 }
 
 
 /** 获取当前13位时间戳 */
 function Jh_getTimeStamp() {
-  let timestamp = Date.parse(new Date());
+  // let timestamp = Date.parse(new Date());
+  let timestamp = new Date().getTime();
   return timestamp;
 }
 
@@ -70,7 +81,7 @@ function Jh_convertTimeStamp(time) {
  * @param {date} time 时间
  * @param {string} cFormat {y}-{m}-{d} {h}:{i}:{s} {w} 
  */
-function Jh_timeStampToTime(time, cFormat) {
+function timeStampToTime(time, cFormat) {
   if (arguments.length === 0) {
     return null
   }
@@ -137,6 +148,20 @@ function Jh_timeStampToNo0Time(time, cFormat) {
     return value || 0;
   })
   return time_str;
+}
+
+/** 
+ * 时间戳转指定时间格式，不传time默认当前时间戳   
+ * @param time 13位时间戳，不传time默认当前时间戳   
+ * @param format 指定format，不传format默认：'{y}/{m}/{d} {h}:{i}:{s}'
+ * @return 指定format时间，默认格式：2019/05/20 00:00:00
+ */
+function Jh_timeStampToTime(time, format) {
+  time = time ? time : Jh_getTimeStamp()
+  if (format) {
+    return timeStampToTime(time, format)
+  }
+  return timeStampToTime(time, '{y}/{m}/{d} {h}:{i}:{s}')
 }
 
 /** 
@@ -316,6 +341,25 @@ function Jh_getNextYearMonth(time) {
   return nextTime
 }
 
+/**
+ * 获取一年后的时间，不传time默认当前时间
+ * @param time 2020年2月2日 | 2020/02/02 | 2020-02-02 | 2020/02/02 00:00:00 | 2020-02-02 00:00:00
+ * @return 2021年2月2日 | 2021/02/02 | 2021-02-02 | 2021/02/02 00:00:00
+ */
+function Jh_getNextYearMonthDay(time) {
+  if (time) {
+    let nextYear = parseInt(time.substring(0, 4)) + 1
+    let nextTime = nextYear + time.substring(4, time.length)
+    return nextTime
+  } else {
+    let nextTime = new Date(Jh_getTimeStamp());
+    nextTime.setFullYear(nextTime.getFullYear() + 1);
+    nextTime.setDate(nextTime.getDate());
+    nextTime = Jh_timeStampToTime(nextTime.getTime(), '{y}/{m}/{d} {h}:{i}:{s}')
+    return nextTime
+  }
+}
+
 /** 
  * 某个时间是否是今天 
  * @param time 2020-07-19 | 2020/07/19 | 2020-07-19 20:33:00 | 2020/07/19 20:33:00
@@ -384,8 +428,8 @@ function Jh_isBetweenTimesByCurrentAndEndTime(time, endTime) {
 
 /**
  * 比较两个时间大小
- * @param time1 2019-02-02 || 2019-02-02 00:00:00
- * @param time2 2019-02-02 || 2019-02-02 00:00:00
+ * @param time1 2019-02-02 || 2019/02/02 || 2019-02-02 00:00:00 || 2019/02/02 00:00:00
+ * @param time2 2019-02-02 || 2019/02/02 || 2019-02-02 00:00:00 || 2019/02/02 00:00:00
  * @return time1>time2 为true
  */
 function Jh_compareTimes(time1, time2) {
@@ -399,9 +443,9 @@ function Jh_compareTimes(time1, time2) {
 }
 
 /**
- * 距离某个时间还有xxx天x小时xx分xx秒
- * @param time 2021-02-12 || 2021/02/12
- * @return '距离2021年2月12日还有118天0小时30分12秒'
+ * 当前时间距离某个时间还有xxx天x小时xx分xx秒，返回：118天0小时30分12秒
+ * @param time 2019-02-02 || 2019/02/02 || 2019-02-02 00:00:00 || 2019/02/02 00:00:00
+ * @return 118天0小时30分12秒
  */
 function Jh_getEndTime(time) {
   time = time.replace(/-/g, '/');
@@ -416,13 +460,13 @@ function Jh_getEndTime(time) {
   let hour = Math.floor((leftsecond - day * 24 * 60 * 60) / 3600);
   let minute = Math.floor((leftsecond - day * 24 * 60 * 60 - hour * 3600) / 60);
   let second = Math.floor(leftsecond - day * 60 * 60 * 24 - hour * 60 * 60 - minute * 60);
-  return `距离${year}年${month}月${date}日还有${day}天${hour}小时${minute}分${second}秒`;
+  return `${day}天${hour}小时${minute}分${second}秒`;
 }
 
 /**
  * 获取两个时间相差天数
- * @param time1 2019-02-02 || 2019-02-02 00:00:00
- * @param time2 2019-02-02 || 2019-02-02 00:00:00
+ * @param time1 2019-02-02 || 2019/02/02 || 2019-02-02 00:00:00 || 2019/02/02 00:00:00
+ * @param time2 2019-02-02 || 2019/02/02 || 2019-02-02 00:00:00 || 2019/02/02 00:00:00
  * @return 天数
  */
 function Jh_differenceDays(time1, time2) {
@@ -444,19 +488,36 @@ function Jh_isLeapYear(time) {
 }
 
 /**
- * 获取某年一共多少天，不传time默认当前年
+ * 获取某月一共多少天，不传time默认本月
+ * @param time 2019-02-02 || 2019/02/02 || 2019-02-02 00:00:00 || 2019/02/02 00:00:00
+ * @return 天数
+ */
+function Jh_getDaysWithMonth(time) {
+  let date = new Date();
+  if (time) {
+    date = time.replace(/-/g, '/');
+    date = new Date(date);
+  }
+  let year = date.getFullYear();
+  let month = date.getMonth() + 1;
+  let days = new Date(year, month, 0);
+  return days.getDate();
+}
+
+/**
+ * 获取某年一共多少天，不传time默认今年
  * @param time 2019
  * @return 天数
  */
-function Jh_getDayWithYear(time) {
+function Jh_getDaysWithYear(time) {
   return Jh_isLeapYear(time) ? 366 : 365;
 }
 
 /**
- * 获取今年已过天数（当前时间是今年的第几天）
+ * 获取今年已过天数（今年的第几天）
  * @return 天数
  */
-function Jh_getHasDays() {
+function Jh_getPassDaysWithYear() {
   // let currentYear = new Date().getFullYear().toString();
   // // 今天减今年的第一天（xxxx年01月01日）
   // let hasTimestamp = new Date() - new Date(currentYear);
@@ -465,4 +526,56 @@ function Jh_getHasDays() {
 
   let days = Math.ceil((new Date() - new Date(new Date().getFullYear().toString())) / (24 * 60 * 60 * 1000));
   return days;
+}
+
+/**
+ * 获取本月剩余天数
+ * @return 天数
+ */
+function Jh_getSurplusDaysWithMonth() {
+  return Jh_getDaysWithMonth() - Jh_timeStampToTime('', '{d}');
+}
+
+/**
+ * 获取今年剩余天数
+ * @return 天数
+ */
+function Jh_getSurplusDaysWithYear() {
+  return Jh_getDaysWithYear() - Jh_getPassDaysWithYear();
+}
+
+
+function filterDateNum(date) {
+  if (!date) return {}
+  const cnDay = ['日', '一', '二', '三', '四', '五', '六']
+  return {
+    year: date.getFullYear(),
+    month: date.getMonth() + 1,
+    day: date.getDate(),
+    weekDay: cnDay[date.getDay()]
+  }
+}
+
+/**
+ * 周岁算法：每过一个生日就长一岁。
+ * @param birthday 2019-02-02 || 2019/02/02 || 2019-02-02 00:00:00 || 2019/02/02 00:00:00
+ * @return 返回年龄 //（返回-1 表示出生日期输入错误 晚于今天）
+ */
+function Jh_getAge(birthdayDate) {
+  let fullAge = 0
+  if (!birthdayDate) return '';
+  if (typeof birthdayDate === 'string') {
+    birthdayDate = birthdayDate.replace(/-/g, '/');
+    birthdayDate = new Date(birthdayDate)
+  }
+  const now = new Date()
+  const birthdayObj = filterDateNum(birthdayDate)
+  const nowObj = filterDateNum(now)
+  const baseAge = nowObj.year - birthdayObj.year
+  fullAge = baseAge
+  // 本年没过生日
+  if (birthdayObj.month > nowObj.month || ((birthdayObj.month === nowObj.month) && (birthdayObj.day > nowObj.day))) {
+    fullAge = baseAge - 1
+  }
+  return fullAge
 }

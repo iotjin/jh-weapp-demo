@@ -1,6 +1,10 @@
-<jh-text-list-view dataArr='{{dataArr}}' bind:click="onClickItem">
-</jh-text-list-view>
+<van-field label="显示 jh-string-picker" title-width="180px" is-link readonly bind:tap="onClickItem" />
 
-<jh-string-picker dataArr='{{stringPickerDataArr}}' selectIndex='1' isShow='{{isShowPicker}}' title="请选择"
-  bind:confirm='confirm1'>
-</jh-string-picker>
+
+<van-cell-group title="选择结果">
+  <van-field label="文字" value="{{ name }}" readonly />
+  <van-field label="值" value="{{ id }}" readonly />
+</van-cell-group>
+
+<jh-string-picker dataArr='{{stringPickerDataArr}}' selectIndex='1' isShow='{{isShowStringPicker}}' title="请选择"
+  bind:confirm='confirm1' />

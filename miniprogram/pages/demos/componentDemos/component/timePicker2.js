@@ -5,9 +5,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    isShowPopView2: false,
-    currentDateStr1: '',
-    currentDateStr2: '',
+    isShowTimePicker: false,
+    timeStamp: '',
+    timeText: '',
+    newTimeText: '',
   },
 
   /**
@@ -20,7 +21,7 @@ Page({
 
   onClickTimeBtn1: function () {
     this.setData({
-      isShowPopView2: true,
+      isShowTimePicker: true,
     });
   },
 
@@ -32,7 +33,9 @@ Page({
     let newTime = TimeUtils.Jh_timeStampToTime(dict.timeStamp, '{y}-{m}-{d} {h}:{i}:{s} 星期{w}')
     console.log(newTime);
     this.setData({
-      currentDateStr1: dict.time,
+      timeStamp: dict.timeStamp,
+      timeText: dict.time,
+      newTimeText: newTime,
     });
   },
 
@@ -45,8 +48,13 @@ Page({
     let dict = picker.getTime()
     console.log(dict.time);
     console.log(dict.timeStamp);
+    // 转成需要的格式
+    let newTime = TimeUtils.Jh_timeStampToTime(dict.timeStamp, '{y}/{m}/{d} {h}:{i}:{s} 星期{w}')
+    console.log(newTime);
     this.setData({
-      currentDateStr2: dict.time,
+      timeStamp: dict.timeStamp,
+      timeText: dict.time,
+      newTimeText: newTime,
     });
   },
 

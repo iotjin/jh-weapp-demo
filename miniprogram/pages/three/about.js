@@ -1,11 +1,15 @@
-// miniprogram/pages/three/about.js
+const app = getApp()
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    isIPhoneX: app.isIPhoneX,
+    versionNum: app.kVersionNum,
+    isNew: '',
+    appName: 'jh-weapp-demo',
   },
 
   /**
@@ -17,7 +21,7 @@ Page({
       title: '关于'
     })
 
-    //获取当前帐号信息。线上小程序版本号仅支持在正式版小程序中获取，开发版和体验版中无法获取。
+    //获取当前帐号信息
     var info = wx.getAccountInfoSync()
     console.log(info);
   },
@@ -27,5 +31,13 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+  //赞赏支持
+  onClickAppreciate() {
+    wx.previewImage({
+      urls: ['https://gitee.com/iotjh/res/raw/master/images/jpg/payCode.jpg'],
+    });
+
+  },
+
 })

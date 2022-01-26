@@ -20,14 +20,15 @@ const kPageCount = 20;
 const kTableName = 'User_Table';
 
 module.exports = {
+  kPageCount,
   addOrUpdateUser: addOrUpdateUser,
   selectUserIsExist: selectUserIsExist,
   addUser: addUser,
   deleteUserById: deleteUserById,
   updateUserById: updateUserById,
-  getAllCount: getAllCount,
   getUserListByPage: getUserListByPage,
-  searchUserById: searchUserById,
+  getAllCount: getAllCount,
+  getUserById: getUserById,
   searchUserLikeText: searchUserLikeText,
 }
 
@@ -85,7 +86,7 @@ function addUser(userInfo) {
   if (!openId) {
     return
   }
-  let time = TimeUtils.Jh_timeStampToYMDHMS('', "{y}-{m}-{d} {h}:{i}:{s}")
+  let time = TimeUtils.Jh_timeStampToTime('', "{y}-{m}-{d} {h}:{i}:{s}")
 
   return new Promise((resolve, reject) => {
     db.collection(kTableName).add({
@@ -148,26 +149,55 @@ function deleteUserById(openId) {
 
 //根据openId 更新用户数据
 function updateUserById(userInfo, openId) {
-  let time = TimeUtils.Jh_timeStampToYMDHMS('', "{y}-{m}-{d} {h}:{i}:{s}")
+  let time = TimeUtils.Jh_timeStampToTime('', "{y}-{m}-{d} {h}:{i}:{s}")
 
   return new Promise((resolve, reject) => {
+    let params = JSON.parse(JSON.stringify(userInfo))
+    params.updateTime = time
+    params.lastLoginTime = time
+    if (!params.phone) {
+      delete params.phone
+    }
+    if (!params.name) {
+      delete params.name
+    }
+    if (!params.avatarUrl) {
+      delete params.avatarUrl
+    }
+    if (!params.city) {
+      delete params.city
+    }
+    if (!params.gender) {
+      delete params.gender
+    }
+    if (!params.nickName) {
+      delete params.nickName
+    }
+    if (!params.province) {
+      delete params.province
+    }
+    if (!params.country) {
+      delete params.country
+    }
+
     db.collection(kTableName)
       .doc(openId)
       .update({
-        data: {
-          updateTime: time,
-          lastLoginTime: time,
-          // 用户类型从数据库直接改
-          // userType: userInfo.userType ? userInfo.userType : "normal",
-          phone: userInfo.phone ? userInfo.phone : "",
-          name: userInfo.name ? userInfo.name : "",
-          avatarUrl: userInfo.avatarUrl,
-          city: userInfo.city,
-          gender: userInfo.gender,
-          nickName: userInfo.nickName,
-          province: userInfo.province,
-          country: userInfo.country,
-        },
+        data: params,
+        // data: {
+        //   updateTime: time,
+        //   lastLoginTime: time,
+        //   // 用户类型从数据库直接改
+        //   // userType: userInfo.userType ? userInfo.userType : "normal",
+        //   phone: userInfo.phone ? userInfo.phone : "",
+        //   name: userInfo.name ? userInfo.name : "",
+        //   avatarUrl: userInfo.avatarUrl,
+        //   city: userInfo.city,
+        //   gender: userInfo.gender,
+        //   nickName: userInfo.nickName,
+        //   province: userInfo.province,
+        //   country: userInfo.country,
+        // },
         success: function (res) {
           return resolve(res);
         },
@@ -198,6 +228,11 @@ function getAllCount() {
 
 /* 查询条件
     params = {
+      // 必须
+      keyword:"",
+      orderBy:"",
+      sort:"",
+      // 可选
       phone: "",
       name: "",
       userType: "", //admin normal
@@ -210,18 +245,74 @@ function getAllCount() {
     }
   排序条件
   orderBy：createTime || updateTime || lastLoginTime
-  sort ： asc || desc
+  sort ： desc(降序) | asc(升序)
 */
-function getUserListByPage(page, orderBy, sort, params) {
+function getUserListByPage(page, params) {
   let openId = getOpenId()
   if (!openId) {
     return
   }
-  params = params ? params : {}
-  // params._id = db.command.neq(openId)
+  // 模糊查询
+  let keyword = params.keyword
+  // keyword = new RegExp('.*' + params.title + '.*')
+
+  let wherrParams = JSON.parse(JSON.stringify(params))
+  // wherrParams._openid = db.command.eq(openId) // 等于 ，写在字典内只能 查字符串
+  // wherrParams._openid = db.command.neq(openId) // 不等于
+  delete wherrParams.keyword
+  delete wherrParams.orderBy
+  delete wherrParams.sort
+  // 性别和用户类型多选，外部传数组，通过_.in()单个处理 
+  delete wherrParams.gender
+  delete wherrParams.userType
+  // 单选
+  if (!wherrParams.province) {
+    delete wherrParams.province
+  }
+  if (!wherrParams.city) {
+    delete wherrParams.city
+  }
+
+  console.log('用户列表分页查询参数');
+  console.log('params:' + JSON.stringify(params));
+  console.log('wherrParams:' + JSON.stringify(wherrParams));
+
   return new Promise((resolve, reject) => {
     db.collection(kTableName)
-      .where(params)
+      .where(_.or([{
+          nickName: new RegExp('.*' + keyword + '.*')
+        },
+        {
+          name: new RegExp('.*' + keyword + '.*')
+        },
+        {
+          phone: new RegExp('.*' + keyword + '.*')
+        },
+        {
+          city: new RegExp('.*' + keyword + '.*')
+        },
+        {
+          province: new RegExp('.*' + keyword + '.*')
+        },
+        {
+          gender: new RegExp('.*' + keyword + '.*')
+        },
+        {
+          country: db.RegExp({
+            regexp: keyword, // 查询关键词
+            options: 'i', // 大小写不敏感
+          })
+        },
+      ]).and([
+        wherrParams,
+        {
+          gender: params.gender ? _.in(params.gender) : _.in([0, 1, 2]),
+          userType: params.userType ? _.in(params.userType) : _.in(['admin', 'normal', 'vip']),
+          // _id: db.command.neq(openId),
+          // _id: _.eq(openId)
+        }
+      ]))
+      // .where(wherrParams)
       // .where({
       //   _id: db.command.neq(openId),
       // })
@@ -233,11 +324,11 @@ function getUserListByPage(page, orderBy, sort, params) {
       // })
       .skip(page * kPageCount)
       .limit(kPageCount)
-      .orderBy(orderBy, sort)
+      .orderBy(params.orderBy, params.sort)
       // .orderBy('lastLoginTime', 'desc')
       .get({
         success: function (res) {
-          return resolve(res)
+          return resolve(res.data)
         },
         fail(err) {
           return reject(err)
@@ -247,7 +338,7 @@ function getUserListByPage(page, orderBy, sort, params) {
 }
 
 //根据openId 查询用户数据：
-function searchUserById(openId) {
+function getUserById(openId) {
   return new Promise((resolve, reject) => {
     db.collection(kTableName)
       .doc(openId)
@@ -302,7 +393,7 @@ function searchUserLikeText(inputText) {
         },
       ])).get({
         success: function (res) {
-          return resolve(res);
+          return resolve(res.data);
         },
         fail(err) {
           return reject(err)

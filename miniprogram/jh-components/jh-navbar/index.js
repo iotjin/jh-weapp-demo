@@ -1,4 +1,4 @@
-// vant 自定义导航条
+// vant 自定义导航条，高度：46px + safeArea.top 
 
 Component({
 

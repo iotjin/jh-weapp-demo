@@ -1,0 +1,7 @@
+<van-grid direction="horizontal" column-num="2" border="{{ false }}" gutter="{{ 20 }}" custom-class="grid-bg">
+  <van-grid-item use-slot content-class="grid-item-bg" wx:for="{{ dataArr }}" wx:key="index" data-item="{{item}}"
+    bindtap="onClickItem">
+    <image class="grid-item-img" src="{{item.img}}" />
+    <view class="grid-item-text">{{item.text}}</view>
+  </van-grid-item>
+</van-grid>

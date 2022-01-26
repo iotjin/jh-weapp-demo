@@ -1,0 +1,29 @@
+
+/* -------------------- gridView -------------------- */
+.grid-bg {
+  padding-top: 30rpx;
+  padding-bottom: 30rpx;
+  background: transparent !important;
+}
+
+.grid-item-bg {
+  border-radius: 15rpx;
+  box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.1);
+  padding-top: 30px !important;
+  padding-bottom: 30px !important;
+  /* background: orange !important; */
+}
+
+.grid-item-img {
+  margin-left: 20rpx;
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.grid-item-text {
+  flex: 7;
+  padding-left: 30rpx;
+  font-size: 14px;
+  font-weight: bold;
+  color: rgb(50, 50, 50);
+}

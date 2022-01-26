@@ -6,15 +6,15 @@ Page({
    * 页面的初始数据
    */
   data: {
-    isShowTimePicker: false,
-    isShowTimePicker2: false,
-    isShowTimePicker3: false,
-    isShowTimePicker4: false,
-    isShowTimePicker5: false,
-    currentDateStr: JhTime.Jh_timeStampToTime(new Date().getTime(), '{y}年{m}月{d}日 {h}:{i}:{s}'),
-    currentDate: new Date().getTime(),
+    isShowYMDTimePicker: false,
+    isShowYMDTimePicker2: false,
+    isShowYMDTimePicker3: false,
+    isShowYMDTimePicker4: false,
+    isShowYMDTimePicker5: false,
     minDate:new Date().getTime(),
     maxDate:new Date().getTime(),
+    timeStamp: new Date().getTime(),
+    timeText:  JhTime.Jh_timeStampToTime(new Date().getTime(), '{y}年{m}月{d}日 {h}:{i}:{s}'),
 
   },
 
@@ -27,19 +27,19 @@ Page({
 
   //点击时间 弹出时间选择器
   ClickTimeBtn: function (event) {
-    this.setData({ isShowTimePicker: true });
+    this.setData({ isShowYMDTimePicker: true });
   },
   ClickTimeBtn2: function (event) {
-    this.setData({ isShowTimePicker2: true });
+    this.setData({ isShowYMDTimePicker2: true });
   },
   ClickTimeBtn3: function (event) {
-    this.setData({ isShowTimePicker3: true });
+    this.setData({ isShowYMDTimePicker3: true });
   },
   ClickTimeBtn4: function (event) {
-    this.setData({ isShowTimePicker4: true });
+    this.setData({ isShowYMDTimePicker4: true });
   },
   ClickTimeBtn5: function (event) {
-    this.setData({ isShowTimePicker5: true });
+    this.setData({ isShowYMDTimePicker5: true });
   },
 
   //点击选择器的 确定
@@ -49,10 +49,10 @@ Page({
     console.log("点击确定 选择的时间 - " + time);
 
     this.setData({
-      currentDate: event.detail,
-      currentDateStr: time
+      timeStamp: event.detail,
+      timeText: time
     });
-    // this.setData({ isShowTimePicker: false });
+    // this.setData({ isShowYMDTimePicker: false });
   },
 
 

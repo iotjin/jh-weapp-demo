@@ -31,8 +31,8 @@
   <van-cell-group title="级别">
     <view class="flex-bg">
       <block wx:for="{{level}}" wx:key="index">
-        <view class="{{item.isSelected ? 'flex-item-selected' :'flex-item'}} " catchtap='clickLevel' data-item="{{item}}"
-          data-index="{{index}}">
+        <view class="{{item.isSelected ? 'flex-item-selected' :'flex-item'}} " catchtap='clickLevel'
+          data-item="{{item}}" data-index="{{index}}">
           {{item.text}}
         </view>
       </block>
@@ -40,7 +40,7 @@
   </van-cell-group>
   <van-field label="开始日期" value="{{ startDate }}" placeholder="请选择" is-link readonly bind:tap="clickStartDate" />
   <van-field label="结束日期" value="{{ endDate }}" placeholder="请选择" is-link readonly bind:tap="clickEndDate" />
-  <view class="footer-bg">
+  <view class="footer-bg" style="padding-bottom:{{isIPhoneX ? 68 : 0}}rpx;">
     <view class="footer-last" catchtap="clickReset">重置</view>
     <view class="footer-nest" catchtap="clickSearch">查询</view>
   </view>

@@ -1,4 +1,5 @@
-<van-popup position="bottom" custom-style="height:55%;" show="{{ isShow }}" bind:close="hiddenPicker">
+<van-popup position="bottom" custom-style="height:326px;" show="{{ isShow }}" safe-area-inset-bottom="{{false}}"
+	bind:close="hiddenPicker">
 	<view wx:if="{{minDate && !maxDate }}">
 		<van-datetime-picker title="{{title}}" type="{{type}}" value="{{currentDate}}" confirm-button-text="{{confirmText}}"
 			min-date="{{minDate}}" bind:confirm="onConfirm" bind:cancel="onCancel" formatter="{{formatter}}"

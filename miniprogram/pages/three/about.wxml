@@ -1,9 +1,13 @@
-
 <view class="content">
-<image class="logo" src="../../images/tab/tab2_select.png"></image>
-<view class="appName">appName</view>
-<view class="versionNum">Version 1.0</view>
+  <image class="logo" src="../../images/ic_logo.png"></image>
+  <view class="appName">{{appName}}</view>
+  <view class="versionNum">Version {{versionNum}}</view>
 </view>
 
-<view class="footer">Copyright © 2020-2030 Jh. All rights reserved.</view>
+<view class="bg">
+  <van-field label="赞赏支持" readonly is-link bind:tap="onClickAppreciate" />
+  <van-field label="当前版本" value="{{ versionNum }}" readonly is-link input-align="right" />
+</view>
 
+<view class="footer" style="padding-bottom:{{isIPhoneX ? 68 : 0}}rpx;">Copyright © 2020-2099 Jh. All rights reserved.
+</view>

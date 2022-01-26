@@ -1,5 +1,5 @@
 .content {
-  height: 600rpx;
+  height: 500rpx;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -10,16 +10,27 @@
   width: 140rpx;
   height: 140rpx;
   margin-bottom: 20rpx;
+  border-radius: 70rpx;
 }
 
-.name {
+.appName {
   padding-top: 20rpx;
-  font-size: 30rpx;
+  font-size: 40rpx;
+  font-weight: bold;
 }
 
 .versionNum {
   padding-top: 20rpx;
-  font-size: 30rpx;
+  font-size: 25rpx;
+  color: rgb(50, 50, 50);
+}
+
+.bg {
+  width: 90%;
+  margin: 0 auto;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0px 0px 10px rgb(220, 220, 220);
 }
 
 .footer {

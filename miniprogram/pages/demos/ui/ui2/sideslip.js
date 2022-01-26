@@ -1,9 +1,14 @@
+const app = getApp();
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    isIPhoneX: app.isIPhoneX,
+    kTopSafeHeight: app.kTopSafeHeight,
+    kNavHeight: app.kNavHeight,
     isShowPop: false,
     isShowTimePicker: false,
     time: '',

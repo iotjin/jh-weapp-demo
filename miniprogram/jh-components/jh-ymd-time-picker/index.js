@@ -13,12 +13,20 @@ Component({
     // 选择器类型 ymd, ym, all(年月日时分)
     timeType: {
       type: String,
-      value: 'ymd'
+      value: 'ymd',
+      observer: function (newVal, oldVal) {
+        // 属性值变化时执行
+        this.handelValueChange(newVal, this.data.selectTime)
+      }
     },
     // 选中的时间
     selectTime: {
       type: String,
-      value: ''
+      value: '',
+      observer: function (newVal, oldVal) {
+        // 属性值变化时执行
+        this.handelValueChange(this.data.timeType, newVal)
+      }
     },
     // 时间戳
     minDate: {
@@ -68,27 +76,8 @@ Component({
     attached: function () {
       // 页面创建时执行
       console.info('---jh-ymd-time-picker loaded!---')
-      var typeStr = ''
-      if (this.data.timeType == "all") {
-        typeStr = 'datetime'
-      }
-      if (this.data.timeType == "ym") {
-        typeStr = 'year-month'
-      }
-      if (this.data.timeType == "ymd") {
-        typeStr = 'date'
-      }
-      if (this.data.selectTime) {
-        this.setData({
-          type: typeStr,
-          currentDate: this.Jh_convertTimeStamp(this.data.selectTime)
-        })
-      } else {
-        this.setData({
-          type: typeStr,
-          currentDate: new Date().getTime()
-        })
-      }
+
+      this.handelValueChange(this.data.timeType, this.data.selectTime)
     },
     detached: function () {
       // 页面销毁时执行
@@ -127,6 +116,30 @@ Component({
         isShow: false
       });
     },
+    handelValueChange(timeType, selectTime) {
+      var typeStr = ''
+      if (timeType == "all") {
+        typeStr = 'datetime'
+      }
+      if (timeType == "ym") {
+        typeStr = 'year-month'
+      }
+      if (timeType == "ymd") {
+        typeStr = 'date'
+      }
+      if (selectTime) {
+        this.setData({
+          type: typeStr,
+          currentDate: this.Jh_convertTimeStamp(selectTime)
+        })
+      } else {
+        this.setData({
+          type: typeStr,
+          currentDate: new Date().getTime()
+        })
+      }
+    },
+
     /**
      * 将某个格式时间转化成13位时间戳，支持："-"、"/"、"."
      * @param time 2019(年) | 2019年2月 | 2019年02月02日 | 2019年2月2日 00:00:00 | 2019-2 | 2019-02 | 2019-2-2 | 2019-02-02 | 2019-02-02 00:00:00

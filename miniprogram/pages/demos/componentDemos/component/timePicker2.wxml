@@ -1,11 +1,17 @@
-<view class="text">根据属性 弹出 </view>
-<jh-time-picker id='JhTimePicker' isShow='{{isShowPopView2}}' title="请选择时间" bind:confirm='confirm1'>
-</jh-time-picker>
-<view class="timeView" catchtap="onClickTimeBtn1"> 选时间1 </view>
-<view class="time2">选中的时间： {{currentDateStr1}}</view>
+<van-cell-group title="根据属性 弹出">
+  <van-field label="选时间 - 月日周时分" title-width="130px" is-link readonly bind:tap="onClickTimeBtn1" />
+</van-cell-group>
+<van-cell-group title="根据方法 弹出">
+  <van-field label="选时间 - 月日周时分" title-width="130px" is-link readonly bind:tap="onClickTimeBtn2" />
+</van-cell-group>
+
+<van-cell-group title="选择结果">
+  <van-field label="时间戳" value="{{ timeStamp }}" readonly />
+  <van-field label="默认时间" value="{{ timeText }}" readonly />
+  <van-field label="转换时间" value="{{ newTimeText }}" readonly />
+</van-cell-group>
 
 
-<view class="text">根据方法 弹出 </view>
-<jh-time-picker id='JhTimePicker2' bind:confirm='confirm2'> </jh-time-picker>
-<view class="timeView" catchtap="onClickTimeBtn2"> 选时间2 </view>
-<view class="time2">选中的时间： {{currentDateStr2}}</view>
+<jh-time-picker id='JhTimePicker' isShow='{{isShowTimePicker}}' title="请选择时间" bind:confirm='confirm1' />
+
+<jh-time-picker id='JhTimePicker2' bind:confirm='confirm2' />

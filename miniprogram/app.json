@@ -26,6 +26,8 @@
     "pages/demos/gridViewDemos/gridView/gridView4",
     "pages/demos/gridViewDemos/gridView/function",
     "pages/demos/gridViewDemos/gridView/gridView6",
+    "pages/demos/gridViewDemos/gridView/function2",
+    "pages/demos/gridViewDemos/gridView/function3",
     "pages/demos/componentDemos/componentDemos",
     "pages/demos/componentDemos/refresh/refresh",
     "pages/demos/componentDemos/refresh/refresh2",
@@ -66,21 +68,23 @@
     "pages/demos/otherDemos/other/timePicker",
     "pages/demos/otherDemos/other/baseView"
   ],
-  "subpackages": [{
-    "root": "packageA",
-    "pages": [
-      "pages/eChartDemos/eChartDemos",
-      "pages/eChartDemos/eChart/eChart1",
-      "pages/eChartDemos/eChart/eChart2",
-      "pages/eChartDemos/eChart/eChart3",
-      "pages/eChartDemos/eChart/eChart4",
-      "pages/eChartDemos/eChart/eChart5",
-      "pages/eChartDemos/eChart/eChart6",
-      "pages/eChartDemos/eChart/eChart7",
-      "pages/eChartDemos/eChart/eChart8",
-      "pages/eChartDemos/eChart/eChart9"
-    ]
-  }],
+  "subpackages": [
+    {
+      "root": "packageA",
+      "pages": [
+        "pages/eChartDemos/eChartDemos",
+        "pages/eChartDemos/eChart/eChart1",
+        "pages/eChartDemos/eChart/eChart2",
+        "pages/eChartDemos/eChart/eChart3",
+        "pages/eChartDemos/eChart/eChart4",
+        "pages/eChartDemos/eChart/eChart5",
+        "pages/eChartDemos/eChart/eChart6",
+        "pages/eChartDemos/eChart/eChart7",
+        "pages/eChartDemos/eChart/eChart8",
+        "pages/eChartDemos/eChart/eChart9"
+      ]
+    }
+  ],
   "window": {
     "backgroundColor": "#F8F8F8",
     "backgroundTextStyle": "light",
@@ -92,7 +96,8 @@
     "custom": false,
     "color": "#cdcdcd",
     "selectedColor": "#38BC9D",
-    "list": [{
+    "list": [
+      {
         "text": "首页",
         "pagePath": "pages/one/one",
         "iconPath": "images/tab/tab1.png",

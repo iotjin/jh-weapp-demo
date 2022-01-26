@@ -1,0 +1,26 @@
+.grid-bg {
+  padding-top: 70rpx;
+  padding-bottom: 70rpx;
+  background: transparent !important;
+}
+
+.grid-item-bg {
+  /* background: orange !important; */
+  border-radius: 15rpx;
+  box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.1);
+}
+
+.grid-item-img {
+  padding-top: 15rpx;
+  width: 100rpx !important;
+  height: 100rpx !important;
+}
+
+.grid-item-text {
+  display: block;
+  font-size: 18px;
+  padding-top: 15rpx;
+  padding-bottom: 15rpx;
+  color: rgb(50, 50, 50);
+  /* color: white; */
+}

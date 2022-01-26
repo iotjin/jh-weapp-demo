@@ -1,4 +1,4 @@
-<van-popup position="bottom" custom-style="height:50%;" show="{{isShow}}" bind:close="hiddenPicker"
+<van-popup position="bottom" custom-style="height:600rpx;" show="{{isShow}}" bind:close="hiddenPicker"
   bind:before-enter="willShowPicker">
 
   <view class="bgView">

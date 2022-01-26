@@ -7,12 +7,14 @@ App({
     isIPhoneX: false,
   },
   isIPhoneX: false, // 当前设备是否为 iPhone X
+  kTopSafeHeight: 20, // 状态栏高度。非刘海屏20，X是44，11是48，12之后是47
+  kNavHeight: 46, // 自定义导航条高度，46 + 状态栏高度 
   kBottomSafeHeight: 0, // X 34，其余 0 
   kNetworkType: '', // 网络类型：wifi、2g、3g、4g、5g、unknown、none
   kHasNetwork: true, //是否有网，默认有
   kIsMobileNetwork: false, //是否是手机网络
   //全局宏
-  kVersionNum:'1.0',
+  kVersionNum: '1.0',
   kUserInfo: "kUserInfo",
   kOpenId: "kOpenId",
   kUserType: 'kUserType',
@@ -41,6 +43,9 @@ App({
     let that = this
     wx.getSystemInfo({
       success: function (res) {
+        that.kTopSafeHeight = res.safeArea.top
+        that.kNavHeight = that.kNavHeight + that.kTopSafeHeight
+        console.log('导航条高度：' + that.kNavHeight);
         var safeBottom = res.screenHeight - res.safeArea.bottom
         that.kBottomSafeHeight = safeBottom
         //根据安全高度判断
