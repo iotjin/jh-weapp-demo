@@ -14,14 +14,14 @@ Page({
 
 
     listData: [
-      {
-        'title':'标签',
-        'icon': '../../images/ic_category.png',
-    },
-      {
-        'title': '设置',
-        'icon': '../../images/ic_set.png',
-      },
+    //   {
+    //     'title':'标签',
+    //     'icon': '../../images/ic_category.png',
+    // },
+    //   {
+    //     'title': '设置',
+    //     'icon': '../../images/ic_set.png',
+    //   },
       {
         'title': '关于',
         'icon': '../../images/ic_about.png',

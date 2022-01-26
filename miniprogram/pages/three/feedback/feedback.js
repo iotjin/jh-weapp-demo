@@ -66,10 +66,40 @@ Page({
     })
   },
   ClickOkBtn() {
-    console.log('type--'+this.data.selectType);
-    console.log('email--'+this.data.email);
-    console.log('content--'+this.data.content);
+    console.log('type--' + this.data.selectType);
+    console.log('email--' + this.data.email);
+    console.log('content--' + this.data.content);
 
+    if (!this.data.selectType) {
+      wx.showToast({
+        title: '请选择反馈类型',
+        icon: 'none'
+      })
+      return
+    }
+    if (!this.data.content) {
+      wx.showToast({
+        title: '请输入反馈内容',
+        icon: 'none'
+      })
+      return
+    }
+
+    wx.showLoading({
+      title: '正在提交...',
+    })
+    var that = this
+    setTimeout(() => {
+      wx.hideLoading()
+      wx.navigateBack({
+        delta: 1,
+        complete: (res) => {
+          wx.showToast({
+            title: '提交成功',
+          })
+        },
+      })
+    }, 1000);
   },
 
 
