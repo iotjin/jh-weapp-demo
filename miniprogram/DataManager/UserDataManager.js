@@ -254,68 +254,65 @@ function getUserListByPage(page, params) {
   }
   // 模糊查询
   let keyword = params.keyword
-  // keyword = new RegExp('.*' + params.title + '.*')
-
-  let wherrParams = JSON.parse(JSON.stringify(params))
-  // wherrParams._openid = db.command.eq(openId) // 等于 ，写在字典内只能 查字符串
+  // keyword = new RegExp('.*' + keyword + '.*')
+  keyword = db.RegExp({
+    regexp: keyword, // 查询关键词    
+    options: 'i', // 大小写不敏感
+  })
+  // 查询条件
+  let wherrParams = {}
+  // 用户列表不需要根据openId 筛选
+  // wherrParams._openid = openId 
+  // wherrParams._openid = _.eq(openId) // 等于，写在字典内只能 查字符串
   // wherrParams._openid = db.command.neq(openId) // 不等于
-  delete wherrParams.keyword
-  delete wherrParams.orderBy
-  delete wherrParams.sort
-  // 性别和用户类型多选，外部传数组，通过_.in()单个处理 
-  delete wherrParams.gender
-  delete wherrParams.userType
+  // 其它查询条件
   // 单选
-  if (!wherrParams.province) {
-    delete wherrParams.province
+  if (params.province) {
+    wherrParams.province = params.province
   }
-  if (!wherrParams.city) {
-    delete wherrParams.city
+  if (params.city) {
+    wherrParams.city = params.city
+  }
+  // 性别和用户类型多选，外部传数组，通过_.in()单个处理 
+  if (params.gender) {
+    wherrParams.gender = _.in(params.gender)
+  }
+  if (params.userType) {
+    wherrParams.userType = _.in(params.userType)
   }
 
   console.log('用户列表分页查询参数');
   console.log('params:' + JSON.stringify(params));
+  console.log('keyword:' + JSON.stringify(keyword));
   console.log('wherrParams:' + JSON.stringify(wherrParams));
 
   return new Promise((resolve, reject) => {
     db.collection(kTableName)
-      .where(_.or([{
-          nickName: new RegExp('.*' + keyword + '.*')
-        },
-        {
-          name: new RegExp('.*' + keyword + '.*')
-        },
-        {
-          phone: new RegExp('.*' + keyword + '.*')
-        },
-        {
-          city: new RegExp('.*' + keyword + '.*')
-        },
-        {
-          province: new RegExp('.*' + keyword + '.*')
-        },
-        {
-          gender: new RegExp('.*' + keyword + '.*')
-        },
-        {
-          country: db.RegExp({
-            regexp: keyword, // 查询关键词
-            options: 'i', // 大小写不敏感
-          })
-        },
-      ]).and([
+      .where(_.and([
+        _.or([{
+            nickName: keyword
+          },
+          {
+            name: keyword
+          },
+          {
+            phone: keyword
+          },
+          {
+            gender: keyword
+          },
+          {
+            city: keyword
+          },
+          {
+            province: keyword
+          },
+          {
+            country: keyword
+          },
+        ]),
         wherrParams,
-        {
-          gender: params.gender ? _.in(params.gender) : _.in([0, 1, 2]),
-          userType: params.userType ? _.in(params.userType) : _.in(['admin', 'normal', 'vip']),
-          // _id: db.command.neq(openId),
-          // _id: _.eq(openId)
-        }
       ]))
-      // .where(wherrParams)
-      // .where({
-      //   _id: db.command.neq(openId),
-      // })
       // .field({
       //   nickName: true,
       //   avatarUrl: true,
