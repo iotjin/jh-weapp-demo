@@ -34,7 +34,8 @@
     "packNpmManually": false,
     "packNpmRelationList": [],
     "minifyWXSS": true,
-    "showES6CompileOption": false
+    "showES6CompileOption": false,
+    "minifyWXML": true
   },
   "appid": "wxae39f110eff44bf7",
   "projectname": "jh-weapp-demo",

@@ -3,7 +3,7 @@
 /* 
 使用方法 ：
 
-const UserDict = require('../../DataManager/userDict.js');
+const UserDict = require('../../dataManager/userDict.js');
 console.log(UserDict.sexDict); 
  */
 
