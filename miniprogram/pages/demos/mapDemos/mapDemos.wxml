@@ -1,0 +1,1 @@
+<jh-text-list-view dataArr='{{dataArr}}' />

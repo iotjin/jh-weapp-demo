@@ -1,0 +1,11 @@
+<van-cell-group title="系统API选择">
+  <van-cell title="选择位置" is-link bindtap="showMap1" />
+</van-cell-group>
+<van-cell-group title="插件选择">
+  <van-cell title="选择位置" is-link bindtap="showMap2" />
+</van-cell-group>
+
+<van-cell-group title="选择结果">
+  <van-cell title="名称：" value="{{locationName?locationName:'暂无'}}" />
+  <van-cell title="地址：" value="{{address?address:'暂无'}}" />
+</van-cell-group>

@@ -63,6 +63,9 @@
     "pages/demos/ui/ui2/search",
     "pages/demos/ui/ui2/sideslip",
     "pages/demos/ui/ui2/study_room",
+    "pages/demos/mapDemos/mapDemos",
+    "pages/demos/mapDemos/map/map1",
+    "pages/demos/mapDemos/map/map2",
     "pages/demos/otherDemos/otherDemos",
     "pages/demos/otherDemos/other/encrypt",
     "pages/demos/otherDemos/other/timePicker",
@@ -85,6 +88,17 @@
       ]
     }
   ],
+  "plugins": {
+    "chooseLocation": {
+      "version": "1.0.9",
+      "provider": "wx76a9a06e5b4e693e"
+    }
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序定位"
+    }
+  },
   "window": {
     "backgroundColor": "#F8F8F8",
     "backgroundTextStyle": "light",

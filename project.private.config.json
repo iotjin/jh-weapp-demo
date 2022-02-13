@@ -35,6 +35,13 @@
           "pathName": "pages/demos/ui/ui2/search_tabbar",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/demos/mapDemos/map/map1",
+          "query": "",
+          "scene": null,
+          "launchMode": "default"
         }
       ]
     }

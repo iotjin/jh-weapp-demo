@@ -28,6 +28,10 @@ Page({
         url: '/pages/demos/ui/uiDemos'
       },
       {
+        title: 'Map',
+        url: '/pages/demos/mapDemos/mapDemos'
+      },
+      {
         title: 'Other',
         url: '/pages/demos/otherDemos/otherDemos'
       },

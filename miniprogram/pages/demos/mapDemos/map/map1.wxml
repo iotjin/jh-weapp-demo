@@ -1,0 +1,21 @@
+<!-- <map id="myMap" style="width: 100%; height: 70vh;" latitude="40.040415" longitude="116.273511" scale="17"></map> -->
+
+
+<view class="map-container">
+  <map id="myMap" class="map" latitude="{{latitude}}" longitude="{{longitude}}" show-location="{{isShowPosition}}" show-compass="{{isShowCompass}}" show-scale="{{isShowScale}}" markers="{{markers}}" scale="{{scale}}" bindregionchange="onMapChange" bindtap="onMapTap" bindmarkertap="onMapMarkTap" bindcallouttap="onMapCalloutTap">
+
+    <cover-image class="centerImg" src="./images/ic_mark2.png" />
+    <cover-view class="locationBg" catchtap='onClickLocation'>
+      <cover-image class="locationIcon" src="./images/ic_location.png" />
+    </cover-view>
+
+  </map>
+</view>
+
+<van-cell-group title="拖动地图选中的位置">
+  <van-cell title="地址描述" label="{{address}}" />
+  <van-cell title="位置描述" label="{{recommend}}" />
+  <van-cell title="大致位置" label="{{rough}}" />
+</van-cell-group>
+
+<view style="padding-top: 50px;"></view>
