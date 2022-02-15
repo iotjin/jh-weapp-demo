@@ -4,7 +4,11 @@
 <view class="map-container">
   <map id="myMap" class="map" latitude="{{latitude}}" longitude="{{longitude}}" show-location="{{isShowPosition}}" show-compass="{{isShowCompass}}" show-scale="{{isShowScale}}" markers="{{markers}}" scale="{{scale}}" bindregionchange="onMapChange" bindtap="onMapTap" bindmarkertap="onMapMarkTap" bindcallouttap="onMapCalloutTap">
 
-    <cover-image class="centerImg" src="./images/ic_mark2.png" />
+    <!-- <cover-image class="centerImg" src="./images/ic_mark2.png" /> -->
+
+    <!-- 带动画 -->
+    <cover-image class="centerImg {{animation ? 'locationpicker-animation' : ''}}" src="./images/ic_mark2.png" bindanimationend="onMarkerAnimationend" />
+
     <cover-view class="locationBg" catchtap='onClickLocation'>
       <cover-image class="locationIcon" src="./images/ic_location.png" />
     </cover-view>

@@ -1,11 +1,27 @@
-<map id="tb_map" longitude="{{longitude}}" latitude="{{latitude}}" scale="14" bindtap="clickMapTap" bindcontroltap="controltap" bindregionchange="regionchange" markers="{{marks}}" polygons="{{polygons}}" polyline="{{polyline}}" include-points="{{includePoints}}" bindmarkertap="markertap" show-compass="true" show-location="true" style="width: 100%; height:{{mapH}}rpx">
-  <cover-image style="position: absolute;left:20px;top:100px;width:20px;height:20px" src="../../../../images/ic_about.png" bindtap="getLocalImage">
-  </cover-image>
-  <!-- <cover-view class="draw" style="position: absolute;left:87%;top:20px">
+<!-- <map id="myMap" style="width: 100%; height: 70vh;" latitude="40.040415" longitude="116.273511" scale="17"></map> -->
 
-    <cover-image class="map_buttons" style="width:30px;height:30px" bindtap="drawTap" src="/images/draw.png" />
-    <cover-image class="map_buttons" style="width:30px;height:30px" bindtap="measureTap" src="/images/measure.png" />
-    <cover-image class="map_buttons" style="width:30px;height:30px" bindtap="backTap" src="/images/back.png" />
-    <cover-image class="map_buttons" style="width:30px;height:30px" bindtap="finishTap" src="/images/finish.png" />
-  </cover-view> -->
-</map>
+<view class="map-container">
+  <map id="myMap" class="map" latitude="{{latitude}}" longitude="{{longitude}}" show-location="{{isShowPosition}}" show-compass="{{isShowCompass}}" show-scale="{{isShowScale}}" markers="{{markers}}" scale="{{scale}}" polygons="{{polygons}}" polyline="{{polyline}}" include-points="{{includePoints}}" enable-zoom bindregionchange="onMapChange" bindtap="onMapTap" bindmarkertap="onMapMarkTap" bindcallouttap="onMapCalloutTap">
+
+    <!-- <cover-image class="centerImg" src="./images/ic_mark2.png" /> -->
+
+    <cover-view class="center-bg" catchtap="onClickAddMarkerBtn">
+      <cover-view class="center-top">确定打标</cover-view>
+      <cover-view class="center-bottom"></cover-view>
+    </cover-view>
+
+    <!-- 定位按钮 -->
+    <cover-view class="locationBg" catchtap='onClickLocation'>
+      <cover-image class="locationIcon" src="./images/ic_location.png" />
+    </cover-view>
+
+    <!-- 大头针中间文字 -->
+    <cover-view slot="callout">
+      <cover-view wx:for="{{markers}}" wx:key='index' marker-id="{{item.id}}">
+        <cover-view> {{ (item.id + 1) }}</cover-view>
+      </cover-view>
+    </cover-view>
+
+  </map>
+
+</view>

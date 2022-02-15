@@ -50,3 +50,13 @@
   width: 50rpx;
   height: 50rpx;
 }
+
+.locationpicker-animation {
+  animation: markermove 0.5s ease;
+}
+@keyframes markermove
+{
+  from {transform: translateY(0)}
+  50% {transform: translateY(-20px)}
+  to {transform: translateY(0)}
+}

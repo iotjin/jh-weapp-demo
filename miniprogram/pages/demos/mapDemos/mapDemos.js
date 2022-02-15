@@ -11,7 +11,12 @@ Page({
       {
         title: 'Map - 地图选点',
         url: '/pages/demos/mapDemos/map/map2'
-      }
+      },
+      {
+        title: 'Map - 标注点连线计算距离',
+        url: '/pages/demos/mapDemos/map/map3'
+      },
+
     ]
   },
 

@@ -1,0 +1,84 @@
+.map-container {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: 100%;
+  background: #F8F8F7;
+}
+
+.map {
+  width: 100%;
+  height: 70vh;
+}
+
+/* 水平居中，垂直按大头针底部居中 */
+.centerImg {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: calc(50% - 50px);
+  left: calc(50% - 25px);
+}
+
+/* 完全居中 */
+/* .current-site-icon {
+  width: 50rpx;
+  height: 50rpx;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+} */
+
+.locationBg {
+  /* position: fixed;
+  right: 30rpx; */
+  position: relative;
+  left: calc(100% - 90rpx - 30rpx);
+  top: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 45rpx;
+  box-shadow: 0px 0px 5px rgb(200, 200, 200);
+  background-color: white;
+}
+
+.locationIcon {
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.center-bg {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 230rpx;
+  height: 140rpx;
+  position: absolute;
+  top: calc(50% - 140rpx);
+  left: calc(50% - 115rpx);
+  /* background: yellow; */
+}
+
+.center-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 15px;
+  border-radius: 30rpx;
+  color: white;
+  background: red;
+}
+
+.center-bottom {
+  width: 10rpx;
+  height: 60rpx;
+  background: red;
+}

@@ -43,6 +43,7 @@ A new weapp project - 实现一些常用效果、封装通用组件和工具类 
 * custom-tabbar（动态设置、不闪屏）
 * 波浪背景动画
 * 封装一些组件(在`jh-components`文件夹)和工具类(在`utils`文件夹)
+* 腾讯地图使用，定位、地图选点、标注点连线计算距离
 
 <br>
 
@@ -85,6 +86,7 @@ npm i wux-weapp -S --production
 | <img src="https://gitee.com/iotjh/Picture/raw/master/weapp/search_tabbar.jpg" width="187" height="419"> | <img src="https://gitee.com/iotjh/Picture/raw/master/weapp/sideslip.jpg" width="187" height="419"> | <img src="https://gitee.com/iotjh/Picture/raw/master/weapp/score.jpg" width="187" height="419"> | 
 | <img src="https://gitee.com/iotjh/Picture/raw/master/weapp/search.gif" width="187" height="419"> | <img src="https://gitee.com/iotjh/Picture/raw/master/weapp/table4.jpg" width="187" height="419"> | <img src="https://gitee.com/iotjh/Picture/raw/master/weapp/form.jpg" width="187" height="419"> | 
 | <img src="https://gitee.com/iotjh/Picture/raw/master/weapp/tabbar.gif" width="187" height="419"> | <img src="https://gitee.com/iotjh/Picture/raw/master/weapp/myFeedback.jpg" width="187" height="419"> | <img src="https://gitee.com/iotjh/Picture/raw/master/weapp/searchListView.jpg" width="187" height="419"> | 
+<img src="https://gitee.com/iotjh/Picture/raw/master/weapp/map1.jpg" width="187" height="419"> | <img src="https://gitee.com/iotjh/Picture/raw/master/weapp/map3.jpg" width="187" height="419"> | 
 
 
 

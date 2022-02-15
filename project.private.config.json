@@ -1,49 +1,49 @@
 {
-  "setting": {},
-  "condition": {
-    "plugin": {
-      "list": []
-    },
-    "game": {
-      "list": []
-    },
-    "gamePlugin": {
-      "list": []
-    },
-    "miniprogram": {
-      "list": [
-        {
-          "name": "pages/demos/demos",
-          "pathName": "pages/demos/demos",
-          "query": "",
-          "scene": null
+    "setting": {},
+    "condition": {
+        "plugin": {
+            "list": []
         },
-        {
-          "name": "pages/three/feedback/myFeedback",
-          "pathName": "pages/three/feedback/myFeedback",
-          "query": "",
-          "scene": null
+        "game": {
+            "list": []
         },
-        {
-          "name": "packageA/pages/eChartDemos/eChart/eChart9",
-          "pathName": "packageA/pages/eChartDemos/eChart/eChart9",
-          "query": "",
-          "scene": null
+        "gamePlugin": {
+            "list": []
         },
-        {
-          "name": "pages/demos/ui/ui2/search_tabbar",
-          "pathName": "pages/demos/ui/ui2/search_tabbar",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "",
-          "pathName": "pages/demos/mapDemos/map/map1",
-          "query": "",
-          "scene": null,
-          "launchMode": "default"
+        "miniprogram": {
+            "list": [
+                {
+                    "name": "pages/demos/demos",
+                    "pathName": "pages/demos/demos",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/three/feedback/myFeedback",
+                    "pathName": "pages/three/feedback/myFeedback",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "packageA/pages/eChartDemos/eChart/eChart9",
+                    "pathName": "packageA/pages/eChartDemos/eChart/eChart9",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/demos/ui/ui2/search_tabbar",
+                    "pathName": "pages/demos/ui/ui2/search_tabbar",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/demos/mapDemos/map/map3",
+                    "query": "",
+                    "scene": null,
+                    "launchMode": "default"
+                }
+            ]
         }
-      ]
     }
-  }
 }

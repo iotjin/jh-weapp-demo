@@ -31,8 +31,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    latitude: 40.040415,
-    longitude: 116.273511,
+    latitude: 40.040415, // 纬度
+    longitude: 116.273511, // 经度
     scale: 3, //默认16
     isShowScale: true,
     isShowCompass: true,
@@ -66,8 +66,15 @@ Page({
           borderRadius: 5,
           display: 'ALWAYS',
         },
+        // 地图标记文字
+        label: {
+          content: '标记文字',
+          color: '#f00',
+          textAlign: 'center'
+        }
       }
     ],
+    animation: false,
     address: '',
     recommend: '',
     rough: '',
@@ -130,16 +137,22 @@ Page({
   },
   // 点击定位按钮
   onClickLocation() {
+    var that = this
     this.setData({
       scale: 16,
     })
-    this.mapCtx.moveToLocation()
+    setTimeout(() => {
+      that.mapCtx.moveToLocation()
+    }, 500);
   },
   // 视野发生变化时触发
   // 监听拖动地图，拖动结束根据中心点更新页面
   onMapChange(e) {
     if (e.type == 'end' && (e.causedBy == 'scale' || e.causedBy == 'drag')) {
       this.getCenterLngLat()
+      this.setData({
+        animation: true,
+      });
     }
   },
   // 点击地图
@@ -155,6 +168,7 @@ Page({
   onMapMarkTap(e) {
     console.log('点击标记点');
     console.log(e);
+    console.log(e.detail.markerId);
     wx.showToast({
       title: '点击标记点',
       icon: 'none'
@@ -164,10 +178,16 @@ Page({
   onMapCalloutTap(e) {
     console.log('点击气泡');
     console.log(e);
+    console.log(e.detail.markerId);
     wx.showToast({
       title: '点击标记点对应的气泡',
       icon: 'none'
     })
+  },
+  onMarkerAnimationend() {
+    this.setData({
+      animation: false
+    });
   },
 
   // 获取地图中心点的经纬度

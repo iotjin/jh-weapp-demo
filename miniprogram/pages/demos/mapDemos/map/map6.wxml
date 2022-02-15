@@ -1,0 +1,17 @@
+<map id="tb_map" longitude="{{longitude}}" latitude="{{latitude}}" scale="14" 
+bindtap="clickMapTap" bindcontroltap="controltap" bindregionchange="regionchange" 
+markers="{{marks}}" polygons="{{polygons}}" 
+polyline="{{polyline}}" include-points="{{includePoints}}" 
+bindmarkertap="markertap" show-compass="true" s
+how-location="true" style="width: 100%; height:{{mapH}}rpx">
+  <cover-image style="position: absolute;left:20px;top:100px;width:20px;height:20px" 
+  src="../../../../images/ic_about.png" bindtap="getLocalImage">
+  </cover-image>
+  <!-- <cover-view class="draw" style="position: absolute;left:87%;top:20px">
+
+    <cover-image class="map_buttons" style="width:30px;height:30px" bindtap="drawTap" src="/images/draw.png" />
+    <cover-image class="map_buttons" style="width:30px;height:30px" bindtap="measureTap" src="/images/measure.png" />
+    <cover-image class="map_buttons" style="width:30px;height:30px" bindtap="backTap" src="/images/back.png" />
+    <cover-image class="map_buttons" style="width:30px;height:30px" bindtap="finishTap" src="/images/finish.png" />
+  </cover-view> -->
+</map>
