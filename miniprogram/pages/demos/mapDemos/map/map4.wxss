@@ -1,0 +1,144 @@
+.map-container {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: 100%;
+  background: #F8F8F7;
+}
+
+.map {
+  width: 100%;
+  height: 70vh;
+}
+
+/* 水平居中，垂直按大头针底部居中 */
+.centerImg {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: calc(50% - 50px);
+  left: calc(50% - 25px);
+}
+
+/* 完全居中 */
+/* .current-site-icon {
+  width: 50rpx;
+  height: 50rpx;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+} */
+
+.locationBg {
+  position: relative;
+  left: calc(100% - 90rpx - 30rpx);
+  top: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 20rpx;
+  box-shadow: 0px 0px 5px rgb(200, 200, 200);
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 5rpx 0px;
+}
+
+.locationIcon {
+  width: 50rpx;
+  height: 50rpx;
+  min-width: 50rpx;
+  min-height: 50rpx;
+}
+
+.locationText {
+  padding-top: 2px;
+  font-size: 10px;
+}
+
+.center-bg {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300rpx;
+  height: 180rpx;
+  position: absolute;
+  top: calc(50% - 180rpx);
+  left: calc(50% - 150rpx);
+  /* background: yellow; */
+}
+
+.center-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  height: 140rpx;
+  /* line-height: 140rpx; */
+  font-size: 15px;
+  border-radius: 20rpx;
+  color: white;
+  background: red;
+}
+
+.center-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 6px;
+  /* height: 85rpx; */
+  white-space: pre-wrap;
+  font-size: 12px;
+  flex: 7;
+}
+
+.center-line {
+  background: cornsilk;
+  height: calc(100% - 24px);
+  width: 1px;
+  margin: 12px 5px;
+}
+
+.center-btn {
+  width: 50rpx;
+  height: 50rpx;
+  min-width: 50rpx;
+  min-height: 50rpx;
+  padding-right: 6px;
+  flex: 1;
+}
+
+.center-bottom {
+  width: 10rpx;
+  height: 60rpx;
+  background: red;
+}
+
+.down-arrow {
+  /* width: 0px;
+  height: 0px;
+  border: 50px solid transparent;
+  border-top-color: red; */
+  width: 0;
+  height: 0;
+  border-left: 10rpx solid transparent;
+  border-right: 10rpx solid transparent;
+  border-top: 50rpx solid red;
+}
+
+.center-bg2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300rpx;
+  height: 180rpx;
+  position: absolute;
+  /* top: calc(50% - 200rpx); */
+  top: calc(35% - 260rpx);
+  left: calc(50% - 150rpx);
+  /* background: yellow; */
+}

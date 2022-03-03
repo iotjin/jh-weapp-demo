@@ -16,6 +16,10 @@ Page({
         title: 'Map - 标注点连线计算距离',
         url: '/pages/demos/mapDemos/map/map3'
       },
+      {
+        title: 'Map - 标注点连线计算距离2',
+        url: '/pages/demos/mapDemos/map/map4'
+      },
 
     ]
   },

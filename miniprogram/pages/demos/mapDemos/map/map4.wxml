@@ -1,0 +1,66 @@
+<!-- <map id="myMap" style="width: 100%; height: 70vh;" latitude="40.040415" longitude="116.273511" scale="17"></map> -->
+
+<view class="map-container">
+  <map id="myMap" class="map" latitude="{{latitude}}" longitude="{{longitude}}" show-location="{{isShowPosition}}" show-compass="{{isShowCompass}}" show-scale="{{isShowScale}}" markers="{{markers}}" scale="{{scale}}" polygons="{{polygons}}" polyline="{{polyline}}" include-points="{{includePoints}}" enable-zoom bindregionchange="onMapChange" bindtap="onMapTap" bindmarkertap="onMapMarkTap" bindcallouttap="onMapCalloutTap">
+
+    <!-- 工具按钮 -->
+    <cover-view class="locationBg" catchtap='onClickTools'>
+      <cover-image class="locationIcon" src="./images/ic_tools.png" />
+      <cover-view class="locationText">工具</cover-view>
+    </cover-view>
+    <!-- 定位按钮 -->
+    <cover-view class="locationBg" style="margin-top: 10px;" catchtap='onClickLocation'>
+      <cover-image class="locationIcon" src="./images/ic_location.png" />
+      <cover-view class="locationText">定位</cover-view>
+    </cover-view>
+
+    <!-- <cover-view class="center-bg" catchtap="onClickAddMarkerBtn" wx:if="{{!isSelectMarker}}">
+      <cover-view class="center-top">
+        <cover-view class="center-title">{{title}}</cover-view>
+        <cover-view class="center-line"></cover-view>
+        <cover-image class="center-btn" src="./images/ic_ok.png" />
+      </cover-view>
+      <cover-view class="down-arrow"></cover-view>
+    </cover-view> -->
+
+    <view class="center-bg" catchtap="onClickAddMarkerBtn" wx:if="{{!isSelectMarker}}">
+      <view class="center-top">
+        <view class="center-title">{{title}}</view>
+        <view class="center-line"></view>
+        <image class="center-btn" src="./images/ic_ok.png" />
+      </view>
+      <view class="down-arrow"></view>
+    </view>
+
+    <!-- 大头针中间文字 -->
+    <cover-view slot="callout">
+      <cover-view wx:for="{{markers}}" wx:key='index' marker-id="{{item.id}}">
+        <cover-view> {{ (item.id + 1) }}</cover-view>
+      </cover-view>
+    </cover-view>
+
+    <!-- 删除弹框 (跟随标注固定) -->
+    <!-- <cover-view slot="callout">
+      <cover-view marker-id="{{selectMarkerId}}" wx:if="{{isSelectMarker}}">
+        <cover-view class="center-bg2">
+          <cover-view class="center-top">
+            <cover-view class="center-title">{{markers[selectMarkerId].address}}</cover-view>
+            <cover-view class="center-line"></cover-view>
+            <cover-image class="center-btn" src="./images/ic_delete.png" bindtap="onClickDeleteMarkerBtn" />
+          </cover-view>
+        </cover-view>
+      </cover-view>
+    </cover-view> -->
+
+  </map>
+
+  <!-- 删除弹框 (会随地图移动)-->
+  <view class="center-bg2" wx:if="{{isSelectMarker}}">
+    <view class="center-top">
+      <view class="center-title">{{markers[selectMarkerId].address}}</view>
+      <view class="center-line"></view>
+      <image class="center-btn" src="./images/ic_delete.png" bindtap="onClickDeleteMarkerBtn" />
+    </view>
+  </view>
+
+</view>

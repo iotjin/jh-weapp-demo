@@ -18,7 +18,7 @@
         "checkInvalidKey": true,
         "checkSiteMap": true,
         "uploadWithSourceMap": true,
-        "compileHotReLoad": false,
+        "compileHotReLoad": true,
         "lazyloadPlaceholderEnable": false,
         "useMultiFrameRuntime": true,
         "useApiHook": true,
@@ -41,7 +41,7 @@
     },
     "appid": "wxae39f110eff44bf7",
     "projectname": "jh-weapp-demo",
-    "libVersion": "2.14.1",
+    "libVersion": "2.22.0",
     "cloudfunctionTemplateRoot": "cloudfunctionTemplate",
     "condition": {
         "search": {

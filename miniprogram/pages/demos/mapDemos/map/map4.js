@@ -1,4 +1,7 @@
 const util = require('./util')
+var QQMapWX = require('./lib/qqmap-wx-jssdk1.2/qqmap-wx-jssdk.min.js');
+var qqmapsdk;
+const authUtils = require('../../../../utils/authUtils')
 
 Page({
 
@@ -8,9 +11,9 @@ Page({
   data: {
     latitude: 40.040415,
     longitude: 116.273511,
-    scale: 16, //默认16
+    scale: 20, //默认20
     isShowScale: true,
-    isShowCompass: true,
+    isShowCompass: false,
     isShowPosition: true,
     markers: [
       // 我的位置
@@ -51,12 +54,23 @@ Page({
     includePoints: '', // 缩放视野以包含所有给定的坐标点
     isSelectMarker: false,
     selectMarkerId: '',
+    // 逆地址
+    address: '',
+    recommend: '',
+    rough: '',
+    title: "拖动选择位置",
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
+    // 实例化API核心类
+    // 开发文档：https://lbs.qq.com/miniProgram/jsSdk/jsSdkGuide/jsSdkOverview
+    qqmapsdk = new QQMapWX({
+      key: '4M5BZ-ALKLU-BVXVL-B2HCC-DJSUS-WGFBH'
+    });
 
     this.mapCtx = wx.createMapContext('myMap')
     // this.mapCtx.moveToLocation()
@@ -79,8 +93,6 @@ Page({
   // 获取当前位置
   getCurrentLocation() {
     var that = this
-    const lat = "markers[0].latitude";
-    const log = "markers[0].longitude";
     // wgs84 返回 gps 坐标，gcj02 返回可用于 wx.openLocation 的坐标
     wx.getLocation({
       type: 'gcj02',
@@ -90,43 +102,82 @@ Page({
         that.setData({
           latitude: res.latitude,
           longitude: res.longitude,
-          [lat]: res.latitude,
-          [log]: res.longitude
         });
       },
-      fail: (err) => {
-        // wx.showToast({
-        //   title: '为了不影响您的使用，请授权定位',
-        //   icon: 'none'
-        // })
-      }
+      fail: (err) => {}
     });
   },
   // 点击定位按钮
   onClickLocation() {
-    this.setData({
-      scale: 17
+    let that = this
+
+    // 判断权限
+    // wx.getSetting({
+    //   success(res) {
+    //     if (!res.authSetting['scope.record']) {
+    //       wx.showToast({
+    //         title: '未授权',
+    //         icon: 'none'
+    //       })
+    //     } else {
+    //       // 有权限
+    //       that.setData({
+    //         scale: 20
+    //       });
+    //       that.getCurrentLocation()
+    //       that.mapCtx.moveToLocation()
+    //     }
+    //   }
+    // })
+
+    // 判断权限
+    authUtils.authorize("scope.userLocation", function (res) {
+      console.log('success', res);
+      that.setData({
+        scale: 20
+      });
+      that.getCurrentLocation()
+      that.mapCtx.moveToLocation()
+    }, function (err) {
+      console.log('denyback', err);
+    }, function (err) {
+      console.log('deniedBack', err);
     });
-    setTimeout(() => {
-      this.mapCtx.moveToLocation()
-    }, 200);
+
+
+    // this.setData({
+    //   scale: 20
+    // });
+    // let that = this
+    // setTimeout(() => {
+    //   that.mapCtx.moveToLocation()
+    //   that.getCenterLngLat()
+    // }, 200);
   },
   // 视野发生变化时触发
   // 监听拖动地图，拖动结束根据中心点更新页面
   onMapChange(e) {
+    console.log(e);
+    if (e.type == 'begin') {
+      this.setData({
+        title: "拖动选择位置",
+      });
+    }
+    if (e.type == 'begin' && e.causedBy == "gesture") {
+      this.cancelMarker()
+    }
     if (e.type == 'end' && (e.causedBy == 'scale' || e.causedBy == 'drag')) {
       this.getCenterLngLat()
-      if (this.data.isSelectMarker) {
-        setTimeout(() => {
-          this.moveMarker(this.data.selectMarkerId, this.data.latitude, this.data.longitude)
-        }, 500);
-      }
     }
   },
   // 点击地图
   onMapTap(e) {
     console.log('点击地图');
     console.log(e);
+    console.log(this.data.isSelectMarker);
+    // if (!this.data.isSelectMarker) {
+    this.cancelMarker()
+    // }
   },
   // 点击标记点时触发，e.detail = {markerId}
   onMapMarkTap(e) {
@@ -143,6 +194,22 @@ Page({
   onClickAddMarkerBtn() {
     this.addMarker(this.data.latitude, this.data.longitude)
   },
+  // 删除标记点
+  onClickDeleteMarkerBtn() {
+    var that = this
+    wx.showModal({
+      title: '是否删除该标记点？',
+      // content: '',
+      success(res) {
+        if (res.confirm) {
+          console.log('用户点击确定')
+          that.deleteMarker(that.data.selectMarkerId)
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+  },
   // 获取地图中心点的经纬度
   getCenterLngLat: function () {
     var that = this
@@ -154,6 +221,7 @@ Page({
           latitude: res.latitude,
           longitude: res.longitude,
         });
+        that.reverseGeocoder(res.latitude, res.longitude)
       }
     })
   },
@@ -176,21 +244,9 @@ Page({
       isSelectMarker: true,
       selectMarkerId: markerId,
     });
-    var that = this
-    wx.showModal({
-      title: '是否删除该标记点？',
-      content: '确认将删除，取消可拖动地图更新标记点位置',
-      success(res) {
-        if (res.confirm) {
-          console.log('用户点击确定')
-          that.deleteMarker(markerId)
-        } else if (res.cancel) {
-          console.log('用户点击取消')
-        }
-      }
-    })
   },
   cancelMarker() {
+    console.log('cancelMarker');
     let tempMarkers = this.data.markers
     tempMarkers.forEach(function (item, index) {
       item.iconPath = "./images/ic_mark1.png"
@@ -216,6 +272,14 @@ Page({
     if (isExist == true) {
       return
     }
+    if (!this.data.title || this.data.title == '拖动选择位置') {
+      wx.showToast({
+        title: '未获取到地址',
+        icon: 'none'
+      })
+      return
+    }
+
     // 不存在。新增
     var mark = new Object(); //声明一个mark对象
     mark.id = this.data.markers.length;
@@ -246,6 +310,7 @@ Page({
       display: 'ALWAYS',
     }
     mark.isSelect = false
+    mark.address = this.data.title
 
     this.data.markers.push(mark)
     this.setData({
@@ -274,59 +339,6 @@ Page({
     }
     // 计算距离
     this.calculateDistance()
-  },
-  // 编辑标记点（移动位置）
-  moveMarker(markerId, latitude, longitude) {
-    console.log('编辑标记点（移动位置）');
-    this.mapCtx.translateMarker({
-      // 要平移的marker的id
-      markerId: markerId,
-      // 移动过程中是否自动旋转 marker
-      autoRotate: false,
-      // 动画持续时长，平移与旋转分别计算
-      duration: 10,
-      // 平移到的目的地，参数为经纬度
-      destination: {
-        latitude: latitude,
-        longitude: longitude,
-      },
-      //平移动画后的回调函数
-      animationEnd() {}
-    })
-
-    let tempMarkers = this.data.markers
-    let marker = this.data.markers[markerId]
-
-    let curPoints = this.data.curPoints
-    curPoints.forEach(function (item, index) {
-      if (item.latitude == marker.latitude && item.longitude == marker.longitude) {
-        curPoints.splice(index, 1, {
-          longitude: longitude,
-          latitude: latitude
-        })
-      }
-    });
-
-    tempMarkers[markerId].latitude = latitude
-    tempMarkers[markerId].longitude = longitude
-
-    // 地图上用的polyline是一个线集合对象，如果只放一条线是无法看见的。
-    var pl = [{
-      points: curPoints,
-      color: "#0066FF",
-      width: 2,
-      dottedLine: false,
-    }];
-    this.setData({
-      polyline: curPoints.length > 1 ? pl : '',
-      curPoints: curPoints,
-      markers: tempMarkers,
-    })
-
-    // 计算距离
-    this.calculateDistance()
-    // 移动结束取消选中
-    this.cancelMarker()
   },
   // 删除一个标记点
   deleteMarker(markerId) {
@@ -360,6 +372,7 @@ Page({
       })
       // 计算距离
       this.calculateDistance()
+      this.cancelMarker()
     }
 
   },
@@ -450,6 +463,40 @@ Page({
         ['markers[0].label']: label
       })
     }
+  },
+  // 逆地址解析
+  reverseGeocoder(latitude, longitude) {
+    var that = this
+    qqmapsdk.reverseGeocoder({
+      location: {
+        latitude: latitude,
+        longitude: longitude
+      },
+      success: function (res) {
+        console.log('逆地址解析结果');
+        console.log(res)
+        var result = res.result
+        console.log(result)
+        // 地址描述
+        let address = result.address
+        // 位置描述
+        let formatted_addresses = result.formatted_addresses
+        // 经过腾讯地图优化过的描述方式， 更具人性化特点
+        let recommend = formatted_addresses.recommend
+        // 大致位置， 可用于对位置的粗略描述
+        let rough = formatted_addresses.rough
+        console.log(address)
+        console.log(recommend)
+        console.log(rough)
+
+        that.setData({
+          address: address,
+          recommend: recommend,
+          rough: rough,
+          title: address
+        })
+      },
+    });
   }
 
 })
