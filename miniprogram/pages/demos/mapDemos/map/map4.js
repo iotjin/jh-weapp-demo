@@ -73,6 +73,8 @@ Page({
     });
 
     this.mapCtx = wx.createMapContext('myMap')
+    this.getCurrentLocation()
+    
     // this.mapCtx.moveToLocation()
     // this.getCurrentLocation()
     // this.getCenterLngLat()
@@ -81,7 +83,7 @@ Page({
     // this.mapCtx.setLocMarkerIcon({
     //   iconPath: "./images/ic_mark1.png",
     // })
-
+  
   },
 
   /**
@@ -114,7 +116,7 @@ Page({
     // 判断权限
     // wx.getSetting({
     //   success(res) {
-    //     if (!res.authSetting['scope.record']) {
+    //     if (!res.authSetting['scope.userLocation']) {
     //       wx.showToast({
     //         title: '未授权',
     //         icon: 'none'
