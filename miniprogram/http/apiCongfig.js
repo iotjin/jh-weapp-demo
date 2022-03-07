@@ -2,17 +2,19 @@
 
 const HTTP = require('../http/httpUtils.js');
 
-const API_BASE_URL = 'https://www.fastmock.site/mock/1010b262a743f0b06c565c7a31ee9739/root';
+// const API_BASE_URL = 'https://www.fastmock.site/mock/1010b262a743f0b06c565c7a31ee9739/root';
+
+const API_BASE_URL = 'https://mock.apipost.cn/app/mock/project/b3489dad-68b9-11eb-a95d-1c34da7b354c/v1/api';
 
 
 /* 接口地址： */
 const URL = {
-  api_getNewPageArrDic: API_BASE_URL + '/mock/pages', // 获取分页数组（新） - get
-  api_getPageArrDic: API_BASE_URL + '/mock/pages', // 获取分页数组 - post
-  api_getSimpleArrDic: API_BASE_URL + '/getSimpleArrDic', // 获取数组
+  api_pageArrDict: API_BASE_URL + '/mock/pages', // 获取分页数组 - get
+  api_pageArrDict_post: API_BASE_URL + '/mock/pages', // 获取分页数组 - post
+  api_simpleArrDict: API_BASE_URL + '/mock/simpleArrDict', // 获取数组字典
   /*----------------------------------- 首页 -----------------------------------*/
-  addHomeData: API_BASE_URL + "/home/add",
-  getData: API_BASE_URL + "/home/list",
+  api_home_add: API_BASE_URL + "/home/add",
+  api_home_list: API_BASE_URL + "/home/list",
   /*----------------------------------- 我的 -----------------------------------*/
 }
 
@@ -21,19 +23,19 @@ const URL = {
 /* 通过module.exports方式提供给外部调用 */
 module.exports = {
   URL,
-  //获取分页数据（新）
-  getNewPageArrDic: (params) => HTTP.get(URL.api_getNewPageArrDic, params),
-  //获取分页数据
-  getPageArrDic: (params) => HTTP.post(URL.api_getPageArrDic, params),
+  //获取分页数据 - get
+  getPageArrDict: (params) => HTTP.get(URL.api_pageArrDict, params),
+  //获取分页数据 - post
+  getPageArrDictPost: (params) => HTTP.post(URL.api_pageArrDict_post, params),
   //获取分页数据2
-  getPageArrDic2: (params) => {
-    console.log(URL.api_getPageArrDic + '-----------------------')
-    return HTTP.post(URL.api_getPageArrDic, params, '正在加载中...')
+  getPageArrDict2: (params) => {
+    console.log(URL.api_pageArrDict_post + '-----------------------')
+    return HTTP.post(URL.api_pageArrDict_post, params, '正在加载中...')
   },
-  getSimpleArrDic: (params) => HTTP.post(URL.api_getSimpleArrDic, params),
+  getSimpleArrDict: (params) => HTTP.post(URL.api_simpleArrDict, params),
   /*----------------------------------- 首页 -----------------------------------*/
-  addHomeData: (params) => HTTP.post(URL.addHomeData, params, '正在提交...'),
-  getData: (pathParams) => HTTP.get(URL.getData + pathParams),
+  addHomeData: (params) => HTTP.post(URL.api_home_add, params, '正在提交...'),
+  getHomeListData: (pathParams) => HTTP.get(URL.api_home_list + pathParams),
   /*----------------------------------- 我的 -----------------------------------*/
 }
 

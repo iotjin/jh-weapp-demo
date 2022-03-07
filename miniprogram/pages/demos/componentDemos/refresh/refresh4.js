@@ -9,7 +9,7 @@ Page({
       // noData: true
     },
     limit: 10,
-    url: API.URL.api_getNewPageArrDic,
+    url: API.URL.getPageArrDict,
   },
   onLoad() {
 

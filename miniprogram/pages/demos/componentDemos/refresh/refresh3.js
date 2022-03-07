@@ -7,7 +7,7 @@ Page({
    */
   data: {
     dataArr: [],
-    url: API.URL.api_getPageArrDic,
+    url: API.URL.getPageArrDict,
   },
 
   /**

@@ -9,6 +9,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    isLoadAll: false,
     dataArr: []
   },
 
@@ -36,22 +37,30 @@ Page({
     this.requestData(true);
   },
 
+  //请求数据
   requestData: function (isLoadMore) {
     var that = this
     if (isLoadMore) {
+      if (this.data.isLoadAll) {
+        wx.showToast({
+          title: '暂无更多数据',
+          icon: 'none',
+        })
+        return
+      }
       currentPage++;
     } else {
       currentPage = 0;
-      this.setData({
-        dataArr: [],
-      })
     }
-    var params = {
-      page: currentPage,
-      limit: 10,
-    }
+
+    let params = {}
+    // params.keyword = this.data.keyword ? this.data.keyword : ''
+    params.page = currentPage
+    params.limit = 15
+    console.log(params);
+
     wx.showNavigationBarLoading()
-    API.getPageArrDic2(params).then(res => {
+    API.getPageArrDict(params).then(res => {
       console.log(res);
       wx.hideNavigationBarLoading()
       wx.stopPullDownRefresh()
@@ -73,9 +82,9 @@ Page({
             dataArr: data,
           })
         }
-      } else {
-        currentPage--
-        currentPage = currentPage < 0 ? 0 : currentPage
+        that.setData({
+          isLoadAll: data.length < 15 ? true : false
+        })
       }
     }).catch(error => {
       console.log(error);
@@ -85,7 +94,6 @@ Page({
       currentPage = currentPage < 0 ? 0 : currentPage
     });
   },
-
   onClickItem(event) {
     var item = event.currentTarget.dataset.item
     console.log(item);

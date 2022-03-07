@@ -12,12 +12,12 @@ Page({
       title: '加载中',
     })
     wx.request({
-      method: 'POST',
-      url: API.URL.api_getSimpleArrDic,
+      method: 'get',
+      url: API.URL.api_simpleArrDict,
       success: (res) => {
         wx.hideLoading();
         wx.stopPullDownRefresh();
-        // console.log(res.data);
+        // console.log(res);
         this.setData({
           dataArr: res.data.data
         })

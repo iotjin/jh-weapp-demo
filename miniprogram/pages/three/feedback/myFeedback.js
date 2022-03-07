@@ -85,7 +85,7 @@ Page({
       page: currentPage
     }
     wx.showNavigationBarLoading()
-    API.getPageArrDic2(prams).then(res => {
+    API.getPageArrDict(prams).then(res => {
       wx.hideNavigationBarLoading()
       wx.stopPullDownRefresh()
       if (isLoadMore) {

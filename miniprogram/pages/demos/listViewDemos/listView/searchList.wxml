@@ -1,5 +1,5 @@
 <view class="header">
-  <van-search value="{{ searchText }}" placeholder="请输入搜索关键词" bind:change="onChange" maxlength="10" />
+  <van-search value="{{ keyword }}" placeholder="请输入搜索关键词" bind:change="onChange" bind:search="onSearch" maxlength="10" />
 </view>
 
 <view class="content-bg">

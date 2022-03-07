@@ -1,6 +1,7 @@
 // miniprogram/pages/demos/listViewDemos/UI/list1.js
 
 var currentPage = 0;
+const API = require('../../../../http/apiCongfig.js'); //相对路径
 
 Page({
 
@@ -8,7 +9,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    searchText: '',
+    keyword: '',
     normalDataArr: [],
     searchDataArr: [],
     dataArr: [{
@@ -58,11 +59,15 @@ Page({
 
   },
   onChange(e) {
-    var searchText = e.detail
+    var keyword = e.detail
     this.setData({
-      searchText: searchText,
+      keyword: keyword,
     });
-    console.log(searchText);
+    console.log(keyword);
+    this.requestData()
+  },
+  onSearch() {
+    this.requestData()
   },
   clickItem: function (e) {
     var item = e.currentTarget.dataset.item
@@ -72,57 +77,63 @@ Page({
     // })
     // var item = JSON.parse(options.item)
   },
+  //请求数据
   requestData: function (isLoadMore) {
     var that = this
     if (isLoadMore) {
+      if (this.data.isLoadAll) {
+        wx.showToast({
+          title: '暂无更多数据',
+          icon: 'none',
+        })
+        return
+      }
       currentPage++;
     } else {
       currentPage = 0;
-      this.setData({
-        dataArr: [],
-      })
     }
-    var params = {
-      page: currentPage,
-      limit: 10,
-    }
-    wx.showNavigationBarLoading()
-    wx.request({
-      url: 'https://www.fastmock.site/mock/1010b262a743f0b06c565c7a31ee9739/root/mock/pages',
-      data: params,
-      success(res) {
-        wx.hideNavigationBarLoading()
-        wx.stopPullDownRefresh()
-        if (res.data.code == 200) {
-          var data = res.data.data
-          if (!data.length) {
-            wx.showToast({
-              title: '暂无更多数据',
-              icon: 'none',
-            })
-            return
-          }
-          if (isLoadMore) {
-            that.setData({
-              dataArr: that.data.dataArr.concat(data),
-            })
-          } else {
-            that.setData({
-              dataArr: data,
-            })
-          }
-        } else {
-          currentPage--
-          currentPage = currentPage < 0 ? 0 : currentPage
-        }
-      },
-      fail(err) {
-        wx.hideNavigationBarLoading()
-        wx.stopPullDownRefresh()
-        currentPage--
-        currentPage = currentPage < 0 ? 0 : currentPage
-      }
-    })
 
-  },
+    let params = {}
+    params.keyword = this.data.keyword ? this.data.keyword : ''
+    params.page = currentPage
+    params.limit = 15
+    console.log(params);
+
+    wx.showNavigationBarLoading()
+    API.getPageArrDict(params).then(res => {
+      console.log(res);
+      wx.hideNavigationBarLoading()
+      wx.stopPullDownRefresh()
+      if (res.code == 200) {
+        var data = res.data
+        if (!data.length) {
+          wx.showToast({
+            title: '暂无更多数据',
+            icon: 'none',
+          })
+          return
+        }
+        if (isLoadMore) {
+          that.setData({
+            dataArr: that.data.dataArr.concat(data),
+          })
+        } else {
+          that.setData({
+            dataArr: data,
+          })
+        }
+        that.setData({
+          isLoadAll: data.length < 15 ? true : false
+        })
+      }
+    }).catch(error => {
+      console.log(error);
+      wx.hideNavigationBarLoading()
+      wx.stopPullDownRefresh()
+      currentPage--
+      currentPage = currentPage < 0 ? 0 : currentPage
+    });
+  }
+
+
 })
