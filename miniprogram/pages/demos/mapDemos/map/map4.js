@@ -74,7 +74,7 @@ Page({
 
     this.mapCtx = wx.createMapContext('myMap')
     this.getCurrentLocation()
-    
+
     // this.mapCtx.moveToLocation()
     // this.getCurrentLocation()
     // this.getCenterLngLat()
@@ -83,14 +83,14 @@ Page({
     // this.mapCtx.setLocMarkerIcon({
     //   iconPath: "./images/ic_mark1.png",
     // })
-  
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.clusterFunc()
   },
   // 获取当前位置
   getCurrentLocation() {
@@ -313,6 +313,7 @@ Page({
     }
     mark.isSelect = false
     mark.address = this.data.title
+    mark.joinCluster = true
 
     this.data.markers.push(mark)
     this.setData({
@@ -499,6 +500,62 @@ Page({
         })
       },
     });
-  }
+  },
+  /**
+   * 点聚合
+   */
+  clusterFunc() {
+    var that = this
+    this.mapCtx.initMarkerCluster({
+      enableDefaultStyle: false, //启用默认的聚合样式
+      zoomOnClick: true, //点击已经聚合的标记点时是否实现聚合分离
+      // gridSize: 200, //聚合算法的可聚合距离，即距离小于该值的点会聚合至一起，以像素为单位
+      complete(res) {
+        console.log('点聚合初始化', res)
+      }
+    })
+    this.mapCtx.on('markerClusterCreate', res => {
+      console.log('聚合触发：', res.clusters)
+      // that.changeOnCluster(res.clusters)
+      var clusters = res.clusters
+      var markers = clusters.map(cluster => {
+        const {
+          center, // 聚合点的经纬度数组
+          clusterId, // 聚合簇id
+          markerIds // 已经聚合了的标记点id数组
+        } = cluster
+        return {
+          ...center,
+          canshow: true,
+          width: 50,
+          height: 50,
+          alpha: 0,
+          clusterId, // 必须
+          // iconPath: '/map/ic_mark_normal.png',
+          label: { // 定制聚合簇样式
+            content: markerIds.length + '',
+            fontSize: 16,
+            color: '#fff',
+            width: 50,
+            height: 50,
+            bgColor: '#419afcD9',
+            borderRadius: 25,
+            textAlign: 'center',
+            anchorX: -10,
+            anchorY: -35,
+          }
+        }
+      })
+      // 添加聚合簇
+      this.mapCtx.addMarkers({
+        markers,
+        clear: false, //只改动了新增的聚合点，所以不用删除其他点
+        complete(res) {
+          console.log('clusterCreate addMarkers', res)
+        }
+      })
+    })
+  },
+
 
 })
