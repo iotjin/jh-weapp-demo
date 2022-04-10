@@ -28,7 +28,7 @@ A new weapp project - 实现一些常用效果、封装通用组件和工具类 
 * 全局常量、变量
 * 公共样式
 * 网络监听，设备类型和刘海屏判断
-* 时间格式转换、正则校验
+* 时间格式转换、正则校验、公历农历转换、周岁虚岁计算
 * 自定义导航条，支持设置左侧文字图片，网络本地背景图，渐变背景色，左侧和标题slot，返回home主页，导航条加搜索框
 * 时间日期选择器、月日周时分选择器、字符串选择器、输入弹框
 * 上下拉刷新、分组吸顶ListView
@@ -86,7 +86,7 @@ npm i wux-weapp -S --production
 | <img src="https://gitee.com/iotjh/Picture/raw/master/weapp/search_tabbar.jpg" width="187" height="419"> | <img src="https://gitee.com/iotjh/Picture/raw/master/weapp/sideslip.jpg" width="187" height="419"> | <img src="https://gitee.com/iotjh/Picture/raw/master/weapp/score.jpg" width="187" height="419"> | 
 | <img src="https://gitee.com/iotjh/Picture/raw/master/weapp/search.gif" width="187" height="419"> | <img src="https://gitee.com/iotjh/Picture/raw/master/weapp/table4.jpg" width="187" height="419"> | <img src="https://gitee.com/iotjh/Picture/raw/master/weapp/form.jpg" width="187" height="419"> | 
 | <img src="https://gitee.com/iotjh/Picture/raw/master/weapp/tabbar.gif" width="187" height="419"> | <img src="https://gitee.com/iotjh/Picture/raw/master/weapp/myFeedback.jpg" width="187" height="419"> | <img src="https://gitee.com/iotjh/Picture/raw/master/weapp/searchListView.jpg" width="187" height="419"> | 
-<img src="https://gitee.com/iotjh/Picture/raw/master/weapp/map1.jpg" width="187" height="419"> | <img src="https://gitee.com/iotjh/Picture/raw/master/weapp/map3.jpg" width="187" height="419"> | 
+<img src="https://gitee.com/iotjh/Picture/raw/master/weapp/map1.jpg" width="187" height="419"> | <img src="https://gitee.com/iotjh/Picture/raw/master/weapp/map3.jpg" width="187" height="419"> | <img src="https://gitee.com/iotjh/Picture/raw/master/weapp/map4.gif" width="187" height="419"> |
 
 
 
