@@ -93,8 +93,15 @@ Component({
   methods: {
     onClickBack() {
       // console.log('返回上个页面');
+      let that = this
       wx.navigateBack({
-        delta: this.properties.delta
+        delta: this.properties.delta,
+        fail: function (err) {
+          // 跳转失败返回首页，针对分享页未做处理分享之后返回异常
+          wx.reLaunch({
+            url: that.properties.homeUrl,
+          })
+        },
       });
       this.triggerEvent('back', {})
     },

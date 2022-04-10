@@ -23,6 +23,8 @@ module.exports = {
   Jh_timeStampToNo0Time: Jh_timeStampToNo0Time,
   Jh_timeStampToYMD: Jh_timeStampToYMD,
   Jh_timeStampToYMDHMS: Jh_timeStampToYMDHMS,
+  Jh_timeToTime: Jh_timeToTime,
+  Jh_getYearMonthDayObj: Jh_getYearMonthDayObj,
   Jh_getYear: Jh_getYear,
   Jh_getMonth: Jh_getMonth,
   Jh_getDay: Jh_getDay,
@@ -192,6 +194,38 @@ function Jh_timeStampToYMDHMS(time, format) {
   return Jh_timeStampToTime(time, '{y}/{m}/{d} {h}:{i}:{s}')
 }
 
+/**
+ * 将某个格式时间转化为另一种格式时间
+ * @param time 2019(年) | 2019年2月 | 2019年02月02日 | 2019年2月2日 00:00:00 | 2019-2 | 2019-02 | 2019-2-2 | 2019-02-02 | 2019-02-02 00:00:00
+ * @param format 指定format，不传format默认：'{y}/{m}/{d} {h}:{i}:{s}'
+ * @return 指定format时间，默认格式：2019/02/02 00:00:00
+ */
+function Jh_timeToTime(time, format) {
+  let timeStamp = Jh_convertTimeStamp(time)
+  if (format) {
+    return Jh_timeStampToTime(timeStamp, format)
+  }
+  return Jh_timeStampToTime(time, '{y}/{m}/{d} {h}:{i}:{s}')
+}
+
+/**
+ * 将某个格式时间转化为年月日对象
+ * @param time  2019年02月02日 | 2019年2月2日 00:00:00 | 2020/02/02 | 2020-02-02 | 2020/02/02 00:00:00 | 2020-02-02 00:00:00
+ * @return {year: "2019", month: "02", day: "02"}
+ */
+function Jh_getYearMonthDayObj(time) {
+  let timeStamp = Jh_convertTimeStamp(time)
+  let newTime = Jh_timeStampToYMD(timeStamp)
+  let year = newTime.substring(0, 4)
+  let month = newTime.substring(5, 7)
+  let day = newTime.substring(8, 10)
+  return {
+    year: year,
+    month: month,
+    day: day,
+  }
+}
+
 /** 
  * 获取年  
  * @return 2020
@@ -231,7 +265,6 @@ function Jh_getWeek() {
 function Jh_getYearMonthDayWeek() {
   return Jh_timeStampToTime(Jh_getTimeStamp(), '{y}年{m}月{d}日 {h}:{i}:{s} 星期{w}')
 }
-
 
 /** 
  * 获取指定年的上一年，不传time默认今年
@@ -561,15 +594,15 @@ function filterDateNum(date) {
  * @param birthday 2019-02-02 || 2019/02/02 || 2019-02-02 00:00:00 || 2019/02/02 00:00:00
  * @return 返回年龄 //（返回-1 表示出生日期输入错误 晚于今天）
  */
-function Jh_getAge(birthdayDate) {
+function Jh_getAge(birthday) {
   let fullAge = 0
-  if (!birthdayDate) return '';
-  if (typeof birthdayDate === 'string') {
-    birthdayDate = birthdayDate.replace(/-/g, '/');
-    birthdayDate = new Date(birthdayDate)
+  if (!birthday) return '';
+  if (typeof birthday === 'string') {
+    birthday = birthday.replace(/-/g, '/');
+    birthday = new Date(birthday)
   }
   const now = new Date()
-  const birthdayObj = filterDateNum(birthdayDate)
+  const birthdayObj = filterDateNum(birthday)
   const nowObj = filterDateNum(now)
   const baseAge = nowObj.year - birthdayObj.year
   fullAge = baseAge
