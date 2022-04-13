@@ -3,7 +3,7 @@
 /*
 使用方法：
 
-const TimeUtils = require('../../utils/timeUtils.js');
+const TimeUtils = require('../../utils/timeUtils.js')
 //时间戳转指定格式时间  1487065320000  1554803832
 TimeUtils.Jh_timeStampToTime(new Date().getTime(), '{y}年{m}月{d}日 {h}:{i}:{s} 星期{w}')  
 
@@ -55,23 +55,23 @@ module.exports = {
 
 /** 获取当前13位时间戳 */
 function Jh_getTimeStamp() {
-  // let timestamp = Date.parse(new Date());
-  let timestamp = new Date().getTime();
-  return timestamp;
+  // let timestamp = Date.parse(new Date())
+  let timestamp = new Date().getTime()
+  return timestamp
 }
 
 /**
- * 将某个格式时间转化成13位时间戳，支持："-"、"/"、"."
+ * 将某个格式时间转化成13位时间戳，支持："-"、"/"、"."、"年月日"
  * @param time 2019(年) | 2019年2月 | 2019年02月02日 | 2019年2月2日 00:00:00 | 2019-2 | 2019-02 | 2019-2-2 | 2019-02-02 | 2019-02-02 00:00:00
  * @return 1556640000000
  */
 function Jh_convertTimeStamp(time) {
   //用正则主要是把“2019-05-20 00:00:00”转换成“2019/05/20 00:00:00”兼容ios
-  let newTime = time.replace(/-/g, '/');
+  let newTime = time.replace(/-/g, '/')
   newTime = newTime.replace(/\./g, '/')
-  newTime = newTime.replace(/年/g, '/');
-  newTime = newTime.replace(/月/g, '/');
-  newTime = newTime.replace(/日/g, '');
+  newTime = newTime.replace(/年/g, '/')
+  newTime = newTime.replace(/月/g, '/')
+  newTime = newTime.replace(/日/g, '')
   if (newTime.length == 5) { // 处理2019年
     newTime = newTime.substring(0, 4)
   }
@@ -110,9 +110,9 @@ function timeStampToTime(time, cFormat) {
     if (result.length > 0 && value < 10) {
       value = '0' + value
     }
-    return value || 0;
+    return value || 0
   })
-  return time_str;
+  return time_str
 }
 
 /** 
@@ -147,9 +147,9 @@ function Jh_timeStampToNo0Time(time, cFormat) {
     // if (result.length > 0 && value < 10) {
     //   value = '0' + value
     // }
-    return value || 0;
+    return value || 0
   })
-  return time_str;
+  return time_str
 }
 
 /** 
@@ -209,12 +209,12 @@ function Jh_timeToTime(time, format) {
 }
 
 /**
- * 将某个格式时间转化为年月日对象
+ * 将某个格式时间转化为年月日对象，不传time默认当前时间 
  * @param time  2019年02月02日 | 2019年2月2日 00:00:00 | 2020/02/02 | 2020-02-02 | 2020/02/02 00:00:00 | 2020-02-02 00:00:00
  * @return {year: "2019", month: "02", day: "02"}
  */
 function Jh_getYearMonthDayObj(time) {
-  let timeStamp = Jh_convertTimeStamp(time)
+  let timeStamp = time ? Jh_convertTimeStamp(time) : Jh_getTimeStamp()
   let newTime = Jh_timeStampToYMD(timeStamp)
   let year = newTime.substring(0, 4)
   let month = newTime.substring(5, 7)
@@ -385,9 +385,9 @@ function Jh_getNextYearMonthDay(time) {
     let nextTime = nextYear + time.substring(4, time.length)
     return nextTime
   } else {
-    let nextTime = new Date(Jh_getTimeStamp());
-    nextTime.setFullYear(nextTime.getFullYear() + 1);
-    nextTime.setDate(nextTime.getDate());
+    let nextTime = new Date(Jh_getTimeStamp())
+    nextTime.setFullYear(nextTime.getFullYear() + 1)
+    nextTime.setDate(nextTime.getDate())
     nextTime = Jh_timeStampToTime(nextTime.getTime(), '{y}/{m}/{d} {h}:{i}:{s}')
     return nextTime
   }
@@ -399,64 +399,54 @@ function Jh_getNextYearMonthDay(time) {
  * @return true | false
  */
 function Jh_isToday(time) {
-  time = time.replace(/\//g, '');
-  let newTime = time.replace(/-/g, '');
-  newTime = newTime.substring(0, 8);
-  let currentTime = new Date().getTime();
-  currentTime = Jh_timeStampToTime(currentTime, '{y}{m}{d}')
-  return newTime == currentTime
+  // time = time.replace(/-/g, '/')
+  // return (new Date(time).toDateString() == new Date().toDateString())
+  return Jh_timeToTime(time, '{y}/{m}/{d}') == Jh_timeStampToYMD()
 }
 
 /**
  * 判断某个时间是否在开始时间和结束时间范围内  
- * @param time 2020-07-19 20:33:00 | 2020/07/19 20:33:00
+ * @param time 2019(年) | 2019年2月 | 2019年02月02日 | 2019年2月2日 00:00:00 | 2019-2 | 2019-02 | 2019-2-2 | 2019-02-02 | 2019-02-02 00:00:00
  * @return true | false
  */
 function Jh_isBetweenTimes(time, startTime, endTime) {
-  time = time.replace(/-/g, "/");
-  startTime = startTime.replace(/-/g, "/");
-  endTime = endTime.replace(/-/g, "/");
-  time = new Date(time);
-  startTime = new Date(startTime);
-  endTime = new Date(endTime);
+  time = Jh_convertTimeStamp(time)
+  startTime = Jh_convertTimeStamp(startTime)
+  endTime = Jh_convertTimeStamp(endTime)
   if (startTime <= time && time <= endTime) {
-    return true;
+    return true
   }
-  return false;
+  return false
 }
 
 /**
  * 判断当前时间是否在某个时间段内  
- * @param time 2020-07-19 20:33:00 | 2020/07/19 20:33:00
+ * @param time 2019(年) | 2019年2月 | 2019年02月02日 | 2019年2月2日 00:00:00 | 2019-2 | 2019-02 | 2019-2-2 | 2019-02-02 | 2019-02-02 00:00:00
  * @return true | false
  */
-function Jh_isBetweenTimesByCurrent(beginTime, endTime) {
-  beginTime = beginTime.replace(/-/g, '/');
-  endTime = endTime.replace(/-/g, '/');
-  beginTime = new Date(beginTime)
-  endTime = new Date(endTime)
-  let currentTime = new Date();
-  if (beginTime <= currentTime && currentTime <= endTime) {
-    return true;
+function Jh_isBetweenTimesByCurrent(startTime, endTime) {
+  startTime = Jh_convertTimeStamp(startTime)
+  endTime = Jh_convertTimeStamp(endTime)
+  let currentTime = Jh_getTimeStamp()
+  if (startTime <= currentTime && currentTime <= endTime) {
+    return true
   }
-  return false;
+  return false
 }
 
 /**
  * 判断某个时间是否在当前时间和结束时间范围内 
- * @param time 2020-07-19 20:33:00 | 2020/07/19 20:33:00
+ * @param time 2019(年) | 2019年2月 | 2019年02月02日 | 2019年2月2日 00:00:00 | 2019-2 | 2019-02 | 2019-2-2 | 2019-02-02 | 2019-02-02 00:00:00
  * @return true | false
  */
 function Jh_isBetweenTimesByCurrentAndEndTime(time, endTime) {
-  let currentTime = new Date();
-  time = time.replace(/-/g, "/");
-  endTime = endTime.replace(/-/g, "/");
-  time = new Date(time);
-  endTime = new Date(endTime);
+  let currentTime = Jh_getTimeStamp()
+  time = Jh_convertTimeStamp(time)
+  endTime = Jh_convertTimeStamp(endTime)
   if (currentTime <= time && time <= endTime) {
-    return true;
+    return true
   }
-  return false;
+  return false
 }
 
 /**
@@ -466,12 +456,12 @@ function Jh_isBetweenTimesByCurrentAndEndTime(time, endTime) {
  * @return time1>time2 为true
  */
 function Jh_compareTimes(time1, time2) {
-  let newTime1 = Jh_convertTimeStamp(time1);
-  let newTime2 = Jh_convertTimeStamp(time2);
+  let newTime1 = Jh_convertTimeStamp(time1)
+  let newTime2 = Jh_convertTimeStamp(time2)
   if (newTime1 > newTime2) {
-    return true; //第一个大
+    return true // 第一个大
   } else {
-    return false; //第二个大
+    return false // 第二个大
   }
 }
 
@@ -481,19 +471,19 @@ function Jh_compareTimes(time1, time2) {
  * @return 118天0小时30分12秒
  */
 function Jh_getEndTime(time) {
-  time = time.replace(/-/g, '/');
-  let year = new Date(time).getFullYear();
-  let month = new Date(time).getMonth() + 1;
-  let date = new Date(time).getDate();
-  let now = new Date();
-  let endDate = new Date(new Date(time).toLocaleDateString());
-  let leftTime = endDate.getTime() - now.getTime();
-  let leftsecond = parseInt(leftTime / 1000);
-  let day = Math.floor(leftsecond / (60 * 60 * 24));
-  let hour = Math.floor((leftsecond - day * 24 * 60 * 60) / 3600);
-  let minute = Math.floor((leftsecond - day * 24 * 60 * 60 - hour * 3600) / 60);
-  let second = Math.floor(leftsecond - day * 60 * 60 * 24 - hour * 60 * 60 - minute * 60);
-  return `${day}天${hour}小时${minute}分${second}秒`;
+  time = time.replace(/-/g, '/')
+  let year = new Date(time).getFullYear()
+  let month = new Date(time).getMonth() + 1
+  let date = new Date(time).getDate()
+  let now = new Date()
+  let endDate = new Date(new Date(time).toLocaleDateString())
+  let leftTime = endDate.getTime() - now.getTime()
+  let leftsecond = parseInt(leftTime / 1000)
+  let day = Math.floor(leftsecond / (60 * 60 * 24))
+  let hour = Math.floor((leftsecond - day * 24 * 60 * 60) / 3600)
+  let minute = Math.floor((leftsecond - day * 24 * 60 * 60 - hour * 3600) / 60)
+  let second = Math.floor(leftsecond - day * 60 * 60 * 24 - hour * 60 * 60 - minute * 60)
+  return `${day}天${hour}小时${minute}分${second}秒`
 }
 
 /**
@@ -503,10 +493,10 @@ function Jh_getEndTime(time) {
  * @return 天数
  */
 function Jh_differenceDays(time1, time2) {
-  let newTime1 = Jh_convertTimeStamp(time1);
-  let newTime2 = Jh_convertTimeStamp(time2);
+  let newTime1 = Jh_convertTimeStamp(time1)
+  let newTime2 = Jh_convertTimeStamp(time2)
   let newTime = Math.abs(newTime1 - newTime2)
-  let days = Math.floor(newTime / (24 * 3600 * 1000));
+  let days = Math.floor(newTime / (24 * 3600 * 1000))
   return days
 }
 
@@ -516,8 +506,8 @@ function Jh_differenceDays(time1, time2) {
  * @return true|false
  */
 function Jh_isLeapYear(time) {
-  let year = time || new Date().getFullYear();
-  return (year % 4 == 0 && year % 100 != 0 || year % 400 == 0);
+  let year = time || new Date().getFullYear()
+  return (year % 4 == 0 && year % 100 != 0 || year % 400 == 0)
 }
 
 /**
@@ -526,15 +516,15 @@ function Jh_isLeapYear(time) {
  * @return 天数
  */
 function Jh_getDaysWithMonth(time) {
-  let date = new Date();
+  let date = new Date()
   if (time) {
-    date = time.replace(/-/g, '/');
-    date = new Date(date);
+    date = time.replace(/-/g, '/')
+    date = new Date(date)
   }
-  let year = date.getFullYear();
-  let month = date.getMonth() + 1;
-  let days = new Date(year, month, 0);
-  return days.getDate();
+  let year = date.getFullYear()
+  let month = date.getMonth() + 1
+  let days = new Date(year, month, 0)
+  return days.getDate()
 }
 
 /**
@@ -543,7 +533,7 @@ function Jh_getDaysWithMonth(time) {
  * @return 天数
  */
 function Jh_getDaysWithYear(time) {
-  return Jh_isLeapYear(time) ? 366 : 365;
+  return Jh_isLeapYear(time) ? 366 : 365
 }
 
 /**
@@ -551,14 +541,14 @@ function Jh_getDaysWithYear(time) {
  * @return 天数
  */
 function Jh_getPassDaysWithYear() {
-  // let currentYear = new Date().getFullYear().toString();
+  // let currentYear = new Date().getFullYear().toString()
   // // 今天减今年的第一天（xxxx年01月01日）
-  // let hasTimestamp = new Date() - new Date(currentYear);
+  // let hasTimestamp = new Date() - new Date(currentYear)
   // // 86400000 = 24 * 60 * 60 * 1000
-  // let days = Math.ceil(hasTimestamp / 86400000);
+  // let days = Math.ceil(hasTimestamp / 86400000)
 
-  let days = Math.ceil((new Date() - new Date(new Date().getFullYear().toString())) / (24 * 60 * 60 * 1000));
-  return days;
+  let days = Math.ceil((new Date() - new Date(new Date().getFullYear().toString())) / (24 * 60 * 60 * 1000))
+  return days
 }
 
 /**
@@ -566,7 +556,7 @@ function Jh_getPassDaysWithYear() {
  * @return 天数
  */
 function Jh_getSurplusDaysWithMonth() {
-  return Jh_getDaysWithMonth() - Jh_timeStampToTime('', '{d}');
+  return Jh_getDaysWithMonth() - Jh_timeStampToTime('', '{d}')
 }
 
 /**
@@ -574,7 +564,7 @@ function Jh_getSurplusDaysWithMonth() {
  * @return 天数
  */
 function Jh_getSurplusDaysWithYear() {
-  return Jh_getDaysWithYear() - Jh_getPassDaysWithYear();
+  return Jh_getDaysWithYear() - Jh_getPassDaysWithYear()
 }
 
 
@@ -596,9 +586,9 @@ function filterDateNum(date) {
  */
 function Jh_getAge(birthday) {
   let fullAge = 0
-  if (!birthday) return '';
+  if (!birthday) return ''
   if (typeof birthday === 'string') {
-    birthday = birthday.replace(/-/g, '/');
+    birthday = birthday.replace(/-/g, '/')
     birthday = new Date(birthday)
   }
   const now = new Date()

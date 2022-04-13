@@ -83,25 +83,31 @@ function Jh_getBigAge(birthday) {
  * @return 2023-01-19
  */
 function Jh_getNextBirthday(birthday) {
+  // 如果birthday是今天，直接返回
+  if (TimeUtils.Jh_isToday(birthday)) {
+    return TimeUtils.Jh_timeToTime(birthday, '{y}-{m}-{d}')
+  }
+  // 如果birthday大于当前时间，直接返回
+  let currentTime = TimeUtils.Jh_timeStampToYMD()
+  if (TimeUtils.Jh_compareTimes(birthday, currentTime)) {
+    return TimeUtils.Jh_timeToTime(birthday, '{y}-{m}-{d}')
+  }
+
   const {
     year,
     month,
     day
   } = TimeUtils.Jh_getYearMonthDayObj(birthday)
   let timeObj = lunarCalendar.solar2lunar(year, month, day)
-  // 先判断今年
+
+  // 如果birthday小于当前时间，先判断今年是否已过生日
   let timeObj2 = lunarCalendar.lunar2solar(TimeUtils.Jh_getYear(), timeObj.lMonth, timeObj.lDay)
-  // 如果生日是今天，返回生日
-  if (timeObj2.isToday) {
-    return TimeUtils.Jh_timeToTime(timeObj2.date,'{y}-{m}-{d}')
-  }
   let nextTime = timeObj2.date
-  let currentTime = TimeUtils.Jh_timeStampToYMD()
   // 如果今年生日未过，返回生日
   if (TimeUtils.Jh_compareTimes(nextTime, currentTime)) {
-    return TimeUtils.Jh_timeToTime(timeObj2.date,'{y}-{m}-{d}')
+    return TimeUtils.Jh_timeToTime(timeObj2.date, '{y}-{m}-{d}')
   }
   // 如果今年的生日已经过了，计算明年
   let timeObj3 = lunarCalendar.lunar2solar(parseInt(TimeUtils.Jh_getYear()) + 1, timeObj.lMonth, timeObj.lDay)
-  return TimeUtils.Jh_timeToTime(timeObj3.date,'{y}-{m}-{d}')
+  return TimeUtils.Jh_timeToTime(timeObj3.date, '{y}-{m}-{d}')
 }
