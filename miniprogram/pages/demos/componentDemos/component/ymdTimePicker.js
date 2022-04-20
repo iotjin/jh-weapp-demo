@@ -1,4 +1,5 @@
-var JhTime = require('../../../../utils/timeUtils.js');
+const TimeUtils = require('../../../../utils/timeUtils.js')
+
 
 Page({
 
@@ -11,10 +12,10 @@ Page({
     isShowYMDTimePicker3: false,
     isShowYMDTimePicker4: false,
     isShowYMDTimePicker5: false,
-    minDate:new Date().getTime(),
-    maxDate:new Date().getTime(),
+    minDate: new Date().getTime(),
+    maxDate: new Date().getTime(),
     timeStamp: new Date().getTime(),
-    timeText:  JhTime.Jh_timeStampToTime(new Date().getTime(), '{y}年{m}月{d}日 {h}:{i}:{s}'),
+    timeText: TimeUtils.Jh_timeStampToTime(new Date().getTime(), '{y}年{m}月{d}日 {h}:{i}:{s}'),
 
   },
 
@@ -27,25 +28,35 @@ Page({
 
   //点击时间 弹出时间选择器
   ClickTimeBtn: function (event) {
-    this.setData({ isShowYMDTimePicker: true });
+    this.setData({
+      isShowYMDTimePicker: true
+    });
   },
   ClickTimeBtn2: function (event) {
-    this.setData({ isShowYMDTimePicker2: true });
+    this.setData({
+      isShowYMDTimePicker2: true
+    });
   },
   ClickTimeBtn3: function (event) {
-    this.setData({ isShowYMDTimePicker3: true });
+    this.setData({
+      isShowYMDTimePicker3: true
+    });
   },
   ClickTimeBtn4: function (event) {
-    this.setData({ isShowYMDTimePicker4: true });
+    this.setData({
+      isShowYMDTimePicker4: true
+    });
   },
   ClickTimeBtn5: function (event) {
-    this.setData({ isShowYMDTimePicker5: true });
+    this.setData({
+      isShowYMDTimePicker5: true
+    });
   },
 
   //点击选择器的 确定
   onConfirm(event) {
 
-    let time = JhTime.Jh_timeStampToTime(event.detail, '{y}年{m}月{d}日 {h}:{i}:{s} 星期{w}');
+    let time = TimeUtils.Jh_timeStampToTime(event.detail, '{y}年{m}月{d}日 {h}:{i}:{s} 星期{w}');
     console.log("点击确定 选择的时间 - " + time);
 
     this.setData({

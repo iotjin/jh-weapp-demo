@@ -1,0 +1,29 @@
+<van-popup position="bottom" custom-style="height:600rpx;" show="{{isShow}}" bind:close="hiddenPicker" bind:before-enter="willShowPicker">
+
+    <view class="bgView">
+        <view class="pickerHeader">
+            <view class="pickerCancel" catchtap="onCancel">{{cancelText}}</view>
+            <view class="pickerTitle">
+                <van-tabs type="card" nav-class="nav-class" color="{{titleColor}}" active="{{ titleActive}}" bind:change="onChangeTab">
+                    <van-tab title="公历"></van-tab>
+                    <van-tab title="农历"></van-tab>
+                </van-tabs>
+            </view>
+            <view class="pickerConfirm" catchtap="onConfirm">{{confirmText}}</view>
+        </view>
+
+        <picker-view class="pickerView" indicator-style="height: 40px;border-top:1px solid #eee;border-bottom:1px solid #eee;" value="{{pickerSelectIndexArr}}" bindchange="onChange" bindpickstart="onChangeStart" bindpickend="onChangeEnd">
+            <picker-view-column class="pickerColumn0">
+                <view wx:for="{{pickerYearArr}}" wx:key='index' class="pickerColumn">{{item.label}}</view>
+            </picker-view-column>
+            <picker-view-column class="pickerColumn1">
+                <view wx:for="{{pickerMonthArr}}" wx:key='index' class="pickerColumn">{{item.label}}</view>
+            </picker-view-column>
+            <picker-view-column class="pickerColumn2">
+                <view wx:for="{{pickerDayArr}}" wx:key='index' class="pickerColumn">{{item.label}}</view>
+            </picker-view-column>
+        </picker-view>
+
+    </view>
+
+</van-popup>

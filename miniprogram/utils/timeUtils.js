@@ -42,7 +42,7 @@ module.exports = {
   Jh_isBetweenTimesByCurrentAndEndTime,
   Jh_compareTimes: Jh_compareTimes,
   Jh_getEndTime: Jh_getEndTime,
-  Jh_differenceDays: Jh_differenceDays,
+  Jh_getDifferenceDays: Jh_getDifferenceDays,
   Jh_isLeapYear: Jh_isLeapYear,
   Jh_getDaysWithMonth: Jh_getDaysWithMonth,
   Jh_getDaysWithYear: Jh_getDaysWithYear,
@@ -492,7 +492,7 @@ function Jh_getEndTime(time) {
  * @param time2 2019-02-02 || 2019/02/02 || 2019-02-02 00:00:00 || 2019/02/02 00:00:00
  * @return 天数
  */
-function Jh_differenceDays(time1, time2) {
+function Jh_getDifferenceDays(time1, time2) {
   let newTime1 = Jh_convertTimeStamp(time1)
   let newTime2 = Jh_convertTimeStamp(time2)
   let newTime = Math.abs(newTime1 - newTime2)
@@ -582,7 +582,7 @@ function filterDateNum(date) {
 /**
  * 周岁算法：每过一个生日就长一岁。
  * @param birthday 2019-02-02 || 2019/02/02 || 2019-02-02 00:00:00 || 2019/02/02 00:00:00
- * @return 返回年龄 //（返回-1 表示出生日期输入错误 晚于今天）
+ * @return 返回年龄 //（返回负数，表示birthday晚于今天）
  */
 function Jh_getAge(birthday) {
   let fullAge = 0

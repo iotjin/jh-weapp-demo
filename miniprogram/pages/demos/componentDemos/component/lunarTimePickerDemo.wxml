@@ -1,0 +1,26 @@
+<van-field label="默认效果（默认选中公历，当前时间）" title-width="300px" is-link readonly bind:tap="onClickTimeBtn" />
+<van-field label="设置默认选择时间" title-width="300px" is-link readonly bind:tap="onClickTimeBtn2" />
+<van-field label="设置默认选择农历" title-width="300px" is-link readonly bind:tap="onClickTimeBtn3" />
+<van-field label="设置最小时间（按公历设置）" title-width="300px" is-link readonly bind:tap="onClickTimeBtn4" />
+<van-field label="设置最大时间（按公历设置）" title-width="300px" is-link readonly bind:tap="onClickTimeBtn5" />
+<van-field label="设置标题栏颜色" title-width="300px" is-link readonly bind:tap="onClickTimeBtn6" />
+
+<van-cell-group title="选择结果">
+  <van-field label="时间戳" value="{{ timeStamp }}" readonly />
+  <van-field label="时间" value="{{ time }}" readonly />
+  <van-field label="处理后时间" value="{{ newTime }}" readonly />
+  <van-field label="时间对象" value="{{ timeObject }}" readonly type="textarea" autosize input-class="textarea" />
+</van-cell-group>
+
+
+<jh-lunar-picker isShow='{{isShowTimePicker}}' bind:confirm="onConfirm" />
+
+<jh-lunar-picker isShow='{{isShowTimePicker2}}' selectTime="{{normalSelectTime}}" bind:confirm="onConfirm" />
+
+<jh-lunar-picker isShow='{{isShowTimePicker3}}' isLunar bind:confirm="onConfirm" />
+
+<jh-lunar-picker isShow='{{isShowTimePicker4}}' minTime="{{minTime}}" bind:confirm="onConfirm" />
+
+<jh-lunar-picker isShow='{{isShowTimePicker5}}' maxTime="{{maxTime}}" bind:confirm="onConfirm" />
+
+<jh-lunar-picker isShow='{{isShowTimePicker6}}' titleColor="#ee0a24" bind:confirm="onConfirm" />

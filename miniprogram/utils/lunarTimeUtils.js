@@ -19,13 +19,14 @@ const lunarCalendar = require('../vendors/calendar')
 module.exports = {
   Jh_convertLunarTime, // 将某个格式时间转化成农历
   Jh_getBigAge, // 虚岁年龄
-  Jh_getNextBirthday, // 阴历下次生日对应的阳历时间
+  Jh_getNextBirthday, // 根据公历生日获取下一次生日时间（按农历过生日）
+  Jh_getDifferenceYear, // 公历时间对应的农历时间距今相差的年数
 }
 
 
 /**
  * 将某个格式时间转化成农历
- * 传入阳历年月日获得详细的公历、农历object信息 <=>JSON
+ * 传入公历年月日获得详细的公历、农历object信息 <=>JSON
  * !important! 公历参数区间1900.1.31~2100.12.31
  * @param time 2019年02月02日 | 2019年2月2日 00:00:00 | 2020/02/02 | 2020-02-02 | 2020/02/02 00:00:00 | 2020-02-02 00:00:00
  * @return - 
@@ -68,7 +69,7 @@ function Jh_convertLunarTime(time) {
 /**
  * 虚岁算法：一出生就是一岁，然后，每过一个春节就长一岁。
  * @param birthday 2019年02月02日 | 2019年2月2日 00:00:00 | 2020/02/02 | 2020-02-02 | 2020/02/02 00:00:00 | 2020-02-02 00:00:00
- * @return 返回年龄
+ * @return 返回年龄 //（返回负数，表示birthday晚于今天）
  */
 function Jh_getBigAge(birthday) {
   const birthdayObj = Jh_convertLunarTime(birthday)
@@ -77,8 +78,9 @@ function Jh_getBigAge(birthday) {
 }
 
 /**
- * 根据阳历生日获取下一次生日时间（按农历过生日）
- * 先把阳历生日转成农历生日，再算出下次农历生日对应的阳历生日
+ * 根据公历生日获取下一次生日时间（按农历过生日）
+ * 先把公历生日转成农历生日，再算出下次农历生日对应的公历生日
+ * 未处理闰月，按对应的农历月份计算：如闰五月按五月计算
  * @param birthday 2019年02月02日 | 2019年2月2日 00:00:00 | 2020/02/02 | 2020-02-02 | 2020/02/02 00:00:00 | 2020-02-02 00:00:00
  * @return 2023-01-19
  */
@@ -110,4 +112,20 @@ function Jh_getNextBirthday(birthday) {
   // 如果今年的生日已经过了，计算明年
   let timeObj3 = lunarCalendar.lunar2solar(parseInt(TimeUtils.Jh_getYear()) + 1, timeObj.lMonth, timeObj.lDay)
   return TimeUtils.Jh_timeToTime(timeObj3.date, '{y}-{m}-{d}')
+}
+
+/**
+ * 公历时间对应的农历时间距今相差的年数
+ * @param time 2019年02月02日 | 2019年2月2日 00:00:00 | 2020/02/02 | 2020-02-02 | 2020/02/02 00:00:00 | 2020-02-02 00:00:00
+ * @return 返回年数 //（返回负数， 表示time晚于今天）
+ */
+function Jh_getDifferenceYear(time) {
+  const timeObj = Jh_convertLunarTime(time)
+  const nowObj = Jh_convertLunarTime(TimeUtils.Jh_timeStampToYMD())
+  let year = nowObj.lYear - timeObj.lYear
+  // 本年没到那天
+  if (timeObj.lMonth > nowObj.lMonth || ((timeObj.lMonth === nowObj.lMonth) && (timeObj.lDay > nowObj.lDay))) {
+    year = year - 1
+  }
+  return year
 }

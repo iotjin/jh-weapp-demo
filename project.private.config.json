@@ -1,49 +1,55 @@
 {
-    "setting": {},
-    "condition": {
-        "plugin": {
-            "list": []
+  "setting": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [{
+          "name": "pages/demos/demos",
+          "pathName": "pages/demos/demos",
+          "query": "",
+          "scene": null
         },
-        "game": {
-            "list": []
+        {
+          "name": "pages/three/feedback/myFeedback",
+          "pathName": "pages/three/feedback/myFeedback",
+          "query": "",
+          "scene": null
         },
-        "gamePlugin": {
-            "list": []
+        {
+          "name": "packageA/pages/eChartDemos/eChart/eChart9",
+          "pathName": "packageA/pages/eChartDemos/eChart/eChart9",
+          "query": "",
+          "scene": null
         },
-        "miniprogram": {
-            "list": [
-                {
-                    "name": "pages/demos/demos",
-                    "pathName": "pages/demos/demos",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "pages/three/feedback/myFeedback",
-                    "pathName": "pages/three/feedback/myFeedback",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "packageA/pages/eChartDemos/eChart/eChart9",
-                    "pathName": "packageA/pages/eChartDemos/eChart/eChart9",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "pages/demos/ui/ui2/search_tabbar",
-                    "pathName": "pages/demos/ui/ui2/search_tabbar",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/demos/mapDemos/map/map4",
-                    "query": "",
-                    "scene": null,
-                    "launchMode": "default"
-                }
-            ]
+        {
+          "name": "pages/demos/ui/ui2/search_tabbar",
+          "pathName": "pages/demos/ui/ui2/search_tabbar",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/demos/mapDemos/map/map4",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/demos/componentDemos/component/lunarTimePickerDemo",
+          "query": "",
+          "scene": null,
+          "launchMode": "default"
         }
+      ]
     }
+  }
 }

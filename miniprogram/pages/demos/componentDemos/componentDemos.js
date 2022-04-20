@@ -25,6 +25,10 @@ Page({
         url: '/pages/demos/componentDemos/component/stringPickerDemo'
       },
       {
+        title: 'jh-lunar-picker',
+        url: '/pages/demos/componentDemos/component/lunarTimePickerDemo'
+      },
+      {
         title: 'jh-ymd-time-picker',
         url: '/pages/demos/componentDemos/component/ymdTimePicker'
       },

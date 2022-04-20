@@ -38,6 +38,7 @@
     "pages/demos/componentDemos/component/customNav3",
     "pages/demos/componentDemos/component/dropDownMenu",
     "pages/demos/componentDemos/component/stringPickerDemo",
+    "pages/demos/componentDemos/component/lunarTimePickerDemo",
     "pages/demos/componentDemos/component/ymdTimePicker",
     "pages/demos/componentDemos/component/timePicker2",
     "pages/demos/componentDemos/component/inputPopView",
@@ -73,23 +74,21 @@
     "pages/demos/otherDemos/other/timePicker",
     "pages/demos/otherDemos/other/baseView"
   ],
-  "subpackages": [
-    {
-      "root": "packageA",
-      "pages": [
-        "pages/eChartDemos/eChartDemos",
-        "pages/eChartDemos/eChart/eChart1",
-        "pages/eChartDemos/eChart/eChart2",
-        "pages/eChartDemos/eChart/eChart3",
-        "pages/eChartDemos/eChart/eChart4",
-        "pages/eChartDemos/eChart/eChart5",
-        "pages/eChartDemos/eChart/eChart6",
-        "pages/eChartDemos/eChart/eChart7",
-        "pages/eChartDemos/eChart/eChart8",
-        "pages/eChartDemos/eChart/eChart9"
-      ]
-    }
-  ],
+  "subpackages": [{
+    "root": "packageA",
+    "pages": [
+      "pages/eChartDemos/eChartDemos",
+      "pages/eChartDemos/eChart/eChart1",
+      "pages/eChartDemos/eChart/eChart2",
+      "pages/eChartDemos/eChart/eChart3",
+      "pages/eChartDemos/eChart/eChart4",
+      "pages/eChartDemos/eChart/eChart5",
+      "pages/eChartDemos/eChart/eChart6",
+      "pages/eChartDemos/eChart/eChart7",
+      "pages/eChartDemos/eChart/eChart8",
+      "pages/eChartDemos/eChart/eChart9"
+    ]
+  }],
   "plugins": {
     "chooseLocation": {
       "version": "1.0.9",
@@ -112,8 +111,7 @@
     "custom": false,
     "color": "#cdcdcd",
     "selectedColor": "#38BC9D",
-    "list": [
-      {
+    "list": [{
         "text": "首页",
         "pagePath": "pages/one/one",
         "iconPath": "images/tab/tab1.png",
@@ -154,6 +152,7 @@
     "jh-string-picker": "jh-components/jh-string-picker/index",
     "jh-time-picker": "jh-components/jh-time-picker/index",
     "jh-ymd-time-picker": "jh-components/jh-ymd-time-picker/index",
+    "jh-lunar-picker": "jh-components/jh-lunar-picker/index",
     "jh-swiper-view": "jh-components/jh-swiper-view/index",
     "jh-time-switch": "jh-components/jh-time-switch/index",
     "jh-loading-toast": "jh-components/jh-loading-toast/index",

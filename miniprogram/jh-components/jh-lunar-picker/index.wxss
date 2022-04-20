@@ -1,0 +1,65 @@
+.bgView {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 600rpx;
+    /* height: 50vh; */
+}
+
+.pickerHeader {
+    display: flex;
+    height: 92rpx;
+    line-height: 92rpx;
+    background: #f8f8f8;
+    border-bottom: 4rpx solid #eee;
+}
+
+.pickerCancel {
+    flex: 15;
+    padding: 0 10rpx;
+    text-align: center;
+    color: #666;
+}
+
+.pickerTitle {
+    flex: 70;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-class {
+    width: 180px;
+}
+
+.pickerConfirm {
+    flex: 15;
+    padding: 0 10rpx;
+    text-align: center;
+    font-weight: bold;
+}
+
+.pickerView {
+    height: 480rpx;
+    font-size: 34rpx;
+}
+
+.pickerColumn {
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+}
+
+.pickerColumn0 {
+    flex: 0 0 40%;
+}
+
+.pickerColumn1 {
+    flex: 0 0 30%;
+}
+
+.pickerColumn2 {
+    flex: 0 0 30%;
+}
