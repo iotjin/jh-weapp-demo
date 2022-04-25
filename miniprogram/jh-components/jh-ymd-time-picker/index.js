@@ -147,13 +147,22 @@ Component({
      */
     Jh_convertTimeStamp(time) {
       //用正则主要是把“2019-05-20 00:00:00”转换成“2019/05/20 00:00:00”兼容ios
-      let newTime = time.replace(/-/g, '/');
+      let newTime = time.replace(/-/g, '/')
       newTime = newTime.replace(/\./g, '/')
-      newTime = newTime.replace(/年/g, '/');
-      newTime = newTime.replace(/月/g, '/');
-      newTime = newTime.replace(/日/g, '');
+      // 如果只包含年月
+      if (newTime.includes('年') && newTime.includes('月') && !newTime.includes('日')) {
+        newTime += '01日'
+      }
+      newTime = newTime.replace(/年/g, '/')
+      newTime = newTime.replace(/月/g, '/')
+      newTime = newTime.replace(/日/g, '')
       if (newTime.length == 5) { // 处理2019年
         newTime = newTime.substring(0, 4)
+      }
+      let timeArr = newTime.split('/')
+      // 如果只有一个 /，说明只有年月
+      if (timeArr.length == 2) {
+        newTime += '/01'
       }
       return Date.parse(newTime)
     },
