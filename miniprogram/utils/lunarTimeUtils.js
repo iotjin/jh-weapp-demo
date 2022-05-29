@@ -102,8 +102,12 @@ function Jh_getNextBirthday(birthday) {
   } = TimeUtils.Jh_getYearMonthDayObj(birthday)
   let timeObj = lunarCalendar.solar2lunar(year, month, day)
 
-  // 如果birthday小于当前时间，先判断今年是否已过生日
+  // 如果birthday小于当前时间，先判断是否是为今天，再判断今年是否已过生日
   let timeObj2 = lunarCalendar.lunar2solar(TimeUtils.Jh_getYear(), timeObj.lMonth, timeObj.lDay)
+  // 如果birthday是今天，直接返回
+  if (TimeUtils.Jh_isToday(timeObj2.date)) {
+    return TimeUtils.Jh_timeToTime(timeObj2.date, '{y}-{m}-{d}')
+  }
   let nextTime = timeObj2.date
   // 如果今年生日未过，返回生日
   if (TimeUtils.Jh_compareTimes(nextTime, currentTime)) {
