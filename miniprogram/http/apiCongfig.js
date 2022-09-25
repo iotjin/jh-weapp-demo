@@ -2,9 +2,9 @@
 
 const HTTP = require('../http/httpUtils.js');
 
-// const API_BASE_URL = 'https://www.fastmock.site/mock/1010b262a743f0b06c565c7a31ee9739/root';
+const API_BASE_URL = 'https://www.fastmock.site/mock/1010b262a743f0b06c565c7a31ee9739/root';
 
-const API_BASE_URL = 'https://mock.apipost.cn/app/mock/project/b3489dad-68b9-11eb-a95d-1c34da7b354c/v1/api';
+// const API_BASE_URL = 'https://mock.apipost.cn/app/mock/project/b3489dad-68b9-11eb-a95d-1c34da7b354c/v1/api';
 
 
 /* 接口地址： */
