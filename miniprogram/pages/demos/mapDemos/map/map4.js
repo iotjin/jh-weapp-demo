@@ -2,6 +2,7 @@ const util = require('./util')
 var QQMapWX = require('./lib/qqmap-wx-jssdk1.2/qqmap-wx-jssdk.min.js');
 var qqmapsdk;
 const authUtils = require('../../../../utils/authUtils')
+const LocationUtils = require('../../../../utils/locationUtils.js')
 
 Page({
 
@@ -94,19 +95,20 @@ Page({
   },
   // 获取当前位置
   getCurrentLocation() {
+    // 获取精确位置使用时需满足以下两点，否则调用失败
+    // 1.需申请开通（「开发」-「开发管理」-「接口设置」中自助开通该接口权限）
+    // 2.需要在app.json配置
     var that = this
     // wgs84 返回 gps 坐标，gcj02 返回可用于 wx.openLocation 的坐标
-    wx.getLocation({
-      type: 'gcj02',
-      success: (res) => {
-        console.log('当前位置');
-        console.log(res);
-        that.setData({
-          latitude: res.latitude,
-          longitude: res.longitude,
-        });
-      },
-      fail: (err) => {}
+    LocationUtils.Jh_getLocation('gcj02').then(res => {
+      console.log('当前位置');
+      console.log(res);
+      that.setData({
+        latitude: res.latitude,
+        longitude: res.longitude,
+      });
+    }).catch(error => {
+      console.log(error);
     });
   },
   // 点击定位按钮

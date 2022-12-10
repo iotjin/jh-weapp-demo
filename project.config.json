@@ -42,7 +42,7 @@
   "appid": "wxae39f110eff44bf7",
   "projectname": "jh-weapp-demo",
   "libVersion": "2.22.0",
-  "cloudfunctionTemplateRoot": "cloudfunctionTemplate",
+  "cloudfunctionTemplateRoot": "cloudfunctionTemplate/",
   "condition": {
     "search": {
       "list": []
@@ -57,11 +57,23 @@
       "list": []
     },
     "miniprogram": {
-      "list": [{
-        "id": -1,
-        "name": "db guide",
-        "pathName": "pages/databaseGuide/databaseGuide"
-      }]
+      "list": [
+        {
+          "id": -1,
+          "name": "db guide",
+          "pathName": "pages/databaseGuide/databaseGuide"
+        }
+      ]
     }
+  },
+  "compileType": "miniprogram",
+  "srcMiniprogramRoot": "miniprogram/",
+  "packOptions": {
+    "ignore": [],
+    "include": []
+  },
+  "editorSetting": {
+    "tabIndent": "insertSpaces",
+    "tabSize": 2
   }
 }

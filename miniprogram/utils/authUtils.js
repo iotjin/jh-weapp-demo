@@ -1,6 +1,7 @@
 const authsName = {
     "scope.userInfo": "用户信息", // 请用button获取该信息
     "scope.userLocation": "地理位置",
+    "scope.userFuzzyLocation": "模糊地理位置",
     "scope.userLocationBackground": "后台定位",
     "scope.address": "通讯地址",
     "scope.invoiceTitle": "发票抬头",

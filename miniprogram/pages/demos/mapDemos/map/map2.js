@@ -1,4 +1,5 @@
 const chooseLocation = requirePlugin('chooseLocation');
+const LocationUtils = require('../../../../utils/locationUtils.js')
 
 Page({
 
@@ -35,25 +36,24 @@ Page({
 
   // 显示地图
   showMap1() {
+    // 打开地图选择位置使用时需满足以下两点，否则调用失败
+    // 1.需申请开通（「开发」-「开发管理」-「接口设置」中自助开通该接口权限）
+    // 2.需要在app.json配置
     var that = this
-    wx.chooseLocation({
-      success: function (res) {
-        console.log(res)
-        that.setData({
-          latitude: res.latitude,
-          longitude: res.longitude,
-          locationName: res.name,
-          address: res.address
-        })
-      },
-      fail: function () {
-        wx.showToast({
-          title: '为了不影响您的使用，请授权定位',
-          icon: 'none'
-        })
-      },
-    })
-
+    LocationUtils.Jh_chooseLocation().then(res => {
+      console.log(res)
+      that.setData({
+        latitude: res.latitude,
+        longitude: res.longitude,
+        locationName: res.name,
+        address: res.address
+      })
+    }).catch(error => {
+      wx.showToast({
+        title: '为了不影响您的使用，请授权定位',
+        icon: 'none'
+      })
+    });
   },
   // 显示地图
   showMap2() {

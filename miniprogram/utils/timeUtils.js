@@ -53,7 +53,7 @@ module.exports = {
 }
 
 
-/** 获取当前13位时间戳 */
+/** 获取当前毫秒级时间戳（13位） */
 function Jh_getTimeStamp() {
   // let timestamp = Date.parse(new Date())
   let timestamp = new Date().getTime()
@@ -61,7 +61,7 @@ function Jh_getTimeStamp() {
 }
 
 /**
- * 将某个格式时间转化成13位时间戳，支持："-"、"/"、"."、"年月日"
+ * 将某个格式时间转化成毫秒级时间戳（13位），支持："-"、"/"、"."、"年月日"
  * @param time 2019(年) | 2019年2月 | 2019年02月02日 | 2019年2月2日 00:00:00 | 2019-2 | 2019-02 | 2019-2-2 | 2019-02-02 | 2019-02-02 00:00:00
  * @return 1556640000000
  */
@@ -88,7 +88,7 @@ function Jh_convertTimeStamp(time) {
 }
 
 /**
- * 将某个时间戳转化成 指定格式时间
+ * 将某个毫秒级时间戳（13位）转化成 指定格式时间
  * @param {date} time 时间
  * @param {string} cFormat {y}-{m}-{d} {h}:{i}:{s} {w} 
  */
@@ -99,7 +99,11 @@ function timeStampToTime(time, cFormat) {
   const format = cFormat || '{y}-{m}-{d} {h}:{i}:{s}'
   let date
   if (typeof time === 'object') {} else {
-    if (('' + time).length === 10) time = parseInt(time) * 1000
+    /**
+    确保传入的是毫秒级时间戳，这里不再处理秒级转毫秒级
+    因为1970-01-01 08:00:00 到 1970-04-27 01:46:39 之间是 0 - 9999999999，毫秒级时间戳也有10位的
+    */
+    // if (('' + time).length === 10) time = parseInt(time) * 1000
     date = new Date(time)
   }
   const formatObj = {
@@ -125,7 +129,7 @@ function timeStampToTime(time, cFormat) {
 }
 
 /** 
- * 将某个时间戳转化成 指定格式时间（不带0）
+ * 将某个毫秒级时间戳（13位）转化成 指定格式时间（不带0）
  * @param time 时间
  * @param cFormat {y}-{m}-{d} {h}:{i}:{s} {w} 
  */
@@ -136,7 +140,11 @@ function Jh_timeStampToNo0Time(time, cFormat) {
   const format = cFormat || '{y}-{m}-{d} {h}:{i}:{s}'
   let date
   if (typeof time === 'object') {} else {
-    if (('' + time).length === 10) time = parseInt(time) * 1000
+    /**
+    确保传入的是毫秒级时间戳，这里不再处理秒级转毫秒级
+    因为1970-01-01 08:00:00 到 1970-04-27 01:46:39 之间是 0 - 9999999999，毫秒级时间戳也有10位的
+    */
+    // if (('' + time).length === 10) time = parseInt(time) * 1000
     date = new Date(time)
   }
   const formatObj = {
@@ -162,8 +170,8 @@ function Jh_timeStampToNo0Time(time, cFormat) {
 }
 
 /** 
- * 时间戳转指定时间格式，不传time默认当前时间戳   
- * @param time 13位时间戳，不传time默认当前时间戳   
+ * 毫秒级时间戳（13位）转指定时间格式，不传time默认当前时间戳   
+ * @param time 毫秒级时间戳（13位），不传time默认当前时间戳   
  * @param format 指定format，不传format默认：'{y}/{m}/{d} {h}:{i}:{s}'
  * @return 指定format时间，默认格式：2019/05/20 00:00:00
  */
@@ -176,8 +184,8 @@ function Jh_timeStampToTime(time, format) {
 }
 
 /** 
- * 时间戳转年月日，不传time默认当前时间戳  
- * @param time 13位时间戳，不传time默认当前时间戳   
+ * 毫秒级时间戳（13位）转年月日，不传time默认当前时间戳  
+ * @param time 毫秒级时间戳（13位），不传time默认当前时间戳   
  * @param format 指定format，不传format默认：'{y}/{m}/{d}'
  * @return 指定format时间，默认格式：2020/02/02
  */
@@ -190,8 +198,8 @@ function Jh_timeStampToYMD(time, format) {
 }
 
 /** 
- * 时间戳转年月日时分秒，不传time默认当前时间戳   
- * @param time 13位时间戳，不传time默认当前时间戳   
+ * 毫秒级时间戳（13位）转年月日时分秒，不传time默认当前时间戳   
+ * @param time 毫秒级时间戳（13位），不传time默认当前时间戳   
  * @param format 指定format，不传format默认：'{y}/{m}/{d} {h}:{i}:{s}'
  * @return 指定format时间，默认格式：2019/05/20 00:00:00
  */
